@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="jp">
+  <head>
+    <%- include('partials/head'); %>
+  </head>
+  <body>
+    <%- include('partials/header'); %>
+    <main　class="container">
+      <div class="row">
+        <h1>ポーランド語例文検索サイト</h1>
+        <div class="card col">
+          <div class="card-header">
+            <h4 class="card-title text-center">このサイトについて</h4>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-center">このサイトでは、日本語とポーランド語の例文を検索することができます</p>
+            <p class="card-text text-center">検索した単語を含む例文を形態素解析結果と合わせて表示します。検索は日本語とポーランド語の両方から行うことができます。</p>
+            <p class="card-text"><strong>使用方法</strong></p>
+            <ol>
+              <li>タブで検索言語を選択します（日本語・ポーランド語）<strong>*デフォルト・リセット後は未選択になります</strong></li>
+              <li>選択した言語で検索バーにキーワードを入力します</li>
+              <li>検索をクリックすると、検索結果の件数と検索結果が表示されます</li>
+              <p>検索結果は、上から「日本語訳」「ポーランド語」「ポーランド語の形態素解析結果」となります</p>
+              <p><strong>＊次の語を検索する前に「リセット」をクリックしてください</strong></p>
+            </ol>
+            <p class="card-text"><strong>＊言語を変更するときは必ず「リセット」ボタンをクリックしてください</strong></p>
+            <p class="card-text float-end">更新日時：2022.09.21</p>
+          </div>
+        </div>
+        <div class="container col">
+          <div class="tab_box">
+	           <div class="btn_area">
+               <button type="button" class="btn tab_btn active" id="defo-tab">言語選択：</button>
+               <button type="button" class="btn tab_btn" id="jp-tab">日本語（japoński）</button>
+               <button type="button" class="btn tab_btn" id="pl-tab">ポーランド語（polski）</button>
+               <button type="button" class="btn tab_btn" id="prep-tab">前置詞＋共起格</button>
+             </div>
+             <div class="panel_area container" id="tab-area">
+               <div class="tab_panel active" id="defo-panel">
+                 <p>言語を選択してください</p>
+                 <div class="row nondisplay">
+                   <div class="col-7">
+                      <input type="text" class="form-control col-auto">
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-outline-primary col-auto"></button>
+                    </div>
+                 </div>
+               </div>
+               <div class="tab_panel">
+                 <p>日本語で入力してください（Proszę wpisać po japońsku）</p>
+                 <div class="row">
+                   <div class="col-7">
+                      <input type="text" class="form-control col-auto" id="keyword_jp">
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-outline-primary col-auto" id="search-btn-jp">検索</button>
+                    </div>
+                 </div>
+               </div>
+               <div class="tab_panel">
+                 <p>Proszę wpisać po polsku（ポーランド語で入力してください）</p>
+                 <div class="row">
+                   <div class="col-7">
+                      <input type="text" class="form-control col-auto" id="keyword">
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-outline-primary col-auto" id="search-btn">Szukaj</button>
+                    </div>
+                 </div>
+               </div>
+               <div class="tab_panel" id="defo-panel">
+                 <p>前置詞と共起する格の組み合わせを選択してください</p>
+                 <div class="row">
+                   <div class="col-7">
+                     <select class="form-select" aria-label="Default select example" id="prep-selecter">
+                       <option hidden selected value="none">選択してください</option>
+                     </select>
+                    </div>
+                    <div class="col-3">
+                    </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="search-result-area">
+             <div class="row">
+               <div class="col">
+                 <h4>検索結果：<span id="howmany-cand">0</span>件</h4>
+               </div>
+               <div class="col float-end">
+                 <button class="btn btn-outline-primary" id="reset-btn">リセット</button>
+               </div>
+               <div class="container">
+                 <div class="form-check form-switch form-check-inline float-end">
+                   <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option1" id="open-pl" checked>
+                   <label for="inlineRadio1" class="form-check-label">ポーランド語</label>
+                 </div>
+                 <div class="form-check form-switch form-check-inline float-end">
+                   <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option2" id="open-jpn" checked>
+                   <label for="inlineRadio2" class="form-check-label">日本語</label>
+                 </div>
+               </div>
+             </div>
+             <div class="result-table container">
+               <div class="card" id="result">
+                 <ul class="list-group list-group-flush">
+                 </ul>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </main>
+    <%- include('partials/footer'); %>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      //タブ作成
+      $('.tab_box .tab_btn').click(function() {
+        var index = $('.tab_box .tab_btn').index(this);
+        $('.tab_box .tab_btn, .tab_box .tab_panel').removeClass('active');
+        $(this).addClass('active');
+        $('.tab_box .tab_panel').eq(index).addClass('active');
+      });
+      //データ読み込み
+      var sentences = <%- JSON.stringify(sentences) %>;
+      var morp_list = <%- JSON.stringify(morp_list) %>;
+      var morp_set = <%- JSON.stringify(morp_set) %>;
+      var japanese = <%- JSON.stringify(japanese) %>;
+      var jp_morp_list = <%- JSON.stringify(jp_morp_list) %>;
+      var jp_morp_set = <%- JSON.stringify(jp_morp_set) %>;
+      var prep_list = <%- JSON.stringify(prep_list) %>;
+      var prep_set = <%- JSON.stringify(prep_set) %>;
+      var targetIndexes = [];
+      //オートコンプリート_polish
+      $(function() {
+        $("#keyword").autocomplete({
+          source: function(request, response) {
+            var list = [];
+            list = morp_set.filter(function (word) {
+              return word.indexOf(request.term) === 0 || word.toLowerCase().indexOf(request.term) === 0;
+            });
+            response(list);
+          },
+        });
+      });
+      //オートコンプリート_jpn
+      $(function() {
+        $("#keyword_jp").autocomplete({
+          source: function(request, response) {
+            var list = [];
+            list = jp_morp_set.filter(function (word) {
+              return word.indexOf(request.term) === 0 || word.toLowerCase().indexOf(request.term) === 0;
+            });
+            response(list);
+          },
+        });
+      });
+      //検索ボタン挙動
+      function searchResult(ky, list){
+        var targetWord = $(ky).val();
+        list.forEach((item, i) => {
+          if(item.includes(targetWord)){
+            targetIndexes.push(i)
+          }
+        });
+      }
+      function clickSearchBtn(){
+        if (targetIndexes.length === 0) {
+          ;
+        }
+        $.each(targetIndexes, function(){
+          $("#result").append('<li class="list-group-item" id='+this+"></li>")
+          var id = "#"+this;
+          $(id).append('<h5 class="t_jpn">'+japanese[this]+"</h5>")
+          jpn = jp_morp_list[this].join(" / ");
+          $(id).append('<p>'+jpn+"</p>")
+          $(id).append('<table class="table result-show" id=' +this+ '></table>');
+          $(id).children("table").append("<tr class='plane t_pl'></tr>");
+          sentences[this].forEach((item) => {
+            $(id).find(".plane").append("<td>"+item+"</td>");
+          });
+          $(id).children("table").append("<tr></tr>");
+          morp_list[this].forEach((item) => {
+            $(id).find("tr:last").append("<td>"+item+"</td>");
+          });
+        });
+        $("#howmany-cand").text(targetIndexes.length)
+        $(function(){
+          $('#result').paginathing({
+            perPage: 10, // show item per page
+            limitPagination: false, // false or number. Limiting your pagination number.
+            prevNext: true, // enable previous and next button
+            firstLast: true, // enable first and last button
+            prevText: '&laquo;', // Previous button text
+            nextText: '&raquo;', // Next button text
+            firstText: 'First', // "First button" text
+            lastText: 'Last', // "Last button" text
+            activeClass: 'act',
+          });
+        });
+      }
+      $(".btn_area").find("button").click(function(){
+        if($("#pl-tab").attr("class") === "btn tab_btn active"){
+          $("#search-btn").click(function(){
+            searchResult(keyword, morp_list)
+            if ($("#howmany-cand").text() === "0") {
+              clickSearchBtn();
+            } else{
+              ;
+            }
+          });
+        }else if($("#jp-tab").attr("class") === "btn tab_btn active"){
+          $("#search-btn-jp").click(function(){
+            searchResult(keyword_jp, jp_morp_list)
+            if ($("#howmany-cand").text() === "0") {
+              clickSearchBtn();
+            } else{
+              ;
+            }
+          });
+        }else if ($("#prep-tab").attr("class") === "btn tab_btn active") {
+          if ($('#prep-selecter').children().length == 1){
+            prep_set.forEach((item, i) => {
+              it = String(item[0])+" + "+String(item[1])
+              var option_p = '<option value="'+i+'">'+it+'</option>';
+              $('#prep-selecter').append(option_p);
+            });
+          } else {
+            ;
+          }
+          $('#prep-selecter').change(function(){
+            var targetNum = $('#prep-selecter option:selected').val();
+            targetWord = prep_set[targetNum]
+            prep_list.forEach((item, i) => {
+              if( item.some(v => v.includes(targetWord[0])) == true && item.some(v => v.includes(targetWord[1])) == true) {
+                targetIndexes.push(i)
+              }
+            });
+            if ($("#howmany-cand").text() === "0") {
+              clickSearchBtn();
+            } else{
+              ;
+            }
+          });
+        }
+      });
+      //リセットボタン
+      $(function (){
+        $("#reset-btn").on("click", function(){
+          clearFrom();
+        });
+        function clearFrom() {
+          $(".pagination-container").remove();
+          $(".tab_btn").removeClass("active");
+          $("#defo-tab").toggleClass("active");
+          $(".tab_panel").removeClass("active");
+          $("#defo-panel").toggleClass("active");
+          $("#keyword").val("");
+          $("#keyword_jp").val("");
+          $("#result").empty();
+          $("#howmany-cand").text("0");
+          $('#prep-selecter').val("none");
+          targetIndexes = []
+        }
+      });
+      //表示切り替え
+      $("#open-jpn").change(function() {
+        if ($(this).prop("checked") == false) {
+          $(".t_jpn").css("visibility", "hidden");
+        } else {
+          $(".t_jpn").css("visibility", "visible");
+        }
+      });
+      $("#open-pl").click(function() {
+        if ($(this).prop("checked") == false) {
+          $(".t_pl").css("visibility", "hidden");
+        } else {
+          $(".t_pl").css("visibility", "visible");
+        }
+      });
+    </script>
+  </body>
+</html>

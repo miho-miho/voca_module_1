@@ -1,0 +1,187 @@
+/* 折り畳み可能リストのサイドバー用 */
+.btn-toggle {
+  padding: .25rem .5rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, .65);
+  background-color: transparent;
+}
+.btn-toggle:hover,
+.btn-toggle:focus {
+  color: rgba(0, 0, 0, .85);
+  background-color: #d2f4ea;
+}
+
+.btn-toggle::before {
+  width: 1.25em;
+  line-height: 0;
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
+  transition: transform .35s ease;
+  transform-origin: .5em 50%;
+}
+
+.btn-toggle[aria-expanded="true"] {
+  color: rgba(0, 0, 0, .85);
+}
+.btn-toggle[aria-expanded="true"]::before {
+  transform: rotate(90deg);
+}
+
+.btn-toggle-nav a {
+  padding: .1875rem .5rem;
+  margin-top: .125rem;
+  margin-left: 1.25rem;
+}
+.btn-toggle-nav a:hover,
+.btn-toggle-nav a:focus {
+  background-color: #d2f4ea;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+.breadcrumb-item.active::before{
+  color: white;
+}
+.first-item {
+  padding-left: 20px;
+}
+
+.breadcrumb-item a{
+  color: white;
+}
+.breadcrumb-item.active{
+  color: white;
+}
+.breadcrumb {
+  margin-top: 20px;
+}
+.card-title {
+   margin-bottom: 0;
+ }
+
+.footer {
+  padding-top: 30px;
+}
+
+.card {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/*タブ実装*/
+.tab_box .btn_area {
+	margin:0 10px;
+	display: -webkit-box;
+	display: flex;
+}
+
+.tab_box .tab_btn {
+	width: 188px;
+	padding: 8px 0;
+	color: #333;
+	background: #f5f7f8;
+	text-align: center;
+	cursor: pointer;
+	transition: all 0.2s ease 0s;
+}
+
+.tab_box .tab_btn + .tab_btn {
+	margin-left: 8px;
+}
+
+.tab_box .tab_btn:hover {
+	background-color: #dce1e4;
+}
+
+.tab_box .tab_btn.active {
+    background:#07539f;
+    color:#fff;
+}
+
+.tab_box .panel_area {
+    border: solid 1px #e3ebf3;
+    padding: 20px;
+}
+
+.tab_box .tab_panel {
+    display:none;
+}
+
+.tab_box .tab_panel.active {
+    display:block;
+}
+
+.search-result-area {
+  padding-top: 30px;
+}
+
+.result-show {
+  border-spacing: 10px;
+}
+
+.jpn {
+  font-size: 11px;
+}
+
+.plane, .plane2 {
+  padding-top: 10px;
+  font-size: 1.25rem;
+}
+
+.nondisplay {
+  visibility: hidden;
+}
+.pagination-container {
+    padding-top: 1rem;
+}
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination li {
+  margin-right: 1em;
+}
+
+.pagination li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.page {
+  padding: .5em;
+  border: 1px solid #000;
+}
+
+.act {
+  background-color: #000;
+}
+
+.pagination .act a {
+  color: #fff;
+}
+
+.list-group-flush>.list-group-item {
+    border-width: 1px;
+}
+/*オートコンプリートのサイズ調整*/
+.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+}
+/* vmod_catego */
+.vocaBox {
+  min-height: 40px;
+}
+.voca_area1, .voca_area2, .result-table{
+  padding-bottom: 100px;
+}
+.voca_area1 .card-body {
+  display: none;
+}
+.voca_area2 .card-body {
+  display: none;
+}

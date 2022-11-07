@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <%- include('partials/head'); %>
+</head>
+<body>
+  <%- include('partials/header'); %>
+    <main class="container">
+      <div class="row">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="/polish" class="first-item">ポーランド語</a></li>
+          </ol>
+        </nav>
+        <%- include('partials/sidebar'); %>
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Polski</h2><span class="float-end">ポーランド語</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <p class="card-title">ポーランド語の使用地域と人口</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                ポーランド語は現在、公用語としては、話者人口約3,800万人のポーランド国内で用いられています。国外の話者人口については諸説ありますが、総計約1,000万人と推定されます。
+                例えば、アメリカ合衆国、カナダ、ブラジル、イギリス、フランス、ドイツなどに大規模な移民社会（ポロニア）があります。
+                このほかに、ポーランドと国境を接しているチェコやスロヴァキア、旧ソ連領のベラルーシ、ウクライナ、リトアニアを中心とした国々でも話されています。
+                2004年5月からは欧州連合（EU）の公用語の1つでもあります。
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <p class="card-title">ここで学べるポーランド語</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                ここではラジオやテレビ、新聞などのマスメディアや教育などで用いられるような標準的なポーランド語を学びます。
+                ポーランド語は国内各地で多様な地域的特色を持つ方言が話されていますが、標準的なポーランド語はポーランド国内のみならず、世界各国のポーランド語話者にも通用するものです。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center"><< 利用したい教材モジュールを選択してください</p>
+    </main>
+    <footer><%- include('partials/footer'); %></footer>
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

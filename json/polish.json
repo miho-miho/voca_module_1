@@ -1,0 +1,574 @@
+{
+	"data": [
+		[
+			["Może", "nie", "są", "łatwe", ",", "ale", "bardzo", "przydatne", "."],
+			["może", "nie", "są", "łatwy", ",", "ale", "bardzo", "przydatny", "."],
+			["簡単ではないかもしれないけど、とても役に立つよ。"],
+			["簡単", "で", "は", "ない", "か", "も", "しれ", "ない", "けど", "、", "とても", "役", "に", "立つ", "よ", "。"]
+		],
+		[
+			["Co", "miesiąc", "jeżdżę", "na", "zawody", "."],
+			["co", "miesiąc", "jeździć", "na", "zawód", "."],
+			["私は毎月試合に行っています。"],
+			["私", "は", "毎月", "試合", "に", "行っ", "て", "い", "ます", "。"]
+		],
+		[
+			["Co", "roku", "jest", "tam", "organizowany", "konkurs", "pianistyczny", "."],
+			["co", "rok", "jest", "tam", "organizowany", "konkurs", "pianistyczny", "."],
+			["毎年あそこではピアノコンクールが開催されている。"],
+			["毎年", "あそこ", "で", "は", "ピアノ", "コンクール", "が", "開催", "さ", "れ", "て", "いる", "。"]
+		],
+		[
+			["Kiedyś", "co", "tydzień", "chodziłam", "na", "dyskotekę", "."],
+			["kiedyś", "co", "tydzień", "chodzić", "na", "dyskoteka", "."],
+			["かつては毎週ディスコに通っていました。"],
+			["かつて", "は", "毎週", "ディスコ", "に", "通っ", "て", "い", "まし", "た", "。"]
+		],
+		[
+			["Czyli", "od", "małego", "cały", "czas", "miałeś", "kontakt", "z", "językiem", "?"],
+			["czyli", "od", "mały", "cały", "czas", "mieć", "kontakt", "z", "język", "?"],
+			["つまり小さい頃からずっと言語に触れていたんだね？"],
+			["つまり", "小さい", "頃", "から", "ずっと", "言語", "に", "触れ", "て", "い", "た", "ん", "だ", "ね", "？"]
+		],
+		[
+			["W", "czwartek", "biuro", "jest", "czynne", "do", "godziny", "18", "."],
+			["w", "czwartka", "biuro", "jest", "czynny", "do", "godzina", "18", "."],
+			["木曜日は18時まで事務所が営業しています。"],
+			["木曜", "日", "は", "18", "時", "まで", "事務", "所", "が", "営業", "し", "て", "い", "ます", "。"]
+		],
+		[
+			["Dwa", "lata", "temu", "zaczął", "się", "kryzys", "finansowy", "."],
+			["dwa", "rok", "temu", "zacząć", "się", "kryzys", "finansowy", "."],
+			["おととし経済危機が始まりました。"],
+			["おととし", "経済", "危機", "が", "始まり", "まし", "た", "。"]
+		],
+		[
+			["Jednak", "pójdę", "dzisiaj", "do", "lekarza", "."],
+			["jednak", "pójść", "dzisiaj", "do", "lekarz", "."],
+			["やっぱり今日、医者へ行ってくる。"],
+			["やっぱり", "今日", "、", "医者", "へ", "行っ", "て", "くる", "。"]
+		],
+		[
+			["Spośród", "pór", "roku", "najbardziej", "lubię", "jesień", "."],
+			["spośród", "pora", "rok", "bardzo", "lubić", "jesień", "."],
+			["季節の中で秋が一番好きです。"],
+			["季節", "の", "中", "で", "秋", "が", "一番", "好き", "です", "。"]
+		],
+		[
+			["Jutro", "muszę", "iść", "do", "banku", "…"],
+			["jutro", "musić", "iścić", "do", "bank", "…"],
+			["明日は銀行へ行かなくちゃ…"],
+			["明日", "は", "銀行", "へ", "行か", "なく", "ちゃ", "…"]
+		],
+		[
+			["Kiedy", "będzie", "wiadomo", ",", "czy", "pani", "pojedzie", "?"],
+			["kiedy", "być", "wiadomo", ",", "czy", "pani", "pojechać"],
+			["あなたが来るかどうか、いつわかりますか？"],
+			["あなた", "が", "来る", "か", "どう", "か", "、", "いつ", "わかり", "ます", "か", "？"]
+		],
+		[
+			["W", "lecie", "biorę", "prysznic", "dwa", "razy", "dziennie", "."],
+			["w", "lato", "biorę", "prysznic", "dwa", "raz", "dziennie", "."],
+			["夏は一日に2回シャワーを浴びる。"],
+			["夏", "は", "一日", "に", "2", "回", "シャワー", "を", "浴びる", "。"]
+		],
+		[
+			["Trzeci", "maja", "to", "polskie", "święto", "narodowe", "."],
+			["trzeci", "maj", "to", "polski", "święto", "narodowy", "."],
+			["5月3日はポーランドの祝日です。"],
+			["5", "月", "3", "日", "は", "ポーランド", "の", "祝日", "です", "。"]
+		],
+		[
+			["Niedziela", "jest", "dniem", "wolnym", "od", "pracy", "."],
+			["niedziela", "jest", "dzień", "wolny", "od", "praca", "."],
+			["日曜日は仕事が休みの日です。"],
+			["日曜", "日", "は", "仕事", "が", "休み", "の", "日", "です", "。"]
+		],
+		[
+			["Od", "poniedziałku", "do", "piątku", "od", "dziewiątej", "do", "piętnastej", "."],
+			["od", "poniedziałek", "do", "piątek", "od", "dziewiąty", "do", "piętnasty", "."],
+			["月曜から金曜、9時から15時までです。"],
+			["月曜", "から", "金曜", "、", "9", "時", "から", "15", "時", "まで", "です", "。"]
+		],
+		[
+			["Spotkajmy", "się", "we", "wtorek", "po", "południu", "."],
+			["spotkać", "się", "w", "wtorek", "po", "południe", "."],
+			["火曜の午後に会いましょう。"],
+			["火曜", "の", "午後", "に", "会い", "ましょう", "。"]
+		],
+		[
+			["Pojechaliśmy", "nad", "morze", "po", "południu", "i", "zobaczyliśmy", "zachód", "słońca", "."],
+			["pojechać", "nad", "mór", "po", "południe", "i", "zobaczyć", "zachód", "słońce", "."],
+			["夕方に海へ行って、日没を見ました。"],
+			["夕方", "に", "海", "へ", "行っ", "て", "、", "日没", "を", "見", "まし", "た", "。"]
+		],
+		[
+			["Ale", "pojutrze", "mogłabym", "do", "ciebie", "wpaść", "."],
+			["ale", "pojutrze", "móc", "do", "ty", "wpaść", "."],
+			["でも明後日はあなたのところに立ち寄れるよ。"],
+			["で", "も", "明後日", "は", "あなた", "の", "ところ", "に", "立ち", "寄れる", "よ", "。"]
+		],
+		[
+			["Od", "poniedziałku", "do", "piątku", "od", "dziewiątej", "do", "piętnastej", "."],
+			["od", "poniedziałek", "do", "piątek", "od", "dziewiąty", "do", "piętnasty", "."],
+			["月曜から金曜、9時から15時までです。"],
+			["月曜", "から", "金曜", "、", "9", "時", "から", "15", "時", "まで", "です", "。"]
+		],
+		[
+			["W", "każde", "południe", "polskie", "radio", "transmituje", "hejnał", "z", "Krakowa", "."],
+			["w", "każde", "południe", "polski", "radio", "transmitować", "hejnał", "z", "Kraków", "."],
+			["毎日正午にポーランドラジオがクラクフのヘイナウ（トランペットによる時報）を放送する。"],
+			["毎日", "正午", "に", "ポーランド", "ラジオ", "が", "クラクフ", "の", "ヘイナウ", "（", "トランペット", "に", "よる", "時報", "）", "を", "放送", "する", "。"]
+		],
+		[
+			["Na", "wakacje", "jedziemy", "gdzieś", "na", "południe", "."],
+			["na", "wakacje", "jechać", "gdzieś", "na", "południe", "."],
+			["夏休みにはどこか南に行きます。"],
+			["夏休み", "に", "は", "どこ", "か", "南", "に", "行き", "ます", "。"]
+		],
+		[
+			["Jutro", "przed", "południem", "muszę", "iść", "do", "urzędu", "miasta", "."],
+			["jutro", "przed", "południe", "musić", "iścić", "do", "urząd", "miasto", "."],
+			["明日の午前中に市役所へ行かないといけない。"],
+			["明日", "の", "午前", "中", "に", "市", "役所", "へ", "行か", "ない", "と", "いけ", "ない", "。"]
+		],
+		[
+			["Przedwczoraj", "mój", "żółw", "obchodził", "swoje", "jedenaste", "urodziny", "."],
+			["przedwczoraj", "mój", "żółw", "obchodzić", "swoje", "jedenasty", "urodziny", "."],
+			["おととい私のカメが11歳の誕生日を迎えました。"],
+			["おととい", "私", "の", "カメ", "が", "11", "歳", "の", "誕生", "日", "を", "迎え", "まし", "た", "。"]
+		],
+		[
+			["W", "przyszłym", "miesiącu", "zaczynam", "pracę", "."],
+			["w", "przyszły", "miesiąc", "zaczynać", "praca", "."],
+			["来月私は仕事を始めます。"],
+			["来月", "私", "は", "仕事", "を", "始め", "ます", "。"]
+		],
+		[
+			["Nowy", "McDonald's", "ma", "być", "gotowy", "już", "w", "przyszłym", "roku", "."],
+			["nowy", "mcdonald's", "mieć", "być", "gotowy", "już", "w", "przyszły", "rok", "."],
+			["新しいマクドナルドがもう来年には完成する。"],
+			["新しい", "マクドナルド", "が", "もう", "来年", "に", "は", "完成", "する", "。"]
+		],
+		[
+			["W", "przyszłym", "tygodniu", "pojadę", "na", "wycieczkę"],
+			["w", "przyszły", "tydzień", "pojechać", "na", "wycieczka"],
+			["来週私は遠足に行きます。"],
+			["来週", "私", "は", "遠足", "に", "行き", "ます", "。"]
+		],
+		[
+			["Od", "dziewiątej", "rano", "."],
+			["od", "dziewiąty", "rano", "."],
+			["朝9時からです。"],
+			["朝", "9", "時", "から", "です", "。"]
+		],
+		[
+			["Gdyby", "pani", "profesor", "miała", "czas", "w", "sobotę", "wieczorem", "…"],
+			["gdyby", "pani", "profesor", "mieć", "czas", "w", "sobota", "wieczór", "…"],
+			["もし土曜の夜、先生にお時間があるようでしたら…"],
+			["もし", "土曜", "の", "夜", "、", "先生", "に", "お", "時間", "が", "ある", "よう", "でし", "たら", "…"]
+		],
+		[
+			["W", "tym", "miesiącu", "będzie", "egzamin", "."],
+			["w", "tym", "miesiąc", "będzie", "egzamin", "."],
+			["今月試験があります。"],
+			["今月", "試験", "が", "あり", "ます", "。"]
+		],
+		[
+			["System", "musi", "być", "gotowy", "do", "końca", "grudnia", "tego", "roku", "."],
+			["systema", "musić", "być", "gotowy", "do", "koniec", "grudzień", "tego", "rok", "."],
+			["システムは今年の12月末までに完成していなければならない"],
+			["システム", "は", "今年", "の", "12", "月", "末", "まで", "に", "完成", "し", "て", "い", "なけれ", "ば", "なら", "ない"]
+		],
+		[
+			["Czy", "przyjdzie", "pani", "w", "tym", "tygodniu", "?"],
+			["czy", "przyjść", "pani", "w", "tym", "tydzień", "?"],
+			["今週（あなたは）来ますか？"],
+			["今週（あなたは）", "来", "ます", "か", "？"]
+		],
+		[
+			["Podobno", "byłaś", "w", "ubiegłym", "roku", "na", "letnim", "kursie", "językowym", "."],
+			["podobno", "byłaś", "w", "ubiegły", "rok", "na", "letni", "kurs", "językowy", "."],
+			["去年、夏の語学コースに参加したんだってね？"],
+			["去年", "、", "夏", "の", "語学", "コース", "に", "参加", "し", "た", "ん", "だ", "って", "ね", "？"]
+		],
+		[
+			["Od", "wczoraj", "chyba", "jestem", "przeziębiona", "."],
+			["od", "wczoraj", "chyba", "jestem", "przeziębiony", "."],
+			["昨日からたぶん（私）風邪を引いてるの。"],
+			["昨日", "から", "たぶん", "（", "私", "）", "風邪", "を", "引い", "てる", "の", "。"]
+		],
+		[
+			["Czy", "oglądałeś", "wczoraj", "wieczorem", "Harry'ego", "Pottera", "?"],
+			["czy", "oglądać", "wczoraj", "wieczór", "harry'ego", "pottera", "?"],
+			["ゆうべ、ハリーポッター（の映画）見た？"],
+			["ゆうべ", "、", "ハリー", "ポッター", "（", "の", "映画", "）", "見", "た", "？"]
+		],
+		[
+			["Codziennie", "wieczorem", "jest", "koncert", "."],
+			["codziennie", "wieczór", "jest", "koncert", "."],
+			["毎日、夜にコンサートがあるの。"],
+			["毎日", "、", "夜", "に", "コンサート", "が", "ある", "の", "。"]
+		],
+		[
+			["Lubię", "spędzać", "wiosnę", "na", "wsi", "."],
+			["lubić", "spędzać", "wiosna", "na", "wieś", "."],
+			["田舎で春を過ごすのが好き。"],
+			["田舎", "で", "春", "を", "過ごす", "の", "が", "好き", "。"]
+		],
+		[
+			["Spotkajmy", "się", "we", "wtorek", "po", "południu", "."],
+			["spotkać", "się", "w", "wtorek", "po", "południe", "."],
+			["火曜の午後に会いましょう。"],
+			["火曜", "の", "午後", "に", "会い", "ましょう", "。"]
+		],
+		[
+			["Do", "zobaczenia", "za", "dwa", "lata", "!"],
+			["do", "zobaczenie", "za", "dwa", "rok", "!"],
+			["再来年また会いましょう！"],
+			["再来", "年", "また", "会い", "ましょう", "！"]
+		],
+		[
+			["W", "zeszłym", "miesiącu", "miałem", "dużo", "pracy", "."],
+			["w", "zeszły", "miesiąc", "mieć", "dużo", "praca", "."],
+			["先月は仕事がたくさんありました。"],
+			["先月", "は", "仕事", "が", "たくさん", "あり", "まし", "た", "。"]
+		],
+		[
+			["W", "zeszłym", "tygodniu", "kupiłam", "nowy", "rower", "."],
+			["w", "zeszły", "tydzień", "kupić", "nowy", "rower", "."],
+			["先週、新しい自転車を買った。"],
+			["先週", "、", "新しい", "自転車", "を", "買っ", "た", "。"]
+		],
+		[
+			["Zimą", "lepiej", "myć", "włosy", "szamponem", "nawilżającym", ",", "a", "potem", "nakładać", "na", "nie", "odżywkę"],
+			["zima", "dobrze", "mycie", "włos", "szampon", "nawilżający", ",", "a", "potem", "nakładać", "na", "on", "odżywka"],
+			["冬は保湿シャンプーで髪を洗って、それからコンディショナーをつけると良い。"],
+			["冬", "は", "保湿", "シャンプー", "で", "髪", "を", "洗っ", "て", "、", "それ", "から", "コンディショナー", "を", "つける", "と", "良い", "。"]
+		],
+		[
+			["W", "każdą", "środę", "chodzę", "na", "aerobik", "."],
+			["w", "każdą", "środa", "chodzić", "na", "aerobik", "."],
+			["水曜日は毎週エアロビクスに通っています。"],
+			["水曜", "日", "は", "毎週", "エアロビクス", "に", "通っ", "て", "い", "ます", "。"]
+		],
+		[
+			["Studenci", "mieszkają", "blisko", "uniwersytetu", "."],
+			["student", "mieszkać", "blisko", "uniwersytet", "."],
+			["学生たちは大学のそばに住んでいます。"],
+			["学生", "たち", "は", "大学", "の", "そば", "に", "住ん", "で", "い", "ます", "。"]
+		],
+		[
+			["Blisko", "mieszkania", "znajduje", "się", "przystanek", "autobusowy", "i", "sklepy", "spożywcze", "."],
+			["blisko", "mieszkanie", "znajdywać", "się", "przystanek", "autobusowy", "i", "sklep", "spożywczy", "."],
+			["マンションの近くにバス停と食料品店があります。"],
+			["マンション", "の", "近く", "に", "バス", "停", "と", "食料", "品", "店", "が", "あり", "ます", "。"]
+		],
+		[
+			["Lubię", "spać", "na", "boku", "."],
+			["lubić", "spać", "na", "bok", "."],
+			["横向きに寝るのが好きだ。"],
+			["横向き", "に", "寝る", "の", "が", "好き", "だ", "。"]
+		],
+		[
+			["Spójrz", "na", "dół", ",", "ktoś", "tam", "wybił", "okno", "."],
+			["spójrz", "na", "dół", ",", "ktoś", "tam", "wybić", "okno", "."],
+			["下を見てよ、誰かが窓を割ったみたい。"],
+			["下", "を", "見", "て", "よ", "、", "誰", "か", "が", "窓", "を", "割っ", "た", "みたい", "。"]
+		],
+		[
+			["A", "gdzie", "jest", "winda", "?"],
+			["a", "gdzie", "jest", "winda", "?"],
+			["エレベーターはどこですか？"],
+			["エレベーター", "は", "どこ", "です", "か", "？"]
+		],
+		[
+			["Wpisz", "w", "okienko", "na", "górze", "swój", "adres", "mailowy", "."],
+			["wpisać", "w", "okienko", "na", "góra", "swój", "adres", "mailowy", "."],
+			["上の欄に自分のメールアドレスを入力して。"],
+			["上", "の", "欄", "に", "自分", "の", "メール", "アドレス", "を", "入力", "し", "て", "。"]
+		],
+		[
+			["Niech", "pan", "jedzie", "w", "lewo", ",", "a", "ja", "w", "prawo", "."],
+			["niech", "pan", "jechać", "w", "lewa", ",", "a", "ja", "w", "prawo", "."],
+			["左へ進んでください、私は右へ行きますので。"],
+			["左", "へ", "進ん", "で", "ください", "、", "私", "は", "右", "へ", "行き", "ます", "の", "で", "。"]
+		],
+		[
+			["Widziałem", "przedszkole", "obok", "sklepu", "z", "alkoholem", ".", "Czy", "to", "jest", "możliwe", "?"],
+			["widzieć", "przedszkole", "obok", "sklep", "z", "alkohol", ".", "czy", "to", "jest", "możliwy", "?"],
+			["酒屋の隣に幼稚園を見たんだけど。こんなことあり得る？"],
+			["酒屋", "の", "隣", "に", "幼稚", "園", "を", "見", "た", "ん", "だ", "けど", "。", "こんな", "こと", "あり", "得る", "？"]
+		],
+		[
+			["Stawiaj", "książki", "pionowo", "na", "półce", ",", "bo", "wtedy", "będziesz", "miał", "więcej", "miejsca", "."],
+			["stawiaj", "książka", "pionowy", "na", "półka", ",", "bo", "wtedy", "być", "mieć", "więcej", "miejsce", "."],
+			["本は縦向きで棚に置いてね、そうすればもっと場所ができるから。"],
+			["本", "は", "縦", "向き", "で", "棚", "に", "置い", "て", "ね", "、", "そう", "すれ", "ば", "もっと", "場所", "が", "できる", "から", "。"]
+		],
+		[
+			["Niech", "pan", "jedzie", "w", "lewo", ",", "a", "ja", "w", "prawo", "."],
+			["niech", "pan", "jechać", "w", "lewa", ",", "a", "ja", "w", "prawo", "."],
+			["左へ進んでください、私は右へ行きますので。"],
+			["左", "へ", "進ん", "で", "ください", "、", "私", "は", "右", "へ", "行き", "ます", "の", "で", "。"]
+		],
+		[
+			["Chcemy", "planować", "wszystko", "na", "3", "miesięcy", "do", "przodu", "."],
+			["chcieć", "planować", "wszystko", "na", "3", "miesiąc", "do", "przód", "."],
+			["私たちは何事も3か月先まで計画を立てたい。"],
+			["私", "たち", "は", "何事", "も", "3", "か月", "先", "まで", "計画", "を", "立て", "たい", "。"]
+		],
+		[
+			["Gdzie", "siadasz", ",", "z", "przodu", "czy", "z", "tyłu", "?"],
+			["gdzie", "siadać", ",", "z", "przód", "czy", "z", "tył", "?"],
+			["どこに座る？前？それとも後ろ？"],
+			["どこ", "に", "座る", "？", "前", "？", "それ", "と", "も", "後ろ", "？"]
+		],
+		[
+			["Idziemy", "najpierw", "na", "północ", "."],
+			["iść", "najpierw", "na", "północ", "."],
+			["まず北へ進みましょう。"],
+			["まず", "北", "へ", "進み", "ましょう", "。"]
+		],
+		[
+			["Podobno", "byłaś", "tam", "kiedyś", "."],
+			["podobno", "byłaś", "tam", "kiedyś", "."],
+			["確か君はあそこへ行ったことがあるんだってね。"],
+			["確か", "君", "は", "あそこ", "へ", "行っ", "た", "こと", "が", "ある", "ん", "だ", "って", "ね", "。"]
+		],
+		[
+			["Niektórzy", "miejscowi", "mówią", ",", "że", "można", "tam", "spotkać", "krokodyle"],
+			["niektórzy", "miejscowy", "mówić", ",", "że", "można", "tam", "spotkać", "krokodyl"],
+			["地元の人たちの中には、あそこでワニを見れるっていう人もいるんだよ。"],
+			["地元", "の", "人", "たち", "の", "中", "に", "は", "、", "あそこ", "で", "ワニ", "を", "見れる", "って", "いう", "人", "も", "いる", "ん", "だ", "よ", "。"]
+		],
+		[
+			["Zobacz", ",", "tu", "jest", "strona", "do", "przesyłania", "dużych", "plików", "."],
+			["zobaczyć", ",", "tu", "jest", "strona", "do", "przesyłania", "duży", "plik", "."],
+			["ほら、ここに大きなファイルを送る用のページがあるでしょ。"],
+			["ほら", "、", "ここ", "に", "大きな", "ファイル", "を", "送る", "用", "の", "ページ", "が", "ある", "でしょ", "。"]
+		],
+		[
+			["Przestań", "przechylać", "krzesło", "w", "tył", ",", "bo", "spadniesz", "!"],
+			["przestać", "przechylać", "krzesło", "w", "tył", ",", "bo", "spaść", "!"],
+			["椅子を後ろに傾けるのやめなさい、落ちるから！"],
+			["椅子", "を", "後ろ", "に", "傾ける", "の", "やめ", "なさい", "、", "落ちる", "から", "！"]
+		],
+		[
+			["Gdzie", "siadasz", ",", "z", "przodu", "czy", "z", "tyłu", "?"],
+			["gdzie", "siadać", ",", "z", "przód", "czy", "z", "tył", "?"],
+			["どこに座る？前？それとも後ろ？"],
+			["どこ", "に", "座る", "？", "前", "？", "それ", "と", "も", "後ろ", "？"]
+		],
+		[
+			["Pójdziemy", "jeszcze", "5", "kilometrów", "na", "wschód", "."],
+			["pójść", "jeszcze", "5", "kilometr", "na", "wschód", "."],
+			["あと5キロ東に歩こう。"],
+			["あと", "5", "キロ", "東", "に", "歩こう", "。"]
+		],
+		[
+			["Potem", "pójdziemy", "3", "kilometrów", "na", "zachód", "."],
+			["potem", "pójść", "3", "kilometr", "na", "zachód", "."],
+			["それから西へ3キロ歩きましょう。"],
+			["それ", "から", "西", "へ", "3", "キロ", "歩き", "ましょう", "。"]
+		],
+		[
+			["Budynek", "naszej", "firmy", "bardzo", "ładnie", "wygląda", "z", "zewnątrz", "."],
+			["budynek", "naszej", "firma", "bardzo", "ładnie", "wyglądać", "z", "zewnątrz", "."],
+			["私たちの会社の建物は外から見るととてもいい感じですよ。"],
+			["私", "たち", "の", "会社", "の", "建物", "は", "外", "から", "見る", "と", "とても", "いい", "感じ", "です", "よ", "。"]
+		],
+		[
+			["Zaprosiłem", "gości", "do", "środka", "i", "podałem", "kawę", "."],
+			["zaprosić", "gość", "do", "środek", "i", "podać", "kawa", "."],
+			["私はお客さんたちを中へ案内してコーヒーを出しました。"],
+			["私", "は", "お", "客", "さん", "たち", "を", "中", "へ", "案内", "し", "て", "コーヒー", "を", "出し", "まし", "た", "。"]
+		],
+		[
+			["Jak", "pani", "skręci", "tu", "za", "rogiem", ",", "od", "razu", "pani", "zobaczy", "wejście", "do", "metra", "."],
+			["jak", "pani", "skręcić", "tu", "za", "róg", ",", "od", "raz", "pani", "zobaczyć", "wejście", "do", "metrum", "."],
+			["ここの角を曲がれば、メトロへの入り口がすぐ見えます。"],
+			["ここ", "の", "角", "を", "曲がれ", "ば", "、", "メトロ", "へ", "の", "入り口", "が", "すぐ", "見え", "ます", "。"]
+		],
+		[
+			["Znak", "wyjścia", "ewakuacyjnego", "powinien", "być", "zamontowany", "nad", "każdymi", "drzwiami", "."],
+			["znak", "wyjście", "ewakuacyjny", "powinien", "być", "zamontowany", "nad", "każdy", "drzwi", "."],
+			["非常出口の表示はすべての扉上部にあるべきです。"],
+			["非常", "出口", "の", "表示", "は", "すべて", "の", "扉", "上部", "に", "ある", "べき", "です", "。"]
+		],
+		[
+			["W", "czerwcu", "kończy", "się", "rok", "szkolny", "."],
+			["w", "czerwiec", "kończyć", "się", "rok", "szkolny", "."],
+			["6月に学年が終わります。"],
+			["6", "月", "に", "学年", "が", "終わり", "ます", "。"]
+		],
+		[
+			["Jeden", "egzemplarz", "umowy", "otrzymuje", "klient", ",", "drugi", "pozostaje", "w", "firmie", "."],
+			["jeden", "egzemplarz", "umowa", "otrzymywać", "klient", ",", "drugi", "pozostawać", "w", "firma", "."],
+			["契約書は顧客が一枚受け取り、もう一枚は会社に残しておく。"],
+			["契約", "書", "は", "顧客", "が", "一", "枚", "受け", "取り", "、", "もう", "一", "枚", "は", "会社", "に", "残し", "て", "おく", "。"]
+		],
+		[
+			["Autorka", "przygotowała", "dla", "czytelników", "3", "egzemplarze", "książki", "z", "autografem", "."],
+			["autorek", "przygotować", "dla", "czytelnik", "3", "egzemplarz", "książka", "z", "autograf", "."],
+			["著者（女）は読者向けにサイン入りの本を3冊用意した。"],
+			["著者", "（", "女", "）", "は", "読者", "向け", "に", "サイン", "入り", "の", "本", "を", "3", "冊", "用意", "し", "た", "。"]
+		],
+		[
+			["W", "czwartek", "biuro", "jest", "czynne", "do", "godziny", "18", "."],
+			["w", "czwartka", "biuro", "jest", "czynny", "do", "godzina", "18", "."],
+			["木曜日は18時まで事務所が営業しています。"],
+			["木曜", "日", "は", "18", "時", "まで", "事務", "所", "が", "営業", "し", "て", "い", "ます", "。"]
+		],
+		[
+			["Codziennie", "mieliśmy", "pięć", "godzin", "zajęć", "teoretycznych", "."],
+			["codziennie", "mieć", "pięć", "godzina", "zajęcie", "teoretyczny", "."],
+			["毎日、理論の授業が5時間あったよ。"],
+			["毎日", "、", "理論", "の", "授業", "が", "5", "時間", "あっ", "た", "よ", "。"]
+		],
+		[
+			["Uwielbiam", "grudzień", "ze", "względu", "na", "Święta", "Bożego", "Narodzenia", "."],
+			["uwielbiać", "grudzień", "z", "wzgląd", "na", "święto", "boży", "narodzenia", "."],
+			["クリスマスがあるので12月が大好きです。"],
+			["クリスマス", "が", "ある", "の", "で", "12", "月", "が", "大好き", "です", "。"]
+		],
+		[
+			["A", "ile", "osób", "jest", "w", "grupie", "?"],
+			["a", "ile", "osoba", "być", "w", "grupa", "?"],
+			["1グループ何人いるの？"],
+			["1", "グループ", "何", "人", "いる", "の", "？"]
+		],
+		[
+			["Ile", "kosztuje", "sprzęt", "do", "rugby", "?", "Czy", "jest", "to", "drogi", "sport", "?"],
+			["ile", "kosztować", "sprzęt", "do", "rugby", "?", "czy", "jest", "to", "drogi", "sport", "?"],
+			["ラグビーの道具っていくらかかるの？お金のいるスポーツ？"],
+			["ラグビー", "の", "道具", "って", "いくら", "かかる", "の", "？", "お", "金", "の", "いる", "スポーツ", "？"]
+		],
+		[
+			["Kwiecień", "jest", "moim", "ulubionym", "miesiącem", "."],
+			["kwiecień", "jest", "moim", "ulubiony", "miesiąc", "."],
+			["4月は私のお気に入りの月です。"],
+			["4", "月", "は", "私", "の", "お気に入り", "の", "月", "です", "。"]
+		],
+		[
+			["W", "lipcu", "mam", "urodziny", "."],
+			["w", "lipiec", "mieć", "urodziny", "."],
+			["私の誕生日は7月です。"],
+			["私", "の", "誕生", "日", "は", "7", "月", "です", "。"]
+		],
+		[
+			["Pierwszego", "listopada", "odwiedziliśmy", "groby", "naszych", "bliskich", "."],
+			["pierwszy", "listopad", "odwiedzić", "grób", "naszych", "bliscy", "."],
+			["11月1日に親戚のお墓参りをしました。"],
+			["11", "月", "1日", "に", "親戚", "の", "お", "墓参り", "を", "し", "まし", "た", "。"]
+		],
+		[
+			["Luty", "jest", "najkrótszym", "miesiącem", "w", "roku", "."],
+			["lut", "jest", "krótki", "miesiąc", "w", "rok", "."],
+			["2月は一年で最も短い月です。"],
+			["2", "月", "は", "一", "年", "で", "最も", "短い", "月", "です", "。"]
+		],
+		[
+			["W", "marcu", "przyjechał", "wujek", "z", "Francji", "."],
+			["w", "marzec", "przyjechać", "wujek", "z", "Francja", "."],
+			["3月に叔父がフランスからやってきました。"],
+			["3", "月", "に", "叔父", "が", "フランス", "から", "やっ", "て", "き", "まし", "た", "。"]
+		],
+		[
+			["Miesiąc", "temu", "koleżanka", "z", "klasy", "urodziła", "dziecko", "."],
+			["miesiąc", "temu", "koleżanka", "z", "klasa", "urodzić", "dziecko", "."],
+			["ひと月前、同級生（女）が出産した。"],
+			["ひと", "月", "前", "、", "同級", "生", "（", "女", "）", "が", "出産", "し", "た", "。"]
+		],
+		[
+			["Od", "października", "studiuję", "na", "Uniwersytecie", "Jagiellońskim", "."],
+			["od", "październik", "studiować", "na", "uniwersytet", "jagielloński", "."],
+			["10月からヤギェロン大学で勉強しています。"],
+			["10", "月", "から", "ヤギェロン", "大学", "で", "勉強", "し", "て", "い", "ます", "。"]
+		],
+		[
+			["Musi", "pan", "wjechać", "na", "piąte", "piętro", "."],
+			["musić", "pan", "wjechać", "na", "piąty", "piętro", "."],
+			["5階に上がってください。"],
+			["5", "階", "に", "上がっ", "て", "ください", "。"]
+		],
+		[
+			["Tak", ",", "ale", "zrezygnowałam", "rok", "temu", "."],
+			["tak", ",", "ale", "zrezygnować", "rok", "temu", "."],
+			["はい、一年前に辞めました。"],
+			["はい", "、", "一", "年", "前", "に", "辞め", "まし", "た", "。"]
+		],
+		[
+			["Od", "czwartego", "do", "szóstego", "sierpnia", "."],
+			["od", "czwarty", "do", "szósty", "sierpień", "."],
+			["8月4日から6日です。"],
+			["8", "月", "4", "日", "から", "6", "日", "です", "。"]
+		],
+		[
+			["Woda", "wrze", "przy", "stu", "stopniach", "."],
+			["Wodo", "wrze", "przy", "sto", "stopień", "."],
+			["水は100度で沸騰する。"],
+			["水", "は", "100", "度", "で", "沸騰", "する", "。"]
+		],
+		[
+			["W", "styczniu", "było", "mroźno", "i", "padał", "śnieg", "."],
+			["w", "styczeń", "być", "mroźno", "i", "padać", "śnieg", "."],
+			["1月は氷点下で雪が降っていました。"],
+			["1", "月", "は", "氷点", "下", "で", "雪", "が", "降っ", "て", "い", "まし", "た", "。"]
+		],
+		[
+			["Przez", "cały", "tydzień", "?"],
+			["przez", "cały", "tydzień", "?"],
+			["一週間ずっと？"],
+			["一", "週間", "ずっと", "？"]
+		],
+		[
+			["W", "Japonii", "wielu", "studentów", "szuka", "pracy", "na", "czwartym", "roku", "studiów", "."],
+			["w", "Japonia", "wielu", "student", "szukać", "praca", "na", "czwarty", "rok", "studium", "."],
+			["日本では大勢の学生が大学4年目で仕事を探します。"],
+			["日本", "で", "は", "大勢", "の", "学生", "が", "大学", "4", "年", "目", "で", "仕事", "を", "探し", "ます", "。"]
+		],
+		[
+			["II", "wojna", "światowa", "rozpoczęła", "się", "pierwszego", "września", "1939", "roku", "."],
+			["ii", "wojna", "światowy", "rozpocząć", "się", "pierwszy", "wrzesień", "1939", "rok", "."],
+			["第二次世界大戦は1939年9月1日に勃発しました。"],
+			["第", "二", "次", "世界", "大戦", "は", "1939", "年", "9", "月", "1日", "に", "勃発", "し", "まし", "た", "。"]
+		],
+		[
+			["Ale", "wszyscy", "martwili", "się", "o", "panią", "."],
+			["ale", "wszyscy", "martwić", "się", "o", "pani", "."],
+			["でもみんなあなたのこと心配していましたよ。"],
+			["で", "も", "みんな", "あなた", "の", "こと", "心配", "し", "て", "い", "まし", "た", "よ", "。"]
+		],
+		[
+			["Zwróć", "uwagę", "na", "wysokość", "dźwięku", "."],
+			["zwrócić", "uwaga", "na", "wysokość", "dźwięk", "."],
+			["音の高さに注目してください。"],
+			["音", "の", "高", "さ", "に", "注目", "し", "て", "ください", "。"]
+		],
+		[
+			["Milena", "jest", "teraz", "w", "domu", "i", "bawi", "się", "ze", "swoim", "psem", "."],
+			["milena", "jest", "teraz", "w", "dom", "i", "bawić", "się", "z", "swoim", "pies", "."],
+			["ミレナはいま家に居て自分の犬と遊んでいます。"],
+			["ミレナ", "は", "いま", "家", "に", "居", "て", "自分", "の", "犬", "と", "遊ん", "で", "い", "ます", "。"]
+		],
+		[
+			["Za", "pół", "godziny", "samolot", "odlatuje", "."],
+			["za", "pół", "godzina", "samolot", "odlatywać", "."],
+			["30分後に飛行機が離陸します。"],
+			["30", "分", "後", "に", "飛行", "機", "が", "離陸", "し", "ます", "。"]
+		],
+		[
+			["Studiuję", "filologię", "angielską", "."],
+			["studiować", "filologia", "angielski", "."],
+			["英文科で勉強しています。"],
+			["英文", "科", "で", "勉強", "し", "て", "い", "ます", "。"]
+		],
+		[
+			["Za", "dwa", "tygodnie", "prezydent", "Polski", "spotka", "się", "z", "premierem", "Japonii", "."],
+			["za", "dwa", "tydzień", "prezydent", "Polska", "spotkać", "się", "z", "premier", "Japonia", "."],
+			["二週間後、ポーランドの大統領が日本の首相と会談する。"],
+			["二", "週間", "後", "、", "ポーランド", "の", "大統領", "が", "日本", "の", "首相", "と", "会談", "する", "。"]
+		]
+	]
+}
