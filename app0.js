@@ -59,7 +59,6 @@ app.get('/vmod_catego', (req, res) => {
 var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 //分類表
 app.get('/vmod_table', (req, res) => {
-  console.log(vocab_obj_b1);
   res.render(__dirname + '/views/ polish/vmod_table0.ejs', {
     vocab_obj_b: vocab_obj_b_all,
     category_b1: category_b1,
