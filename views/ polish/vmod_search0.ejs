@@ -36,21 +36,21 @@
                </div>
                <div class="panel_area container" id="tab-area">
                  <div class="tab_panel active" id="defo-panel">
-                   <div class="search-type-select">
-                     <div class="form-check-inline float-end">
-                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type3">
-                       <label for="search-type3" class="form-check-label">あいまい検索</label>
+                   <div class="search-type-select row">
+                     <div class="col-lg">
+                       単語を入力してください　候補：<span id="inputCand">0</span>件
                      </div>
-                     <div class="form-check-inline float-end">
-                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type2">
-                       <label for="search-type2" class="form-check-label">後方一致</label>
-                     </div>
-                     <div class="form-check-inline float-end">
-                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type1" checked>
-                       <label for="search-type1" class="form-check-label">前方一致</label>
+                     <div class="form-check-inline col-lg-6">
+                       <div class="float-end">
+                         <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type1" checked>
+                         <label for="search-type1" class="form-check-label">前方一致</label>
+                         <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type2">
+                         <label for="search-type2" class="form-check-label">後方一致</label>
+                         <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type3">
+                         <label for="search-type3" class="form-check-label">あいまい検索</label>
+                       </div>
                      </div>
                    </div>
-                   <p>単語を入力してください　　 候補：<span id="inputCand">0</span>件</p>
                    <div class="row">
                      <div class="col-7">
                         <input type="text" class="form-control col-auto" id="keyword">
@@ -71,14 +71,6 @@
                    <button class="btn btn-outline-primary" id="reset-btn">リセット</button>
                  </div>
                  <div class="container">
-                   <div class="form-check form-switch form-check-inline float-end">
-                     <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option2" id="open-jpn" checked>
-                     <label for="inlineRadio2" class="form-check-label">日本語</label>
-                   </div>
-                   <div class="form-check form-switch form-check-inline float-end">
-                     <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option1" id="open-pl" checked>
-                     <label for="inlineRadio1" class="form-check-label">ポーランド語</label>
-                   </div>
                    <div class="result-table container row">
                      <div class="card" id="result">
                        <table class="table table-borderless table-striped text-center">
@@ -191,8 +183,14 @@
       });
       var category = ""
       //検索ボタン
+      $("#keyword").keypress(function(e){
+         if ( e.which == 13 ) {
+           $("#search-btn").click();
+           return false;
+         }
+      });
       function ja2Bit ( str ) {
-        return ( str.match(/^[\u30a0-\u30ff\u3040-\u309f\u3005-\u3006\u30e0-\u9fcf]+$/) )? true : false
+        return ( str.match(/^[\u3000-\u301C\u30a0-\u30ff\u3040-\u309f\u3005-\u3006\u30e0-\u9fcf]+$/) )? true : false
       }
       $("#search-btn").click(function(){
         if ($(".t_pl").text() != "") {
@@ -206,6 +204,7 @@
           } else if (targetWord.length > 0) {
             var targetItem;
             if (ja2Bit(targetWord) == true) { //日本語の場合
+              console.log("JPN");
               for (c in vocab_objs){
                 vocab_objs[c].forEach((item) => {
                   if(item[1] === targetWord){
@@ -217,6 +216,7 @@
                 });
               }
             }else if (ja2Bit(targetWord) == false) { //アルファベットの場合
+              console.log("PL");
               for (c in vocab_objs){
                 vocab_objs[c].forEach((item) => {
                   if(item[0] === targetWord){
@@ -289,6 +289,9 @@
       };
     </script>
     <style>
+      .tab_box, .result-table {
+        min-width: 350px;
+      }
       .t_pl {
         cursor: pointer;
       }
@@ -297,6 +300,9 @@
       }
       table {
         table-layout: fixed;
+      }
+      .search-type-select {
+        padding-bottom: 15px;
       }
     </style>
   </body>
