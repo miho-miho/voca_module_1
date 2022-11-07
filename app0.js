@@ -117,3 +117,4 @@ app.get('/howto', (req, res) => {
 res.render(__dirname + '/views/ polish/howtouse.ejs')
 });
 app.listen(3030);
+console.log("サーバーを起動しました");
