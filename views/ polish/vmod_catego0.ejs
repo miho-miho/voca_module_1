@@ -16,7 +16,7 @@
           </ol>
         </nav>
         <%- include(`${ROOT}/views/partials/sidebar`); %>
-        <div class="col">
+        <div class="col-lg">
           <h1>基礎語彙の学習</h1>
           <div class="row">
             <div class="container">
@@ -29,7 +29,7 @@
                 <label for="inlineRadio1" class="form-check-label">ポーランド語</label>
               </div>
             </div>
-            <div class="voca_area1 col">
+            <div class="voca_area1 col-sm">
               <div class="vocaBox card">
                 <div class="card-header bg-secondary" style="color:white;">
                   <img src="images/bookicon.png"  class="d-inline-block align-text-top" width="29" height="27">
@@ -39,11 +39,11 @@
               <div class="resultArea1">
               </div>
             </div>
-            <div class="voca_area2 col">
+            <div class="voca_area2 col-sm">
               <div class="vocaBox card">
                 <div class="card-header bg-secondary" style="color:white;">
                   <img src="images/bookicon.png"  class="d-inline-block align-text-top" width="29" height="28">
-                  <span class="align-middle">意味分類による学習</span>
+                  <span class="align-middle" id="span_c">意味分類による学習</span>
                 </div>
               </div>
               <div class="resultArea2">
@@ -131,9 +131,6 @@
       };
     </script>
     <style>
-    .card {
-      min-width: 320px;
-    }
     .card-body {
       overflow-y: scroll;
       height:fit-content;
