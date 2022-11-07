@@ -179,6 +179,12 @@
         }
       });
       //検索ボタン挙動_日本語
+      $("#keyword_jp").keypress(function(e){
+	       if ( e.which == 13 ) {
+           $("#search-btn-jp").click();
+           return false;
+         }
+      });
       $("#search-btn-jp").click(function(){
         if ($("#howmany-cand").text() != 0) {
           swal({
@@ -253,6 +259,12 @@
         }
       });
       //検索ボタン挙動_ポーランド語
+      $("#keyword").keypress(function(e){
+         if ( e.which == 13 ) {
+           $("#search-btn").click();
+           return false;
+         }
+      });
       $("#search-btn").click(function(){
         if ($("#howmany-cand").text() != 0) {
           swal({
