@@ -245,14 +245,12 @@
           $("#howmany-cand").text(Num)
           $(function(){
             $('#result').paginathing({
-              perPage: 10, // show item per page
+              perPage: 20, // show item per page
               limitPagination: false, // false or number. Limiting your pagination number.
               prevNext: true, // enable previous and next button
-              firstLast: true, // enable first and last button
+              firstLast: false, // enable first and last button
               prevText: '&laquo;', // Previous button text
               nextText: '&raquo;', // Next button text
-              firstText: 'First', // "First button" text
-              lastText: 'Last', // "Last button" text
               activeClass: 'act',
             });
           });
@@ -325,14 +323,12 @@
           $("#howmany-cand").text(Num)
           $(function(){
             $('#result').paginathing({
-              perPage: 10, // show item per page
+              perPage: 20, // show item per page
               limitPagination: false, // false or number. Limiting your pagination number.
               prevNext: true, // enable previous and next button
-              firstLast: true, // enable first and last button
+              firstLast: false, // enable first and last button
               prevText: '&laquo;', // Previous button text
               nextText: '&raquo;', // Next button text
-              firstText: 'First', // "First button" text
-              lastText: 'Last', // "Last button" text
               activeClass: 'act',
             });
           });
@@ -397,7 +393,8 @@
       p.clickable:active {
         text-decoration:underline;
       }
-      .pagination-container{
+      .pagination-container li{
+        margin-right: 10px;
       }
     </style>
   </body>
