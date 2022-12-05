@@ -1,18 +1,19 @@
 <!doctype html>
 <html lang="jp">
 <head>
-  <%- include('../partials/head') %>
+  <%- include('../../partials/head') %>
 </head>
 <body>
-  <%- include('../partials/header') %>
+  <%- include('../../partials/header') %>
     <main class="container">
       <div class="row">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
           <ol class="breadcrumb bg-secondary">
-            <li class="breadcrumb-item"><a href="/polish" class="first-item">ポーランド語</a></li>
+            <li class="breadcrumb-item"><a href="/" class="first-item">東外大言語モジュール top</a></li>
+            <li class="breadcrumb-item active"><a href="/pl">ポーランド語</a></li>
           </ol>
         </nav>
-        <%- include('../partials/sidebar'); %>
+        <%- include('../../partials/sidebar'); %>
         <div class="col">
           <div class="card">
             <div class="card-header">
@@ -47,7 +48,7 @@
       </div>
       <p class="text-center"><< 利用したい教材モジュールを選択してください</p>
     </main>
-    <footer><%- include('../partials/footer') %></footer>
+    <footer><%- include('../../partials/footer') %></footer>
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
