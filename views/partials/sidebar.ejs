@@ -1,10 +1,20 @@
 <!-- 折り畳み可能リストのサイドバー -->
 <div class="flex-shrink-0 p-3 bg-white col-3" style="width: 280px;">
-  <a href="/polish" class="link-dark d-inline-flex text-decoration-none rounded"><span class="fs-5 fw-semibold">ポーランド語</span></a>
+  <a href="/polish" class="link-dark d-inline-flex text-decoration-none rounded"><span class="fs-5 fw-semibold">〜語</span></a>
   <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-    <li><a href="/howto" class="link-dark d-inline-flex text-decoration-none rounded">利用の手引き</a></li>
   </ul>
   <ul class="list-unstyled ps-0">
+    <li class="border-top my-3"></li>
+    <li class="mb-1"> <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false" disabled>
+      発音モジュール
+    </button>
+      <div class="collapse" id="account-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="" class="link-dark d-inline-flex text-decoration-none rounded">新プロジェクト...</a></li>
+          <li><a href="" class="link-dark d-inline-flex text-decoration-none rounded">プロフィール</a></li>
+        </ul>
+      </div>
+    </li>
     <li class="border-top my-3"></li>
     <li class="mb-1">
       <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
@@ -12,6 +22,7 @@
       </button>
       <div class="collapse show" id="dashboard-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li><a href="./vmod/howto" class="link-dark d-inline-flex text-decoration-none rounded">利用の手引き</a></li>
           <li><a href="/smod" class="link-dark d-inline-flex text-decoration-none rounded">例文検索</a></li>
           <li><a href="/vmod_catego" class="link-dark d-inline-flex text-decoration-none rounded">基礎語彙の学習</a></li>
           <li><a href="/vmod_search" class="link-dark d-inline-flex text-decoration-none rounded">単語検索</a></li>

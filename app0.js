@@ -47,6 +47,18 @@ var vocab_obj_k2 = {};
 make_vObj(category_k1, word_obj_k1, vocab_obj_k1);
 make_vObj(category_k2, word_obj_k2, vocab_obj_k2);
 
+//トップページ
+app.get('/', (req, res) => {
+  res.render('index1.0.ejs');
+});
+//ポーランド語トップ
+app.get('/pl/', (req, res) => {
+  res.render(__dirname + '/views/common/top/top.ejs');
+});
+//利用の手引き
+app.get('/pl/vmod/howto', (req, res) => {
+  res.render(__dirname + '/views/common/vmod/howtouse.ejs')
+});
 //基礎語彙の学習
 app.get('/vmod_catego', (req, res) => {
   res.render(__dirname + '/views/ polish/vmod_catego0.ejs', {
@@ -104,17 +116,5 @@ app.post('/vmod_detail_kiso', (req, res) => {
   });
 });
 
-//トップページ
-app.get('/', (req, res) => {
-  res.render('index1.0.ejs');
-});
-//ポーランド語トップ
-app.get('/polish', (req, res) => {
-  res.render('polish0.ejs');
-});
-//利用の手引き
-app.get('/howto', (req, res) => {
-res.render(__dirname + '/views/ polish/howtouse.ejs')
-});
 app.listen(3030);
 console.log("サーバーを起動しました");
