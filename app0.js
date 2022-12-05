@@ -55,6 +55,10 @@ app.get('/', (req, res) => {
 app.get('/pl/', (req, res) => {
   res.render(__dirname + '/views/common/top/top.ejs');
 });
+//ドイツ語トップ
+app.get('/de/', (req, res) => {
+  res.render(__dirname + '/views/common/top/top.ejs');
+});
 //利用の手引き
 app.get('/pl/vmod/howto', (req, res) => {
   res.render(__dirname + '/views/common/vmod/howtouse.ejs')
