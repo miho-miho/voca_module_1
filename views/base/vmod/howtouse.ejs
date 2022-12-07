@@ -1,19 +1,21 @@
 <!doctype html>
 <html lang="jp">
 <head>
-  <%- include('../../partials/parts/head') %>
+  <%- include('../partials/head') %>
 </head>
 <body>
-    <%- include('../../partials/parts/header') %>
+    <%- include('../partials/header') %>
     <main class="container">
       <div class="row">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
           <ol class="breadcrumb bg-secondary">
-            <li class="breadcrumb-item"><a href="/polish" class="first-item">ポーランド語</a></li>
-            <li class="breadcrumb-item active" aria-current="page"><a href="/howto">利用の手引き</a></li>
+            <li class="breadcrumb-item"><a href="/" class="first-item">東外大言語モジュール top</a></li>
+            <li class="breadcrumb-item active"><a href="">言語名</a></li>
+            <li class="breadcrumb-item active">語彙モジュール></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="./howto">利用の手引き</a></li>
           </ol>
         </nav>
-          <%- include('../../partials/parts/sidebar') %>
+          <%- include('../partials/sidebar') %>
         <div class="col">
           <div class="card">
             <div class="card-header">
@@ -68,14 +70,14 @@
                 国立国語研究所(編) (2004) 『分類語彙表 増補改訂版』、大日本図書.<br>
                 「分類語彙表増補改訂版」データベース　<a href="http://pj.ninjal.ac.jp/corpus_center/goihyo.html">http://pj.ninjal.ac.jp/corpus_center/goihyo.html</a><br>
                 望月正道、相澤一美、投野由紀夫 (2003) 『英語語彙の指導マニュアル』、大修館書店.<br>
-                ポーランド語ナショナルコーパス（Narodowy Korpus Języka Polskiego）<a href="http://nkjp.pl/">http://nkjp.pl/</a>
               </p>
+              <p>言語特殊ゾーン</p>
             </div>
           </div>
         </div>
       </div>
     </main>
-    <footer>  <%- include('../../partials/parts/footer') %></footer>
+    <footer>  <%- include('../partials/footer') %></footer>
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <style>
