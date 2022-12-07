@@ -56,13 +56,14 @@ app.get('/', (req, res) => {
 app.get("/mt/:lang", (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
-  const lang_info = require(pathToLnag + "/config.js")
+  var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/top/top.ejs', {
     lg : lang,
-    lang : lang_info.lang,
-    lang_jp : lang_info.lang_jp,
-    message1 : lang_info.message1,
-    message2 : lang_info.message2
+    lang : info.lang_info.lang,
+    lang_jp : info.lang_info.lang_jp,
+    message1 : info.lang_info.message1,
+    message2 : info.lang_info.message2,
+    sidebar_setting : info.sidebar_setting
   });
 });
 
