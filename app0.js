@@ -52,15 +52,41 @@ app.get('/', (req, res) => {
   res.render('index1.0.ejs');
 });
 //ポーランド語トップ
-app.get('/pl/', (req, res) => {
-  res.render(__dirname + '/views/common/top/top.ejs');
-});
+app.get('/pl/', readConfig)
+function readConfig(req, res) {
+  const export_config = require(__dirname + '/views/pl/pl_config.js');
+  const lang = export_config.lang
+  const lang_jp = export_config.lang_jp
+  const message1 = export_config.message1
+  const message2 = export_config.message2
+    res.render(__dirname + '/views/pl/top/top.ejs', {
+      lang : lang,
+      lang_jp : lang_jp,
+      message1 : message1,
+      message2 : message2
+    })
+}
 //ドイツ語トップ
-app.get('/de/', (req, res) => {
-  res.render(__dirname + '/views/common/top/top.ejs');
+app.get('/de/', readConfig)
+function readConfig(req, res) {
+  var export_config = require(__dirname + '/views/de/de_config.js');
+  const lang = export_config.lang
+  const lang_jp = export_config.lang_jp
+  const message1 = export_config.message1
+  const message2 = export_config.message2
+    res.render(__dirname + '/views/de/top/top.ejs', {
+      lang : lang,
+      lang_jp : lang_jp,
+      message1 : message1,
+      message2 : message2
+    })
+}
+//英語トップ
+app.get('/en/', (req, res) => {
+  res.render(__dirname + '/views/base/top/top.ejs')
 });
 //利用の手引き
-app.get('/pl/vmod/howto', (req, res) => {
+app.get('/pl/howto', (req, res) => {
   res.render(__dirname + '/views/common/vmod/howtouse.ejs')
 });
 //基礎語彙の学習

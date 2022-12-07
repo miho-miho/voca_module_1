@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="jp">
 <head>
-  <%- include('../../partials/head') %>
+  <%- include('../../partials/parts/head') %>
 </head>
 <body>
-  <%- include('../../partials/header') %>
+    <%- include('../../partials/parts/header') %>
     <main class="container">
       <div class="row">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -13,7 +13,7 @@
             <li class="breadcrumb-item active" aria-current="page"><a href="/howto">利用の手引き</a></li>
           </ol>
         </nav>
-        <%- include('../../partials/sidebar'); %>
+          <%- include('../../partials/parts/sidebar') %>
         <div class="col">
           <div class="card">
             <div class="card-header">
@@ -75,7 +75,7 @@
         </div>
       </div>
     </main>
-    <footer><%- include('../../partials/footer'); %></footer>
+    <footer>  <%- include('../../partials/parts/footer') %></footer>
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <style>
