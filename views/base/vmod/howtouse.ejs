@@ -10,7 +10,7 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
           <ol class="breadcrumb bg-secondary">
             <li class="breadcrumb-item"><a href="/" class="first-item">東外大言語モジュール top</a></li>
-            <li class="breadcrumb-item active"><a href="/mt/<%- lg %>"><%= lang_jp %></a></li>
+            <li class="breadcrumb-item active"><a href="/mt/<%- lg %>/"><%= lang_jp %></a></li>
             <li class="breadcrumb-item active">語彙モジュール</li>
           </ol>
         </nav>
@@ -70,8 +70,8 @@
                 「分類語彙表増補改訂版」データベース　<a href="http://pj.ninjal.ac.jp/corpus_center/goihyo.html">http://pj.ninjal.ac.jp/corpus_center/goihyo.html</a><br>
                 望月正道、相澤一美、投野由紀夫 (2003) 『英語語彙の指導マニュアル』、大修館書店.<br>
               </p>
-              <p></p>
-              <a href="<%- vmod_ms1_url %>"><%= vmod_ms1_url %></a>
+              <div class="ms_zone">
+              </div>
             </div>
           </div>
         </div>
@@ -82,9 +82,16 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script type="text/javascript">
         let arry = <%- JSON.stringify(vmod_ms1) %>;
-        for(const ms of arry){
-          console.log(ms);
-        };
+        let a_tag;
+        let arry_ulr = <%- JSON.stringify(vmod_ms1_url) %>;
+        for (var i = 0; i < arry.length; i++) {
+          if (i in arry_ulr) {
+            a_tag = "<a href="+arry_ulr[String(i)]+">"+arry_ulr[String(i)]+"</a>"
+          } else {
+            a_tag = ""
+          }
+          $(".ms_zone").append(arry[i]+a_tag+"<br>")
+        }
       </script>
       <style>
         footer {
