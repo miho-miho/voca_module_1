@@ -7,6 +7,9 @@ body {
   display:inline;
 }
 /* 折り畳み可能リストのサイドバー用 */
+.sidebar {
+  height: 100vh;
+}
 .sidebar-link:hover,
 .sidebar-link:focus {
   color: rgba(0, 0, 0, .85);

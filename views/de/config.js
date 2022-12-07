@@ -10,7 +10,7 @@ lang_info = {
 
 sidebar_setting = {
   sub_menu_snd : ["実践編"],
-  sub_menu_talk : ["教室用　ドイツ語", "教室用　ウィーンのドイツ語", "教室用 チューリッヒのドイツ語", "学習者用"],
+  sub_menu_talk : ["教室用 ドイツ語", "教室用 ウィーンのドイツ語", "教室用 チューリッヒのドイツ語", "学習者用"],
   sub_menu_gram : "no-choice",
   sub_menu_vocab : "no-choice",
 }
