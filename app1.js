@@ -58,6 +58,7 @@ app.get("/mt/:lang", (req, res) => {
   let pathToLnag = __dirname + '/views/'+lang
   const lang_info = require(pathToLnag + "/config.js")
   res.render(pathToLnag + '/top/top.ejs', {
+    lg : lang,
     lang : lang_info.lang,
     lang_jp : lang_info.lang_jp,
     message1 : lang_info.message1,
@@ -66,11 +67,16 @@ app.get("/mt/:lang", (req, res) => {
 });
 
 //利用の手引き
-app.get('/mt/:lang/vmod/howto', (req, res) => {
-  console.log(req.params.lang);
+app.get('/mt/:lang/vmod/', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
-  res.render(pathToLnag + '/vmod/howtouse.ejs')
+  const lang_info = require(pathToLnag + "/config.js")
+  res.render(pathToLnag + '/vmod/howtouse.ejs', {
+    lg : lang,
+    lang_jp : lang_info.lang_jp,
+    vmod_ms1 : lang_info.vmod_ms1,
+    vmod_ms1_url : lang_info.vmod_ms1_url,
+  });
 });
 /*
 //基礎語彙の学習

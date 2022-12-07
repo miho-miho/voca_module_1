@@ -10,7 +10,7 @@
       <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb bg-secondary">
           <li class="breadcrumb-item"><a href="/" class="first-item">東外大言語モジュール top</a></li>
-          <li class="breadcrumb-item active"><a href=""><%= lang_jp %></a></li>
+          <li class="breadcrumb-item active"><a href="/mt/<%- lg %>"><%= lang_jp %></a></li>
         </ol>
       </nav>
       <%- include('../partials/sidebar'); %>
@@ -36,9 +36,9 @@
             <p class="card-text"><%= message2 %></p>
           </div>
         </div>
+        <p class="text-center"><< 利用したい教材モジュールを選択してください</p>
       </div>
-      </div>
-      <p class="text-center"><< 利用したい教材モジュールを選択してください</p>
+    </div>
   </main>
   <footer><%- include('../partials/footer') %></footer>
   <!-- Option 1: Bootstrap Bundle with Popper -->
