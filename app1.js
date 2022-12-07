@@ -9,7 +9,7 @@ app.use(express.static('public'));
 //middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-/*
+
 var word_obj_b = JSON.parse(fs.readFileSync('./json/polish4.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 var word_obj_b1 = word_obj_b["体"]
 var word_obj_b2 = word_obj_b["用"]
@@ -46,7 +46,7 @@ var vocab_obj_k2 = {};
 
 make_vObj(category_k1, word_obj_k1, vocab_obj_k1);
 make_vObj(category_k2, word_obj_k2, vocab_obj_k2);
-*/
+
 //トップページ
 app.get('/', (req, res) => {
   res.render('index1.0.ejs');
@@ -68,21 +68,31 @@ app.get("/mt/:lang", (req, res) => {
 });
 
 //利用の手引き
-app.get('/mt/:lang/vmod/', (req, res) => {
+app.get('/mt/:lang/vmod', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
-  const lang_info = require(pathToLnag + "/config.js")
-  res.render(pathToLnag + '/vmod/howtouse.ejs', {
+  var info = require(pathToLnag + "/config")
+  res.render(pathToLnag + '/vmod/v_top.ejs', {
     lg : lang,
-    lang_jp : lang_info.lang_jp,
-    vmod_ms1 : lang_info.vmod_ms1,
-    vmod_ms1_url : lang_info.vmod_ms1_url,
+    lang_jp : info.lang_info.lang_jp,
+    vmod_ms1 : info.lang_info.vmod_ms1,
+    vmod_ms1_url : info.lang_info.vmod_ms1_url,
   });
 });
-/*
+
+//利用の手引き
+app.get('/mt/:lang/vmod/howto', (req, res) => {
+  let lang = req.params.lang
+  let pathToLnag = __dirname + '/views/'+lang
+  var info = require(pathToLnag + "/config")
+  res.send("KOREKARA")
+});
+
 //基礎語彙の学習
-app.get('/vmod_catego', (req, res) => {
-  res.render(__dirname + '/views/ polish/vmod_catego0.ejs', {
+app.get('/mt/:lang/vmod/catego', (req, res) => {
+  let lang = req.params.lang
+  let pathToLnag = __dirname + '/views/'+lang
+  res.render(pathToLnag + '/vmod/vmod_catego0.ejs', {
     word_obj1: vocab_obj_k1,
     word_obj2: vocab_obj_k2,
     category1: category_k1,
@@ -91,14 +101,17 @@ app.get('/vmod_catego', (req, res) => {
 });
 var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 //分類表
-app.get('/vmod_table', (req, res) => {
-  res.render(__dirname + '/views/ polish/vmod_table0.ejs', {
+app.get('/mt/:lang/vmod/table', (req, res) => {
+  let lang = req.params.lang
+  let pathToLnag = __dirname + '/views/'+lang
+  res.render(pathToLnag + '/vmod/vmod_table0.ejs', {
     vocab_obj_b: vocab_obj_b_all,
     category_b1: category_b1,
     category_b2: category_b2,
     category_b3: category_b3,
   });
 });
+
 //検索(日・ポ)
 app.get('/vmod_search', (req, res) => {
   res.render(__dirname + '/views/ polish/vmod_search0.ejs', {
@@ -136,6 +149,6 @@ app.post('/vmod_detail_kiso', (req, res) => {
     pl_word: req.body.pl_word
   });
 });
-*/
+
 app.listen(3030);
 console.log("サーバーを起動しました");
