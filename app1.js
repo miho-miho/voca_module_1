@@ -9,7 +9,7 @@ app.use(express.static('public'));
 //middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+/*
 var word_obj_b = JSON.parse(fs.readFileSync('./json/polish4.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 var word_obj_b1 = word_obj_b["体"]
 var word_obj_b2 = word_obj_b["用"]
@@ -46,52 +46,31 @@ var vocab_obj_k2 = {};
 
 make_vObj(category_k1, word_obj_k1, vocab_obj_k1);
 make_vObj(category_k2, word_obj_k2, vocab_obj_k2);
-
+*/
 //トップページ
 app.get('/', (req, res) => {
   res.render('index1.0.ejs');
 });
-//ポーランド語トップ
-app.get('/pl/', readConfig)
-function readConfig(req, res) {
-  const export_config = require(__dirname + '/views/pl/pl_config.js');
-  const lang = export_config.lang
-  const lang_jp = export_config.lang_jp
-  const message1 = export_config.message1
-  const message2 = export_config.message2
-    res.render(__dirname + '/views/pl/top/top.ejs', {
-      lang : lang,
-      lang_jp : lang_jp,
-      message1 : message1,
-      message2 : message2
-    })
-}
-//ドイツ語トップ
-app.get('/de/', readConfig)
-function readConfig(req, res) {
-  var export_config = require(__dirname + '/views/de/de_config.js');
-  const lang = export_config.lang
-  const lang_jp = export_config.lang_jp
-  const message1 = export_config.message1
-  const message2 = export_config.message2
-    res.render(__dirname + '/views/de/top/top.ejs', {
-      lang : lang,
-      lang_jp : lang_jp,
-      message1 : message1,
-      message2 : message2
-    })
-}
-//英語トップ
+
+//言語トップ
 app.get("/mt/:lang", (req, res) => {
   let lang = req.params.lang
-  //res.send(req.params.lang);
-  let pathToLnag = '/views/'+lang
-  res.render(__dirname + pathToLnag + '/top/top.ejs')
+  let pathToLnag = __dirname + '/views/'+lang
+  const lang_info = require(pathToLnag + "/config.js")
+  console.log(lang_info.lang);
+  res.render(pathToLnag + '/top/top.ejs', {
+    lang : lang_info.lang,
+    lang_jp : lang_info.lang_jp,
+    message1 : lang_info.message1,
+    message2 : lang_info.message2
+  });
 });
+
 //利用の手引き
 app.get('/pl/howto', (req, res) => {
   res.render(__dirname + '/views/common/vmod/howtouse.ejs')
 });
+/*
 //基礎語彙の学習
 app.get('/vmod_catego', (req, res) => {
   res.render(__dirname + '/views/ polish/vmod_catego0.ejs', {
@@ -148,6 +127,6 @@ app.post('/vmod_detail_kiso', (req, res) => {
     pl_word: req.body.pl_word
   });
 });
-
+*/
 app.listen(3030);
 console.log("サーバーを起動しました");

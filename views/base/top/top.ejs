@@ -10,30 +10,30 @@
       <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb bg-secondary">
           <li class="breadcrumb-item"><a href="/" class="first-item">東外大言語モジュール top</a></li>
-          <li class="breadcrumb-item active"><a href=""></a></li>
+          <li class="breadcrumb-item active"><a href=""><%= lang_jp %></a></li>
         </ol>
       </nav>
       <%- include('../partials/sidebar'); %>
       <div class="col">
         <div class="card">
           <div class="card-header">
-            <h2 class="card-title"></h2><span class="float-end"></span>
+            <h2 class="card-title"><%= lang %></h2><span class="float-end"><%= lang_jp %></span>
           </div>
         </div>
         <div class="card">
           <div class="card-header">
-            <p class="card-title">の使用地域と人口</p>
+            <p class="card-title"><%= lang_jp %>の使用地域と人口</p>
           </div>
           <div class="card-body">
-            <p class="card-text"></p>
+            <p class="card-text"><%= message1 %></p>
           </div>
         </div>
         <div class="card">
           <div class="card-header">
-            <p class="card-title">ここで学ぶ</p>
+            <p class="card-title">ここで学ぶ<%= lang_jp %></p>
           </div>
           <div class="card-body">
-            <p class="card-text"></p>
+            <p class="card-text"><%= message2 %></p>
           </div>
         </div>
       </div>
