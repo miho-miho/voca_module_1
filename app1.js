@@ -4,7 +4,9 @@ const fs = require('fs');
 const bodyParser = require("body-parser");
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+let currentWorkingDirectory = process.cwd();
+console.log(currentWorkingDirectory);
+app.use(express.static(currentWorkingDirectory+'/public'));
 
 //middleware
 app.use(bodyParser.json());
