@@ -51,11 +51,12 @@ make_vObj(category_k2, word_obj_k2, vocab_obj_k2);
 app.get('/', (req, res) => {
   res.render('index1.0.ejs');
 });
-
+/*
 //言語トップ
 app.get("/mt/:lang", (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = __dirname + '/views/'+lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/top/top.ejs', {
     lg : lang,
@@ -66,11 +67,12 @@ app.get("/mt/:lang", (req, res) => {
     sidebar_setting : info.sidebar_setting
   });
 });
-
-//利用の手引き
+*/
+//語彙モジュールトップ
 app.get('/:lang/v/', (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = __dirname + '/views/'+lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/v_top.ejs', {
     lg : lang,
@@ -83,7 +85,8 @@ app.get('/:lang/v/', (req, res) => {
 //利用の手引き
 app.get('/:lang/v/howto', (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = './views/'+lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   res.send("<h1>作成中…</h1>")
 });
@@ -91,7 +94,8 @@ app.get('/:lang/v/howto', (req, res) => {
 //基礎語彙の学習
 app.get('/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = './views/'+lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/vmod_catego0.ejs', {
     lg : lang,
@@ -106,7 +110,8 @@ var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 //分類表
 app.get('/:lang/v/table', (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = './views/'+lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/vmod_table0.ejs', {
     lg : lang,
@@ -117,7 +122,7 @@ app.get('/:lang/v/table', (req, res) => {
     category_b3: category_b3,
   });
 });
-
+/*
 //検索(日・ポ)
 app.get('/vmod_search', (req, res) => {
   res.render(__dirname + '/views/ polish/vmod_search0.ejs', {
@@ -155,7 +160,7 @@ app.post('/vmod_detail_kiso', (req, res) => {
     pl_word: req.body.pl_word
   });
 });
-
+*/
 app.use((req, res, next) => {
   res.status(404).send("<h1>準備中…</h1>");
 });
