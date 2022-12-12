@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 });
 
 //言語トップ
-app.get("/mt_n/:lang", (req, res) => {
+app.get("/mt/:lang", (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -68,7 +68,7 @@ app.get("/mt_n/:lang", (req, res) => {
 });
 
 //利用の手引き
-app.get('/mt_n/:lang/v', (req, res) => {
+app.get('/mt/:lang/v', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -81,7 +81,7 @@ app.get('/mt_n/:lang/v', (req, res) => {
 });
 
 //利用の手引き
-app.get('/mt_n/:lang/v/howto', (req, res) => {
+app.get('/mt/:lang/v/howto', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -89,7 +89,7 @@ app.get('/mt_n/:lang/v/howto', (req, res) => {
 });
 
 //基礎語彙の学習
-app.get('/mt_n/:lang/v/catego', (req, res) => {
+app.get('/mt/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -104,7 +104,7 @@ app.get('/mt_n/:lang/v/catego', (req, res) => {
 });
 var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 //分類表
-app.get('/mt_n/:lang/v/table', (req, res) => {
+app.get('/mt/:lang/v/table', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
   var info = require(pathToLnag + "/config")
