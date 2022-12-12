@@ -68,7 +68,7 @@ app.get("/mt/:lang", (req, res) => {
 });
 
 //利用の手引き
-app.get('/mt/:lang/v', (req, res) => {
+app.get('/:lang/v/', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
   var info = require(pathToLnag + "/config")
