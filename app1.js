@@ -85,7 +85,7 @@ app.get('/mt_n/:lang/v/howto', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.send("KOREKARA")
+  res.send("<h1>作成中…</h1>")
 });
 
 //基礎語彙の学習
