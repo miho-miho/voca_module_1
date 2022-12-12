@@ -81,17 +81,17 @@ app.get('/:lang/v/', (req, res) => {
 });
 
 //利用の手引き
-app.get('/mt/:lang/v/howto', (req, res) => {
+app.get('/:lang/v/howto', (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = __dirname + '/views/'+lang
+  let pathToLnag = './views/'+lang
   var info = require(pathToLnag + "/config")
   res.send("<h1>作成中…</h1>")
 });
 
 //基礎語彙の学習
-app.get('/mt/:lang/v/catego', (req, res) => {
+app.get('/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = __dirname + '/views/'+lang
+  let pathToLnag = './views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/vmod_catego0.ejs', {
     lg : lang,
@@ -104,9 +104,9 @@ app.get('/mt/:lang/v/catego', (req, res) => {
 });
 var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 //分類表
-app.get('/mt/:lang/v/table', (req, res) => {
+app.get('/:lang/v/table', (req, res) => {
   let lang = req.params.lang
-  let pathToLnag = __dirname + '/views/'+lang
+  let pathToLnag = './views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/vmod_table0.ejs', {
     lg : lang,
