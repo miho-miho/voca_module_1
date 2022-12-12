@@ -1,7 +1,7 @@
 //pl：config.js
 lang_info = {
   lang : "",
-  lang_jp : "英語",
+  lang_jp : "タイ語",
   message1 : "",
   message2 : "",
   vmod_ms1 : [""],
@@ -12,7 +12,7 @@ sidebar_setting = {
   sub_menu_snd : "",
   sub_menu_talk : "",
   sub_menu_gram : "",
-  sub_menu_vocab : "e",
+  sub_menu_vocab : "",
 }
 
 exports.lang_info = lang_info

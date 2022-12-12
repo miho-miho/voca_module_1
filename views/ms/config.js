@@ -12,7 +12,7 @@ sidebar_setting = {
   sub_menu_snd : "",
   sub_menu_talk : "",
   sub_menu_gram : "",
-  sub_menu_vocab : "e",
+  sub_menu_vocab : "",
 }
 
 exports.lang_info = lang_info
