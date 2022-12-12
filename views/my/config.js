@@ -1,7 +1,7 @@
 //pl：config.js
 lang_info = {
   lang : "",
-  lang_jp : "ミャンマー語",
+  lang_jp : "ビルマ語",
   message1 : "",
   message2 : "",
   vmod_ms1 : [""],
