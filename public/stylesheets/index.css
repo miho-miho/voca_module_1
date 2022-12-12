@@ -1,28 +1,15 @@
-.main img{
-  padding-top: 0px;
-  width: 90%;
-  padding-bottom: 50px;
+h1 {
+  padding: 20px 0px;
 }
 
-.main {
-  position: relative;
+.links li {
+  padding-bottom: 10px;
 }
 
-.main-words{
-  left: 45%;
-  position: absolute;
+.links ul {
+  display: inline-block;
+  text-align: left;
 }
-
-.marketing .col-lg-4 {
-  margin-bottom: 1.5rem;
-  text-align: center;
-  padding-bottom: 50px;
-}
-.marketing .col-lg-4 p {
-  margin-right: .75rem;
-  margin-left: .75rem;
-}
-
 footer {
   padding-top: 50px;
 }
