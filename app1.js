@@ -92,7 +92,10 @@ app.get('/mt_n/:lang/v/howto', (req, res) => {
 app.get('/mt_n/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
+  var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/vmod_catego0.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
     word_obj1: vocab_obj_k1,
     word_obj2: vocab_obj_k2,
     category1: category_k1,
@@ -104,7 +107,10 @@ var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 app.get('/mt_n/:lang/v/table', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = __dirname + '/views/'+lang
+  var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/vmod_table0.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
     vocab_obj_b: vocab_obj_b_all,
     category_b1: category_b1,
     category_b2: category_b2,
