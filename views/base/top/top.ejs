@@ -59,6 +59,7 @@
     }
     function claerAll(key){
       $("#"+key).find("h6").removeClass("fw-bold")
+      $("#"+key).find("h6").addClass("text-decoration-line-through")
       $("#"+key).find("a").css('pointer-events', 'none').attr('tabindex', -1);
       $("#"+key).find("ul").remove();
     }
