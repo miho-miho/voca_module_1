@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <%- include('../partials/head') %>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main class="container">
+      <div class="row">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="/voca/" class="first-item">東外大言語モジュール top(Node版)</a></li>
+            <li class="breadcrumb-item active"><a href="/voca/<%- lg %>/v/"><%= lang_jp %></a></li>
+            <li class="breadcrumb-item active">語彙モジュール</li>
+          </ol>
+        </nav>
+          <%- include('../partials/v_sidebar') %>
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">利用の手引き</h2>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <p class="card-title"><span>■</span>「基礎語彙の学習」</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                場面と意味分類による単語の学習ができます。
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <p class="card-title">分類語彙表検索</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                『分類語彙表』に基づいて語彙を様々な項目に意味分類し、類義語集（シソーラス）として検索できるようにしました。
+              </p>
+            </div>
+          </div>
+          <div class="card" id="lastcard">
+            <div class="card-header">
+              <p class="card-title">「文字検索」</p>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                「例文検索」と「語彙モジュール」の２つのコースを用意しています。<br>
+                「例文検索」では、日本語とポーランド語の対訳例文を両言語から検索することができます。例文には、各言語の形ワードスペースをつかったトークン化の結果が付属しています。<br>
+                「語彙モジュール」では、「基礎語彙分類表」で基本的な語彙を分類ごとに学習できます。語彙は文字入力で検索することも可能です。
+                検索結果は分類表にリンクしています。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('../partials/footer') %></footer>
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+        let arry = <%- JSON.stringify(vmod_ms1) %>
+        let a_tag;
+        let arry_ulr = <%- JSON.stringify(vmod_ms1_url) %>;
+        for (var i = 0; i < arry.length; i++) {
+          if (i in arry_ulr) {
+            a_tag = "<a href="+arry_ulr[String(i)]+">"+arry_ulr[String(i)]+"</a>"
+          } else {
+            a_tag = ""
+          }
+          $(".ms_zone").append(arry[i]+a_tag+"<br>")
+        }
+      </script>
+      <style>
+        footer {
+          padding-top: 40px;
+        }
+      </style>
+</body>
+</html>
