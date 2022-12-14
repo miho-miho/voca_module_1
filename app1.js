@@ -5,7 +5,6 @@ const bodyParser = require("body-parser");
 
 app.set('view engine', 'ejs');
 let currentWorkingDirectory = process.cwd();
-console.log(currentWorkingDirectory);
 app.use(express.static('public'));
 
 //middleware
@@ -164,7 +163,10 @@ app.post('/vmod_detail_kiso', (req, res) => {
 });
 */
 app.use((req, res, next) => {
-  res.status(404).send("<h1>準備中…</h1>");
+  res.status(404).send("<h1>準備中…</h1><p>404</p>");
+});
+app.use((err, req, res, next) => {
+  res.status(500).send("<h1>準備中…</h1><p>500</p>");
 });
 
 app.listen(3030);
