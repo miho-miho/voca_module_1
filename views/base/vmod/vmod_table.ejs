@@ -101,7 +101,7 @@
           $(id).append('<div class="card-header">'+c_label+'</div>')
           $(id).append('<div class="card-body"><p class="float-end"><span class="c_cand"></span>件</p><table class="table table-hover"><tbody></tobdy<table></div>')
           vocab_obj_b[category].forEach((item) => {
-              $(id).children(".card-body").find("tbody").append('<tr class="pl" data-href="/vmod_detail"><td class="t_pl">'+item[0]+'</td><td class="t_jpn">'+item[1]+'</td></tr>')
+              $(id).children(".card-body").find("tbody").append('<tr class="pl" data-href="./detail"><td class="t_pl">'+item[0]+'</td><td class="t_jpn">'+item[1]+'</td></tr>')
               $(id).children(".card-body").find(".c_cand").text(vocab_obj_b[category].length)
           });
           $(name).find($(id)).children(".card-header").click(function(){

@@ -98,7 +98,7 @@ app.get('/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/vmod_catego0.ejs', {
+  res.render(pathToLnag + '/vmod/vmod_catego.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
     word_obj1: vocab_obj_k1,
@@ -114,7 +114,7 @@ app.get('/:lang/v/table', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/vmod_table0.ejs', {
+  res.render(pathToLnag + '/vmod/vmod_table.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
     vocab_obj_b: vocab_obj_b_all,
@@ -144,24 +144,37 @@ app.get('/smod', (req,res) => {
     category_k: category_k1.concat(category_k2)
     });
 });
+*/
+var word_obj_b_all = Object.assign(word_obj_b1, word_obj_b2, word_obj_b3)
 //詳細_分類表
-app.post('/vmod_detail', (req, res) => {
-  res.render(__dirname + '/views/ polish/vmod_search_detail0.ejs', {
+app.post('/:lang/v/detail', (req, res) => {
+  let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  res.render(pathToLnag + '/vmod/vmod_search_detail.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
     data1: word_obj_b_all,
     category: req.body.category,
     pl_word: req.body.pl_word
   });
 });
 //詳細_基礎
-app.post('/vmod_detail_kiso', (req, res) => {
-  res.render(__dirname + '/views/ polish/vmod_search_detail_kiso0.ejs', {
+app.post('/:lang/v/detail_kiso', (req, res) => {
+  let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  res.render(pathToLnag + '/vmod/vmod_search_detail_kiso.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
     word_obj1: word_obj_k1,
     word_obj2: word_obj_k2,
     category: req.body.category,
     pl_word: req.body.pl_word
   });
 });
-*/
 app.use((req, res, next) => {
   res.status(404).send("<h1>準備中…</h1><p>404</p>");
 });

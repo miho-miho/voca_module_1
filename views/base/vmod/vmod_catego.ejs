@@ -4,7 +4,7 @@
     <%- include('../partials/v_head') %>
   </head>
   <body>
-    <%- include('../partials/header') %>
+    <header><%- include('../partials/header') %></header>
     <main class="container">
       <div class="row">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -76,7 +76,7 @@
           $(id).append('<div class="card-header">'+category+'</div>')
           $(id).append('<div class="card-body"><p class="float-end"><span class="c_cand"></span>件</p><table class="table table-hover"><tbody></tobdy<table></div>')
           obj[category].forEach((item) => {
-              $(id).children(".card-body").find("tbody").append('<tr class="pl" data-href="/vmod_detail_kiso"><td class="t_pl">'+item[0]+'</td><td class="t_jpn">'+item[1]+'</td></tr>')
+              $(id).children(".card-body").find("tbody").append('<tr class="pl" data-href="./detail_kiso"><td class="t_pl">'+item[0]+'</td><td class="t_jpn">'+item[1]+'</td></tr>')
               $(id).children(".card-body").find(".c_cand").text(obj[category].length)
           });
         }
