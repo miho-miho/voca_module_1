@@ -4,7 +4,6 @@ const fs = require('fs');
 const bodyParser = require("body-parser");
 
 app.set('view engine', 'ejs');
-let currentWorkingDirectory = process.cwd();
 app.use(express.static('public'));
 
 //middleware
@@ -69,10 +68,10 @@ app.get("/mt/:lang", (req, res) => {
   });
 });
 */
+let currentWorkingDirectory = process.cwd();
 //語彙モジュールトップ
 app.get('/:lang/v/', (req, res) => {
   let lang = req.params.lang
-  let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/v_top.ejs', {
@@ -86,16 +85,17 @@ app.get('/:lang/v/', (req, res) => {
 //利用の手引き
 app.get('/:lang/v/howto', (req, res) => {
   let lang = req.params.lang
-  let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.send("<h1>作成中…</h1>")
+  res.render(pathToLnag + '/vmod/v_tebiki.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp
+  });
 });
 
 //基礎語彙の学習
 app.get('/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
-  let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   res.render(pathToLnag + '/vmod/vmod_catego0.ejs', {
@@ -166,6 +166,7 @@ app.use((req, res, next) => {
   res.status(404).send("<h1>準備中…</h1><p>404</p>");
 });
 app.use((err, req, res, next) => {
+  console.error(err.stack);
   res.status(500).send("<h1>準備中…</h1><p>500</p>");
 });
 
