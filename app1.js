@@ -10,32 +10,6 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var word_obj_b = JSON.parse(fs.readFileSync('./json/polish4.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
-var word_obj_b1 = word_obj_b["体"]
-var word_obj_b2 = word_obj_b["用"]
-var word_obj_b3 = word_obj_b["相"]
-const category_b1 = Object.keys(word_obj_b1) //語彙分類表の分類一覧
-const category_b2 = Object.keys(word_obj_b2) //語彙分類表の分類一覧
-const category_b3 = Object.keys(word_obj_b3) //語彙分類表の分類一覧
-var vocab_obj_b1 = {};
-var vocab_obj_b2 = {};
-var vocab_obj_b3 = {};
-var li = [];
-function make_vObj(category_list, w_obj, v_obj){
-  category_list.forEach((item) => {
-    w_obj[item].forEach((it) => {
-      it["語彙"].forEach((item) => {
-        li.push(item)
-      });
-    });
-    v_obj[item] = li
-    li = []
-  });
-}
-make_vObj(category_b1, word_obj_b1, vocab_obj_b1);
-make_vObj(category_b2, word_obj_b2, vocab_obj_b2);
-make_vObj(category_b3, word_obj_b3, vocab_obj_b3);
-
 var json_kiso = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 json_kiso = json_kiso["kisogoi"]
 var kiso_bamen = json_kiso["bamen"]
@@ -102,7 +76,6 @@ app.get('/:lang/v/catego', (req, res) => {
     word_obj : word_obj_all[lang]
   });
 });
-var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 //分類表
 app.get('/:lang/v/table', (req, res) => {
   let lang = req.params.lang
@@ -112,10 +85,6 @@ app.get('/:lang/v/table', (req, res) => {
   res.render(pathToLnag + '/vmod/vmod_table.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
-    vocab_obj_b: vocab_obj_b_all,
-    category_b1: category_b1,
-    category_b2: category_b2,
-    category_b3: category_b3,
   });
 });
 /*
@@ -140,7 +109,6 @@ app.get('/smod', (req,res) => {
     });
 });
 */
-var word_obj_b_all = Object.assign(word_obj_b1, word_obj_b2, word_obj_b3)
 //詳細_分類表
 app.post('/:lang/v/detail', (req, res) => {
   let lang = req.params.lang
@@ -167,6 +135,7 @@ app.post('/:lang/v/detail_kiso', (req, res) => {
       targetObj[item.midas_go] = item.rei
     }
   }
+  console.log(targetObj);
   res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
