@@ -427,11 +427,11 @@
       }
       for(const category in items){
         var id = "#"+category
-        for(const item in items[category]){
-          $(id).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./detail_kiso"><td class="t_pl">'+item+'</td><td class="t_jpn">行く</td></tr>')
+        $(id).children(".card-body").find(".c_cand").text(items[category].length)
+        for(const item of items[category]){
+          $(id).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./detail_kiso"><td class="t_pl">'+item+'</td></tr>')
         }
       }
-      /*
       //表示切り替え
       $("#open-jpn").change(function() {
         if ($(this).prop("checked") == false) {
@@ -475,7 +475,6 @@
              window.location.reload();
           }
       };
-      */
     </script>
     <style>
     .card-body {
