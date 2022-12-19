@@ -409,16 +409,28 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-      //データ読み込み
+      //データ読み込み＋スライドトグル設定
       var kiso_bamen = <%- JSON.stringify(kiso_bamen) %>;
       var kiso_imibunrui = <%- JSON.stringify(kiso_imibunrui) %>;
+      var word_obj = <%- JSON.stringify(word_obj) %>;
       var categories = kiso_bamen.concat(kiso_imibunrui)
+      let items = {};
       categories.forEach((item) => {
         var cs = "#"+item
         $(cs).children(".card-header").click(function(){
           $(cs).children(".card-body").slideToggle();
         });
+        items[item] = []
       });
+      for(const i of word_obj){
+        items[i.bamen].push(i.midas_go)
+      }
+      for(const category in items){
+        var id = "#"+category
+        for(const item in items[category]){
+          $(id).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./detail_kiso"><td class="t_pl">'+item+'</td><td class="t_jpn">行く</td></tr>')
+        }
+      }
       /*
       //表示切り替え
       $("#open-jpn").change(function() {
