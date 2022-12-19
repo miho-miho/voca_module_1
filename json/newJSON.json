@@ -1,0 +1,138 @@
+{
+	"fr": [
+		{
+			"NO": "1",
+			"ID": "",
+			"rui": "類",
+			"chuno": "2.15",
+			"chukomoku": "作用",
+			"bamen": "海外旅行",
+			"midas_go": "aller",
+			"rei": [
+				{
+					"imi": "行く、～しに行く＊aller には「順調である、元気である」という意味もある。",
+					"reibun": {
+						"reibun": "On va au cinéma ?",
+						"trans": "（私たちは）映画に行こうか？",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				},
+				{
+					"imi": "行く、～しに行く＊aller には「順調である、元気である」という意味もある。",
+					"reibun": {
+						"reibun": "Je compte aller en Mongolie.",
+						"trans": "（モンゴルに行こうと思ってるのよ。",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				},
+				{
+					"imi": "行く、～しに行く＊aller には「順調である、元気である」という意味もある。",
+					"reibun": {
+						"reibun": "Cet été, ils vont aller en Australie.",
+						"trans": "今年の夏、彼らはオーストラリアに行く予定です",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				},
+				{
+					"imi": "行く、～しに行く＊aller には「順調である、元気である」という意味もある。",
+					"reibun": {
+						"reibun": "En fait, je pense y aller en voyage organisé.",
+						"trans": "実はツアーで行くことを考えているの。",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				},
+				{
+					"imi": "～するつもりだ＊近い未来の行為を表す。",
+					"reibun": {
+						"reibun": "Je voudrais aller passer un an en France...",
+						"trans": "フランスに1年ほど行きたいと思ってるのですが…",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				}
+			]
+		},
+		{
+			"NO": "2",
+			"ID": "",
+			"rui": "相",
+			"chuno": "1.46",
+			"chukomoku": "機械",
+			"bamen": "海外旅行",
+			"midas_go": "avion",
+			"rei": [
+				{
+					"imi": "飛行機",
+					"reibun": {
+						"reibun": "Un billet d'avion pour le Japon ?",
+						"trans": "日本行きの航空チケット？",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				},
+				{
+					"imi": "飛行機",
+					"reibun": {
+						"reibun": "Elle est venue en TGV, pas en avion.",
+						"trans": "彼女は飛行機ではなく、ＴＧＶで来た。",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				},
+				{
+					"imi": "飛行機",
+					"reibun": {
+						"reibun": "L'avion décollera à seize heures.",
+						"trans": "飛行機は16時に離陸の予定です。",
+						"pronun": "",
+						"module_id": "",
+						"xml_file_name": "",
+						"xpath": "",
+						"web_url": "",
+						"usage_id_rel": "",
+						"selected": ""
+					}
+				}
+			]
+		}
+	]
+}
