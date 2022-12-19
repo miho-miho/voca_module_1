@@ -88,6 +88,7 @@ app.get('/:lang/v/howto', (req, res) => {
   });
 });
 
+var word_obj_all = JSON.parse(fs.readFileSync('./json/newJSON.json', 'utf8'));
 //基礎語彙の学習
 app.get('/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
@@ -97,7 +98,8 @@ app.get('/:lang/v/catego', (req, res) => {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
     kiso_bamen: kiso_bamen,
-    kiso_imibunrui: kiso_imibunrui
+    kiso_imibunrui: kiso_imibunrui,
+    word_obj : word_obj_all[lang]
   });
 });
 var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
