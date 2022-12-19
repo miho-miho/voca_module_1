@@ -462,9 +462,9 @@
         .click(function(e) {
           if(!$(e.target).is('a')){
             var targetCategory = ($(e.target).parents('.card').attr("id"))
-            var targetPl = ($(e.target).closest('tr').find(".t_pl").text())
+            var targetWord = ($(e.target).closest('tr').find(".t_pl").text())
             var url = $(e.target).closest('tr').data('href')
-            var targetData = '<input type="hidden" name="category" value="' + targetCategory + '" /><input type="hidden" name="pl_word" value="' + targetPl + '" />'
+            var targetData = '<input type="hidden" name="category" value="' + targetCategory + '" /><input type="hidden" name="targetWord" value="' + targetWord + '" />'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
             $("#post").submit();
           };

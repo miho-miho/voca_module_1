@@ -1,0 +1,100 @@
+<!doctype html><!-- vmod_detail_kiso : 基礎語彙の学習の詳細ページ -->
+<html lang="jp">
+<head>
+  <%- include('../partials/v_head') %>
+</head>
+  <body>
+  <header><%- include('../partials/header') %></header>
+    <main class="container">
+      <div class="row">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="/voca/" class="first-item">東外大言語モジュール top(Node版)</a></li>
+            <li class="breadcrumb-item active"><a href="/voca/<%- lg %>/v/"><%= lang_jp %></a></li>
+            <li class="breadcrumb-item active">語彙モジュール</li>
+          </ol>
+        </nav>
+          <%- include('../partials/v_sidebar') %>
+        <div class="col">
+          <h1>語彙詳細</h1>
+          <div class="row">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb bg-secondary">
+                <li class="breadcrumb-item active" aria-current="page"><a href="./catego" class="first-item">基礎語彙の学習</a></li>
+                <li class="breadcrumb-item active" aria-current="page">詳細</li>
+                <li class="breadcrumb-item active"><a href="" id="UrlToTable"><%= category %></a></li>
+              </ol>
+            </nav>
+            <div class="">
+              <p class="float-end"><span id="now_item">今</span>/<span id="all_items"></span>ページ</p>
+            </div>
+            <div class="result-area container">
+              <h3 class="text-center targetWord"></h3>
+              <hr class="featurette-divider">
+              <div class="result-card-area">
+              </div>
+              <div class="container text-center">
+                <button type="button" name="button" class="btn btn-outline-primary col-auto float-start" id="btn_previous">　前　</button>
+                <a href="./catego">戻る</a>
+                <button type="button" name="button" class="btn btn-outline-primary col-auto float-end" id="btn_next">　次　</button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('../partials/footer') %></footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      var targetTable = "./catego#<%- category %>"
+      window.onload = function(){
+        $("#UrlToTable").prop("href", targetTable);
+      }
+      var targetObj = <%- JSON.stringify(targetObj) %>;
+      var targetWords = Object.keys(targetObj);
+      var targetIndex = "";
+      $("#all_items").text(targetWords.length)
+      targetIndex = targetWords.indexOf("<%= targetWord %>")+1
+      $("#now_item").text(targetIndex)
+      var targetItems = targetObj["<%= targetWord %>"]
+      $(".targetWord").text("<%= targetWord %>")
+      var num = 1;
+      Object.keys(targetItems).forEach((key) => {
+      if(key === "0"){
+        let explain = targetItems[key].imi.replace("＊", "<br>＊")
+        $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
+        $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+        $(".examples:first").append('<p>・'+targetItems[key].reibun.reibun+'</p><p>・'+targetItems[key].reibun.trans+'</p>')
+        num+=1;
+        pre_imi = targetItems[key].imi
+      } else if (key != "0") {
+        if (targetItems[key].imi === pre_imi) {
+          $(".examples:first").append('<p>・'+targetItems[key].reibun.reibun+'</p><p>・'+targetItems[key].reibun.trans+'</p>')
+        } else {
+          explain = targetItems[key].imi.replace("＊", "<br>＊")
+          $(".result-card-area").append('<p class="explain"><span>（'+num+' </span>'+explain+'</p>')
+          $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+          $(".examples:last").append('<p>・'+targetItems[key].reibun.reibun+'</p><p>・'+targetItems[key].reibun.trans+'</p>')
+          num+=1;
+          pre_imi = targetItems[key].imi
+        }
+      }
+      });
+    </script>
+    <style>
+      #btn_previous:disabled, #btn_next:disabled{
+        background-color: gray;
+        color: white;
+        border: black;
+      }
+      main {
+        padding-bottom: 100px;
+      }
+      .sidebar {
+        height: 100vh;
+      }
+    </style>
+  </body>
+</html>
