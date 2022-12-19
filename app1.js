@@ -36,16 +36,11 @@ make_vObj(category_b1, word_obj_b1, vocab_obj_b1);
 make_vObj(category_b2, word_obj_b2, vocab_obj_b2);
 make_vObj(category_b3, word_obj_b3, vocab_obj_b3);
 
-var json4_kiso = JSON.parse(fs.readFileSync('./json/polish4_kiso.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
-var word_obj_k1 = json4_kiso["場面"]
-var word_obj_k2 = json4_kiso["意味分類"]
-var category_k1 = Object.keys(word_obj_k1) //「場面」の分類一覧
-var category_k2 = Object.keys(word_obj_k2) //「意味分類」の分類一覧
-var vocab_obj_k1 = {};
-var vocab_obj_k2 = {};
-
-make_vObj(category_k1, word_obj_k1, vocab_obj_k1);
-make_vObj(category_k2, word_obj_k2, vocab_obj_k2);
+var json_kiso = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
+json_kiso = json_kiso["kisogoi"]
+var kiso_bamen = json_kiso["bamen"]
+var kiso_imibunrui = json_kiso["imibunrui"]
+//console.log(kiso_imibunrui);
 
 //トップページ
 app.get('/', (req, res) => {
@@ -98,13 +93,11 @@ app.get('/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/vmod_catego.ejs', {
+  res.render(pathToLnag + '/vmod/v_catego.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
-    word_obj1: vocab_obj_k1,
-    word_obj2: vocab_obj_k2,
-    category1: category_k1,
-    category2: category_k2
+    kiso_bamen: kiso_bamen,
+    kiso_imibunrui: kiso_imibunrui
   });
 });
 var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
