@@ -135,7 +135,6 @@ app.post('/:lang/v/detail_kiso', (req, res) => {
       targetObj[item.midas_go] = item.rei
     }
   }
-  console.log(targetObj);
   res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
