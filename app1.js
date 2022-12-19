@@ -161,13 +161,18 @@ app.post('/:lang/v/detail_kiso', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/vmod_search_detail_kiso.ejs', {
+  let targetObj = {};
+  for(const item of word_obj_all[lang]){
+    if (item.bamen === req.body.category) {
+      targetObj[item.midas_go] = item.rei
+    }
+  }
+  res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
-    word_obj1: word_obj_k1,
-    word_obj2: word_obj_k2,
+    targetObj : targetObj,
     category: req.body.category,
-    pl_word: req.body.pl_word
+    targetWord: req.body.targetWord
   });
 });
 app.use((req, res, next) => {
