@@ -70,7 +70,6 @@
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
         targetIndex = targetIndex-1
-        console.log(targetIndex);
         if (targetIndex >= 0) {
           $(".result-card-area").empty()
           showResult(targetIndex);
@@ -79,7 +78,6 @@
       $(".btn_next").click(function(){
         $(".btn_previous").prop("disabled", false);
           targetIndex = targetIndex+1
-          console.log(targetIndex);
           if (targetIndex < targetArray.length) {
             $(".result-card-area").empty()
             showResult(targetIndex);
