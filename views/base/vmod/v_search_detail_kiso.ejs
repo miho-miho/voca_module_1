@@ -28,15 +28,19 @@
             <div class="">
               <p class="float-end"><span id="now_item">今</span>/<span id="all_items"></span>ページ</p>
             </div>
+            <div class="container">
+              <button type="button" name="button" class="btn btn-outline-primary col-auto btn_previous">　前　</button>
+              <button type="button" name="button" class="btn btn-outline-primary col-auto btn_next">　次　</button>
+            </div>
             <div class="result-area container">
               <h3 class="text-center targetWord"></h3>
               <hr class="featurette-divider">
               <div class="result-card-area">
               </div>
               <div class="container text-center">
-                <button type="button" name="button" class="btn btn-outline-primary col-auto float-start" id="btn_previous">　前　</button>
+                <button type="button" name="button" class="btn btn-outline-primary col-auto float-start btn_previous">　前　</button>
                 <a href="./catego">戻る</a>
-                <button type="button" name="button" class="btn btn-outline-primary col-auto float-end" id="btn_next">　次　</button>
+                <button type="button" name="button" class="btn btn-outline-primary col-auto float-end btn_next">　次　</button>
               </div>
             </div>
             </div>
@@ -53,38 +57,78 @@
         $("#UrlToTable").prop("href", targetTable);
       }
       var targetObj = <%- JSON.stringify(targetObj) %>;
-      var targetWords = Object.keys(targetObj);
+      var targetArray = Object.entries(targetObj)
       var targetIndex = "";
-      $("#all_items").text(targetWords.length)
-      targetIndex = targetWords.indexOf("<%= targetWord %>")+1
-      $("#now_item").text(targetIndex)
-      var targetItems = targetObj["<%= targetWord %>"]
-      $(".targetWord").text("<%= targetWord %>")
-      var num = 1;
-      Object.keys(targetItems).forEach((key) => {
-      if(key === "0"){
-        let explain = targetItems[key].imi.replace("＊", "<br>＊")
-        $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
-        $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-        $(".examples:first").append('<p>・'+targetItems[key].reibun.reibun+'</p><p>・'+targetItems[key].reibun.trans+'</p>')
-        num+=1;
-        pre_imi = targetItems[key].imi
-      } else if (key != "0") {
-        if (targetItems[key].imi === pre_imi) {
-          $(".examples:first").append('<p>・'+targetItems[key].reibun.reibun+'</p><p>・'+targetItems[key].reibun.trans+'</p>')
-        } else {
-          explain = targetItems[key].imi.replace("＊", "<br>＊")
-          $(".result-card-area").append('<p class="explain"><span>（'+num+' </span>'+explain+'</p>')
-          $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-          $(".examples:last").append('<p>・'+targetItems[key].reibun.reibun+'</p><p>・'+targetItems[key].reibun.trans+'</p>')
-          num+=1;
-          pre_imi = targetItems[key].imi
+      var targetItems;
+      $("#all_items").text(targetArray.length)
+      for (var i = 0; i < targetArray.length; i++) {
+        if (targetArray[i][0] === "<%= targetWord %>") {
+          targetIndex = i
         }
       }
+      showResult(targetIndex)
+      $(".btn_previous").click(function(){
+        $(".btn_next").prop("disabled", false);
+        targetIndex = targetIndex-1
+        console.log(targetIndex);
+        if (targetIndex >= 0) {
+          $(".result-card-area").empty()
+          showResult(targetIndex);
+        }
       });
+      $(".btn_next").click(function(){
+        $(".btn_previous").prop("disabled", false);
+          targetIndex = targetIndex+1
+          console.log(targetIndex);
+          if (targetIndex < targetArray.length) {
+            $(".result-card-area").empty()
+            showResult(targetIndex);
+          }
+      });
+      function showResult(index){
+        Number(index)
+        $("#now_item").text(index+1);
+        var targetItem = {}
+        $(".targetWord").text(targetArray[index][0])
+        targetItem = targetArray[index][1]
+        var num = 1;
+        Object.keys(targetItem).forEach((key) => {
+          if(key === "0"){
+            let explain = targetItem[key].imi.replace("＊", "<br>＊")
+            $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
+            $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+            $(".examples:first").append('<p>・'+targetItem[key].reibun.reibun+'</p><p>・'+targetItem[key].reibun.trans+'</p>')
+            num+=1;
+            pre_imi = targetItem[key].imi
+          } else if (key != "0") {
+            if (targetItem[key].imi === pre_imi) {
+              $(".examples:first").append('<p>・'+targetItem[key].reibun.reibun+'</p><p>・'+targetItem[key].reibun.trans+'</p>')
+            } else {
+              explain = targetItem[key].imi.replace("＊", "<br>＊")
+              $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
+              $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+              $(".examples:last").append('<p>・'+targetItem[key].reibun.reibun+'</p><p>・'+targetItem[key].reibun.trans+'</p>')
+              num+=1;
+              pre_imi = targetItem[key].imi
+            }
+          }
+        });
+        switch (index) {
+            case 0:
+              $(".btn_previous").prop("disabled", true);
+              break;
+            case targetArray.length-1:
+              $(".btn_next").prop("disabled", true);
+              break;
+          }
+          if (targetArray.length === 1) {
+            $(".btn_previous").prop("disabled", true);
+            $(".btn_next").prop("disabled", true);
+          }
+      }
     </script>
     <style>
-      #btn_previous:disabled, #btn_next:disabled{
+      .btn_previous:disabled, .btn_next:disabled{
         background-color: gray;
         color: white;
         border: black;
