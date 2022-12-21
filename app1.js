@@ -10,32 +10,6 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var word_obj_b = JSON.parse(fs.readFileSync('./json/polish4.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
-var word_obj_b1 = word_obj_b["体"]
-var word_obj_b2 = word_obj_b["用"]
-var word_obj_b3 = word_obj_b["相"]
-const category_b1 = Object.keys(word_obj_b1) //語彙分類表の分類一覧
-const category_b2 = Object.keys(word_obj_b2) //語彙分類表の分類一覧
-const category_b3 = Object.keys(word_obj_b3) //語彙分類表の分類一覧
-var vocab_obj_b1 = {};
-var vocab_obj_b2 = {};
-var vocab_obj_b3 = {};
-var li = [];
-function make_vObj(category_list, w_obj, v_obj){
-  category_list.forEach((item) => {
-    w_obj[item].forEach((it) => {
-      it["語彙"].forEach((item) => {
-        li.push(item)
-      });
-    });
-    v_obj[item] = li
-    li = []
-  });
-}
-make_vObj(category_b1, word_obj_b1, vocab_obj_b1);
-make_vObj(category_b2, word_obj_b2, vocab_obj_b2);
-make_vObj(category_b3, word_obj_b3, vocab_obj_b3);
-
 var json_parts = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 var json_kiso = json_parts["kisogoi"]
 var kiso_bamen = json_kiso["bamen"]
