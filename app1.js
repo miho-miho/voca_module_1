@@ -36,10 +36,14 @@ make_vObj(category_b1, word_obj_b1, vocab_obj_b1);
 make_vObj(category_b2, word_obj_b2, vocab_obj_b2);
 make_vObj(category_b3, word_obj_b3, vocab_obj_b3);
 
-var json_kiso = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
-json_kiso = json_kiso["kisogoi"]
+var json_parts = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
+var json_kiso = json_parts["kisogoi"]
 var kiso_bamen = json_kiso["bamen"]
 var kiso_imibunrui = json_kiso["imibunrui"]
+var json_bunrui = json_parts["bunruigoi"]
+var bunrui_tai = json_bunrui["tai"]
+var bunrui_yo = json_bunrui["yo"]
+var bunrui_so = json_bunrui["so"]
 //console.log(kiso_imibunrui);
 
 //トップページ
@@ -112,10 +116,10 @@ app.get('/:lang/v/table', (req, res) => {
   res.render(pathToLnag + '/vmod/v_table.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
-    vocab_obj_b: vocab_obj_b_all,
-    category_b1: category_b1,
-    category_b2: category_b2,
-    category_b3: category_b3,
+    word_obj : word_obj_all[lang],
+    bunrui_so : bunrui_so,
+    bunrui_yo : bunrui_yo,
+    bunrui_tai : bunrui_tai
   });
 });
 /*
