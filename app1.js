@@ -10,10 +10,17 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+var json_parts = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
+var json_kiso = json_parts["kisogoi"]
 var json_kiso = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 json_kiso = json_kiso["kisogoi"]
+
 var kiso_bamen = json_kiso["bamen"]
 var kiso_imibunrui = json_kiso["imibunrui"]
+var json_bunrui = json_parts["bunruigoi"]
+var bunrui_tai = json_bunrui["tai"]
+var bunrui_yo = json_bunrui["yo"]
+var bunrui_so = json_bunrui["so"]
 //console.log(kiso_imibunrui);
 
 //トップページ
@@ -82,10 +89,37 @@ app.get('/:lang/v/table', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/vmod_table.ejs', {
+  var make_vObj = {
+    "体":[],
+    "用":[],
+    "相":[]
+  }
+  Object.keys(word_obj_all[lang]).forEach(function (key) {
+    Object.keys(make_vObj).forEach((k) => {
+      if (k === word_obj_all[lang][key]["rui"]) {
+        make_vObj[k].push(word_obj_all[lang][key]["chuno"])
+      }
+    });
+  });
+  res.render(pathToLnag + '/vmod/v_table.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
+    make_vObj : make_vObj
   });
+});
+//分類表_結果リスト
+app.get('/:lang/v/table/v_search_list=:chuno', (req, res)=> {
+  let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  let chuno = req.params.chuno
+    Object.keys(word_obj_all[lang]).forEach(function(key) {
+      if(word_obj_all[lang][key]["chuno"] === chuno){
+        console.log(word_obj_all[lang][key]);
+      }
+    });
+  res.send(req.params.chuno)
 });
 /*
 //検索(日・ポ)
