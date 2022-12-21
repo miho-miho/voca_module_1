@@ -113,13 +113,22 @@ app.get('/:lang/v/table', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
+  var make_vObj = {
+    "体":[],
+    "用":[],
+    "相":[]
+  }
+  Object.keys(word_obj_all[lang]).forEach(function (key) {
+    Object.keys(make_vObj).forEach((k) => {
+      if (k === word_obj_all[lang][key]["rui"]) {
+        make_vObj[k].push(word_obj_all[lang][key]["chuno"])
+      }
+    });
+  });
   res.render(pathToLnag + '/vmod/v_table.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
-    word_obj : word_obj_all[lang],
-    bunrui_so : bunrui_so,
-    bunrui_yo : bunrui_yo,
-    bunrui_tai : bunrui_tai
+    make_vObj : make_vObj
   });
 });
 /*
