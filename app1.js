@@ -109,7 +109,7 @@ app.get('/:lang/v/table', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/vmod_table.ejs', {
+  res.render(pathToLnag + '/vmod/v_table.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
     vocab_obj_b: vocab_obj_b_all,
