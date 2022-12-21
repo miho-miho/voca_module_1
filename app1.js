@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var json_parts = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 var json_kiso = json_parts["kisogoi"]
+var json_kiso = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
+json_kiso = json_kiso["kisogoi"]
+
 var kiso_bamen = json_kiso["bamen"]
 var kiso_imibunrui = json_kiso["imibunrui"]
 var json_bunrui = json_parts["bunruigoi"]
@@ -80,7 +83,6 @@ app.get('/:lang/v/catego', (req, res) => {
     word_obj : word_obj_all[lang]
   });
 });
-var vocab_obj_b_all = Object.assign(vocab_obj_b1, vocab_obj_b2, vocab_obj_b3)
 //分類表
 app.get('/:lang/v/table', (req, res) => {
   let lang = req.params.lang
@@ -141,7 +143,6 @@ app.get('/smod', (req,res) => {
     });
 });
 */
-var word_obj_b_all = Object.assign(word_obj_b1, word_obj_b2, word_obj_b3)
 //詳細_分類表
 app.post('/:lang/v/detail', (req, res) => {
   let lang = req.params.lang

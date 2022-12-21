@@ -70,7 +70,6 @@
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
         targetIndex = targetIndex-1
-        console.log(targetIndex);
         if (targetIndex >= 0) {
           $(".result-card-area").empty()
           showResult(targetIndex);
@@ -79,7 +78,6 @@
       $(".btn_next").click(function(){
         $(".btn_previous").prop("disabled", false);
           targetIndex = targetIndex+1
-          console.log(targetIndex);
           if (targetIndex < targetArray.length) {
             $(".result-card-area").empty()
             showResult(targetIndex);
@@ -93,25 +91,13 @@
         targetItem = targetArray[index][1]
         var num = 1;
         Object.keys(targetItem).forEach((key) => {
-          if(key === "0"){
-            let explain = targetItem[key].imi.replace("＊", "<br>＊")
-            $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
-            $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-            $(".examples:first").append('<p>・'+targetItem[key].reibun.reibun+'</p><p>・'+targetItem[key].reibun.trans+'</p>')
-            num+=1;
-            pre_imi = targetItem[key].imi
-          } else if (key != "0") {
-            if (targetItem[key].imi === pre_imi) {
-              $(".examples:first").append('<p>・'+targetItem[key].reibun.reibun+'</p><p>・'+targetItem[key].reibun.trans+'</p>')
-            } else {
-              explain = targetItem[key].imi.replace("＊", "<br>＊")
-              $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
-              $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-              $(".examples:last").append('<p>・'+targetItem[key].reibun.reibun+'</p><p>・'+targetItem[key].reibun.trans+'</p>')
-              num+=1;
-              pre_imi = targetItem[key].imi
-            }
+          let explain = targetItem[key].imi.replace("＊", "<br>＊")
+          $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
+          $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+          for (var item of targetItem[key].reibun) {
+            $(".examples").append('<p>・'+item.reibun+'</p><p>・'+item.trans+'</p>')
           }
+          num+=1;
         });
         switch (index) {
             case 0:
