@@ -134,7 +134,15 @@ app.get('/:lang/v/table', (req, res) => {
 //分類表_結果リスト
 app.get('/:lang/v/table/v_search_list=:chuno', (req, res)=> {
   let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
   let chuno = req.params.chuno
+    Object.keys(word_obj_all[lang]).forEach(function(key) {
+      if(word_obj_all[lang][key]["chuno"] === chuno){
+        console.log(word_obj_all[lang][key]);
+      }
+    });
   res.send(req.params.chuno)
 });
 /*
