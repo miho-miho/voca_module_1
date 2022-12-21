@@ -131,6 +131,12 @@ app.get('/:lang/v/table', (req, res) => {
     make_vObj : make_vObj
   });
 });
+//分類表_結果リスト
+app.get('/:lang/v/table/v_search_list=:chuno', (req, res)=> {
+  let lang = req.params.lang
+  let chuno = req.params.chuno
+  res.send(req.params.chuno)
+});
 /*
 //検索(日・ポ)
 app.get('/vmod_search', (req, res) => {
