@@ -148,10 +148,6 @@ body {
 .pagination .act a {
   color: #fff;
 }
-
-.list-group-flush>.list-group-item {
-    border-width: 1px;
-}
 /*オートコンプリートのサイズ調整*/
 .ui-autocomplete {
   max-height: 200px;
