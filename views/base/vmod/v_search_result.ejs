@@ -24,15 +24,10 @@
             </nav>
             <div class="row">
               <h5 class="col-6">　id　語彙</h5>
-              <h5 class="col-6">取得件数：<span></span>件</h5>
+              <h5 class="col-6">取得件数：<span class="c_cand"></span>件</h5>
             </div>
             <div class="result-area container">
               <div class="list-group list-group-flush result-list">
-              <a href="#" class="list-group-item list-group-item-action"><span>1.</span>The current link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-                <a href="#" class="list-group-item list-group-item-action">A disabled link item</a>
               </div>
             </div><!-- result-area -->
           </div>
@@ -43,7 +38,31 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script type="text/javascript">
-
+      var search_result_list = <%- JSON.stringify(search_result_list) %>;
+      $(".c_cand").text(search_result_list.length)
+      var imi_list = []
+      var i = 1;
+      for (var item of search_result_list) {
+        for (var im of item.rei) {
+          let explain = im.imi
+          if (explain.includes("＊")) {
+            imi_list.push(explain.substring(0, explain.indexOf("＊")))
+          } else {
+            imi_list.push(explain)
+          }
+        }
+        $(".result-list").append('<a href="./t_search_detail=<%= chuno %>" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go">'+item.midas_go+'</span>（'+imi_list+'）</a>')
+        i+=1;
+        imi_list = []
+      }
+      $(".result-list").find("a").on("click", function(){
+        var targetWord = $(this).find(".midas_go").text()
+        var url = $(this).prop("href")
+        var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="chuno" value="<%= chuno %>"/><input type="hidden" name="targetWord" value="' + targetWord + '" />'
+        $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
+        $("#post").submit();
+        return false;
+      });
     </script>
     <style>
       .main {
@@ -51,6 +70,12 @@
       }
       .sidebar {
         height: 100vh;
+      }
+      .id, .c_cand{
+        padding-right: 10px;
+      }
+      .result-list a {
+        max-width: 400px;
       }
     </style>
   </body>
