@@ -158,7 +158,25 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
     chuno: chuno
   })
 });
+//検索
+app.get('/:lang/v/v_search', (req, res) => {
+  let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  var words = []
+  for (var i of word_obj_all[lang]) {
+    words.push(i.midas_go)
+  }
+  res.render(pathToLnag + '/vmod/v_search.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
+    words : words,
+    word_obj : word_obj_all[lang]
+  });
+});
 
+//エラー処理
 app.use((req, res, next) => {
   res.status(404).send("<h1>準備中…</h1><p>404</p>");
 });

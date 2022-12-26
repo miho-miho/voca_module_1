@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <%- include('../partials/v_head') %>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main class="container">
+      <div class="row">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="/voca/" class="first-item">東外大言語モジュール top(Node版)</a></li>
+            <li class="breadcrumb-item active"><a href="/voca/<%- lg %>/v/"><%= lang_jp %></a></li>
+            <li class="breadcrumb-item active">語彙モジュール</li>
+          </ol>
+        </nav>
+          <%- include('../partials/v_sidebar') %>
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">検索</h2>
+            </div>
+          </div>
+          <div class="explain">
+            <ol>
+              <li>検索したい言語をタブで選択する</li>
+              <li>「検索」をクリックする</li>
+            </ol>
+            <p><strong>＊次の単語を検索する時は必ず「リセット」をクリックしてください</strong></p>
+            <p><strong>＊前方、後方、完全一致またはあいまい検索が可能です。</strong><br>
+               　前方一致：[a] で検索　→　[apple] や [apricot] などを検索できます。<br>
+               　後方一致：[a] で検索　→　[banana] や [guava] などを検索できます。<br>
+               　あいまい検索：[ra] で検索　→　[grape] や [orange] などを検索できます。</p>
+          </div>
+          <div class="tab_box">
+             <div class="btn_area">
+               <button type="button" class="btn tab_btn active" id="defo-tab">検索</button>
+             </div>
+             <div class="panel_area container" id="tab-area">
+               <div class="tab_panel active" id="defo-panel">
+                 <div class="search-type-select row">
+                   <div class="col-lg">
+                     単語を入力してください　候補：<span id="inputCand">0</span>件
+                   </div>
+                   <div class="form-check-inline col-lg-6">
+                     <div class="float-end">
+                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type1" checked>
+                       <label for="search-type1" class="form-check-label">前方一致</label>
+                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type2">
+                       <label for="search-type2" class="form-check-label">後方一致</label>
+                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type3">
+                       <label for="search-type3" class="form-check-label">あいまい検索</label>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="row">
+                   <div class="col-7">
+                      <input type="text" class="form-control col-auto" id="keyword">
+                    </div>
+                    <div class="col-3">
+                      <button class="btn btn-outline-primary col-auto" id="search-btn">検索</button>
+                    </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="search-result-area container">
+             <div class="row">
+               <div class="col">
+                 <h4>検索結果</h4>
+               </div>
+               <div class="col float-end">
+                 <button class="btn btn-outline-primary" id="reset-btn">リセット</button>
+               </div>
+               <div class="container">
+                 <div class="result-table">
+                   <div class="card" id="result">
+                     <table class="table table-borderless table-hover text-center">
+                       <thead class="">
+                         <tr class="border-bottom bg-light">
+                           <th scope="col"><%= lang_jp %></th>
+                           <th scope="col">意味</th>
+                           <th scope="col">分類</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                       </tbody>
+                     </table>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('../partials/footer') %></footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    //検索タイプ設定
+    var words_list = <%- JSON.stringify(words) %>;
+    var word_obj = <%- JSON.stringify(word_obj) %>;
+    function getRandomStr() {
+       var result = Math.random().toString(36).slice(-8);
+        return result;
+    }
+    $(".search-type").change(function(){
+      if ($(this).attr("id") === "search-type1") { //前方一致
+        $(function() {
+          $("#keyword").autocomplete({
+            source: function(request, response) {
+              var list = [];
+              list = words_list.filter(function (word) {
+                return word.indexOf(request.term) === 0 || word.toLowerCase().indexOf(request.term) === 0;
+              });
+              response(list);
+              $("#inputCand").text(list.length)
+            },
+          });
+        });
+      }else if ($(this).attr("id") === "search-type3") { //あいまい検索
+        $(function() {
+          $("#keyword").autocomplete({
+            source: function(request, response) {
+              var list = [];
+              list = words_list.filter(function (word) {
+                return word.indexOf(request.term) != -1 || word.toLowerCase().indexOf(request.term) != -1;
+              });
+              response(list);
+              $("#inputCand").text(list.length)
+            },
+          });
+        });
+      } else if ($(this).attr("id") === "search-type2") { //後方一致
+        $(function() {
+          $("#keyword").autocomplete({
+            source: function(request, response) {
+              var randamStr = getRandomStr();
+              var list = [];
+              list = words_list.filter(function (word) {
+                var str = word+randamStr
+                return str.indexOf(+request.term+randamStr) !== -1 || str.toLowerCase().indexOf(request.term+randamStr) !== -1;
+              });
+              response(list);
+              $("#inputCand").text(list.length)
+            },
+          });
+        });
+      }
+    });
+    //オートコンプリート（デフォルト）
+    $(function() {
+      $("#keyword").autocomplete({
+        source: function(request, response) {
+          var list = [];
+          list = words_list.filter(function (word) {
+            return word.indexOf(request.term) === 0 || word.toLowerCase().indexOf(request.term) === 0;
+          });
+          response(list);
+          $("#inputCand").text(list.length)
+        },
+      });
+    });
+
+    $("#keyword").keyup(function(){
+      if($("#keyword").val().length === 0){
+        $("#inputCand").text("0")
+      }
+    });
+    $("#search-btn").click(function(){
+      if ($(".t_pl").text() != "") {
+         ;
+      } else {
+        var targetWord = $("#keyword").val();
+        if (targetWord === "") {
+          swal({
+            text: "単語を入力してください"
+　           });
+        } else if (targetWord.length > 0) {
+          var targetWord = $("#keyword").val();
+          for (var item in word_obj) {
+            if (word_obj[item].midas_go === targetWord) {
+              console.log(word_obj[item]);
+              var imi_list = []
+              for (var im of word_obj[item].rei) {
+                let explain = im.imi
+                if (explain.includes("＊")) {
+                  imi_list.push(explain.substring(0, explain.indexOf("＊")))
+                } else {
+                  imi_list.push(explain)
+                }
+              }
+              var targetURL = "./t_search_list="+word_obj[item].chuno
+              $("tbody").append('<tr><td class="t_pl" data-href="">'+word_obj[item].midas_go+'</td></tr>')
+              $("tbody").find("tr").append('<td class="t_jpn">'+imi_list+'</td>')
+              $("tbody").find("tr").append('<td class="category"><a href='+targetURL+'>'+word_obj[item].chukomoku+'</a></td>')
+            }
+          }
+        }
+      }
+    });
+    //リセットボタン
+    $(function (){
+      $("#reset-btn").on("click", function(){
+        clearFrom();
+      });
+      function clearFrom() {
+        $("#keyword").val("");
+        $("#result").children("table").find("tbody").empty();
+        targetItems = []
+        $("#inputCand").text("0")
+      }
+    });
+    </script>
+    <style>
+      footer {
+        padding-top: 40px;
+      }
+      @media screen and (min-width: 1200px) {
+        .sidebar {
+          height: 100vh;
+        }
+      }
+      .search-type-select {
+        padding-bottom: 10px;
+      }
+    </style>
+</body>
+</html>
