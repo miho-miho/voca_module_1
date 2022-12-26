@@ -1,0 +1,57 @@
+<!doctype html><!-- vmod_detail0 : 分類表の詳細ページ -->
+<html lang="jp">
+  <head><%- include('../partials/v_head') %></head>
+  <body>
+  <header><%- include('../partials/header') %></header>
+    <main class="container">
+      <div class="row">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="/voca/" class="first-item">東外大言語モジュール top(Node版)</a></li>
+            <li class="breadcrumb-item active"><a href="/voca/<%- lg %>/v/"><%= lang_jp %></a></li>
+            <li class="breadcrumb-item active">語彙モジュール</li>
+          </ol>
+        </nav>
+        <%- include('../partials/v_sidebar') %>
+        <div class="col main">
+          <h1>語彙リスト</h1>
+          <div class="row">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb bg-secondary">
+                <li class="breadcrumb-item active first-item"><a href="./table">基礎語彙分類表</a></li>
+                <li class="breadcrumb-item active"><strong><%= category %></strong></li>
+              </ol>
+            </nav>
+            <div class="row">
+              <h5 class="col-6">　id　語彙</h5>
+              <h5 class="col-6">取得件数：<span></span>件</h5>
+            </div>
+            <div class="result-area container">
+              <div class="list-group list-group-flush result-list">
+              <a href="#" class="list-group-item list-group-item-action"><span>1.</span>The current link item</a>
+                <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+                <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+                <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+                <a href="#" class="list-group-item list-group-item-action">A disabled link item</a>
+              </div>
+            </div><!-- result-area -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('../partials/footer') %></footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+    </script>
+    <style>
+      .main {
+        padding-bottom: 100px;
+      }
+      .sidebar {
+        height: 100vh;
+      }
+    </style>
+  </body>
+</html>
