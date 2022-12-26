@@ -13,7 +13,9 @@ h1 {
 footer {
   padding-top: 50px;
 }
-
+.main {
+  padding-bottom: 100px;
+}
 .header-title {
     font-size: 1.3rem;/* calcサポート外をフォールバック */
     font-size: calc(1.3rem + ((1vw - 0.48rem) * 0.5556));/* viewportが480px以上1200px以下可変 */
