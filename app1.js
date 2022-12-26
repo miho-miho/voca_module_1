@@ -127,8 +127,10 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
     search_result_list: search_result_list,
-    category: category
+    category: category,
+    chuno: chuno
   });
+  search_result_list = []
 });
 /*
 //検索(日・ポ)
@@ -186,6 +188,29 @@ app.post('/:lang/v/detail_kiso', (req, res) => {
     targetWord: req.body.targetWord
   });
 });
+//詳細_分類表
+app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
+  let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  let chuno = req.params.chuno
+  let targetObj = {};
+  for(const item of word_obj_all[lang]){
+    if (item.chuno === req.body.chuno) {
+      targetObj[item.midas_go] = item.rei
+    }
+  }
+  res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
+    targetObj : targetObj,
+    category: req.body.category,
+    targetWord: req.body.targetWord,
+    chuno: chuno
+  })
+});
+
 app.use((req, res, next) => {
   res.status(404).send("<h1>準備中…</h1><p>404</p>");
 });
