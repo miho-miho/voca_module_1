@@ -92,7 +92,7 @@
         Object.keys(targetItem).forEach((key) => {
           let explain = targetItem[key].imi.replace("＊", "<br>＊")
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
-          $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+          $(".result-card-area").append('<div class="card result-card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
           for (var item of targetItem[key].reibun) {
             $(".examples").append('<p>・'+item.reibun+'</p><p>・'+item.trans+'</p>')
           }
@@ -120,6 +120,9 @@
       }
       .main {
         padding-bottom: 100px;
+      }
+      .result-card {
+        margin-top: 0px;
       }
     </style>
   </body>
