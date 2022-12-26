@@ -423,13 +423,24 @@
         items[item] = []
       });
       for(const i of word_obj){
-        items[i.bamen].push(i.midas_go)
+        var pairs = {}
+        var imi_list = []
+        for (var im of i.rei) {
+          let explain = im.imi
+          if (explain.includes("＊")) {
+            imi_list.push(explain.substring(0, explain.indexOf("＊")))
+          } else {
+            imi_list.push(explain)
+          }
+        }
+        pairs[i.midas_go] = imi_list
+        items[i.bamen].push(pairs)
       }
       for(const category in items){
         var id = "#"+category
         $(id).children(".card-body").find(".c_cand").text(items[category].length)
         for(const item of items[category]){
-          $(id).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./detail_kiso"><td class="t_pl">'+item+'</td></tr>')
+          $(id).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+Object.keys(item)+'</td><td class="t_jpn">'+Object.values(item)+'</td></tr>')
         }
       }
       //表示切り替え
@@ -463,8 +474,8 @@
           if(!$(e.target).is('a')){
             var targetCategory = ($(e.target).parents('.card').attr("id"))
             var targetWord = ($(e.target).closest('tr').find(".t_pl").text())
-            var url = $(e.target).closest('tr').data('href')
-            var targetData = '<input type="hidden" name="category" value="' + targetCategory + '" /><input type="hidden" name="targetWord" value="' + targetWord + '" />'
+            var url = $(e.target).closest('tr').data('href')+'='+targetCategory
+            var targetData = '<input type="hidden" name="targetWord" value="' + targetWord + '" />'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
             $("#post").submit();
           };
