@@ -4,7 +4,7 @@
   <%- include('../partials/v_head') %>
 </head>
   <body>
-  <header><%- include('../partials/header') %></header>
+    <header><%- include('../partials/header') %></header>
     <main class="container">
       <div class="row">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -54,9 +54,6 @@
     <script>
       var targetObj = <%- JSON.stringify(targetObj) %>;
       var targetArray = Object.entries(targetObj)
-      for (var i of targetArray) {
-        console.log(i);
-      }
       var targetIndex = "";
       var targetItems;
       $("#all_items").text(targetArray.length)
