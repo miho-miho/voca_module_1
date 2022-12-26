@@ -1,5 +1,5 @@
 {
-  "name": "trans_example",
+  "name": "voca_module_1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,7 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "bootstrap-icons": "^1.10.2",
     "ejs": "^3.1.8",
-    "express": "^4.18.1"
+    "express": "^4.18.2"
   }
 }

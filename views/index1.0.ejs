@@ -1,45 +1,102 @@
 <!doctype html>
-<html lang="ja" class="h-100">
+<html lang="ja">
 <head>
-  <!-- CSSの設定ファイル -->
-  <%- include('partials/head'); %>
-  <link rel="stylesheet" href="stylesheets/index.css">
+  <%- include('./base/partials/index_head'); %>
 </head>
-<body class="">
-  <head>
-    <%- include('partials/header'); %>
-  </head>
-  <div class="">
-    <header>
-    </header>
-    <main class="main container">
-      <h1 class="text-center">Hello, World!</h1>
-      <div class="main-words row">
-        <p>世界の言葉を比べてみよう！</p>
+<body>
+  <header><%- include('./base/partials/header'); %></header>
+  <main>
+    <div class="container main">
+      <h1 class="text-center">東外大言語モジュール（Node版）</h1>
+      <div class="row">
+        <div class="col-lg-6 col-xs-12">
+          <h3 class="text-center"><a href="http://www.coelang.tufs.ac.jp/mt/" class="text-decoration-none link-dark">従来モジュール</a></h3>
+          <div class="container">
+            <div class="row">
+              <div class="col flex-column links text-center">
+                <ul class="list-unstyled">
+                  <li><a href="/mt/en/">英語</a></li>
+                  <li><a href="/mt/de/">ドイツ語</a></li>
+                  <li><a href="/mt/pl/">ポーランド語</a></li>
+                  <li><a href="/mt/cs/">チェコ語</a></li>
+                  <li><a href="/mt/fr/">フランス語</a></li>
+                  <li><a href="/mt/it/">イタリア語</a></li>
+                  <li><a href="/mt/es/">スペイン語</a></li>
+                  <li><a href="/mt/pt/">ポルトガル語</a></li>
+                  <li><a href="/mt/ru/">ロシア語</a></li>
+                  <li><a href="/mt/mn/">モンゴル語</a></li>
+                  <li><a href="/mt/zh/">中国語</a></li>
+                  <li><a href="/mt/ko/">朝鮮語</a></li>
+                  <li><a href="/mt/id/">マレーシア語</a></li>
+                </ul>
+              </div>
+              <div class="col flex-column links text-center">
+                <ul class="list-unstyled">
+                  <li><a href="/mt/ms/">マレーシア語</a></li>
+                  <li><a href="/mt/tl/">フィリピノ語</a></li>
+                  <li><a href="/mt/th/">タイ語</a></li>
+                  <li><a href="/mt/lo/">ラオス語</a></li>
+                  <li><a href="/mt/vi/">ベトナム語</a></li>
+                  <li><a href="/mt/km/">カンボジア語</a></li>
+                  <li><a href="/mt/my/">ビルマ語</a></li>
+                  <li><a href="/mt/ur/">ウルドゥー語</a></li>
+                  <li><a href="/mt/hi/">ヒンディー語</a></li>
+                  <li><a href="/mt/bn/">ベンガル語</a></li>
+                  <li><a href="/mt/ar/">アラビア語</a></li>
+                  <li><a href="/mt/fa/">ペルシア語</a></li>
+                  <li><a href="/mt/tr/">トルコ語</a></li>
+                  <li><a href="/mt/ja/">日本語</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-xs-12">
+          <h3 class="text-center">新語彙モジュール</h3>
+          <div class="container">
+            <div class="row">
+              <div class="col flex-column links text-center">
+                <ul class="list-unstyled">
+                  <li><a href="./en/v/">英語</a></li>
+                  <li><a href="./de/v/">ドイツ語</a></li>
+                  <li><a href="./pl/v/">ポーランド語</a></li>
+                  <li><a href="./cs/v/">チェコ語</a></li>
+                  <li><a href="./fr/v/">フランス語</a></li>
+                  <li><a href="./it/v/">イタリア語</a></li>
+                  <li><a href="./es/v/">スペイン語</a></li>
+                  <li><a href="./pt/v/">ポルトガル語</a></li>
+                  <li><a href="./ru/v/">ロシア語</a></li>
+                  <li><a href="./mn/v/">モンゴル語</a></li>
+                  <li><a href="./zh/v/">中国語</a></li>
+                  <li><a href="./ko/v/">朝鮮語</a></li>
+                  <li><a href="./id/v/">マレーシア語</a></li>
+                </ul>
+              </div>
+              <div class="col flex-column links text-center">
+                <ul class="list-unstyled">
+                  <li><a href="./ms/v/">マレーシア語</a></li>
+                  <li><a href="./tl/v/">フィリピノ語</a></li>
+                  <li><a href="./th/v/">タイ語</a></li>
+                  <li><a href="./lo/v/">ラオス語</a></li>
+                  <li><a href="./vi/v/">ベトナム語</a></li>
+                  <li><a href="./km/v/">カンボジア語</a></li>
+                  <li><a href="./my/v/">ビルマ語</a></li>
+                  <li><a href="./ur/v/">ウルドゥー語</a></li>
+                  <li><a href="./hi/v/">ヒンディー語</a></li>
+                  <li><a href="./bn/v/">ベンガル語</a></li>
+                  <li><a href="./ar/v/">アラビア語</a></li>
+                  <li><a href="./fa/v/">ペルシア語</a></li>
+                  <li><a href="./tr/v/">トルコ語</a></li>
+                  <li><a href="./ja/v/">日本語</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <img src="/images/地図.gif" usemap="#Maps">
-      <map name="Maps">
-        <area shape="poly" coords="206,352,225,345,245,346,249,374,243,385,227,383,213,375,208,372,207,372" href="/polish" alt="" />
-        <!--<area shape="poly" coords="546,382,533,396,521,398,518,409,509,410,508,428,491,442,479,444,484,453,485,464,496,467,495,482,542,509,565,502,588,502,592,514,594,537,621,530,644,542,687,517,695,497,694,486,684,471,698,458,675,449,685,447,696,437,695,446,707,443,737,422,737,410,753,390,723,378,711,351,688,353,681,378,672,378,672,392,686,401,664,410,659,403,641,423,609,430,592,424,576,425,573,416,563,412,561,399,551,387,551,386" href="/chinese" alt="" />-->
-      </map>
+    </div>
    </main>
-    <footer class="fixed-bottom">
-      <%- include('partials/footer'); %>
-    </footer>
-  </div>
+  <footer class="fixed-bottom"><%- include('./base/partials/footer'); %></footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.rwdImageMaps.min.js"></script>
-  <script>
-    $(document).ready(function(e) {
-        $('img[usemap]').rwdImageMaps();
-      });
-      $(function(){
-        $('area').hover(
-          function() { $(this).focus().css('outline','10px solid #000'); },
-          function() { $(this).blur().css('outline','none'); }
-        )
-      });
-  </script>
 </body>
-
 </html>

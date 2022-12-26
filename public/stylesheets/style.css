@@ -2,32 +2,30 @@ body {
   min-height: 100vh;/*①高さの最小値*/
   position: relative;/*②相対位置*/
 }
-/* 折り畳み可能リストのサイドバー用 */
-.btn-toggle {
-  padding: .25rem .5rem;
-  font-weight: 600;
-  color: rgba(0, 0, 0, .65);
-  background-color: transparent;
+/*ヘッダー*/
+.navbar-nav li {
+  display:inline;
 }
-.btn-toggle:hover,
-.btn-toggle:focus {
+.header-title {
+    font-size: 1.3rem;/* calcサポート外をフォールバック */
+    font-size: calc(1.3rem + ((1vw - 0.48rem) * 0.5556));/* viewportが480px以上1200px以下可変 */
+    min-height: 0vw;/* Safari用バグフィックス */
+}
+@media screen and (min-width: 1200px) {
+  .header-title {
+      font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .header-title {
+    font-size: 0.85rem;
+  }
+}
+/* 折り畳み可能リストのサイドバー用 */
+.sidebar-link:hover,
+.sidebar-link:focus {
   color: rgba(0, 0, 0, .85);
   background-color: #d2f4ea;
-}
-
-.btn-toggle::before {
-  width: 1.25em;
-  line-height: 0;
-  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%280,0,0,.5%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 14l6-6-6-6'/%3e%3c/svg%3e");
-  transition: transform .35s ease;
-  transform-origin: .5em 50%;
-}
-
-.btn-toggle[aria-expanded="true"] {
-  color: rgba(0, 0, 0, .85);
-}
-.btn-toggle[aria-expanded="true"]::before {
-  transform: rotate(90deg);
 }
 
 .btn-toggle-nav a {
@@ -70,6 +68,10 @@ body {
 .card {
   margin-top: 20px;
   margin-bottom: 30px;
+}
+
+h1 {
+  padding-top: 10px;s
 }
 
 /*タブ実装*/
@@ -165,10 +167,6 @@ body {
 .pagination .act a {
   color: #fff;
 }
-
-.list-group-flush>.list-group-item {
-    border-width: 1px;
-}
 /*オートコンプリートのサイズ調整*/
 .ui-autocomplete {
   max-height: 200px;
@@ -179,9 +177,6 @@ body {
 /* vmod_catego */
 .vocaBox {
   min-height: 40px;
-}
-.voca_area1, .voca_area2, .result-table{
-  padding-bottom: 100px;
 }
 .voca_area1 .card-body {
   display: none;

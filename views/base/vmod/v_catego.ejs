@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="jp">
+<head>
+  <%- include('../partials/v_head') %>
+</head>
+<body>
+  <header>
+    <%- include('../partials/header') %>
+  </header>
+  <main class="container">
+    <div class="row">
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb bg-secondary">
+          <li class="breadcrumb-item"><a href="/voca/" class="first-item">東外大言語モジュール top(Node版)</a></li>
+          <li class="breadcrumb-item active">
+            <a href="./">
+              <%= lang_jp %>
+            </a>
+          </li>
+          <li class="breadcrumb-item active">語彙モジュール</li>
+        </ol>
+      </nav>
+      <%- include('../partials/v_sidebar') %>
+        <div class="col-lg main">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">基礎語彙の学習</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container">
+              <div class="form-check form-switch form-check-inline float-end"> <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option2" id="open-jpn" checked> <label for="inlineRadio2" class="form-check-label">日本語</label> </div>
+              <div class="form-check form-switch form-check-inline float-end"> <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option1" id="open-pl" checked> <label for="inlineRadio1" class="form-check-label"><%= lang_jp %></label> </div>
+            </div>
+            <div class="voca_area1 col-sm">
+              <div class="vocaBox card">
+                <div class="card-header bg-secondary" style="color:white;"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                  </svg> <span class="align-middle">場面による学習</span> </div>
+              </div>
+              <div class="resultArea1">
+                <div class="vocaBox card" id="海外旅行">
+                  <div class="card-header">海外旅行</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="スポーツ">
+                  <div class="card-header">スポーツ</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="道">
+                  <div class="card-header">道</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="会社">
+                  <div class="card-header">会社</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="図書館">
+                  <div class="card-header">図書館</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="店">
+                  <div class="card-header">店</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="家庭／家">
+                  <div class="card-header">家庭／家</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="部屋">
+                  <div class="card-header">部屋</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="交番">
+                  <div class="card-header">交番</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="美容院">
+                  <div class="card-header">美容院</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="学校">
+                  <div class="card-header">学校</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="授業">
+                  <div class="card-header">授業</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="病院">
+                  <div class="card-header">病院</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="駅">
+                  <div class="card-header">駅</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="喫茶店">
+                  <div class="card-header">喫茶店</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="レストラン／食堂">
+                  <div class="card-header">レストラン／食堂</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="銀行">
+                  <div class="card-header">銀行</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="郵便局">
+                  <div class="card-header">郵便局</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="デパート">
+                  <div class="card-header">デパート</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="不動産屋">
+                  <div class="card-header">不動産屋</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="voca_area2 col-sm">
+              <div class="vocaBox card">
+                <div class="card-header bg-secondary" style="color:white;"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                  </svg> <span class="align-middle" id="span_c">意味分類による学習</span> </div>
+              </div>
+              <div class="resultArea2">
+                <div class="vocaBox card" id="代名詞">
+                  <div class="card-header">代名詞</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="形容詞 1">
+                  <div class="card-header">形容詞 1</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="形容詞 2">
+                  <div class="card-header">形容詞 2</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="空間">
+                  <div class="card-header">空間</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="家族">
+                  <div class="card-header">家族</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="身につける物・動作">
+                  <div class="card-header">身につける物・動作</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="身体">
+                  <div class="card-header">身体</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="食生活">
+                  <div class="card-header">食生活</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="道具・家具">
+                  <div class="card-header">道具・家具</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="時・月">
+                  <div class="card-header">時・月</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="時・週">
+                  <div class="card-header">時・週</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="時・年">
+                  <div class="card-header">時・年</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="時・日">
+                  <div class="card-header">時・日</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="時">
+                  <div class="card-header">時</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="娯楽・趣味">
+                  <div class="card-header">娯楽・趣味</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="天気">
+                  <div class="card-header">天気</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="ことば">
+                  <div class="card-header">ことば</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="人間">
+                  <div class="card-header">人間</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="vocaBox card" id="色">
+                  <div class="card-header">色</div>
+                  <div class="card-body">
+                    <p class="float-end"><span class="c_cand"></span>件</p>
+                    <table class="table table-hover">
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      //データ読み込み＋スライドトグル設定
+      var kiso_bamen = <%- JSON.stringify(kiso_bamen) %>;
+      var kiso_imibunrui = <%- JSON.stringify(kiso_imibunrui) %>;
+      var word_obj = <%- JSON.stringify(word_obj) %>;
+      var categories = kiso_bamen.concat(kiso_imibunrui)
+      let items = {};
+      categories.forEach((item) => {
+        var cs = "#"+item
+        $(cs).children(".card-header").click(function(){
+          $(cs).children(".card-body").slideToggle();
+        });
+        items[item] = []
+      });
+      for(const i of word_obj){
+        var pairs = {}
+        var imi_list = []
+        for (var im of i.rei) {
+          let explain = im.imi
+          if (explain.includes("＊")) {
+            imi_list.push(explain.substring(0, explain.indexOf("＊")))
+          } else {
+            imi_list.push(explain)
+          }
+        }
+        pairs[i.midas_go] = imi_list
+        items[i.bamen].push(pairs)
+      }
+      for(const category in items){
+        var id = "#"+category
+        $(id).children(".card-body").find(".c_cand").text(items[category].length)
+        for(const item of items[category]){
+          $(id).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+Object.keys(item)+'</td><td class="t_jpn">'+Object.values(item)+'</td></tr>')
+        }
+      }
+      //表示切り替え
+      $("#open-jpn").change(function() {
+        if ($(this).prop("checked") == false) {
+          $(".t_jpn").css("visibility", "hidden");
+        } else {
+          $(".t_jpn").css("visibility", "visible");
+        }
+      });
+      $("#open-pl").click(function() {
+        if ($(this).prop("checked") == false) {
+          $(".t_pl").css("visibility", "hidden");
+        } else {
+          $(".t_pl").css("visibility", "visible");
+        }
+      });
+      //エラー要解消
+      window.onload = function(){
+        var hash = decodeURI(location.hash.substring(1));
+        if (hash.length === 0) {
+          ;
+        } else{
+          $("#"+hash).children(".card-body").slideToggle();
+        }
+      }
+      //詳細へのリンク
+      jQuery(function($){
+        $('tr[data-href]').addClass('clickable')
+        .click(function(e) {
+          if(!$(e.target).is('a')){
+            var targetCategory = ($(e.target).parents('.card').attr("id"))
+            var targetWord = ($(e.target).closest('tr').find(".t_pl").text())
+            var url = $(e.target).closest('tr').data('href')+'='+targetCategory
+            var targetData = '<input type="hidden" name="targetWord" value="' + targetWord + '" />'
+            $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
+            $("#post").submit();
+          };
+        });
+      });
+      window.onpageshow = function(event) {
+         if (event.persisted) {
+             window.location.reload();
+          }
+      };
+    </script>
+    <style>
+    .card-body {
+      overflow-y: scroll;
+      height:fit-content;
+      max-height: 300px;
+    }
+    .card-body p{
+      margin-bottom: auto;
+    }
+    .main {
+      padding-bottom: 100px;
+    }
+    </style>
+  </body>
+</html>

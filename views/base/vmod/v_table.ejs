@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="jp">
+<head><%- include('../partials/v_head') %></head>
+<body>
+  <header><%- include('../partials/header') %></header>
+    <main class="container">
+      <div class="row">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="/voca/" class="first-item">東外大言語モジュール top(Node版)</a></li>
+            <li class="breadcrumb-item active"><a href="./"><%= lang_jp %></a></li>
+            <li class="breadcrumb-item active">語彙モジュール</li>
+          </ol>
+        </nav>
+        <%- include('../partials/v_sidebar') %>
+          <div class="col-lg main">
+            <div class="card">
+              <div class="card-header">
+                <h2 class="card-title">基礎語彙分類表</h2>
+              </div>
+            </div>
+            <p>ここでは国立国語研究所の『分類語彙表 増補改訂版』(2004)の分類方法を踏襲しています。 <br>「体の類」は名詞の類、「用の類」は動詞の類、「相の類」は形容詞の類を表します。</p>
+            <div class="row">
+              <div class="container">
+                <div class="form-check form-switch form-check-inline float-end"> <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option2" id="open-jpn" checked> <label for="open-jpn" class="form-check-label">日本語</label> </div>
+                <div class="form-check form-switch form-check-inline float-end"> <input type="checkbox" class="form-check-input" name="inlineRadioOptions" role="switch" value="option1" id="open-pl" checked> <label for="open-pl" class="form-check-label"><%= lang_jp %></label> </div>
+              </div>
+            </div>
+            <div class="row resultRow">
+              <div class="col-sm-6 col-md-4 mb1" id="bunrui_tai">
+                <div class="card titleBox">
+                  <div class="card-header bg-secondary" style="color:white;"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                  </svg> <span class="align-middle">1. 体の類</span> </div>
+                </div>
+                <ul class="list-unstyled list-group first-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.10</span></span></span>事柄</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.11</span>類</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.12</span>存在</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.13</span>様相</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.14</span>力</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.15</span>作用</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.16</span>時間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.17</span>空間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.18</span>形</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.19</span>量</a>
+                </ul>
+                <ul class="list-unstyled list-group second-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.20</span>人間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.21</span>家族</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.22</span>仲間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.23</span>人物</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.24</span>成員</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.25</span>公私</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.26</span>社会</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.27</span>機関</a>
+                </ul>
+                <ul class="list-unstyled list-group third-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.30</span>心</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.31</span>言語</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.32</span>芸術</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.33</span>生活</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.34</span>行為</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.35</span>交わり</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.36</span>待遇</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.37</span>経済</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.38</span>事業</a>
+                </ul>
+                <ul class="list-unstyled list-group forth-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.40</span></span>物品</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.41</span>資材</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.42</span>衣料</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.43</span>食料</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.44</span>住居</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.45</span>道具</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.46</span>機械</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.47</span>土地利用</a>
+                </ul>
+                <ul class="list-unstyled list-group fifth-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.50</span>自然</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.51</span>物質</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.52</span>天地</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.53</span>生物</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.54</span>植物</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.55</span>動物</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.56</span>身体</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>1.57</span>生命</a>
+                </ul>
+                <ul class="list-unstyled list-group sixth-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>4.11接続</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>4.30感動</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>4.31判断</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>4.32呼び掛け</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>4.33挨拶</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>4.50動物の鳴き声</a>
+                </ul>
+              </div>
+              <div class="col-sm-6 col-md-4 mb1" id="bunrui_yo">
+                <div class="card titleBox">
+                  <div class="card-header bg-secondary" style="color:white;"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                    </svg> <span class="align-middle">2. 用の類</span></div>
+                </div>
+                <ul class="list-unstyled list-group first-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.10</span>真偽</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.11</span>類</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.12</span>存在</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.13</span>様相</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.14</span>力</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.15</span>作用</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.16</span>時間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.17</span>空間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.19</span>量</a>
+                </ul>
+                <ul class="list-unstyled list-group second-row d-none d-sm-block none">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                </ul>
+                <ul class="list-unstyled list-group third-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.30</span>心</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.31</span>言語</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.32</span>芸術</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.33</span>生活</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.34</span>行為</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.35</span>交わり</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.36</span>待遇</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.37</span>経済</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.38</span>事業</a>
+                </ul>
+                <ul class="list-unstyled list-group forth-row  d-none d-sm-block none">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>0.00</a>
+                </ul>
+                <ul class="list-unstyled list-group fifth-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.50</span>自然</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.51</span>物質</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.52</span>天地</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.56</span>身体</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.57</span>生命</a>
+                </ul>
+                </div>
+              <div class="col-sm-6 col-md-4 mb1" id="bunrui_so">
+                <div class="card titleBox">
+                  <div class="card-header bg-secondary" style="color:white;"> <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-text" viewBox="0 0 16 16">
+                    <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z"/>
+                    <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z"/>
+                  </svg> <span class="align-middle">3. 相の類</span> </div>
+                </div>
+                <ul class="list-unstyled list-group first-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.10</span>真偽</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.11</span>類</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.12</span>存在</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.13</span>様相</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.14</span>力</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.15</span>作用</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.16</span>時間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.17</span>空間</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.18</span>形</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.19</span>量</a>
+                </ul>
+                <ul class="list-unstyled list-group second-row d-none d-sm-block none">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.10真偽</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.11類</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.12存在</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.13様相</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.14力</a>
+                  <a href="" href="./" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.15作用</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.16時間</a>
+                  <li class="list-group-item none">0.00</a>
+                </ul>
+                <ul class="list-unstyled list-group third-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.30</span>心</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.31</span>言語</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.32</span>芸術</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.33</span>生活</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.34</span>行為</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.35</span>交わり</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.36</span>待遇</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.37</span>経済</a>
+                </ul>
+                <ul class="list-unstyled list-group forth-row d-none d-sm-block none">
+                  <li class="list-group-item none">0.00</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.10真偽</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.11類</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.12存在</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.13様相</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.14力</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.15作用</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>2.16時間</a>
+                  <li class="list-group-item none">0.00</a>
+                </ul>
+                <ul class="list-unstyled list-group fifth-row">
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.50</span>自然</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.51</span>物質</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.52</span>天地</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.53</span>生物</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.56</span>身体</a>
+                  <a href="" class="list-group-item list-group-item-action disabled" aria-disabled="true"><span>3.57</span>生命</a>
+                </ul>
+              </div>
+          </div>
+      </div>
+    </main>
+    <footer><%- include('../partials/footer') %></footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var make_vObj = <%- JSON.stringify(make_vObj) %>;
+      //console.log(make_vObj);
+      var tai = "体";
+      var yo = "用"
+      var so = "相"
+      var url = "./v_search_list"
+      Object.keys(make_vObj).forEach((k) => {
+        for (var item of make_vObj[k]) {
+          switch (k) {
+            case tai:
+              $("#bunrui_tai").children("ul").children("a").each(function(){
+                if (item === $(this).find("span").text()) {
+                  $(this).removeAttr("aria-disabled")
+                  $(this).removeClass("disabled")
+                  var url = "./t_search_list="+item
+                  $(this).attr("href", url)
+                }
+              });
+            break;
+            case yo:
+              $("#bunrui_yo").children("ul").children("a").each(function(){
+                if (item === $(this).find("span").text()) {
+                  $(this).removeAttr("aria-disabled")
+                  $(this).removeClass("disabled")
+                  var url = "./t_search_list="+item
+                  $(this).attr("href", url)
+                }
+              });
+            break;
+            case so:
+              $("#bunrui_so").children("ul").children("a").each(function(){
+                if (item === $(this).find("span").text()) {
+                  $(this).removeAttr("aria-disabled")
+                  $(this).removeClass("disabled")
+                  var url = "./t_search_list="+item
+                  $(this).attr("href", url)
+                }
+              });
+            break;
+          }
+        }
+      });
+    </script>
+    <style>
+      .none {
+        visibility: hidden;
+      }
+      .titleBox {
+        margin-bottom: 10px;;
+      }
+      .resultRow ul {
+        margin-bottom: 10px;
+      }
+      .resultRow span {
+        padding-right: 20px;
+      }
+      p {
+        margin-bottom: 0px;
+      }
+      .main {
+        padding-bottom: 100px;
+      }
+      .list-group-item-action, .list-group-item{
+        color: #0d6efd;
+      }
+      .list-group-item-action:hover,
+      .list-group-item-action:focus {
+        color: #0d6efd;
+      }
+    </style>
+</body>
+</html>

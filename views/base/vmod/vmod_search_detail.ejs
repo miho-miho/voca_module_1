@@ -1,0 +1,141 @@
+<!doctype html><!-- vmod_detail0 : 分類表の詳細ページ -->
+<html lang="jp">
+  <head><%- include('../partials/v_head') %></head>
+  <body>
+  <header><%- include('../partials/header') %></header>
+    <main class="container">
+      <div class="row">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+          <ol class="breadcrumb bg-secondary">
+            <li class="breadcrumb-item"><a href="/voca/" class="first-item">東外大言語モジュール top(Node版)</a></li>
+            <li class="breadcrumb-item active"><a href="/voca/<%- lg %>/v/"><%= lang_jp %></a></li>
+            <li class="breadcrumb-item active">語彙モジュール</li>
+          </ol>
+        </nav>
+        <%- include('../partials/v_sidebar') %>
+        <div class="col">
+          <h1>語彙詳細</h1>
+          <div class="row">
+            <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+              <ol class="breadcrumb bg-secondary">
+                <li class="breadcrumb-item active first-item"><a href="./table">分類表</a></li>
+                <li class="breadcrumb-item active" aria-current="page">語彙詳細</li>
+                <li class="breadcrumb-item active"><a href="" id="UrlToTable"><%= category %></a></li>
+                <li class="breadcrumb-item active"><strong class="pl_word"></strong></li>
+              </ol>
+            </nav>
+            <div class="container">
+              <p class="float-end"><span id="now_item">今</span>/<span id="all_items"></span>ページ</p>
+            </div>
+            <div class="result-area container">
+              <h3 class="text-center pl_word"></h3>
+              <hr class="featurette-divider">
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="card-title text-center">＜例文＞</h5>
+                </div><!-- card-header -->
+                <div class="card-body">
+                </div><!-- card-body -->
+              </div><!-- card -->
+              <div class="container text-center">
+                <button type="button" name="button" class="btn btn-outline-primary col-auto float-start" id="btn_previous">　前　</button>
+                <a href="./table">戻る</a>
+                <button type="button" name="button" class="btn btn-outline-primary col-auto float-end" id="btn_next">　次　</button>
+              </div>
+            </div><!-- result-area -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer><%- include('../partials/footer') %></footer>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+      var targetTable = "./table#<%- category %>"
+      window.onload = function(){
+        $("#UrlToTable").prop("href", targetTable);
+      }
+      var word_obj = <%- JSON.stringify(data1) %>;
+      var targetObj;
+      var targetIndexes = [];
+      var targetIndex = "";
+      for (c in word_obj){
+        if (c === "<%- category %>") {
+          $("#all_items").text(word_obj[c].length)
+          targetObj = word_obj[c]
+        }
+      }
+      targetObj.forEach((item, i) => {
+        item["語彙"].forEach((it) => {
+          if(it[0] === "<%- pl_word %>"){
+            targetIndex = i
+          }
+        });
+      });
+      showResult(targetIndex);
+      $("#btn_previous").click(function(){
+        $("#btn_next").prop("disabled", false);
+        targetIndex = targetIndex-1
+        if (targetIndex >= 0) {
+          targetIndexes = []
+          targetIndexes.push(targetIndex)
+          $(".card-body").empty()
+          showResult(targetIndex);
+        }
+      });
+      $("#btn_next").click(function(){
+        $("#btn_previous").prop("disabled", false);
+          targetIndex = targetIndex+1
+          if (targetIndex < targetObj.length) {
+            targetIndexes = []
+            targetIndexes.push(targetIndex)
+            $(".card-body").empty()
+            showResult(targetIndex);
+          }
+      });
+      function showResult(index){
+        $("#now_item").text(index+1);
+        var targetItem = {}
+        targetItem = targetObj[index]
+        $(".pl_word").text(targetItem["語彙"][0][0])
+        let num = 0
+        for (var i = 0; i < targetItem["語彙"].length; i++) {
+          let Num = i+1
+          $(".card-body").append('<h5>（'+Num+'）'+targetItem["語彙"][i][1]+'</h5')
+          var pl_exam = targetItem["例文"][num].join(" ")
+          $(".card-body").append('<h5>'+pl_exam+'</h5')
+          var pl_morph = targetItem["形態素"][num].join(" / ")
+          $(".card-body").append('<p>'+pl_morph+'</p')
+          num+=1
+          var jpn_exam = targetItem["例文"][num]
+          $(".card-body").append('<h5>'+jpn_exam+'</h5>')
+          var jpn_morph = targetItem["形態素"][num].join(" / ")
+          $(".card-body").append('<p>'+jpn_morph+'</p')
+          num+=1
+        }
+        switch (index) {
+          case 0:
+            $("#btn_previous").prop("disabled", true);
+            break;
+          case targetObj.length-1:
+            $("#btn_next").prop("disabled", true);
+            break;
+        }
+        if (targetObj.length === 1) {
+          $("#btn_previous").prop("disabled", true);
+          $("#btn_next").prop("disabled", true);
+        }
+      }
+    </script>
+    <style>
+      #btn_previous:disabled, #btn_next:disabled{
+        background-color: gray;
+        color: white;
+        border: black;
+      }
+      main {
+        padding-bottom: 100px;
+      }
+    </style>
+  </body>
+</html>
