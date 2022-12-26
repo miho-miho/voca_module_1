@@ -107,19 +107,30 @@ app.get('/:lang/v/table', (req, res) => {
     make_vObj : make_vObj
   });
 });
+
+var search_result_list = []
 //分類表_結果リスト
-app.get('/:lang/v/table/v_search_list=:chuno', (req, res)=> {
+app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
+  var category;
   let chuno = req.params.chuno
     Object.keys(word_obj_all[lang]).forEach(function(key) {
       if(word_obj_all[lang][key]["chuno"] === chuno){
-        console.log(word_obj_all[lang][key]);
+        category = word_obj_all[lang][key]["chukomoku"]
+        search_result_list.push(word_obj_all[lang][key]);
       }
     });
-  res.send(req.params.chuno)
+  res.render(pathToLnag + '/vmod/v_search_result.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
+    search_result_list: search_result_list,
+    category: category,
+    chuno: chuno
+  });
+  search_result_list = []
 });
 /*
 //検索(日・ポ)
@@ -142,7 +153,6 @@ app.get('/smod', (req,res) => {
     category_k: category_k1.concat(category_k2)
     });
 });
-*/
 //詳細_分類表
 app.post('/:lang/v/detail', (req, res) => {
   let lang = req.params.lang
@@ -157,15 +167,17 @@ app.post('/:lang/v/detail', (req, res) => {
     pl_word: req.body.pl_word
   });
 });
+*/
 //詳細_基礎
-app.post('/:lang/v/detail_kiso', (req, res) => {
+app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
+  let category = req.params.category
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   let targetObj = {};
   for(const item of word_obj_all[lang]){
-    if (item.bamen === req.body.category) {
+    if (item.bamen === category) {
       targetObj[item.midas_go] = item.rei
     }
   }
@@ -173,10 +185,33 @@ app.post('/:lang/v/detail_kiso', (req, res) => {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
     targetObj : targetObj,
-    category: req.body.category,
+    category: category,
     targetWord: req.body.targetWord
   });
 });
+//詳細_分類表
+app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
+  let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  let chuno = req.params.chuno
+  let targetObj = {};
+  for(const item of word_obj_all[lang]){
+    if (item.chuno === req.body.chuno) {
+      targetObj[item.midas_go] = item.rei
+    }
+  }
+  res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
+    lg : lang,
+    lang_jp : info.lang_info.lang_jp,
+    targetObj : targetObj,
+    category: req.body.category,
+    targetWord: req.body.targetWord,
+    chuno: chuno
+  })
+});
+
 app.use((req, res, next) => {
   res.status(404).send("<h1>準備中…</h1><p>404</p>");
 });

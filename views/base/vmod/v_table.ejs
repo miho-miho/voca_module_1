@@ -230,7 +230,7 @@
                 if (item === $(this).find("span").text()) {
                   $(this).removeAttr("aria-disabled")
                   $(this).removeClass("disabled")
-                  var url = "./table/v_search_list="+item
+                  var url = "./t_search_list="+item
                   $(this).attr("href", url)
                 }
               });
@@ -240,7 +240,7 @@
                 if (item === $(this).find("span").text()) {
                   $(this).removeAttr("aria-disabled")
                   $(this).removeClass("disabled")
-                  var url = "./table/v_search_list="+item
+                  var url = "./t_search_list="+item
                   $(this).attr("href", url)
                 }
               });
@@ -250,7 +250,7 @@
                 if (item === $(this).find("span").text()) {
                   $(this).removeAttr("aria-disabled")
                   $(this).removeClass("disabled")
-                  var url = "./table/v_search_list="+item
+                  var url = "./t_search_list="+item
                   $(this).attr("href", url)
                 }
               });
@@ -277,6 +277,13 @@
       }
       .main {
         padding-bottom: 100px;
+      }
+      .list-group-item-action, .list-group-item{
+        color: #0d6efd;
+      }
+      .list-group-item-action:hover,
+      .list-group-item-action:focus {
+        color: #0d6efd;
       }
     </style>
 </body>

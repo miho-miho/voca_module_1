@@ -6,6 +6,21 @@ body {
 .navbar-nav li {
   display:inline;
 }
+.header-title {
+    font-size: 1.3rem;/* calcサポート外をフォールバック */
+    font-size: calc(1.3rem + ((1vw - 0.48rem) * 0.5556));/* viewportが480px以上1200px以下可変 */
+    min-height: 0vw;/* Safari用バグフィックス */
+}
+@media screen and (min-width: 1200px) {
+  .header-title {
+      font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .header-title {
+    font-size: 0.85rem;
+  }
+}
 /* 折り畳み可能リストのサイドバー用 */
 .sidebar-link:hover,
 .sidebar-link:focus {
@@ -53,6 +68,10 @@ body {
 .card {
   margin-top: 20px;
   margin-bottom: 30px;
+}
+
+h1 {
+  padding-top: 10px;s
 }
 
 /*タブ実装*/
@@ -147,10 +166,6 @@ body {
 
 .pagination .act a {
   color: #fff;
-}
-
-.list-group-flush>.list-group-item {
-    border-width: 1px;
 }
 /*オートコンプリートのサイズ調整*/
 .ui-autocomplete {

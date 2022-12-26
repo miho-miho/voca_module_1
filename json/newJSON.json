@@ -67,6 +67,44 @@
 		},
 		{
 			"NO": "2",
+			"ID": "100",
+			"rui": "用",
+			"chuno": "2.15",
+			"chukomoku": "作用",
+			"bamen": "海外旅行",
+			"midas_go": "ajouter",
+			"rei": [
+				{
+					"imi": "くわえる。付け加える。",
+					"reibun": [
+						{
+							"reibun": "Il a ajouté: «Je rentre en France.»",
+							"trans": "そして彼は付けくわえた、フランスへ帰ると",
+							"pronun": "",
+							"module_id": "",
+							"xml_file_name": "",
+							"xpath": "",
+							"web_url": "",
+							"usage_id_rel": "",
+							"selected": ""
+						},
+						{
+							"reibun": "Il a ajouté qu'il rentrait en France.",
+							"trans": "フランスへ帰ると彼は付けくわえた",
+							"pronun": "",
+							"module_id": "",
+							"xml_file_name": "",
+							"xpath": "",
+							"web_url": "",
+							"usage_id_rel": "",
+							"selected": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"NO": "2",
 			"ID": "101",
 			"rui": "体",
 			"chuno": "1.46",
