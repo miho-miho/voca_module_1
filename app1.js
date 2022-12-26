@@ -169,14 +169,15 @@ app.post('/:lang/v/detail', (req, res) => {
 });
 */
 //詳細_基礎
-app.post('/:lang/v/detail_kiso', (req, res) => {
+app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
+  let category = req.params.category
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   let targetObj = {};
   for(const item of word_obj_all[lang]){
-    if (item.bamen === req.body.category) {
+    if (item.bamen === category) {
       targetObj[item.midas_go] = item.rei
     }
   }
@@ -184,7 +185,7 @@ app.post('/:lang/v/detail_kiso', (req, res) => {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
     targetObj : targetObj,
-    category: req.body.category,
+    category: category,
     targetWord: req.body.targetWord
   });
 });
