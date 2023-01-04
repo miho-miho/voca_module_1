@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const bodyParser = require("body-parser");
+var { Client } = require('pg');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -22,6 +23,23 @@ var bunrui_tai = json_bunrui["tai"]
 var bunrui_yo = json_bunrui["yo"]
 var bunrui_so = json_bunrui["so"]
 //console.log(kiso_imibunrui);
+
+var client = new Client({
+    user: 'fr',
+    host: 'localhost',
+    database: 'vmod_fr',
+    password: 'foagura',
+    port: 5432
+})
+
+client.connect((err) => {
+  if (err) {
+    console.log('error connecting: ' + err.stack);
+    return;
+  } else {
+    console.log('success');　　//問題なければ「success」を
+  }
+});
 
 //トップページ
 app.get('/', (req, res) => {
