@@ -28,7 +28,7 @@ const query = {
 client
   .query(query)
   .then((res) => {
-    console.log(res.rows[0:10]);
+    console.log(res.rows);
     client.end();
   })
   .catch((e) => console.error(e.stack));
