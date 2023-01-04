@@ -15,7 +15,7 @@
           </ol>
         </nav>
           <%- include('../partials/v_sidebar') %>
-        <div class="col">
+        <div class="col-lg main">
           <div class="card">
             <div class="card-header">
               <h2 class="card-title">利用の手引き</h2>
@@ -44,13 +44,19 @@
         </div>
       </div>
     </main>
+    <div class="push"></div>/
     <footer><%- include('../partials/footer') %></footer>
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+      let windowWidth = $(window).width()
+      if (windowWidth < 767) {
+        $(function(){
+          $("#v_sidebar").before($(".main"));
+        });
+      }
+      </script>
       <style>
-        footer {
-          padding-top: 40px;
-        }
         @media screen and (min-width: 1200px) {
           .sidebar {
             height: 100vh;

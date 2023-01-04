@@ -61,9 +61,12 @@ body {
    margin-bottom: 0;
  }
 
-.footer {
-  padding-top: 30px;
+footer {
+  margin-top: -40px;
 }
+ .push {
+   height: 40px;/*フッターと同じ高さに指定*/
+ }
 
 .card {
   margin-top: 20px;
