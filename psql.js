@@ -23,7 +23,7 @@ client.connect((err) => {
 });
 
 const query = {
-  text: "SELECT * FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id WHERE chukoumoku_no='4.30'"
+  text: "SELECT rui,chukoumoku_no,chukomoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.word_id WHERE t_usage_classified_rel.chukoumoku_no='4.30'"
 };
 client
   .query(query)
