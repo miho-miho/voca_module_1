@@ -41,7 +41,7 @@
               <hr class="featurette-divider">
               <div class="result-card-area">
               </div>
-              <div class="container text-center">
+              <div class="container text-center button-area">
                 <button type="button" name="button" class="btn btn-outline-primary col-auto float-start btn_previous">　前　</button>
                 <a href="./table">戻る</a>
                 <button type="button" name="button" class="btn btn-outline-primary col-auto float-end btn_next">　次　</button>
@@ -117,6 +117,7 @@
       if (windowWidth < 767) {
         $(function(){
           $("#v_sidebar").before($(".main"));
+          $(".button-area").css("padding-bottom", "40px")
         });
       }
     </script>
