@@ -48,15 +48,7 @@
       var imi_list = []
       var i = 1;
       for (var item of search_result_list) {
-        for (var im of item.rei) {
-          let explain = im.imi
-          if (explain.includes("＊")) {
-            imi_list.push(explain.substring(0, explain.indexOf("＊")))
-          } else {
-            imi_list.push(explain)
-          }
-        }
-        $(".result-list").append('<a href="./t_search_detail=<%= chuno %>" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go">'+item.midas_go+'</span>（'+imi_list+'）</a>')
+        $(".result-list").append('<a href="./t_search_detail=<%= chuno %>" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi">'+item.basic+'</span>（'+item.midasi+'）</a>')
         i+=1;
         imi_list = []
       }

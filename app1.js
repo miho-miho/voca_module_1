@@ -98,8 +98,9 @@ app.get('/:lang/v/table', (req, res) => {
   Object.keys(word_obj_all[lang]).forEach(function (key) {
     Object.keys(make_vObj).forEach((k) => {
       if (k === word_obj_all[lang][key]["rui"]) {
-        make_vObj[k].push(word_obj_all[lang][key]["chuno"])
+        make_vObj[k].push(word_obj_all[lang][key]["chukoumoku_no"])
       }
+      make_vObj[k] = [...new Set(make_vObj[k])]
     });
   });
   res.render(pathToLnag + '/vmod/v_table.ejs', {
@@ -119,11 +120,12 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   var category;
   let chuno = req.params.chuno
     Object.keys(word_obj_all[lang]).forEach(function(key) {
-      if(word_obj_all[lang][key]["chuno"] === chuno){
-        category = word_obj_all[lang][key]["chukomoku"]
+      if(word_obj_all[lang][key]["chukoumoku_no"] === chuno){
+        category = word_obj_all[lang][key]["chukoumoku"]
         search_result_list.push(word_obj_all[lang][key]);
       }
     });
+    console.log(search_result_list);
   res.render(pathToLnag + '/vmod/v_search_result.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
