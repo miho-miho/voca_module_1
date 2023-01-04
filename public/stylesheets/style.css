@@ -62,10 +62,10 @@ body {
  }
 
 footer {
-  margin-top: -40px;
+  margin-top: -56px;
 }
  .push {
-   height: 40px;/*フッターと同じ高さに指定*/
+   height: 56px;/*フッターと同じ高さに指定*/
  }
 
 .card {
