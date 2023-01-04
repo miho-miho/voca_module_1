@@ -407,6 +407,7 @@
         </div>
     </div>
   </main>
+  <div class="push"></div>/
   <footer>
     <%- include('../partials/footer') %>
   </footer>
@@ -490,6 +491,12 @@
              window.location.reload();
           }
       };
+      let windowWidth = $(window).width()
+      if (windowWidth < 767) {
+        $(function(){
+          $("#v_sidebar").before($(".main"));
+        });
+      }
     </script>
     <style>
     .card-body {
@@ -499,9 +506,6 @@
     }
     .card-body p{
       margin-bottom: auto;
-    }
-    .main {
-      padding-bottom: 100px;
     }
     </style>
   </body>
