@@ -23,7 +23,7 @@ client.connect((err) => {
 });
 
 const query = {
-  text: 'SELECT * FROM t_usage_classified_rel'
+  text: 'SELECT * FROM t_usage_classified_rel chukoumoku_no="4.30"'
 };
 client
   .query(query)
