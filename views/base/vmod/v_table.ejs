@@ -226,11 +226,13 @@
       var tai = "体";
       var yo = "用"
       var so = "相"
+      var ta = "他"
       var url = "./v_search_list"
       Object.keys(make_vObj).forEach((k) => {
         for (var item of make_vObj[k]) {
           switch (k) {
             case tai:
+            case ta:
               $("#bunrui_tai").children("ul").children("a").each(function(){
                 if (item === $(this).find("span").text()) {
                   $(this).removeAttr("aria-disabled")
