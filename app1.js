@@ -131,19 +131,36 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   var info = require(pathToLnag + "/config")
   var category;
   let chuno = req.params.chuno
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: "SELECT t_usage.usage_id,t_usage.word_id,chukoumoku_no,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE chukoumoku_no = ?;"
+  };
+  client.query(query, [chuno], (error, result) => {
+    if (err) throw err;
+    console.log(result.rows);
+    res.render(pathToLnag + '/vmod/v_search_result.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      search_result_list: search_result_list,
+      category: category,
+      chuno: chuno
+    });
+  });
+  /*
     Object.keys(word_obj_all[lang]).forEach(function(key) {
       if(word_obj_all[lang][key]["chukoumoku_no"] === chuno){
         category = word_obj_all[lang][key]["chukoumoku"]
         search_result_list.push(word_obj_all[lang][key]);
       }
     });
-  res.render(pathToLnag + '/vmod/v_search_result.ejs', {
-    lg : lang,
-    lang_jp : info.lang_info.lang_jp,
-    search_result_list: search_result_list,
-    category: category,
-    chuno: chuno
-  });
+  */
   search_result_list = []
 });
 //詳細_基礎
