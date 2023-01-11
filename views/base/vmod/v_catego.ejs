@@ -428,8 +428,9 @@
         items[item] = []
       });
       word_obj.forEach((item) => {
-        ;
+        items[item.scene].push(item)
       });
+      console.log(items);
       for(const category in items){
         var id = "#"+category
         $(id).children(".card-body").find(".c_cand").text(items[category].length)
