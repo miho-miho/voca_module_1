@@ -115,7 +115,7 @@ app.get('/:lang/v/table', (req, res) => {
             make_vObj[k].push(item["chukoumoku_no"])
           }
           make_vObj[k] = [...new Set(make_vObj[k])]
-        }
+        });
       });
       console.log(make_vObj);
       client.end();
