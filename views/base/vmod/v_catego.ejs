@@ -429,9 +429,9 @@
       });
       word_obj.forEach((item) => {
         var info = {}
-        pair.basic = item.basic
-        pair.explanation = item.explanation
-        pair.word_id = item.word_id
+        info.basic = item.basic
+        info.explanation = item.explanation
+        info.word_id = item.word_id
         items[item.scene].push(info)
       });
       for(const id in items){
