@@ -110,9 +110,9 @@ app.get('/:lang/v/table', (req, res) => {
   client.query(query, (error, result) => {
     result.rows.forEach((item) => {
       make_vObj[item["rui"]].push(item["chukoumoku_no"])
-      Object.keys(make_vObj).forEach((k) => {
-        make_vObj[k] = [...new Set(make_vObj[k])]
-      });
+    });
+    Object.keys(make_vObj).forEach((k) => {
+      make_vObj[k] = [...new Set(make_vObj[k])]
     });
     res.render(pathToLnag + '/vmod/v_table.ejs', {
       lg : lang,
