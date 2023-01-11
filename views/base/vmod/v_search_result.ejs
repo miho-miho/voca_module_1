@@ -45,12 +45,10 @@
     <script type="text/javascript">
       var search_result_list = <%- JSON.stringify(search_result_list) %>;
       $(".c_cand").text(search_result_list.length)
-      var imi_list = []
       var i = 1;
       for (var item of search_result_list) {
         $(".result-list").append('<a href="./t_search_detail=<%= chuno %>" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go">'+item.basic+'</span>（'+item.midasi+'）</a>')
         i+=1;
-        imi_list = []
       }
       $(".result-list").find("a").on("click", function(){
         var targetWord = $(this).find(".midas_go").text()
