@@ -154,8 +154,6 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
       chuno: chuno
     });
   });
-  /*
-  */
   search_result_list = []
 });
 //詳細_基礎
