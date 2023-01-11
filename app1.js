@@ -23,24 +23,6 @@ var bunrui_tai = json_bunrui["tai"]
 var bunrui_yo = json_bunrui["yo"]
 var bunrui_so = json_bunrui["so"]
 //console.log(kiso_imibunrui);
-/*
-var client = new Client({
-    user: 'fr',
-    host: 'localhost',
-    database: 'vmod_fr',
-    password: 'foagura',
-    port: 5432
-})
-
-client.connect((err) => {
-  if (err) {
-    console.log('error connecting: ' + err.stack);
-    return;
-  } else {
-    console.log('success');　　//問題なければ「success」を
-  }
-});
-*/
 //トップページ
 app.get('/', (req, res) => {
   res.render('index1.0.ejs');
@@ -107,7 +89,8 @@ app.get('/:lang/v/table', (req, res) => {
   const query = {
     text: "SELECT t_usage.usage_id,t_usage.word_id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id"
   };
-  client.query(query, (error, result) => {
+  client.query(query, (err, result) => {
+    if (err) throw err;
     result.rows.forEach((item) => {
       make_vObj[item["rui"]].push(item["chukoumoku_no"])
     });
@@ -145,7 +128,6 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   };
   client.query(query, [chuno], (err, result) => {
     if (err) throw err;
-    //console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_search_result.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
