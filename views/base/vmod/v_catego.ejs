@@ -429,7 +429,9 @@
         items[item] = []
       });
       word_obj.forEach((item) => {
-        var pair = {item.baisc, item.explanation}
+        var pair = {}
+        pair.basic = item.baisc
+        pair.explanation = item.explanation
         items[item.scene].push(pair)
       });
       console.log(items);
