@@ -422,7 +422,7 @@
       var s_id = Object.keys(kiso_bamen).concat(Object.keys(kiso_imibunrui))
       let items = {};
       $(".card-header").click(function(){
-        $(this).children(".card-body").slideToggle();
+        $(this).next().slideToggle();
       });
       s_id.forEach((item) => {
         items[item] = []
