@@ -477,7 +477,7 @@
         $('tr[data-href]').addClass('clickable')
         .click(function(e) {
           if(!$(e.target).is('a')){
-            var targetScene = Object.keys(scenes).find((targetScene) => scenes[key] === $(e.target).parents('.card').attr("id"))
+            var targetScene = Object.keys(scenes).find((targetScene) => scenes[targetScene] === $(e.target).parents('.card').attr("id"))
             var targetWordId = ($(e.target).closest('tr').find(".t_pl").attr("id"))
             var url = $(e.target).closest('tr').data('href')+'='+targetCategory
             var targetData = '<input type="hidden" name="targetWordId" value="' + targetWordId + '" />'
