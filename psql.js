@@ -23,12 +23,13 @@ client.connect((err) => {
 });
 
 const query = {
-  text: "SELECT t_usage.usage_id,t_usage.word_id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no='4.30'"
+  text: "SELECT t_usage.usage_id,t_usage.word_id,t_word.basic,t_usage.explation FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id"
 };
 client
   .query(query)
   .then((res) => {
     var word_obj = res.rows;
+    console.log(word_obj);
     client.end();
   })
   .catch((e) => console.error(e.stack));
