@@ -117,8 +117,12 @@ app.get('/:lang/v/table', (req, res) => {
           make_vObj[k] = [...new Set(make_vObj[k])]
         });
       });
-      console.log(make_vObj);
       client.end();
+      res.render(pathToLnag + '/vmod/v_table.ejs', {
+        lg : lang,
+        lang_jp : info.lang_info.lang_jp,
+        make_vObj : make_vObj
+      });
     })
     .catch((e) => console.error(e.stack));
     /*
@@ -131,11 +135,6 @@ app.get('/:lang/v/table', (req, res) => {
     });
   });
   */
-  res.render(pathToLnag + '/vmod/v_table.ejs', {
-    lg : lang,
-    lang_jp : info.lang_info.lang_jp,
-    make_vObj : make_vObj
-  });
 });
 
 var search_result_list = []
