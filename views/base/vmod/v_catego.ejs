@@ -422,7 +422,7 @@
       var s_id = Object.keys(kiso_bamen).concat(Object.keys(kiso_imibunrui))
       let items = {};
       s_id.forEach((item) => {
-        var cs = "#"+scenes[s_id]
+        var cs = "#"+scenes[item]
         console.log(cs);
         $(cs).children(".card-header").click(function(){
           $(cs).children(".card-body").slideToggle();
