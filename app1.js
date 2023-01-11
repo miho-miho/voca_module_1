@@ -159,19 +159,37 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: "SELECT t_scene.id AS scene, usage_id FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id",
+    values: [word_id, scene_id]
+  };
+  client.query(query, [chuno], (err, result) => {
+    if (err) throw err;
+    console.log(result.rows);
+    res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      targetObj : targetObj,
+      category: category,
+      targetWord: req.body.targetWord
+    });
+  });
+  /*
   let targetObj = {};
   for(const item of word_obj_all[lang]){
     if (item.bamen === category) {
       targetObj[item.midas_go] = item.rei
     }
   }
-  res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
-    lg : lang,
-    lang_jp : info.lang_info.lang_jp,
-    targetObj : targetObj,
-    category: category,
-    targetWord: req.body.targetWord
-  });
+  */
 });
 //詳細_分類表
 app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
