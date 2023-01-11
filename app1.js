@@ -109,11 +109,14 @@ app.get('/:lang/v/table', (req, res) => {
   client
     .query(query)
     .then((res) => {
-      var word_obj = res.rows;
+      res.rows.forEach((item) => {
+        make_vObj[item["rui"]].push(item["chukoumoku_no"])
+      });
+      console.log(make_vObj);
       client.end();
     })
-    console.log(word_obj);
     .catch((e) => console.error(e.stack));
+    /*
   Object.keys(word_obj_all[lang]).forEach(function (key) {
     Object.keys(make_vObj).forEach((k) => {
       if (k === word_obj_all[lang][key]["rui"]) {
@@ -122,6 +125,7 @@ app.get('/:lang/v/table', (req, res) => {
       make_vObj[k] = [...new Set(make_vObj[k])]
     });
   });
+  */
   res.render(pathToLnag + '/vmod/v_table.ejs', {
     lg : lang,
     lang_jp : info.lang_info.lang_jp,
