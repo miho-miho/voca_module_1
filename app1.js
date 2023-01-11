@@ -3,7 +3,6 @@ const app = express();
 const fs = require('fs');
 const bodyParser = require("body-parser");
 var { Client } = require('pg');
-const db_query = require('./pspl.js')
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -103,7 +102,25 @@ app.get('/:lang/v/table', (req, res) => {
     password: info.db_info.password,
     port: 5432
   })
-  var word_obj = db_query.getTableData
+  client.connect((err) => {
+    if (err) {
+      console.log('error connecting: ' + err.stack);
+      return;
+    } else {
+      console.log('success');　　//問題なければ「success」を
+    }
+  });
+  var word_obj = [];
+  const query = {
+    text: "SELECT t_usage.usage_id,t_usage.word_id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no='4.30'"
+  };
+  client
+    .query(query)
+    .then((res) => {
+      word_obj = res.rows;
+      client.end();
+    })
+    .catch((e) => console.error(e.stack));
   console.log(word_obj);
   Object.keys(word_obj_all[lang]).forEach(function (key) {
     Object.keys(make_vObj).forEach((k) => {
