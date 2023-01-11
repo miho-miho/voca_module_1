@@ -145,7 +145,7 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   };
   client.query(query, [chuno], (err, result) => {
     //if (err) throw err;
-    console.log(result);
+    console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_search_result.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
