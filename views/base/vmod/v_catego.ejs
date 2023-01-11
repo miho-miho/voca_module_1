@@ -420,28 +420,20 @@
       var word_obj = <%- JSON.stringify(word_obj) %>;
       var categories = kiso_bamen.concat(kiso_imibunrui)
       let items = {};
-      console.log(word_obj);
       categories.forEach((item) => {
         var cs = "#"+item
+        console.log(cs);
         $(cs).children(".card-header").click(function(){
           $(cs).children(".card-body").slideToggle();
         });
         items[item] = []
       });
-      for(const i of word_obj){
-        var pairs = {}
-        var imi_list = []
-        for (var im of i.rei) {
-          let explain = im.imi
-          if (explain.includes("＊")) {
-            imi_list.push(explain.substring(0, explain.indexOf("＊")))
-          } else {
-            imi_list.push(explain)
-          }
-        }
-        pairs[i.midas_go] = imi_list
-        items[i.bamen].push(pairs)
-      }
+      word_obj.forEach((item) => {
+        var pair = delete item[item.scene]
+        items[item.scene].push(pair)
+        pair = {}
+      });
+      console.log(items);
       for(const category in items){
         var id = "#"+category
         $(id).children(".card-body").find(".c_cand").text(items[category].length)
