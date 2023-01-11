@@ -120,16 +120,6 @@ app.get('/:lang/v/table', (req, res) => {
       make_vObj : make_vObj
     });
   });
-    /*
-  Object.keys(word_obj_all[lang]).forEach(function (key) {
-    Object.keys(make_vObj).forEach((k) => {
-      if (k === word_obj_all[lang][key]["rui"]) {
-        make_vObj[k].push(word_obj_all[lang][key]["chukoumoku_no"])
-      }
-      make_vObj[k] = [...new Set(make_vObj[k])]
-    });
-  });
-  */
 });
 
 var search_result_list = []
