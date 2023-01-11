@@ -477,12 +477,12 @@
         $('tr[data-href]').addClass('clickable')
         .click(function(e) {
           if(!$(e.target).is('a')){
-            var targetCategory = ($(e.target).parents('.card').attr("id"))
+            var targetScene = Object.keys(scenes).find((targetScene) => scenes[key] === $(e.target).parents('.card').attr("id"))
             var targetWordId = ($(e.target).closest('tr').find(".t_pl").attr("id"))
             var url = $(e.target).closest('tr').data('href')+'='+targetCategory
             var targetData = '<input type="hidden" name="targetWordId" value="' + targetWordId + '" />'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            console.log(targetData);
+            console.log(targetData, targetScene);
             //$("#post").submit();
           };
         });
