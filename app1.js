@@ -117,8 +117,8 @@ client
   .query(query)
   .then((res) => {
     var word_obj = res.rows;
-    console.log(word_obj);
     client.end();
+    console.log(word_obj);
   })
   .catch((e) => console.error(e.stack));
   Object.keys(word_obj_all[lang]).forEach(function (key) {
