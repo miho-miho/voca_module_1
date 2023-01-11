@@ -106,25 +106,21 @@ app.get('/:lang/v/table', (req, res) => {
   const query = {
     text: "SELECT t_usage.usage_id,t_usage.word_id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id"
   };
-  client
-    .query(query)
-    .then((res) => {
-      res.rows.forEach((item) => {
-        Object.keys(make_vObj).forEach((k) => {
-          if (k === item["rui"]) {
-            make_vObj[k].push(item["chukoumoku_no"])
-          }
-          make_vObj[k] = [...new Set(make_vObj[k])]
-        });
+  client.query(query, (error, result) => {
+    result.forEach((item) => {
+      Object.keys(make_vObj).forEach((k) => {
+        if (k === item["rui"]) {
+          make_vObj[k].push(item["chukoumoku_no"])
+        }
+        make_vObj[k] = [...new Set(make_vObj[k])]
       });
-      client.end();
-      res.render(pathToLnag + '/vmod/v_table.ejs', {
-        lg : lang,
-        lang_jp : info.lang_info.lang_jp,
-        make_vObj : make_vObj
-      });
-    })
-    .catch((e) => console.error(e.stack));
+    });
+    res.render(pathToLnag + '/vmod/v_table.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      make_vObj : make_vObj
+    });
+  });
     /*
   Object.keys(word_obj_all[lang]).forEach(function (key) {
     Object.keys(make_vObj).forEach((k) => {
