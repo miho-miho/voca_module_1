@@ -427,12 +427,8 @@
         });
         items[item] = []
       });
-      console.log(items);
       word_obj.forEach((item) => {
-        var pair = delete item[item.scene]
-        console.log(pair);
-        items[item.scene].push(pair)
-        pair = {}
+        console.log(item);
       });
       for(const category in items){
         var id = "#"+category
