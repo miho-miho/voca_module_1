@@ -133,7 +133,7 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
       search_result_list: result.rows,
-      category: result.rows[0]["chukomoku"],
+      category: result.rows[0]["chukoumoku"],
       chuno: chuno
     });
   });
