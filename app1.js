@@ -3,7 +3,7 @@ const app = express();
 const fs = require('fs');
 const bodyParser = require("body-parser");
 var { Client } = require('pg');
-const db_query = require('./pspl')
+const db_query = require('./pspl.js')
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
