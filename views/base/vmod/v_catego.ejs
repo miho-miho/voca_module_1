@@ -423,6 +423,7 @@
       let items = {};
       s_id.forEach((item) => {
         var cs = "#"+scenes[s_id]
+        console.log(cs);
         $(cs).children(".card-header").click(function(){
           $(cs).children(".card-body").slideToggle();
         });
