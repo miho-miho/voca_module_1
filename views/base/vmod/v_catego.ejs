@@ -418,17 +418,19 @@
       var kiso_bamen = <%- JSON.stringify(kiso_bamen) %>;
       var kiso_imibunrui = <%- JSON.stringify(kiso_imibunrui) %>;
       var word_obj = <%- JSON.stringify(word_obj) %>;
-      var categories = Object.keys(kiso_bamen).concat(Object.keys(kiso_imibunrui))
+      var scenes = Object.assign(kiso_bamen, kiso_imibunrui)
+      var s_id = Object.keys(kiso_bamen).concat(Object.keys(kiso_imibunrui))
       let items = {};
-      categories.forEach((item) => {
-        var cs = "#"+item
+      s_id.forEach((item) => {
+        var cs = "#"+scenes[s_id]
         $(cs).children(".card-header").click(function(){
           $(cs).children(".card-body").slideToggle();
         });
         items[item] = []
       });
       word_obj.forEach((item) => {
-        items[item.scene].push(item)
+        var pair = {item.baisc, item.explanation}
+        items[item.scene].push(pair)
       });
       console.log(items);
       for(const category in items){
