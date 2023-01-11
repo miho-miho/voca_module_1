@@ -428,10 +428,11 @@
         items[item] = []
       });
       word_obj.forEach((item) => {
-        var pair = {}
+        var info = {}
         pair.basic = item.basic
         pair.explanation = item.explanation
-        items[item.scene].push(pair)
+        pair.word_id = item.word_id
+        items[item.scene].push(info)
       });
       for(const id in items){
         var targetId = "#"+scenes[id]
@@ -444,7 +445,7 @@
           } else {
             imi_list.push(explain)
           }
-          $(targetId).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+item.basic+'</td><td class="t_jpn">'+imi_list+'</td></tr>')
+          $(targetId).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl" id='+itme.word_id+'>'+item.basic+'</td><td class="t_jpn">'+imi_list+'</td></tr>')
         }
       }
       //表示切り替え
