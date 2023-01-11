@@ -144,8 +144,15 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
     values: [chuno]
   };
   client.query(query, [chuno], (err, result) => {
-    //if (err) throw err;
+    if (err) throw err;
     console.log(result.rows);
+    Object.keys(word_obj_all[lang]).forEach(function(key) {
+      if(word_obj_all[lang][key]["chukoumoku_no"] === chuno){
+        category = word_obj_all[lang][key]["chukoumoku"]
+        search_result_list.push(word_obj_all[lang][key]);
+      }
+    });
+    console.log(search_result_list);
     res.render(pathToLnag + '/vmod/v_search_result.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
@@ -155,12 +162,6 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
     });
   });
   /*
-    Object.keys(word_obj_all[lang]).forEach(function(key) {
-      if(word_obj_all[lang][key]["chukoumoku_no"] === chuno){
-        category = word_obj_all[lang][key]["chukoumoku"]
-        search_result_list.push(word_obj_all[lang][key]);
-      }
-    });
   */
   search_result_list = []
 });
