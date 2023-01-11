@@ -422,18 +422,18 @@
       let items = {};
       categories.forEach((item) => {
         var cs = "#"+item
-        console.log(cs);
         $(cs).children(".card-header").click(function(){
           $(cs).children(".card-body").slideToggle();
         });
         items[item] = []
       });
+      console.log(items);
       word_obj.forEach((item) => {
         var pair = delete item[item.scene]
+        console.log(pair);
         items[item.scene].push(pair)
         pair = {}
       });
-      console.log(items);
       for(const category in items){
         var id = "#"+category
         $(id).children(".card-body").find(".c_cand").text(items[category].length)
