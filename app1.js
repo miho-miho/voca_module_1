@@ -104,7 +104,7 @@ app.get('/:lang/v/table', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_usage.usage_id,t_usage.word_id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no='1.10'"
+    text: "SELECT t_usage.usage_id,t_usage.word_id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id'"
   };
   client
     .query(query)
