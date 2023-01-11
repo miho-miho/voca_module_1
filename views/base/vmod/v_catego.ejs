@@ -478,11 +478,12 @@
         .click(function(e) {
           if(!$(e.target).is('a')){
             var targetCategory = ($(e.target).parents('.card').attr("id"))
-            var targetWord = ($(e.target).closest('tr').find(".t_pl").text())
+            var targetWordId = ($(e.target).closest('tr').find(".t_pl").attr("id"))
             var url = $(e.target).closest('tr').data('href')+'='+targetCategory
-            var targetData = '<input type="hidden" name="targetWord" value="' + targetWord + '" />'
+            var targetData = '<input type="hidden" name="targetWordId" value="' + targetWordId + '" />'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            $("#post").submit();
+            console.log(targetData);
+            //$("#post").submit();
           };
         });
       });
