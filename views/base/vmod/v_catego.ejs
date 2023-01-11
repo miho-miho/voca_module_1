@@ -484,7 +484,7 @@
             var targetData = '<input type="hidden" name="targetWordId" value="' + targetWordId + '" /><input type="hidden" name="targetSceneId" value="' + targetSceneId + '" />'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
             console.log(targetData);
-            //$("#post").submit();
+            $("#post").submit();
           };
         });
       });
