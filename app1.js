@@ -110,7 +110,12 @@ app.get('/:lang/v/table', (req, res) => {
     .query(query)
     .then((res) => {
       res.rows.forEach((item) => {
-        make_vObj[item["rui"]].push(item["chukoumoku_no"])
+        Object.keys(make_vObj).forEach((k) => {
+          if (k === item["rui"]) {
+            make_vObj[k].push(item["chukoumoku_no"])
+          }
+          make_vObj[k] = [...new Set(make_vObj[k])]
+        }
       });
       console.log(make_vObj);
       client.end();
