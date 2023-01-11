@@ -23,7 +23,7 @@ var bunrui_tai = json_bunrui["tai"]
 var bunrui_yo = json_bunrui["yo"]
 var bunrui_so = json_bunrui["so"]
 //console.log(kiso_imibunrui);
-
+/*
 var client = new Client({
     user: 'fr',
     host: 'localhost',
@@ -40,7 +40,7 @@ client.connect((err) => {
     console.log('success');　　//問題なければ「success」を
   }
 });
-
+*/
 //トップページ
 app.get('/', (req, res) => {
   res.render('index1.0.ejs');
@@ -95,6 +95,25 @@ app.get('/:lang/v/table', (req, res) => {
     "用":[],
     "相":[]
   }
+  var word_obj = [];
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+})
+const query = {
+  text: "SELECT t_usage.usage_id,t_usage.word_id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no='4.30'"
+};
+client
+  .query(query)
+  .then((res) => {
+    word_obj= res.rows;
+    client.end();
+  })
+  .catch((e) => console.error(e.stack));
+  console.log(word_obj);
   Object.keys(word_obj_all[lang]).forEach(function (key) {
     Object.keys(make_vObj).forEach((k) => {
       if (k === word_obj_all[lang][key]["rui"]) {
