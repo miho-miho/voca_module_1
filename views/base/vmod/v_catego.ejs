@@ -478,12 +478,12 @@
         .click(function(e) {
           if(!$(e.target).is('a')){
             var targetCategory = ($(e.target).parents('.card').attr("id"))
-            var targetScene = Object.keys(scenes).find((targetScene) => scenes[targetScene] === $(e.target).parents('.card').attr("id"))
+            var targetSceneId = Object.keys(scenes).find((targetSceneId) => scenes[targetSceneId] === $(e.target).parents('.card').attr("id"))
             var targetWordId = ($(e.target).closest('tr').find(".t_pl").attr("id"))
             var url = $(e.target).closest('tr').data('href')+'='+targetCategory
-            var targetData = '<input type="hidden" name="targetWordId" value="' + targetWordId + '" />'
+            var targetData = '<input type="hidden" name="targetWordId" value="' + targetWordId + '" /><input type="hidden" name="targetSceneId" value="' + targetSceneId + '" />'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            console.log(targetData, targetScene);
+            console.log(targetData);
             //$("#post").submit();
           };
         });
