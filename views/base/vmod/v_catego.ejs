@@ -430,16 +430,15 @@
       });
       word_obj.forEach((item) => {
         var pair = {}
-        pair.basic = item.baisc
+        pair.basic = item.basic
         pair.explanation = item.explanation
         items[item.scene].push(pair)
       });
-      console.log(items);
-      for(const category in items){
-        var id = "#"+category
-        $(id).children(".card-body").find(".c_cand").text(items[category].length)
-        for(const item of items[category]){
-          $(id).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+Object.keys(item)+'</td><td class="t_jpn">'+Object.values(item)+'</td></tr>')
+      for(const id in items){
+        var targetId = "#"+scenes[id]
+        $(targetId).children(".card-body").find(".c_cand").text(items[id].length)
+        for(const item of items[id]){
+          $(targetId).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+Object.keys(item)+'</td><td class="t_jpn">'+Object.values(item)+'</td></tr>')
         }
       }
       //表示切り替え
