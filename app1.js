@@ -140,24 +140,17 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   })
   client.connect();
   const query = {
-    text: "SELECT t_usage.usage_id,t_usage.word_id,chukoumoku_no,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no=$1",
+    text: "SELECT t_usage.usage_id,t_usage.word_id,chukoumoku,chukoumoku_no,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no=$1",
     values: [chuno]
   };
   client.query(query, [chuno], (err, result) => {
     if (err) throw err;
-    console.log(result.rows);
-    Object.keys(word_obj_all[lang]).forEach(function(key) {
-      if(word_obj_all[lang][key]["chukoumoku_no"] === chuno){
-        category = word_obj_all[lang][key]["chukoumoku"]
-        search_result_list.push(word_obj_all[lang][key]);
-      }
-    });
-    console.log(search_result_list);
+    //console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_search_result.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      search_result_list: search_result_list,
-      category: category,
+      search_result_list: result.rows,
+      category: result.rows[0]["chukomoku"],
       chuno: chuno
     });
   });
