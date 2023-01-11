@@ -93,7 +93,8 @@ app.get('/:lang/v/table', (req, res) => {
   var make_vObj = {
     "体":[],
     "用":[],
-    "相":[]
+    "相":[],
+    "他":[]
   }
   var client = new Client({
     user: info.db_info.user,
