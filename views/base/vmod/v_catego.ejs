@@ -423,9 +423,8 @@
       let items = {};
       s_id.forEach((item) => {
         var cs = "#"+scenes[item]
-        console.log(cs);
         $(cs).children(".card-header").click(function(){
-          $(cs).children(".card-body").slideToggle();
+          $(this).children(".card-body").slideToggle();
         });
         items[item] = []
       });
@@ -439,7 +438,7 @@
         var targetId = "#"+scenes[id]
         $(targetId).children(".card-body").find(".c_cand").text(items[id].length)
         for(const item of items[id]){
-          $(targetId).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+Object.keys(item)+'</td><td class="t_jpn">'+Object.values(item)+'</td></tr>')
+          $(targetId).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+item.basic+'</td><td class="t_jpn">'+item.explanation+'</td></tr>')
         }
       }
       //表示切り替え
