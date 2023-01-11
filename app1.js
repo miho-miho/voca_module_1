@@ -171,7 +171,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     text: "SELECT t_scene.id AS scene, usage_id FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id"//,
     //values: [word_id, scene_id]
   };
-  client.query(query, [chuno], (err, result) => {
+  client.query(query, (err, result) => {
     if (err) throw err;
     console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
