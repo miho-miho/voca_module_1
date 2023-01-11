@@ -168,7 +168,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_scene.id AS scene, GROUP_CONCAT(t_usage.usage_id) FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id"//,
+    text: "SELECT t_scene.id AS scene, GROUP_CONCAT(t_usage.usage_id SEPARATOR ",") FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id"//,
     //values: [word_id, scene_id]
   };
   client.query(query, (err, result) => {
