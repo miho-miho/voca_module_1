@@ -28,7 +28,8 @@ const query = {
 client
   .query(query)
   .then((res) => {
-    console.log(res.rows);
+    var word_obj = res.rows;
+    console.log(word_obj);
     client.end();
   })
   .catch((e) => console.error(e.stack));
