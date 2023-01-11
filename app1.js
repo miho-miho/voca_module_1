@@ -113,6 +113,7 @@ app.get('/:lang/v/table', (req, res) => {
       client.end();
     })
     .catch((e) => console.error(e.stack));
+    console.log(word_obj);
   Object.keys(word_obj_all[lang]).forEach(function (key) {
     Object.keys(make_vObj).forEach((k) => {
       if (k === word_obj_all[lang][key]["rui"]) {
