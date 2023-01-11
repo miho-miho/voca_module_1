@@ -436,8 +436,15 @@
       for(const id in items){
         var targetId = "#"+scenes[id]
         $(targetId).children(".card-body").find(".c_cand").text(items[id].length)
+        var imi_list = []
         for(const item of items[id]){
-          $(targetId).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+item.basic+'</td><td class="t_jpn">'+item.explanation+'</td></tr>')
+          let explain = item.explanation
+          if (explain.includes("＊")) {
+            imi_list.push(explain.substring(0, explain.indexOf("＊")))
+          } else {
+            imi_list.push(explain)
+          }
+          $(targetId).children(".card-body").find("tbody").append('<tr class="clickable" data-href="./c_detail"><td class="t_pl">'+item.basic+'</td><td class="t_jpn">'+imi_list+'</td></tr>')
         }
       }
       //表示切り替え
