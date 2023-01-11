@@ -131,6 +131,7 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   var info = require(pathToLnag + "/config")
   var category;
   let chuno = String(req.params.chuno)
+  console.log(chuno);
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
