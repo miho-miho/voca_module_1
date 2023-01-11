@@ -139,9 +139,7 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
     port: 5432
   })
   client.connect();
-  const query = {
-    text: "SELECT t_usage.usage_id,t_usage.word_id,chukoumoku_no,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE chukoumoku_no = ?"
-  };
+  const query = "SELECT t_usage.usage_id,t_usage.word_id,chukoumoku_no,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE chukoumoku_no = ?";
   client.query(query, [chuno], (err, result) => {
     //if (err) throw err;
     console.log(result);
