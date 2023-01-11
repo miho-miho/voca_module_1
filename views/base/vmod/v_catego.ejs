@@ -421,11 +421,10 @@
       var scenes = Object.assign(kiso_bamen, kiso_imibunrui)
       var s_id = Object.keys(kiso_bamen).concat(Object.keys(kiso_imibunrui))
       let items = {};
+      $(".card-header").click(function(){
+        $(this).children(".card-body").slideToggle();
+      });
       s_id.forEach((item) => {
-        var cs = "#"+scenes[item]
-        $(cs).children(".card-header").click(function(){
-          $(cs).children(".card-body").slideToggle();
-        });
         items[item] = []
       });
       word_obj.forEach((item) => {
