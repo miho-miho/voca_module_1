@@ -169,7 +169,8 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_scene.id AS scene, ARRAY_AGG (t_usage.usage_id) AS list FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id HAVING t_scene.id=$1",
+    //text: "SELECT t_scene.id AS scene, ARRAY_AGG(t_usage.usage_id) AS list FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id HAVING t_scene.id=$1",
+    text: "SELECT t_scene.id AS scene, inst_list FROM (SELECT json_object(t_usage.usage_id, ARRAY_AGG(t_usage_inst_rel.inst_id)) AS inst_list FROM t_usage_inst_rel JOIN t_usage ON t_usage.usage_id=t_usage_inst_rel.t_usage) t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id HAVING t_scene.id=$1",
     values: [scene_id]
   };
   client.query(query, (err, result) => {
