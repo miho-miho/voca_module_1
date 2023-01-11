@@ -436,8 +436,8 @@
       for(const id in items){
         var targetId = "#"+scenes[id]
         $(targetId).children(".card-body").find(".c_cand").text(items[id].length)
-        var imi_list = []
         for(const item of items[id]){
+          var imi_list = []
           let explain = item.explanation
           if (explain.includes("＊")) {
             imi_list.push(explain.substring(0, explain.indexOf("＊")))
