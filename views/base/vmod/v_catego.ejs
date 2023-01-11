@@ -420,6 +420,7 @@
       var word_obj = <%- JSON.stringify(word_obj) %>;
       var categories = kiso_bamen.concat(kiso_imibunrui)
       let items = {};
+      console.log(word_obj);
       categories.forEach((item) => {
         var cs = "#"+item
         $(cs).children(".card-header").click(function(){

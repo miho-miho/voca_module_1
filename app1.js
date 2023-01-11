@@ -58,12 +58,26 @@ app.get('/:lang/v/catego', (req, res) => {
   let lang = req.params.lang
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/v_catego.ejs', {
-    lg : lang,
-    lang_jp : info.lang_info.lang_jp,
-    kiso_bamen: kiso_bamen,
-    kiso_imibunrui: kiso_imibunrui,
-    word_obj : word_obj_all[lang]
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: "SELECT t_scene.explanation AS scene,t_word.basic,t_usage.explanation FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id"
+  };
+  client.query(query, (err, result) => {
+    if (err) throw err;
+    res.render(pathToLnag + '/vmod/v_catego.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      kiso_bamen: kiso_bamen,
+      kiso_imibunrui: kiso_imibunrui,
+      word_obj : result.rows
+    });
   });
 });
 //分類表
