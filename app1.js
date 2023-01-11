@@ -111,7 +111,6 @@ app.get('/:lang/v/table', (req, res) => {
     .then((res) => {
       res.rows.forEach((item) => {
         Object.keys(make_vObj).forEach((k) => {
-          console.log(k, item["rui"]);
           if (k === item["rui"]) {
             make_vObj[k].push(item["chukoumoku_no"])
           }
