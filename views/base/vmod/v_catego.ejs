@@ -424,7 +424,7 @@
       s_id.forEach((item) => {
         var cs = "#"+scenes[item]
         $(cs).children(".card-header").click(function(){
-          $(this).children(".card-body").slideToggle();
+          $(cs).children(".card-body").slideToggle();
         });
         items[item] = []
       });
