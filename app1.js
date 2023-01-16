@@ -159,7 +159,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  var scene_id = req.body.targetSceneId
+  var targetWord = req.body.targetWord
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
