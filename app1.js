@@ -71,6 +71,7 @@ app.get('/:lang/v/catego', (req, res) => {
   };
   client.query(query, (err, result) => {
     if (err) throw err;
+    console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_catego.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
