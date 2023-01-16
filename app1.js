@@ -187,7 +187,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       //insts.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
       //console.log(info);
     });
-    usage_list = [...usage_list]
+    usage_list = Array.from(new Set(usage_list))
     console.log(usage_list);
     //console.log(tObj);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
