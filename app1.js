@@ -184,6 +184,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       //insts.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
       //console.log(info);
     result.rows.forEach((item, i) => {
+      console.log(item);
       tObj.midasi = item.basic
       tObj.instances = []
       if (i = 0) {
