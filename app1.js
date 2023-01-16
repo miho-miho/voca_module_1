@@ -67,7 +67,7 @@ app.get('/:lang/v/catego', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_scene.id AS scene,t_word.basic,t_usage.explanation,t_usage.word_id,t_usage.id FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id"
+    text: "SELECT t_scene.id AS scene,t_word.basic,t_usage.explanation,t_usage.word_id,t_usage.usage_id FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id"
   };
   client.query(query, (err, result) => {
     if (err) throw err;
