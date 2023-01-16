@@ -181,7 +181,8 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       lang_jp : info.lang_info.lang_jp,
       targetObj : result.rows,
       category: category,
-      targetWord: req.body.targetWord
+      targetWord: req.body.targetWord,
+      targetWordId: req.body.targetWordId
     });
   });
   /*
