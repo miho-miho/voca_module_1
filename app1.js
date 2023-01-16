@@ -173,7 +173,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     //text: 'SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id WHERE t_word.id=$1',
     //text: 'SELECT t_usage.usage_id,t_usage.explanation,t_instance.* FROM t_usage_inst_rel JOIN t_usage ON t_usage.usage_id=t_usage_inst_rel.usage_id JOIN t_instance ON t_usage_inst_rel.inst_id=t_instance.id WHERE t_usage.usage_id IN (SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id=t_word.id WHERE t_word.id=$1) ORDER BY t_usage.disp_priority, t_usage_inst_rel.disp_priority',
     //text: 'SELECT t_word.id AS word_id, t_usage.usage_id, t_usage.explanation, t_instance.* FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id JOIN t_usage ON t_usage_inst_rel.inst_id = t_usage.usage_id JOIN t_word ON t_usage.word_id = t_word.id WHERE word_id = $1',
-    text: 'SELECT t_usage.usage_id,t_word.basic, t_usage.explanation, T.* FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE word_id = $1 ORDER BY t_usage.disp_priority',
+    text: 'SELECT t_usage.usage_id,t_word.basic, t_usage.explanation, ARRAY[T.*] FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE word_id = $1 ORDER BY t_usage.disp_priority',
     values: [targetWordId]
   };
   client.query(query, [targetWordId], (err, result) => {
