@@ -188,7 +188,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       tObj.instances = [{"usage_id":item.usage_id, "insts":[]}]
       usage_list.push(item.usage_id)
     });
-    usage_list = Array.form(new Set(usage_list))
+    usage_list = Array.from(new Set(usage_list))
     console.log(tObj);
     for (var i of usage_list) {
       result.rows.forEach((item) => {
