@@ -186,7 +186,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     result.rows.forEach((item) => {
       tObj.midasi = item.basic
       tObj.instances = []
-      tObj.instances.push({"usage_id":item.usage_id, "insts":[]})
+      tObj.instances.push({"usage":item.explanation, "insts":[]})
       usage_list.push(item.usage_id)
     });
     usage_list = Array.from(new Set(usage_list))
