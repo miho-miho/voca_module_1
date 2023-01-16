@@ -187,7 +187,9 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       tObj.midasi = item.basic
       tObj.instances = []
       tObj.instances.push({"usage":item.explanation, "insts":[]})
-      if (item.explanation != tObj.instances["usage"]) {
+      if (item.explanation === tObj.instances["usage"]) {
+        ;
+      } else {
         tObj.instances.push({"usage":item.explanation, "insts":[]})
       }
       usage_list.push(item.usage_id)
