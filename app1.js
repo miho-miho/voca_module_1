@@ -183,28 +183,24 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     var usage_list = [];
       //insts.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
       //console.log(info);
-    result.rows.forEach((item) => {
+    result.rows.forEach((item, i) => {
       tObj.midasi = item.basic
       tObj.instances = []
-      //tObj.instances.push({"usage":item.explanation, "insts":[]})
-      if (item.explanation === tObj.instances["usage"]) {
-        ;
-      } else {
+      if (i = 0) {
         tObj.instances.push({"usage":item.explanation, "insts":[]})
+        tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
+      } else {
+        if (item.explanation === tObj.instances["usage"]) {
+          tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
+        } else {
+          tObj.instances.push({"usage":item.explanation, "insts":[]})
+          tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
+        }
       }
       usage_list.push(item.usage_id)
     });
     usage_list = Array.from(new Set(usage_list))
     console.log(tObj);
-    for (var i of usage_list) {
-      result.rows.forEach((item) => {
-        if (i === item.usage_id) {
-          console.log(i);
-          console.log(item);
-        }
-      });
-    }
-
     //console.log(tObj);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
