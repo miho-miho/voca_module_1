@@ -48,7 +48,7 @@
       $(".c_cand").text(search_result_list.length)
       var i = 1;
       for (var item of search_result_list) {
-        $(".result-list").append('<a href="./t_search_detail=<%= chuno %>" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go" id='+item.id+'>'+item.basic+'</span>（'+item.midasi+'）</a>')
+        $(".result-list").append('<a href="./t_search_detail=<%= chuno %>" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</a>')
         i+=1;
       }
       $(".result-list").find("a").on("click", function(){
