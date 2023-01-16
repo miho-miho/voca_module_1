@@ -161,7 +161,6 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   var info = require(pathToLnag + "/config")
   var scene_id = req.body.targetSceneId
   var targetWordId =  req.body.targetWordId
-  console.log(targetWordId);
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
@@ -176,7 +175,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     values: [targetWordId]
   };
   client.query(query, [targetWordId], (err, result) => {
-    if (err) throw err
+    if (err) throw err;
     console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
