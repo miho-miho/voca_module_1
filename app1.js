@@ -185,7 +185,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       tObj.instance = []
       var u_id = item.usage_id
       var info = {}
-      console.log(Object.entries(item).map(([key, value]) => ({'key': key, 'value': value})));
+      console.log(Object.entries(item).map((key, value) => ({'key': key, 'value': value})));
     });
     //console.log(tObj);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
