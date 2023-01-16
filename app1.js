@@ -179,10 +179,11 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   client.query(query, [targetWordId], (err, result) => {
     if (err) throw err;
     //console.log(result.rows);
-    var tObj = {};
+    var t_jason = JSON.stringify({});
     var usage_list = [];
       //insts.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
       //console.log(info);
+      /*
     result.rows.forEach((item, i) => {
       console.log(item);
       tObj.midasi = item.basic
@@ -192,10 +193,13 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
       if (tObj.instances.usage === item.explanation) {
         tObj.instances.insts.push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
+      } else {
+
       }
       //tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
       usage_list.push(item.usage_id)
     });
+    */
     usage_list = Array.from(new Set(usage_list))
     console.log(tObj.instances);
     //console.log(tObj);
