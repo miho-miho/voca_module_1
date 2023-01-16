@@ -184,7 +184,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       tObj.midasi = item.basic
       tObj.instance = []
       var u_id = item.usage_id
-      tObj.instance.push({"usage_id", usage_id})
+      tObj.instance.push({"usage_id":usage_id})
       //var info = []
       //info.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
       //console.log(info);
