@@ -184,11 +184,12 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       tObj.midasi = item.basic
       tObj.instance = []
       var u_id = item.usage_id
-      var info = []
-      info.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
-      console.log(info);
+      tObj.instance.push({"usage_id", usage_id})
+      //var info = []
+      //info.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
+      //console.log(info);
     });
-    //console.log(tObj);
+    console.log(tObj);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
