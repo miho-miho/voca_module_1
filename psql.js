@@ -23,7 +23,7 @@ client.connect((err) => {
 });
 
 const query = {
-  text: "SELECT t_scene.explanation AS scene,t_word.basic,t_usage.explanation FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id"
+  text: "SELECT t_instance.id FROM t_instance JOIN t_usage ON t_usage_inst_rel.inst_id=t_instance.id WHERE t_usage_inst_rel='1' ORDER BY t_usage_inst_rel.disp_priority"
 };
 client
   .query(query)
