@@ -161,6 +161,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   var info = require(pathToLnag + "/config")
   var scene_id = req.body.targetSceneId
   var targetWordId =  req.body.targetWordId
+  console.log(targetWordId);
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
