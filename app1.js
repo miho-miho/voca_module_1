@@ -178,14 +178,15 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   };
   client.query(query, [targetWordId], (err, result) => {
     if (err) throw err;
-    console.log(result.rows);
+    //console.log(result.rows);
     var tObj = {};
     var usage_list = [];
       //insts.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
       //console.log(info);
     result.rows.forEach((item) => {
       tObj.midasi = item.basic
-      tObj.instances = [{"usage_id":item.usage_id, "insts":[]}]
+      tObj.instances = []
+      tObj.instances.push({"usage_id":item.usage_id, "insts":[]})
       usage_list.push(item.usage_id)
     });
     usage_list = Array.from(new Set(usage_list))
