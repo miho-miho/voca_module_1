@@ -187,17 +187,9 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       console.log(item);
       tObj.midasi = item.basic
       tObj.instances = []
-      if (i = 0) {
-        tObj.instances.push({"usage":item.explanation, "insts":[]})
-        tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
-      } else {
-        if (item.explanation === tObj.instances["usage"]) {
-          tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
-        } else {
-          tObj.instances.push({"usage":item.explanation, "insts":[]})
-          //tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
-        }
-      }
+      tObj.instances.push({"usage":item.explanation})
+      tObj.instances.push({"instances":[((({ basic, usage_id, explanation, ...rest }) => rest)(item))]})
+      //tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
       usage_list.push(item.usage_id)
     });
     usage_list = Array.from(new Set(usage_list))
