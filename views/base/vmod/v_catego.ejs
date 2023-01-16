@@ -433,10 +433,7 @@
         info.explanation = item.explanation
         info.word_id = item.word_id
         items[item.scene].push(info)
-        if (item.word_id=143) {
-          console.log(item);
-        }
-      });
+        console.log(items);
       for(const id in items){
         var targetId = "#"+scenes[id]
         $(targetId).children(".card-body").find(".c_cand").text(items[id].length)
