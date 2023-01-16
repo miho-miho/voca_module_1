@@ -172,7 +172,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     //text: "SELECT t_scene.id AS scene, ARRAY_AGG(t_usage.usage_id) AS list FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id HAVING t_scene.id=$1",
     //text: 'SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id WHERE t_word.id=$1',
     //text: 'SELECT t_usage.explanation,t_instance.* FROM t_usage_inst_rel JOIN t_usage ON t_usage.usage_id=t_usage_inst_rel.usage_id JOIN t_instance ON t_usage_inst_rel.inst_id=t_instance.id WHERE t_usage.usage_id IN (SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id=t_word.id WHERE t_word.id=$1 ORDER BY t_usage.disp_priority) ORDER BY t_usage_inst_rel.disp_priority',
-    text: 'SELECT T.* FROM ( SELECT t_word.id AS word_id, t_usage.usage_id, t_usage.explanation, t_instance.* FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id JOIN t_usage ON t_usage_inst_rel.inst_id = t_usage.usage_id JOIN t_word ON t_usage.word_id = t_word.id) T WHERE T.t_word = $1',
+    text: 'SELECT T.* FROM ( SELECT t_word.id AS word_id, t_usage.usage_id, t_usage.explanation, t_instance.* FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id JOIN t_usage ON t_usage_inst_rel.inst_id = t_usage.usage_id JOIN t_word ON t_usage.word_id = t_word.id) T WHERE T.word_id = $1',
     values: [targetWordId]
   };
   client.query(query, [targetWordId], (err, result) => {
