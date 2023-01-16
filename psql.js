@@ -23,7 +23,7 @@ client.connect((err) => {
 });
 
 const query = {
-  text: "SELECT * FROM t_instance JOIN t_usage_inst_rel ON t_usage_inst_rel.inst_id=t_instance.id WHERE t_usage_inst_rel.usage_id='1' ORDER BY t_usage_inst_rel.disp_priority"
+  text: "SELECT * FROM t_instance JOIN t_usage_inst_rel ON t_usage_inst_rel.inst_id=t_instance.id WHERE t_usage_inst_rel.usage_id='2' ORDER BY t_usage_inst_rel.disp_priority"
 };
 client
   .query(query)
