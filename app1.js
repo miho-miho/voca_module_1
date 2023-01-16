@@ -194,7 +194,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
           tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
         } else {
           tObj.instances.push({"usage":item.explanation, "insts":[]})
-          tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
+          //tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
         }
       }
       usage_list.push(item.usage_id)
