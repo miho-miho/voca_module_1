@@ -180,16 +180,16 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     if (err) throw err;
     console.log(result.rows);
     var tObj = {};
+    var usage_list = [];
     result.rows.forEach((item) => {
       tObj.midasi = item.basic
-      tObj.instance = []
-      var u_id = item.usage_id
-      tObj.instance.push({"usage_id":item.usage_id, "insts":[]})
-      //var info = []
-      //info.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
+      usage_list.push(item.usage_id)
+      //insts.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
       //console.log(info);
     });
-    console.log(tObj);
+    usage_list = [...usage_list]
+    console.log(usage_list);
+    //console.log(tObj);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
