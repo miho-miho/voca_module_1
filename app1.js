@@ -160,6 +160,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   var scene_id = req.body.targetSceneId
+  var targetWordId =  req.body.targetWordId
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
@@ -170,10 +171,10 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   client.connect();
   const query = {
     //text: "SELECT t_scene.id AS scene, ARRAY_AGG(t_usage.usage_id) AS list FROM t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id HAVING t_scene.id=$1",
-    text: 'SELECT t_scene.id AS scene, inst_list FROM (SELECT t_usage.usage_id, ARRAY_AGG(t_usage_inst_rel.inst_id) AS inst_list FROM t_usage_inst_rel JOIN t_usage ON t_usage.usage_id=t_usage_inst_rel.usage_id  GROUP BY t_usage.usage_id) t_usage_scene_rel JOIN t_usage ON t_usage_scene_rel.usage_id=t_usage.usage_id JOIN t_scene ON t_usage_scene_rel.scene_id=t_scene.id GROUP BY t_scene.id HAVING t_scene.id=$1',
-    values: [scene_id]
+    text: 'SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id WHERE t_word.id=$1',
+    values: [targetWordId]
   };
-  client.query(query, (err, result) => {
+  client.query(query, [targetWordId], (err, result) => {
     if (err) throw err
     console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
