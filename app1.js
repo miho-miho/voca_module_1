@@ -201,7 +201,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     });
     */
     usage_list = Array.from(new Set(usage_list))
-    console.log(tObj.instances);
+    //console.log(tObj.instances);
     //console.log(tObj);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
