@@ -220,7 +220,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   });
 });
 //詳細_分類表
-app.post('/:lang/v/t_search_detail', (req, res) => {
+app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
   let targetWordIds = req.body.targetWordIds.split(',').map(Number);
