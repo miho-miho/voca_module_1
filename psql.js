@@ -52,10 +52,11 @@ client
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         li.push(e)
       }
-      var result = {"usage":ex, "inst":li}
+      var midasi = result_list[0].basic
+      var result = {"midasi":midasi,"usage":ex, "inst":li}
       rObj.insts.push(result)
     });
-    console.log(rObj.insts);
+    console.log(rObj);
     client.end();
   })
   .catch((e) => console.error(e.stack));
