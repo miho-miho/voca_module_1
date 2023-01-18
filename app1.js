@@ -202,9 +202,10 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       var inst = []
       inst.push({"usage":ex, "reibun":[li]})
       var result = {"midasi":midasi, "inst":inst}
-      console.log(result);
+      //console.log(result);
       rObj.insts.push(result)
     });
+    console.log(rObj);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
