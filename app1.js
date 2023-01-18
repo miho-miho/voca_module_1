@@ -227,20 +227,64 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   let chuno = req.params.chuno
-  let targetObj = {};
-  for(const item of word_obj_all[lang]){
-    if (item.chuno === req.body.chuno) {
-      targetObj[item.midas_go] = item.rei
-    }
-  }
-  res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
-    lg : lang,
-    lang_jp : info.lang_info.lang_jp,
-    targetObj : targetObj,
-    category: req.body.category,
-    targetWord: req.body.targetWord,
-    chuno: chuno
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
   })
+  client.connect();
+  const query = {
+    //text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE scene_id=$1 ORDER BY t_usage_scene_rel.usage_id, t_usage.disp_priority',
+    text: 'SELECT t_word.basic, t_word.id, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage LEFT OUTER JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id) as T ON T.usage_id=t_usage.usage_id WHERE t_word.id=any($1) AND t_usage.selected=1 ORDER BY t_usage.disp_priority, T.disp_priority',
+    values: [targetWordIds]
+  };
+  client.query(query, [targetWordIds], (err, result) => {
+    if (err) throw err;
+    var result_list = result.rows
+    var id_list = [];
+    for (var i of result_list) {
+      id_list.push(i.usage_id)
+    }
+    var instances = []
+    id_list = Array.from(new Set(id_list))
+    for (var id of id_list) {
+      var a = result_list.filter((val) => {
+        return val.usage_id === id
+      });
+      instances.push(a)
+    }
+    //console.log(instances);
+    //rObj.midasi = result_list[0].basic
+    var insts = []
+    instances.forEach((item) => {
+      var li = []
+      for (var e of item) {
+        var ex = e.explanation
+        e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
+        li.push(e)
+      }
+      var midasi = item[0].basic
+      var inst = []
+      var sameMidasi = insts.find((element) => element.midasi === midasi)
+      if (sameMidasi) {
+        sameMidasi.inst.push({"usage":ex, "reibun":[li]})
+      } else {
+        inst.push({"usage":ex, "reibun":[li]})
+        var result = {"midasi":midasi, "inst":inst}
+        insts.push(result)
+      }
+    });
+    res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      targetObj : targetObj,
+      category: req.body.category,
+      targetWord: req.body.targetWord,
+      chuno: chuno
+    });
+  });
 });
 //検索
 app.get('/:lang/v/v_search', (req, res) => {
