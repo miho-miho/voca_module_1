@@ -198,12 +198,12 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         li.push(e)
       }
-      console.log(item);
       var midasi = item[0].basic
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
+        console.log(sameMidasi.inst);
       } else {
         inst.push({"usage":ex, "reibun":[li]})
         var result = {"midasi":midasi, "inst":inst}
