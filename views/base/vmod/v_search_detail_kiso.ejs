@@ -71,7 +71,6 @@
           targetIndex = i
         }
       }
-      console.log(typeof targetIndex);
       showResult(targetIndex)
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
@@ -90,7 +89,6 @@
           }
       });
       function showResult(index){
-        Number(index)
         $("#now_item").text(index+1);
         var targetItem = {}
         $(".targetWord").text(targetArray[index][0])
