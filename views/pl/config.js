@@ -9,10 +9,10 @@ lang_info = {
 };
 
 db_info = {
-  user : "fr",
+  user : "pl",
   host : "localhost",
-  database : "vmod_fr",
-  password : "foagura",
+  database : "vmod_pl",
+  password : "pirrogi",
 }
 
 exports.lang_info = lang_info
