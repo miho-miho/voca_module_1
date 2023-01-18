@@ -62,7 +62,7 @@
         $("#UrlToTable").prop("href", targetTable);
       }
       var targetArray = <%- JSON.stringify(targetObj) %>;
-      //console.log(targetArray);
+      console.log(targetArray);
       var targetIndex = "";
       var targetItems;
       $("#all_items").text(targetArray.length)
@@ -91,8 +91,8 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = {}
-        $(".targetWord").text(targetArray[index][0])
-        targetItem = targetArray[index][1]
+        $(".targetWord").text(targetArray[index].midasi)
+        targetItem = targetArray[index].inst
         var num = 1;
         Object.keys(targetItem).forEach((key) => {
           let explain = targetItem[key].imi.replace("＊", "<br>＊")
