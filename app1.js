@@ -156,6 +156,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
   let category = req.params.category
   let targetSceneId = req.body.targetSceneId
+  console.log(targetSceneId);
   //let targetWordIds = req.body.targetWordIds
   //console.log(targetWordIds);
   let currentWorkingDirectory = process.cwd();
