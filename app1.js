@@ -199,8 +199,9 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       }
       var midasi = item[0].basic
       var inst = []
-      if (insts.find((element) => element.midasi === midasi)) {
-        element.inst.push({"usage":ex, "reibun":[li]})
+      var sameMidasi = insts.find((element) => element.midasi === midasi)
+      if (sameMidasi) {
+        sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
         inst.push({"usage":ex, "reibun":[li]})
         var result = {"midasi":midasi, "inst":inst}
