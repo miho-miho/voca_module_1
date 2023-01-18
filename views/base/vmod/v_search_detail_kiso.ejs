@@ -103,16 +103,12 @@
           }
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+imi_list+'</p>')
           $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-          for (var s of item.reibun[num-1]) {
-            console.log(s);
-          }
-                    num+=1;
-          /*
-          item.reibun.forEach((s) => {
-            console.log(s);
-            $(".examples").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
+          item.reibun.forEach((element) => {
+            for (var s of element) {
+              $(".examples").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
+            }
           });
-          */
+          num+=1;
         });
         switch (index) {
             case 0:
