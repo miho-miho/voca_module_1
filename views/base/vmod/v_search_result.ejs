@@ -57,12 +57,11 @@
         .click(function(e) {
           if(!$(e.target).is('a')){
             var targetWord = ($(e.target).find('.midas_go').text())
-            var targetWordId = ($(e.target).closest('.midas_go').attr('id'))
+            var targetWordId = ($(e.target).find('.midas_go').attr('id'))
             var url = $(e.target).data('href')+'=<%= chuno %>'
             var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value='+targetWord+'/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            console.log(targetData);
-            //$("#post").submit();
+            $("#post").submit();
           };
         });
       });
