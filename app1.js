@@ -157,7 +157,6 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   let category = req.params.category
   let targetSceneId = req.body.targetSceneId
   let targetWordIds = req.body.targetWordIds.split(',').map(Number);
-  console.log(targetWordIds);
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -177,7 +176,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   client.query(query, [targetWordIds], (err, result) => {
     if (err) throw err;
     var result_list = result.rows
-    //console.log(result.rows);
+    console.log(result.rows);
     var id_list = [];
     for (var i of result_list) {
       id_list.push(i.usage_id)
