@@ -31,7 +31,9 @@
               <h5 class="col-6">取得件数：<span class="c_cand"></span>件</h5>
             </div>
             <div class="result-area container">
-              <div class="list-group list-group-flush result-list">
+              <div class="list-group list-group-flush">
+                <ul class="list-group result-list">
+                </ul>
               </div>
             </div><!-- result-area -->
           </div>
@@ -48,7 +50,7 @@
       var i = 1;
       var targetWordIds = []
       for (var item of search_result_list) {
-        $(".result-list").append('<a href="./c_detail" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</a>')
+        $(".result-list").append('<li data-href="./c_detail" class="list-group-item"><span class="id">'+i+'.</span><span class="midas_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</li>')
         targetWordIds.push(item.word_id)
         i+=1;
       }
@@ -56,10 +58,9 @@
         //var targetWord = $(this).find(".midas_go").text()
         var targetWordId = $(this).find(".midas_go").attr("id")
         var url = $(this).attr("href")+'=<%= category %>'
-        console.log(url);
         var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordId" value='+targetWordId+'/><input type="hidden" name="chuno" value="<%= chuno %>"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/>'
         $("body").append('<form action='+url+'method="post" id="post">'+targetData+'</form>');
-        //$("#post").submit();
+        $("#post").submit();
         return false;
       });
       let windowWidth = $(window).width()
