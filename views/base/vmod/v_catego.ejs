@@ -480,6 +480,9 @@
             var targetCategory = ($(e.target).parents('.card').attr("id"))
             var targetSceneId = Object.keys(scenes).find((targetSceneId) => scenes[targetSceneId] === $(e.target).parents('.card').attr("id"))
             var targetWord = ($(e.target).closest('tr').find(".t_pl").text())
+            for (i = 0, len = $(e.target).closest('table').rows.length; i < len; i++) {
+	             console.log( $(e.target).closest('table').rows[i].outerHTML )
+             }
             var url = $(e.target).closest('tr').data('href')+'='+targetCategory
             var targetData = '<input type="hidden" name="targetWord" value="' + targetWord + '" /><input type="hidden" name="targetSceneId" value="' + targetSceneId + '" />'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
