@@ -198,7 +198,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         li.push(e)
       }
-      var midasi = result_list[0].basic
+      var midasi = item[0].basic
       var result = {"midasi":midasi,"usage":ex, "inst":li}
       rObj.insts.push(result)
     });
