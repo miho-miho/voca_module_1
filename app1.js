@@ -209,7 +209,9 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       }
       //console.log(result);
     });
-    console.log(insts);
+    for (var i of insts) {
+          console.log(i);
+    }
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
