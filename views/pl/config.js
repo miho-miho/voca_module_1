@@ -12,7 +12,7 @@ db_info = {
   user : "pl",
   host : "localhost",
   database : "vmod_pl",
-  password : "pirrogi",
+  password : "pierogi",
 }
 
 exports.lang_info = lang_info
