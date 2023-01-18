@@ -8,12 +8,12 @@ lang_info = {
   vmod_ms1_url : { "0" : "http://nkjp.pl/" },
 };
 
-sidebar_setting = {
-  sub_menu_snd : "disable",
-  sub_menu_talk : "disable",
-  sub_menu_gram : "disable",
-  sub_menu_vocab : "no-choice",
+db_info = {
+  user : "fr",
+  host : "localhost",
+  database : "vmod_fr",
+  password : "foagura",
 }
 
 exports.lang_info = lang_info
-exports.sidebar_setting = sidebar_setting
+exports.db_info = db_info
