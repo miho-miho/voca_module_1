@@ -200,11 +200,13 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       var midasi = item[0].basic
       var inst = []
       inst.push({"usage":ex, "reibun":[li]})
+      if (insts.find((element) => element.midasi = midasi)) {
+        console.log(element);
+      }
       var result = {"midasi":midasi, "inst":inst}
       //console.log(result);
       insts.push(result)
     });
-    console.log(insts);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
