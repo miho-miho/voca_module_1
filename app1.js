@@ -206,7 +206,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      targetObj : rObj,
+      targetObj : rObj.insts,
       category: category,
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId
