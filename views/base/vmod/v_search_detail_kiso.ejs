@@ -63,8 +63,7 @@
       }
       var targetArray = <%- JSON.stringify(targetObj) %>;
       console.log(targetArray);
-      console.log("<%= targetWord %>");
-      var targetIndex = $targetWordId;
+      var targetIndex = "";
       var targetItems;
       $("#all_items").text(targetArray.length)
       for (var i = 0; i < targetArray.length; i++) {
