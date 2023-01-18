@@ -59,13 +59,13 @@
     <script>
       var targetArray = <%- JSON.stringify(targetObj) %>;
       var targetIndex = "";
-      var targetItems;
       $("#all_items").text(targetArray.length)
       for (var i = 0; i < targetArray.length; i++) {
         if (targetArray[i]["midasi"] === "<%= targetWord %>") {
           targetIndex = i
         }
       }
+      console.log(targetIndex);
       showResult(targetIndex)
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
