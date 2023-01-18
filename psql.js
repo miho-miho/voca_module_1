@@ -35,12 +35,12 @@ client
     }
     var instances = []
     id_list = Array.from(new Set(id_list))
-    console.log(id_list);
     for (var id of id_list) {
       var a = result_list.filter((val) => {
         return val.usage_id === id
       });
       instances.push(a)
+      console.log(a);
     }
     //console.log(instances);
     var rObj = {}
