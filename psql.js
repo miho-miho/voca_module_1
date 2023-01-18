@@ -28,11 +28,12 @@ client
   .query(query)
   .then((result) => {
     var result_list = result.rows
-    console.log(result.rows);
+    //console.log(result.rows);
     var id_list = [];
     for (var i of result_list) {
       id_list.push(i.usage_id)
     }
+    console.log(id_list);
     var instances = []
     id_list = Array.from(new Set(id_list))
     for (var id of id_list) {
