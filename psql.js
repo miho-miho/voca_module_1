@@ -41,11 +41,11 @@ client
       });
       instances.push(a)
     }
-    console.log(instances);
+    //console.log(instances);
     var rObj = {}
-    rObj.midasi = result_list[0].basic
+    //rObj.midasi = result_list[0].basic
     rObj.insts = []
-    instances.forEach((item, i) => {
+    instances.forEach((item) => {
       var li = []
       for (var e of item) {
         var ex = e.explanation
@@ -55,7 +55,7 @@ client
       var result = {"usage":ex, "inst":li}
       rObj.insts.push(result)
     });
-    //console.log([rObj]);
+    console.log([rObj]);
     client.end();
   })
   .catch((e) => console.error(e.stack));
