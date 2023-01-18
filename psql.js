@@ -55,7 +55,7 @@ client
       var result = {"usage":ex, "inst":li}
       rObj.insts.push(result)
     });
-    console.log([rObj]);
+    console.log(rObj.insts);
     client.end();
   })
   .catch((e) => console.error(e.stack));
