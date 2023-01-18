@@ -273,6 +273,8 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
         insts.push(result)
       }
     });
+    res.send(insts)
+    /*
     res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
@@ -281,6 +283,7 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
       targetWordId: req.body.targetWordId,
       chuno: chuno
     });
+    */
   });
 });
 //検索
