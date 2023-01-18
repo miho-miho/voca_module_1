@@ -40,9 +40,8 @@ client
         return val.usage_id === id
       });
       instances.push(a)
-      console.log(a);
     }
-    //console.log(instances);
+    console.log(instances);
     var rObj = {}
     rObj.midasi = result_list[0].basic
     rObj.insts = []
