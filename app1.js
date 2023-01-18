@@ -218,19 +218,13 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       targetWordId: req.body.targetWordId
     });
   });
-  /*
-  let targetObj = {};
-  for(const item of word_obj_all[lang]){
-    if (item.bamen === category) {
-      targetObj[item.midas_go] = item.rei
-    }
-  }
-  */
 });
 //詳細_分類表
 app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
+  let targetWordIds = req.body.targetWordIds.split(',').map(Number);
+  console.log(targetWordIds);
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   let chuno = req.params.chuno
