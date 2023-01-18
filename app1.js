@@ -192,12 +192,12 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     //rObj.midasi = result_list[0].basic
     rObj.insts = []
     instances.forEach((item) => {
-      console.log(item);
       var li = []
       for (var e of item) {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         li.push(e)
+        console.log(li);
       }
       var midasi = item[0].basic
       var result = {"midasi":midasi,"usage":ex, "inst":li}
