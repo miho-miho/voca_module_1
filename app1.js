@@ -202,6 +202,9 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       inst.push({"usage":ex, "reibun":[li]})
       const check = insts.find((element) => element.midasi === midasi)
       console.log(check);
+      if (insts.find((element) => element.midasi === midasi)) {
+        console.log(midasi);
+      }
       var result = {"midasi":midasi, "inst":inst}
       //console.log(result);
       insts.push(result)
