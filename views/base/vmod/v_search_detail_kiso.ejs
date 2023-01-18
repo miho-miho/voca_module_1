@@ -90,17 +90,17 @@
       });
       function showResult(index){
         $("#now_item").text(index+1);
-        var targetItem = {}
         $(".targetWord").text(targetArray[index].midasi)
-        targetItem = targetArray[index].inst
+        var targetItem = targetArray[index].inst
         var num = 1;
-        Object.keys(targetItem).forEach((key) => {
-          let explain = targetItem[key].imi.replace("＊", "<br>＊")
+        targetItem.forEach((item) => {
+          var explain = item.usage.replace("＊", "<br>＊");
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
           $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-          for (var item of targetItem[key].reibun) {
-            $(".examples").append('<p>・'+item.reibun+'</p><p>・'+item.trans+'</p>')
+          for (var e of item.inst) {
+            $(".examples").append('<p>・'+e.targetlanguage+'</p><p>・'+e.trans+'</p>')
           }
+        });
           num+=1;
         });
         switch (index) {
