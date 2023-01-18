@@ -219,10 +219,6 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     });
   });
 });
-app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
-  res.send("<h1>なぞ</h1>")
-})
-/*
 //詳細_分類表
 app.post('/:lang/v/t_search_detail', (req, res) => {
   let lang = req.params.lang
@@ -287,7 +283,6 @@ app.post('/:lang/v/t_search_detail', (req, res) => {
     });
   });
 });
-*/
 //検索
 app.get('/:lang/v/v_search', (req, res) => {
   let lang = req.params.lang
