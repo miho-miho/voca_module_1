@@ -1,5 +1,5 @@
-body {
-  min-height: 100%;/*①高さの最小値*/
+html, body {
+  height: 100%;/*①高さの最小値*/
   position: relative;/*②相対位置*/
 }
 /*ヘッダー*/
