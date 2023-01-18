@@ -22,7 +22,7 @@ client.connect((err) => {
   }
 });
 const query = {
-  text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE t_usage_scene_rel.scene_id="1" ORDER BY t_usage.disp_priority'
+  text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE .scene_id=1 ORDER BY t_usage.disp_priority'
 };
 client
   .query(query)
