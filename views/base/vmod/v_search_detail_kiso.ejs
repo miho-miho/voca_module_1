@@ -94,11 +94,11 @@
         var targetItem = targetArray[index].inst
         var num = 1;
         targetItem.forEach((item) => {
+          console.log(item);
           var explain = "仮"
           //var explain = item.usage.replace("＊", "<br>＊");
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
           $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-          console.log(item.inst, typeof item.inst);
         });
           num+=1;
         switch (index) {
