@@ -94,17 +94,20 @@
         $(".targetWord").text(targetItem.midasi)
         var num = 1;
         targetItem.inst.forEach((item) => {
-          console.log(item);
           let explain = item.usage
           var imi_list = []
           if (explain.includes("＊")) {
-            imi_list.push(explain.substring(0, explain.indexOf("＊")))
+            imi_list.push(explain.replace("\n＊", "<br>＊"))
           } else {
             imi_list.push(explain)
           }
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+imi_list+'</p>')
-          $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
           num+=1;
+          $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+          item.reibun.forEach((s) => {
+            $(".examples").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
+          });
+
         });
         switch (index) {
             case 0:
