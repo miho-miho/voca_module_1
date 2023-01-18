@@ -155,11 +155,10 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
 app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
   let category = req.params.category
-  let categoryNo = Object.keys(kiso_parts).find((categoryNo) => kiso_parts[categoryNo] === category)
+  let targetSceneId = req.body.targetSceneId
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  var targetWordId = req.body.targetWordId
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
@@ -170,9 +169,9 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   client.connect();
   const query = {
     text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE scene_id=$1 ORDER BY t_usage_scene_rel.usage_id, t_usage.disp_priority',
-    values: [categoryNo]
+    values: [targetSceneId]
   };
-  client.query(query, [categoryNo], (err, result) => {
+  client.query(query, [targetSceneId], (err, result) => {
     if (err) throw err;
     var result_list = result.rows
     //console.log(result.rows);
