@@ -220,7 +220,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   });
 });
 //詳細_分類表
-app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
+app.post('/:lang/v/t_search_detail', (req, res) => {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
   let targetWordIds = req.body.targetWordIds.split(',').map(Number);
@@ -273,17 +273,14 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
         insts.push(result)
       }
     });
-    res.send(insts)
-    /*
     res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
       targetObj : insts,
       category: req.body.category,
       targetWordId: req.body.targetWordId,
-      chuno: chuno
+      //chuno: chuno
     });
-    */
   });
 });
 //検索
