@@ -219,7 +219,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     });
   });
 });
-app.post('/:lang/v/t_search_detail', (req, res) => {
+app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
   res.send("<h1>なぞ</h1>")
 })
 /*
