@@ -188,9 +188,8 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       instances.push(a)
     }
     //console.log(instances);
-    var rObj = {}
     //rObj.midasi = result_list[0].basic
-    rObj.insts = []
+    var insts = []
     instances.forEach((item) => {
       var li = []
       for (var e of item) {
@@ -203,13 +202,13 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       inst.push({"usage":ex, "reibun":[li]})
       var result = {"midasi":midasi, "inst":inst}
       //console.log(result);
-      rObj.insts.push(result)
+      insts.push(result)
     });
-    console.log(rObj);
+    console.log(insts);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      targetObj : rObj.insts,
+      targetObj : insts,
       category: category,
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId
