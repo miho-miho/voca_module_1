@@ -175,16 +175,44 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     //text: 'SELECT t_usage.usage_id,t_usage.explanation,t_instance.* FROM t_usage_inst_rel JOIN t_usage ON t_usage.usage_id=t_usage_inst_rel.usage_id JOIN t_instance ON t_usage_inst_rel.inst_id=t_instance.id WHERE t_usage.usage_id IN (SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id=t_word.id WHERE t_word.id=$1) ORDER BY t_usage.disp_priority, t_usage_inst_rel.disp_priority',
     //text: 'SELECT t_word.id AS word_id, t_usage.usage_id, t_usage.explanation, t_instance.* FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id JOIN t_usage ON t_usage_inst_rel.inst_id = t_usage.usage_id JOIN t_word ON t_usage.word_id = t_word.id WHERE word_id = $1',
     //text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE word_id = $1 ORDER BY t_usage.disp_priority',
-    text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE word_id = $1 ORDER BY t_usage.disp_priority',
-    values: [targetWordId]
+    text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE scene_id=$1 ORDER BY t_usage_scene_rel.usage_id, t_usage.disp_priority',
+    values: [categoryNo]
   };
-  client.query(query, [targetWordId], (err, result) => {
+  client.query(query, [categoryNo], (err, result) => {
     if (err) throw err;
-    console.log(result.rows);
+    var result_list = result.rows
+    //console.log(result.rows);
+    var id_list = [];
+    for (var i of result_list) {
+      id_list.push(i.usage_id)
+    }
+    var instances = []
+    id_list = Array.from(new Set(id_list))
+    for (var id of id_list) {
+      var a = result_list.filter((val) => {
+        return val.usage_id === id
+      });
+      instances.push(a)
+    }
+    //console.log(instances);
+    var rObj = {}
+    //rObj.midasi = result_list[0].basic
+    rObj.insts = []
+    instances.forEach((item) => {
+      var li = []
+      for (var e of item) {
+        var ex = e.explanation
+        e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
+        li.push(e)
+      }
+      var midasi = result_list[0].basic
+      var result = {"midasi":midasi,"usage":ex, "inst":li}
+      rObj.insts.push(result)
+    });
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      targetObj : result.rows,
+      targetObj : rObj,
       category: category,
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId
