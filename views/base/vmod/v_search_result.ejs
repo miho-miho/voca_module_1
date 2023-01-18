@@ -55,7 +55,7 @@
       $(".result-list").find("a").on("click", function(){
         var targetWord = $(this).find(".midas_go").text()
         var targetWordId = $(this).find(".midas_go").attr("id")
-        var url = $(this).prop("href")
+        var url = $(this).attr("href")
         var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordId" value='+targetWordId+'/><input type="hidden" name="chuno" value="<%= chuno %>"/><input type="hidden" name="targetWordIds" value='+targetWordIds+'/>'
         $("body").append('<form action='+url+'method="post" id="post">'+targetData+'</form>');
         $("#post").submit();
