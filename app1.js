@@ -200,7 +200,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       var midasi = item[0].basic
       var inst = []
       inst.push({"usage":ex, "reibun":[li]})
-      const check = insts.find((element) => element.midasi = midasi)
+      const check = insts.find((element) => element.midasi === midasi)
       console.log(check);
       var result = {"midasi":midasi, "inst":inst}
       //console.log(result);
