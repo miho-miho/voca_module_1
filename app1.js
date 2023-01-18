@@ -197,10 +197,10 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         li.push(e)
-        console.log(li);
       }
       var midasi = item[0].basic
       var result = {"midasi":midasi,"usage":ex, "inst":li}
+      console.log(result);
       rObj.insts.push(result)
     });
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
