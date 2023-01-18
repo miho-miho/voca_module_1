@@ -279,7 +279,7 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
       targetObj : insts,
       category: req.body.category,
       targetWordId: req.body.targetWordId,
-      //chuno: chuno
+      chuno: chuno
     });
   });
 });
