@@ -25,6 +25,9 @@ html, body {
   }
 }
 /* 折り畳み可能リストのサイドバー用 */
+.sidebar {
+  height: 100%;
+}
 .sidebar-link:hover,
 .sidebar-link:focus {
   color: rgba(0, 0, 0, .85);
