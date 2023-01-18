@@ -13,11 +13,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var json_parts = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 var json_kiso = json_parts["kisogoi"]
-var json_kiso = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
-json_kiso = json_kiso["kisogoi"]
 
 var kiso_bamen = json_kiso["bamen"]
 var kiso_imibunrui = json_kiso["imibunrui"]
+var kiso_parts = {...kiso_bamen, ...kiso_imibunrui}
 var json_bunrui = json_parts["bunruigoi"]
 var bunrui_tai = json_bunrui["tai"]
 var bunrui_yo = json_bunrui["yo"]
@@ -156,6 +155,8 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
 app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
   let category = req.params.category
+  let categoryNo = Object.keys(kiso_parts).find((categoryNo) => kiso_parts[categoryNo] === category)
+  console.log(categoryNo);
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -173,36 +174,13 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     //text: 'SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id WHERE t_word.id=$1',
     //text: 'SELECT t_usage.usage_id,t_usage.explanation,t_instance.* FROM t_usage_inst_rel JOIN t_usage ON t_usage.usage_id=t_usage_inst_rel.usage_id JOIN t_instance ON t_usage_inst_rel.inst_id=t_instance.id WHERE t_usage.usage_id IN (SELECT t_usage.usage_id FROM t_usage JOIN t_word ON t_usage.word_id=t_word.id WHERE t_word.id=$1) ORDER BY t_usage.disp_priority, t_usage_inst_rel.disp_priority',
     //text: 'SELECT t_word.id AS word_id, t_usage.usage_id, t_usage.explanation, t_instance.* FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id JOIN t_usage ON t_usage_inst_rel.inst_id = t_usage.usage_id JOIN t_word ON t_usage.word_id = t_word.id WHERE word_id = $1',
+    //text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE word_id = $1 ORDER BY t_usage.disp_priority',
     text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE word_id = $1 ORDER BY t_usage.disp_priority',
     values: [targetWordId]
   };
   client.query(query, [targetWordId], (err, result) => {
     if (err) throw err;
-    //console.log(result.rows);
-    var t_jason = JSON.stringify({});
-    var usage_list = [];
-      //insts.push((({ basic, usage_id, explanation, ...rest }) => rest)(item))
-      //console.log(info);
-      /*
-    result.rows.forEach((item, i) => {
-      console.log(item);
-      tObj.midasi = item.basic
-      tObj.instances = []
-      tObj.instances["usage"] = item.explanation
-      tObj.instances["insts"] = []
-      tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
-      if (tObj.instances.usage === item.explanation) {
-        tObj.instances.insts.push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
-      } else {
-
-      }
-      //tObj.instances["insts"].push(((({ basic, usage_id, explanation, ...rest }) => rest)(item)))
-      usage_list.push(item.usage_id)
-    });
-    */
-    usage_list = Array.from(new Set(usage_list))
-    //console.log(tObj.instances);
-    //console.log(tObj);
+    console.log(result.rows);
     res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
