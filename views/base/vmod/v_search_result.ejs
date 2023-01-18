@@ -58,7 +58,8 @@
         var url = $(this).prop("href")
         var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordId" value='+targetWordId+'/><input type="hidden" name="chuno" value="<%= chuno %>"/><input type="hidden" name="targetWordIds" value='+targetWordIds+'/>'
         $("body").append('<form action='+url+'method="post" id="post">'+targetData+'</form>');
-        $("#post").submit();
+        console.log(targetData);
+        //$("#post").submit();
         return false;
       });
       let windowWidth = $(window).width()
