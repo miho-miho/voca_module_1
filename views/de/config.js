@@ -8,12 +8,12 @@ lang_info = {
   vmod_ms1_url : {},
 }
 
-sidebar_setting = {
-  sub_menu_snd : ["実践編"],
-  sub_menu_talk : ["教室用 ドイツ語", "教室用 ウィーンのドイツ語", "教室用 チューリッヒのドイツ語", "学習者用"],
-  sub_menu_gram : "no-choice",
-  sub_menu_vocab : "no-choice",
+db_info = {
+  user : "de",
+  host : "localhost",
+  database : "vmod_de",
+  password : "beer",
 }
 
 exports.lang_info = lang_info
-exports.sidebar_setting = sidebar_setting
+exports.db_info = db_info
