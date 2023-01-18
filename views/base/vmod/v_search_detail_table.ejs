@@ -60,6 +60,7 @@
       var targetArray = <%- JSON.stringify(targetObj) %>;
       var targetIndex = "";
       var targetItems;
+      console.log(targetArray);
       $("#all_items").text(targetArray.length)
       for (var i = 0; i < targetArray.length; i++) {
         if (targetArray[i].midasi === "<%= targetWord %>") {
@@ -104,7 +105,7 @@
             }
           });
           num+=1;
-        }); 
+        });
         switch (index) {
             case 0:
               $(".btn_previous").prop("disabled", true);
