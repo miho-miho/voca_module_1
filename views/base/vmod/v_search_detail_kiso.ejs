@@ -93,12 +93,16 @@
         var targetItem = targetArray[index]
         $(".targetWord").text(targetItem.midasi)
         var num = 1;
-        console.log(targetItem);
         targetItem.inst.forEach((item) => {
           console.log(item);
-          var explain = "仮"
-          //var explain = item.usage.replace("＊", "<br>＊");
-          $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
+          let explain = item.usage
+          var imi_list = []
+          if (explain.includes("＊")) {
+            imi_list.push(explain.substring(0, explain.indexOf("＊")))
+          } else {
+            imi_list.push(explain)
+          }
+          $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+imi_list+'</p>')
           $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
         });
           num+=1;
