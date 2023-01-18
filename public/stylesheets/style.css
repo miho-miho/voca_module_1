@@ -15,9 +15,6 @@ html, body {
   .header-title {
       font-size: 1.3rem;
   }
-  .sidebar {
-    height: 100vh;
-  }
 }
 @media screen and (max-width: 480px) {
   .header-title {
