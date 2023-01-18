@@ -98,9 +98,7 @@
           //var explain = item.usage.replace("＊", "<br>＊");
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+explain+'</p>')
           $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-          for (var e of item.inst) {
-            $(".examples").append('<p>・'+e.targetlanguage+'</p><p>・'+e.trans+'</p>')
-          }
+          console.log(item.inst, typeof item.inst);
         });
           num+=1;
         switch (index) {
