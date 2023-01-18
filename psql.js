@@ -28,6 +28,7 @@ client
   .query(query)
   .then((result) => {
     var result_list = result.rows
+    console.log(result.rows);
     var id_list = [];
     for (var i of result_list) {
       id_list.push(i.usage_id)
@@ -54,7 +55,7 @@ client
       var result = {"usage":ex, "inst":li}
       rObj.insts.push(result)
     });
-    console.log([rObj]);
+    //console.log([rObj]);
     client.end();
   })
   .catch((e) => console.error(e.stack));
