@@ -437,7 +437,7 @@
         items[item.scene].push(info)
         wordIdByScene[item.scene].push(item.word_id)
       });
-      console.log(ordIdByScene);
+      console.log(wordIdByScene);
       for(const id in items){
         var targetId = "#"+scenes[id]
         $(targetId).children(".card-body").find(".c_cand").text(items[id].length)
