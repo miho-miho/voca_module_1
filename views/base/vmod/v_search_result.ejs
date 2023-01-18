@@ -31,8 +31,8 @@
               <h5 class="col-6">取得件数：<span class="c_cand"></span>件</h5>
             </div>
             <div class="result-area container">
-              <ul class="list-group result-list list-group-flush">
-              </ul>
+              <div class="list-group result-list list-group-flush">
+              </div>
             </div><!-- result-area -->
           </div>
         </div>
@@ -48,7 +48,7 @@
       var i = 1;
       var targetWordIds = []
       for (var item of search_result_list) {
-        $(".result-list").append('<li data-href="./t_search_detail" class="list-group-item"><span class="id">'+i+'.</span><span class="midas_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</li>')
+        $(".result-list").append('<button type="button" data-href="./t_search_detail" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</button>')
         targetWordIds.push(item.word_id)
         i+=1;
       }
