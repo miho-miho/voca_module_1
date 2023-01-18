@@ -61,9 +61,9 @@
       window.onload = function(){
         $("#UrlToTable").prop("href", targetTable);
       }
-      var targetObj = <%- JSON.stringify(targetObj) %>;
-      console.log(targetObj);
-      var targetArray = Object.entries(targetObj)
+      var targetArray = <%- JSON.stringify(targetObj) %>;
+      console.log(targetArray);
+
       var targetIndex = "";
       var targetItems;
       $("#all_items").text(targetArray.length)
