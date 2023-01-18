@@ -90,6 +90,7 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
+        console.log(targetItem.inst);
         $(".targetWord").text(targetItem.midasi)
         var num = 1;
         targetItem.inst.forEach((item) => {
