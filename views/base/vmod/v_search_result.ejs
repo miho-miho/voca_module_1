@@ -52,14 +52,18 @@
         targetWordIds.push(item.word_id)
         i+=1;
       }
-      $(".result-list").find("a").on("click", function(){
-        //var targetWord = $(this).find(".midas_go").text()
-        var targetWordId = $(this).find(".midas_go").attr("id")
-        var url = $(this).attr("href")+'=<%= category %>'
-        var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordId" value='+targetWordId+'/><input type="hidden" name="chuno" value="<%= chuno %>"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/>'
-        $("body").append('<form action='+url+'method="post" id="post">'+targetData+'</form>');
-        $("#post").submit();
-        return false;
+      jQuery(function($){
+        $('li[data-href]').addClass('clickable')
+        .click(function(e) {
+          if(!$(e.target).is('a')){
+            var targetWord = ($(e.target).closest('.midas_go').text())
+            var targetWordId = ($(e.target).closest('.midas_go').attr('id'))
+            var url = $(e.target).data('href')+'=<%= chuno %>'
+            var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWordId" value='+targetWordId+'/>'
+            $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
+            $("#post").submit();
+          };
+        });
       });
       let windowWidth = $(window).width()
       if (windowWidth < 767) {
