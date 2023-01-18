@@ -427,7 +427,7 @@
       });
       s_id.forEach((item) => {
         items[item] = []
-        //wordIdByScene[item] = []
+        wordIdByScene[item] = []
       });
       word_obj.forEach((item) => {
         var info = {}
@@ -485,7 +485,7 @@
             var targetWord = ($(e.target).closest('tr').find(".t_pl").text())
             var targetWordIds = wordIdByScene[targetSceneId]
             var url = $(e.target).closest('tr').data('href')+'='+targetCategory
-            var targetData = '<input type="hidden" name="targetWord" value='+targetWord+'/><input type="hidden" name="targetSceneId" value='+targetSceneId+'/><input type="hidden" name="targetWordIds" value='+targetWordIds+'/>'
+            var targetData = '<input type="hidden" name="targetWord" value="'+targetWord+'"/><input type="hidden" name="targetSceneId" value="'+targetSceneId+'"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
             $("#post").submit();
           };
