@@ -486,9 +486,9 @@
             var targetWordIds = wordIdByScene[targetSceneId]
             console.log(targetWordIds);
             var url = $(e.target).closest('tr').data('href')+'='+targetCategory
-            var targetData = '<input type="hidden" name="targetWord" value="' + targetWord + '" /><input type="hidden" name="targetSceneId" value="' + targetSceneId + '" />'
+            var targetData = '<input type="hidden" name="targetWord" value='+targetWord+'/><input type="hidden" name="targetSceneId" value='+targetSceneId+'/><input type="hidden" name="targetWordIds" value='+targetWordIds+'/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            //$("#post").submit();
+            $("#post").submit();
           };
         });
       });
