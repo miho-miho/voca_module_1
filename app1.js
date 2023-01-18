@@ -156,7 +156,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
   let category = req.params.category
   let targetSceneId = req.body.targetSceneId
-  let targetWordIds = req.body.targetWordIds.split(',')..map(Number);
+  let targetWordIds = req.body.targetWordIds.split(',').map(Number);
   console.log(targetWordIds);
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
