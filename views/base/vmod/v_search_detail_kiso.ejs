@@ -108,6 +108,7 @@
               $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
               var audioLink = getGmodLink(s.xml_file_name, s.xpath)
               $(".examples:last").append(audioLink)
+              console.log(getDmodSoundFile(s.xml_file_name, s.xpath));
             }
           });
           num+=1;
@@ -133,37 +134,25 @@
       }
       //getGmodSoundFile
       function getGmodSoundFile(xml_file_name, xpath){
-        //console.log(xml_file_name, xpath);
         if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
           return "";
         } else {
           var expORins = "";
           var fileno = "";
           var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
-          //console.log(matches);
           if (matches != null) {
             expORins = matches[1].substring(0, 3) // exp or ins
             fileno = matches[2]
           }
           var no1 = "";
           var no2 = "";
-        //console.log(`expORins：${expORins}, fileno：${fileno}`);
         // xpathから音声ファイル名を作成
           var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
-        //console.log(matches);
           if (matches != null) {
             no1 = matches[1] - 1;
             no2 = matches[2] - 1;
           }
-          //console.log(`no1：${no1}, no2：${no2}`);
           var gmodsound = `../../../mt/fr/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
-        //console.log(gmodsound);
-        /*
-        $.get(gmodsound)
-        .fail(function(){
-          return "";
-        })
-        */
           var ret = `
           <!-- ${gmodsound} -->
             <audio>
@@ -186,8 +175,23 @@
         return link
       }
       //getDmodSoundFile
-      //function getDmodSoundFile(xml_file_name, xpath){
-      //}
+      function getDmodSoundFile(htmlfile, xpath){
+        var line =  "";
+        var sectence = "";
+        var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
+        if (matches != null) {
+          line = matches[1] - 1;
+          sentence = matches[2] -1;
+        }
+        var stid = "st_id"+Number(line)+"_"+Number(sentence);
+        var pmodpage = file_get_contents(htmlfile)
+        return pmodpage
+      }
+      function file_get_contents(filename) {
+        fetch(filename).then((resp) => resp.text()).then(function(data) {
+          return data;
+      });
+    }
     </script>
     <style>
       .btn_previous:disabled, .btn_next:disabled{
