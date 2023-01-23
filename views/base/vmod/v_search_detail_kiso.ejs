@@ -190,11 +190,11 @@
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
         var pmodpage = file_get_contents(htmlfile)
-        console.log(`htmlfile：${pmodpage}`);
         var start = matches[1];
         var stop = matches[2];
         var lang = "<%- lg %>"
         var matches = htmlfile.match(/.*(\d{2})\.html/)
+        console.log(`matches：${matches}`);
         if (matches === null) {
           return "";
         }
