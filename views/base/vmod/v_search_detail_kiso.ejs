@@ -173,8 +173,10 @@
         var gmodsound = getGmodSoundFile(xml_file_name, xpath)
         var link = `
           <!--■■■Gモジュールへのリンク■■■-->
-          ${gmodsound}
-          <a href="../../../mt/${lang}/gmod/contents/${htmlfile}" target="blank" class="gmodlink">文</a>
+          <div class="gmodsoundBlock">
+            ${gmodsound}
+            <a href="../../../mt/${lang}/gmod/contents/${htmlfile}" target="blank" class="gmodlink">文</a>
+          </div>
         `
         return link
       }
