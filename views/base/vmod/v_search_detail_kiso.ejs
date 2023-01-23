@@ -139,12 +139,20 @@
         var fileno = "";
         var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
         console.log(matches);
-        /*
-        if (matches.length > 0) {
+        if (matches != null) {
           expORins = matches[1].substring(0, 3)
           fileno = matches[2]
         }
-        */
+        var no1 = "";
+        var no2 = "";
+        console.log(matches);
+        var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
+        if (matches != null) {
+          no1 = matches[1] - 1;
+          no2 = matches[2] - 1;
+        }
+        var gmodsound = `../gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
+        console.log(gmodsound);
       }
     </script>
     <style>
