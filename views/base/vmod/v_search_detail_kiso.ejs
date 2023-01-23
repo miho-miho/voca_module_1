@@ -131,21 +131,21 @@
       }
       //getDmodSoundFile
       function getDmodSoundFile(xml_file_name, xpath){
-        console.log(xml_file_name, xpath);
+        //console.log(xml_file_name, xpath);
         if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
           return "";
         }
         var expORins = "";
         var fileno = "";
         var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
-        console.log(matches);
+        //console.log(matches);
         if (matches != null) {
           expORins = matches[1].substring(0, 3)
           fileno = matches[2]
         }
         var no1 = "";
         var no2 = "";
-        console.log(matches);
+        //console.log(matches);
         var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
         if (matches != null) {
           no1 = matches[1] - 1;
@@ -153,6 +153,17 @@
         }
         var gmodsound = `../gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
         console.log(gmodsound);
+        if (gmodsound.exists() === false) {
+          return "";
+        }
+        var ret = `
+        <!-- ${gmodsound} -->
+        <audio>
+          <source src='${gmodsound}' type='audio/mp3'>
+        </audio>
+        <span class='soundLink instSound'/><i class="bi bi-play-circle"></i></span>
+        `
+        return ret
       }
     </script>
     <style>
