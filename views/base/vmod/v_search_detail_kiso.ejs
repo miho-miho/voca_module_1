@@ -194,7 +194,6 @@
         var stop = matches[2];
         var lang = "<%- lg %>"
         var matches = htmlfile.match(/.*(\d{2})\.html/)
-        console.log(`matches：${matches}`);
         if (matches === null) {
           return "";
         }
@@ -208,6 +207,7 @@
           </svg>
           </span>
         `
+        return ret
       }
       //getDmodlink
       function getDmodlink(xml_file_name, xpath){
