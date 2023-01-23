@@ -180,14 +180,14 @@
         var line =  "";
         var sentence = "";
         var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
-        console.log(matches);
+        console.log("matches："+matches);
         if (matches != null) {
           line = matches[1] - 1;
           sentence = matches[2] -1;
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
         var pmodpage = file_get_contents(htmlfile)
-        console.log(pmodpage);
+        console.log("pmodpage："+pmodpage);
         return pmodpage
       }
       function file_get_contents(filename) {
