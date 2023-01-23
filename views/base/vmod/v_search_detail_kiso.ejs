@@ -154,7 +154,7 @@
           var gmodsound = `../../../mt/${lang}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
           var ret = `
           <!-- ${gmodsound} -->
-            <audio controls>
+            <audio>
               <source src='${gmodsound}' type='audio/mp3'>
             </audio>
             <span class='soundLink instSound'/>
@@ -254,7 +254,7 @@
         return link;
       }
       $(".soundLink").click(function(){
-        console.log($(this).html());
+        console.log($(this).prev().html());
       })
     </script>
     <style>
