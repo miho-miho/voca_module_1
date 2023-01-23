@@ -191,6 +191,7 @@
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
         var pmodpage = file_get_contents(htmlfile)
+        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
         console.log(pmodpage);
         //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
         if (matches == null) {
@@ -273,7 +274,6 @@
       })
       function file_get_contents(filename) {
         fetch(filename).then((resp) => resp.text()).then(function(data) {
-          console.log(data);
           return data;
         });
       }
