@@ -189,7 +189,7 @@
           line = matches[1] - 1;
           sentence = matches[2] -1;
         }
-        var stid = "st_id"+Number(line)+"_"+Number(sentence);
+        var stid = "st_"+Number(line)+"_"+Number(sentence);
         console.log(stid);
         var pmodpage = "";
         var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
