@@ -105,7 +105,8 @@
           item.reibun.forEach((element) => {
             for (var s of element) {
               $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
-              getDmodSoundFile(s.xml_file_name, s.xpath)
+              var audioLink = getDmodSoundFile(s.xml_file_name, s.xpath)
+              $(".examples:last").append(audioLink)
             }
           });
           num+=1;
