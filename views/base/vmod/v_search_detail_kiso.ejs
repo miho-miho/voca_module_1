@@ -132,13 +132,14 @@
       }
       //getDmodSoundFile
       function getDmodSoundFile(xml_file_name, xpath){
+        console.log(xml_file_name, xpath);
         if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
           return "";
         }
         var expORins = "";
         var fileno = "";
         var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
-        console.log(matches);
+        //console.log(matches);
         if (matches.length > 0) {
           expORins = matches[1].substring(0, 3)
           fileno = matches[2]
