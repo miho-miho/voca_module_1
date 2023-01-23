@@ -2,7 +2,7 @@ html {
   height: 100%;/*①高さの最小値*/
   position: relative;/*②相対位置*/
 }
-body {
+body, main {
   min-height: 100vh;
   padding-bottom: 56px;
 }
@@ -19,7 +19,9 @@ body {
   .header-title {
       font-size: 1.3rem;
   }
-/*    min-height: 100vh;
+  /*
+  .sidebar {
+    min-height: 100vh;
   }
 */
 }
