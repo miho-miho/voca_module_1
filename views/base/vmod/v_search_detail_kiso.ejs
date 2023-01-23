@@ -192,7 +192,7 @@
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
         var pmodpage = file_get_contents(htmlfile)
         console.log(pmodpage);
-        var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
+        //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
         if (matches == null) {
           return "";
         }
