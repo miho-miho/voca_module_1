@@ -254,8 +254,8 @@
       }
 
       $(".gmodsound").click(function(){
-        //console.log($(this).find("audio").play());;
-        $(this).find(".gmodaudio").play();
+        var audio = $(this).find(".gmodaudio")
+        audio.play();
       })
     </script>
     <style>
