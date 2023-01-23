@@ -134,7 +134,7 @@
         //console.log(xml_file_name, xpath);
         if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
           return "";
-        }
+        } else {
         var expORins = "";
         var fileno = "";
         var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
@@ -170,6 +170,7 @@
         `
         console.log(ret);
         return ret
+      }
       }
     </script>
     <style>
