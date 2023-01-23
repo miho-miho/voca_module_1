@@ -191,7 +191,7 @@
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
-        var reg = new RegExp('/_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/')
+        var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
           //console.log(data);
           matches = data.match(reg)
