@@ -4,6 +4,7 @@ html {
 }
 body {
   min-height: 100vh;
+  padding-top: 56px;
 }
 /*ヘッダー*/
 .navbar-nav li {
