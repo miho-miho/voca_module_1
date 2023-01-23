@@ -19,11 +19,9 @@ main {
   .header-title {
       font-size: 1.3rem;
   }
-  /*
   .sidebar {
-    min-height: 100vh;
+    min-height: 100%;
   }
-*/
 }
 @media screen and (max-width: 480px) {
   .header-title {
