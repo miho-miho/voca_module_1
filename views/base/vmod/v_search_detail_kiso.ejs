@@ -191,7 +191,8 @@
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
         var pmodpage = file_get_contents(htmlfile)
-        var matches = pmodpage.match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`)
+        var pattern = `/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`
+        var matches = pmodpage.match(pattern)
         if (matches == null) {
           return "";
         }
