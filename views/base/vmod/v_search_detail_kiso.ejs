@@ -194,8 +194,7 @@
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
           var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
           console.log(reg);
-          //console.log(JSON.stringify(data));
-          console.log(encodeURIComponent(JSON.stringify(data)));
+          console.log(JSON.stringify(data));
           console.log(data.match(reg));
         });
         // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
