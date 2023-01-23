@@ -195,8 +195,7 @@
         console.log(reg);
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
           console.log(data);
-          matches = data.match(reg)
-          console.log(matches);
+          console.log(data.match(reg));
         });
         // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
         console.log(pmodpage);
