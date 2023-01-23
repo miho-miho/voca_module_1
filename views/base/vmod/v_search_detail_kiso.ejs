@@ -170,6 +170,7 @@
       var htmlfile = "";
       function getGmodLink(xml_file_name, xpath){
         htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
+        console.log(htmlfile);
         var gmodsound = getGmodSoundFile(xml_file_name, xpath)
         var link = `
           <!--■■■Gモジュールへのリンク■■■-->
