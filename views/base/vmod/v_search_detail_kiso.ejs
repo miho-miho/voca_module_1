@@ -192,6 +192,7 @@
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
+          console.log(data);
           pmodpage =  data;
         });
         // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
