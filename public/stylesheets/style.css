@@ -24,6 +24,9 @@ main {
   }
 }
 @media screen and (max-width: 480px) {
+  html, body {
+    overscroll-behavior-y: none
+  }
   .header-title {
     font-size: 0.85rem;
   }
