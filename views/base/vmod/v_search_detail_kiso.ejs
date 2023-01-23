@@ -253,8 +253,7 @@
         return link;
       }
       $(".soundLink").click(function(){
-        console.log($(this).parent().html());
-        console.log($(this).parent(".gmodsoundBlock").html());
+        console.log($(this).parent().find("audio").html());
         console.log($(this).parent(".gmodsoundBlock").find(".gmodsound").html());
         //$(this).parent(".gmodsound").play()
       })
