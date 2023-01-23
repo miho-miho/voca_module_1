@@ -106,7 +106,7 @@
           item.reibun.forEach((element) => {
             for (var s of element) {
               $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
-              var audioLink = getGmodSoundFile(s.xml_file_name, s.xpath)
+              var audioLink = getGmodLink(s.xml_file_name, s.xpath)
               $(".examples:last").append(audioLink)
             }
           });
@@ -173,6 +173,17 @@
           `
           return ret
         }
+      }
+      //getGmodLink
+      function getGmodLink(xml_file_name, xpath){
+        var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
+        var gmodsound = getGmodSoundFile(xml_file_name, xpath)
+        var link = `
+          <!--■■■Gモジュールへのリンク■■■-->
+          ${gmodsound}
+          <a href="../../../mt/fr/gmod/contents/${htmlfile}" target="blank" class="gmodlink">文</a>
+        `
+        return link
       }
       //getDmodSoundFile
       //function getDmodSoundFile(xml_file_name, xpath){
