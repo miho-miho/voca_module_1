@@ -253,8 +253,9 @@
         return link;
       }
       $(".soundLink").click(function(){
-        console.log($(this).parent(".gmodsound").html());
-        $(this).parent(".gmodsound").play()
+        console.log($(this).prev().html());
+        console.log($(this).parent(".gmodsoundBlock").html());
+        //$(this).parent(".gmodsound").play()
       })
     </script>
     <style>
