@@ -190,11 +190,6 @@
           sentence = matches[2] -1;
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
-        function file_get_contents(filename) {
-          fetch(filename).then((resp) => resp.text()).then(function(data) {
-            return data;
-          });
-        }
         var pmodpage = file_get_contents(htmlfile)
         console.log(pmodpage);
         //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
@@ -276,6 +271,12 @@
         var audio = $(this).find(".gmodaudio")[0]
         audio.play();
       })
+      function file_get_contents(filename) {
+        fetch(filename).then((resp) => resp.text()).then(function(data) {
+          console.log(data);
+          return data;
+        });
+      }
     </script>
     <style>
       .btn_previous:disabled, .btn_next:disabled{
