@@ -1,6 +1,9 @@
-html, body {
+html {
   height: 100%;/*①高さの最小値*/
   position: relative;/*②相対位置*/
+}
+body {
+  min-height: 100%;
 }
 /*ヘッダー*/
 .navbar-nav li {
@@ -15,9 +18,9 @@ html, body {
   .header-title {
       font-size: 1.3rem;
   }
-  .sidebar {
-    min-height: 100vh;
+/*    min-height: 100vh;
   }
+*/
 }
 @media screen and (max-width: 480px) {
   .header-title {
