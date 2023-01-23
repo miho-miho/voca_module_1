@@ -193,7 +193,7 @@
         var pmodpage = "";
         var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
-          //console.log(data);
+          console.log(data);
           matches = data.match(reg)
           console.log(matches);
         });
