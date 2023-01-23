@@ -153,9 +153,10 @@
         }
         var gmodsound = `../gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
         console.log(gmodsound);
-        if (gmodsound.exists() === false) {
+        $.get(gmodsound)
+        .fail(function(){
           return "";
-        }
+        })
         var ret = `
         <!-- ${gmodsound} -->
         <audio>
