@@ -192,8 +192,8 @@
           sentence = matches[2] -1;
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
-        //var pmodpage = file_get_contents(htmlfile)
-        console.log(`htmlfile：${htmlfile}`);
+        var pmodpage = file_get_contents(htmlfile)
+        console.log(`htmlfile：${pmodpage}`);
         var start = matches[1];
         var stop = matches[2];
         var lang = "<%- lg %>"
@@ -235,6 +235,11 @@
           <!--■■■Dモジュールへのリンク終了■■■-->
           `
         return link
+      }
+      function file_get_contents(filename) {
+        fetch(filename).then((resp) => resp.text()).then(function(data) {
+          return data;
+        });
       }
     </script>
     <style>
