@@ -251,7 +251,7 @@
         return link;
       }
       $(".soundLink").click(function(){
-        console.log($(this).parents().closest("audio").html());
+        console.log($(this).prev().html());
       })
     </script>
     <style>
