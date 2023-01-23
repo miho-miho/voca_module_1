@@ -93,7 +93,6 @@
         $(".targetWord").text(targetItem.midasi)
         var num = 1;
         targetItem.inst.forEach((item) => {
-          console.log(item);
           let explain = item.usage
           var imi_list = []
           if (explain.includes("＊")) {
@@ -252,7 +251,7 @@
         return link;
       }
       $(".soundLink").click(function(){
-        $(this).prev().play();
+        $(this).prev();
       })
     </script>
     <style>
