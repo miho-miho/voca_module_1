@@ -198,7 +198,7 @@
         if (matches === null) {
           return "";
         }
-        var dmodsound = `../../../mt/${lang}/dmod/class/movie/${lang}_ja$matches[1].mp4`
+        var dmodsound = `../../../mt/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
         var ret = `
           <!-- ${dmodsound} -->
           <span  class='dmodsound' onclick="playDmodSound('${dmodsound}', '${start}', '${stop}')">
@@ -208,7 +208,6 @@
           </svg>
           </span>
         `
-        console.log(ret);
       }
       //getDmodlink
       function getDmodlink(xml_file_name, xpath){
