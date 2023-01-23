@@ -106,10 +106,8 @@
           item.reibun.forEach((element) => {
             for (var s of element) {
               $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
-              var gmodlink = getGmodLink(s.xml_file_name, s.xpath)
-              $(".examples:last").append(gmodlink)
-              var dmodlink = getDmodlink(s.xml_file_name, s.xpath);
-              $(".examples:last").append(dmodlink)
+              var link = makeModLink(s.xml_file_name, s.xpath)
+              $(".examples:last").append(link)
             }
           });
           num+=1;
@@ -186,7 +184,6 @@
         var line =  "";
         var sentence = "";
         var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
-        console.log("matches："+matches);
         if (matches != null) {
           line = matches[1] - 1;
           sentence = matches[2] -1;
@@ -240,6 +237,17 @@
         fetch(filename).then((resp) => resp.text()).then(function(data) {
           return data;
         });
+      }
+      function  makeModLink(module_id, xml_file_name, xpath){
+        var link = "";
+        if (module_id != "" || module_id != null) {
+          if (module_id == "gmod") {
+            link = getGmodLink(xml_file_name, xpath)
+          } else if (module_id == "dmod") {
+            link = getDmodlink(xml_file_name, xpath)
+          }
+        }
+        return link;
       }
     </script>
     <style>
