@@ -3,7 +3,7 @@ html {
   position: relative;/*②相対位置*/
 }
 body {
-  min-height: 100%;
+  min-height: 100vh;
 }
 /*ヘッダー*/
 .navbar-nav li {
