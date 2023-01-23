@@ -166,9 +166,9 @@
         }
       }
       //getGmodLink
-      var htmlfile = "";
+      //var htmlfile = "";
       function getGmodLink(xml_file_name, xpath){
-        htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
+        var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
         var lang = "<%- lg %>"
         var gmodsound = getGmodSoundFile(xml_file_name, xpath)
         var link = `
