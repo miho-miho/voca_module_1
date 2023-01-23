@@ -218,7 +218,7 @@
           dmod_funcId = matches[2]; // ex. 15
         }
         var lang = "<%- lg %>"
-        var lang_matches = lnag.match(/ja_([a-z][a-z])/)
+        var lang_matches = lang.match(/ja_([a-z][a-z])/)
         // 英語ページ 英語はHTMLファイルの名前がfunc_01.htmlとstory_01.htmlの２種ある
         if (lang === "en") {
           htmlfile = `../../../mt/${lang}/dmod/class/func_${dmod_funcId}.html`
