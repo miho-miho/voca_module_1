@@ -169,6 +169,7 @@
       var htmlfile = "";
       function getGmodLink(xml_file_name, xpath){
         htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
+        console.log(htmlfile);
         var lang = "<%- lg %>"
         var gmodsound = getGmodSoundFile(xml_file_name, xpath)
         var link = `
@@ -190,7 +191,6 @@
           sentence = matches[2] -1;
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
-        console.log(htmlfile);
         var pmodpage = file_get_contents(htmlfile)
         console.log(pmodpage);
         //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
