@@ -57,11 +57,6 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
-      function file_get_contents(filename) {
-        fetch(filename).then((resp) => resp.text()).then(function(data) {
-          return data;
-        });
-      }
       var targetTable = "./catego#<%- category %>"
       window.onload = function(){
         $("#UrlToTable").prop("href", targetTable);
@@ -195,7 +190,10 @@
           sentence = matches[2] -1;
         }
         var stid = "st_id"+Number(line)+"_"+Number(sentence);
-        var pmodpage = file_get_contents(htmlfile)
+        var pmodpage = "";
+        fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
+          pmodpage =  data;
+        });
         // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
         console.log(pmodpage);
         //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
