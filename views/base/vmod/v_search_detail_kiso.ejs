@@ -93,6 +93,7 @@
         $(".targetWord").text(targetItem.midasi)
         var num = 1;
         targetItem.inst.forEach((item) => {
+          console.log(item);
           let explain = item.usage
           var imi_list = []
           if (explain.includes("＊")) {
@@ -105,7 +106,7 @@
           item.reibun.forEach((element) => {
             for (var s of element) {
               $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
-              var audioLink = getDmodSoundFile(s.xml_file_name, s.xpath)
+              var audioLink = getGmodSoundFile(s.xml_file_name, s.xpath)
               $(".examples:last").append(audioLink)
             }
           });
@@ -130,50 +131,52 @@
           $("#v_sidebar").before($(".main"));
         });
       }
-      //getDmodSoundFile
-      function getDmodSoundFile(xml_file_name, xpath){
+      //getGmodSoundFile
+      function getGmodSoundFile(xml_file_name, xpath){
         //console.log(xml_file_name, xpath);
         if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
           return "";
         } else {
-        var expORins = "";
-        var fileno = "";
-        var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
-        console.log(matches);
-        if (matches != null) {
-          expORins = matches[1].substring(0, 3) // exp or ins
-          fileno = matches[2]
-        }
-        var no1 = "";
-        var no2 = "";
-        console.log(`expORins：${expORins}, fileno：${fileno}`);
-        var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
-        console.log(matches);
-        if (matches != null) {
-          no1 = matches[1] - 1;
-          no2 = matches[2] - 1;
-        }
-        console.log(`no1：${no1}, no2：${no2}`);
-        var gmodsound = `../../../mt/fr/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
-        console.log(gmodsound);
+          var expORins = "";
+          var fileno = "";
+          var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
+          //console.log(matches);
+          if (matches != null) {
+            expORins = matches[1].substring(0, 3) // exp or ins
+            fileno = matches[2]
+          }
+          var no1 = "";
+          var no2 = "";
+        //console.log(`expORins：${expORins}, fileno：${fileno}`);
+        // xpathから音声ファイル名を作成
+          var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
+        //console.log(matches);
+          if (matches != null) {
+            no1 = matches[1] - 1;
+            no2 = matches[2] - 1;
+          }
+          //console.log(`no1：${no1}, no2：${no2}`);
+          var gmodsound = `../../../mt/fr/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
+        //console.log(gmodsound);
         /*
         $.get(gmodsound)
         .fail(function(){
           return "";
         })
         */
-        var ret = `
-        <!-- ${gmodsound} -->
-        <audio>
-          <source src='${gmodsound}' type='audio/mp3'>
-        </audio>
-        <span class='soundLink instSound'/><i class="bi bi-play-circle"></i></span>
-        <p>音声</p>
-        `
-        console.log(ret);
-        return ret
+          var ret = `
+          <!-- ${gmodsound} -->
+            <audio>
+              <source src='${gmodsound}' type='audio/mp3'>
+            </audio>
+            <span class='soundLink instSound'/><i class="bi bi-play-circle"></i></span>
+          `
+          return ret
+        }
       }
-      }
+      //getDmodSoundFile
+      //function getDmodSoundFile(xml_file_name, xpath){
+      //}
     </script>
     <style>
       .btn_previous:disabled, .btn_next:disabled{
