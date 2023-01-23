@@ -152,11 +152,13 @@
           no2 = matches[2] - 1;
         }
         var gmodsound = `../gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
-        console.log(gmodsound);
+        //console.log(gmodsound);
+        /*
         $.get(gmodsound)
         .fail(function(){
           return "";
         })
+        */
         var ret = `
         <!-- ${gmodsound} -->
         <audio>
@@ -164,6 +166,7 @@
         </audio>
         <span class='soundLink instSound'/><i class="bi bi-play-circle"></i></span>
         `
+        console.log(ret);
         return ret
       }
     </script>
