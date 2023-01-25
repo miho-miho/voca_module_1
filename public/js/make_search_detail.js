@@ -91,7 +91,7 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
   return link
 }
 //getDmodSoundFile
-exports.getDmodSoundFile = function(htmlfile, xpath){
+exports.getDmodSoundFile = function(htmlfile, xpath, lang){
   var line =  "";
   var sentence = "";
   var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
@@ -101,19 +101,19 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
   }
   var stid = "st_"+Number(line)+"_"+Number(sentence);
   var pmodpage = "";
-  function file_get_contents(filename) {
-      fetch(filename).then((resp) => resp.text()).then(function(data) {
-          return data;
-      });
-  }
-  var data = file_get_contents(htmlfile)
-  var lines = data.split('\n');
-  for (var i = 0; i < lines.length; i++) {
-    if (lines[i].indexOf("_timeCounterStArray") !== -1) {
-      if (lines[i].indexOf(`["${stid}"]`) !== -1) {
-        pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
+  if (htmlfile === "" | htmlfile === null) {
+    return "";
+  } else {
+    fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
+      var lines = data.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf("_timeCounterStArray") !== -1) {
+          if (lines[i].indexOf(`["${stid}"]`) !== -1) {
+            pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
+          }
+        }
       }
-    }
+    });
   }
   var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
   if (matches === null) {
@@ -121,7 +121,6 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
   }
   var start = matches[1];
   var stop = matches[2];
-  var lang = "<%- lg %>"
   var matches = htmlfile.match(/.*(\d{2})\.html/)
   if (matches === null) {
     return "";
@@ -175,7 +174,6 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
       return "";
     }
     var dmodsound = `../../../mt/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
-    console.log(dmodsound);
     var ret = `
       <!-- ${dmodsound} -->
       <span  class='dmodsound' onclick="playDmodSound('${dmodsound}', '${start}', '${stop}')">
