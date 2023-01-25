@@ -131,10 +131,10 @@
         });
       }
       //-----------------------------//
-      function file_get_contents(filename) {
-        fetch(filename).then((resp) => resp.text()).then(function(data) {
-          return data;
-        });
+      async function file_get_contents(filename) {
+        const res = await fetch(filename).
+        const data = await res.text()
+        return data;
       }
     //-----------------------------//
       //getGmodSoundFile
@@ -188,7 +188,7 @@
         return link
       }
       //getDmodSoundFile
-      async function getDmodSoundFile(htmlfile, xpath){
+      function getDmodSoundFile(htmlfile, xpath){
         var line =  "";
         var sentence = "";
         var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
@@ -198,7 +198,7 @@
         }
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
-        var data = await file_get_contents(htmlfile)
+        var data = file_get_contents(htmlfile)
         console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
