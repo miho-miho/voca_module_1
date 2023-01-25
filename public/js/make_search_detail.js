@@ -161,7 +161,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
             pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
           }
         }
-      });
+      }
     });
     var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
     if (matches === null) {
