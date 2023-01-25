@@ -191,13 +191,10 @@
         }
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
-        function file_get_contents(filename) {
-          fetch(filename).then((resp) => resp.text()).then(function(data) {
+        var data = fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
             return data;
           });
-        }
-        var data = file_get_contents(htmlfile)
-        console.log(file_get_contents(htmlfile));
+        console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
           if (lines[i].indexOf("_timeCounterStArray") !== -1) {
