@@ -284,8 +284,8 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
     var link = `
       <!--■■■Dモジュールへのリンク■■■-->
       <div class="dmodsound">
-        ${dmodsound}
         <a href="${htmlfile}" target="blank" class="dmodlink btn btn-success">会</a>
+        ${dmodsound}
       </div>
       <!--■■■Dモジュールへのリンク終了■■■-->
       `
