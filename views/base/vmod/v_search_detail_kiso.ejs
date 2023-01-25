@@ -208,7 +208,6 @@
           }
         }
         var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
-        console.log(matches);
         if (matches === null) {
           return "";
         }
@@ -229,6 +228,7 @@
           </svg>
           </span>
         `
+        console.log(ret);
         return ret
       }
       //getDmodlink
