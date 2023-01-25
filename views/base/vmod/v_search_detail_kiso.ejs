@@ -139,13 +139,11 @@
           }
           audio.onplaying = function(){
             isPlaying = true;
-            $(this).removeClass("btn-outline-primary")
-            $(this).addClass("btn-primary")
+            $(this).prop("disabled", true);
           }
           audio.onpause = function(){
             isPlaying = false;
-            $(this).removeClass("btn-primary")
-            $(this).addClass("btn-outline-primary")
+            $(this).prop("disabled", false);
           }
         });
       })
