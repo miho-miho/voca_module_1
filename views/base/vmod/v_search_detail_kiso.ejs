@@ -193,16 +193,14 @@
         var pmodpage = "";
         var times;
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
-          //var reg = new RegExp(`_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);`)
-          var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
           var lines = data.split('\n');
           for (var i = 0; i < lines.length; i++) {
             if (lines[i].indexOf("_timeCounterStArray") !== -1) {
-              console.log(lines[i]);
-              times = lines[i].match(reg);
+              if (lines[i].indexOf(stid) !== -1) {
+                console.log(lines[i]);
+              }
             }
           }
-          console.log(times);
         });
         // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
         //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
