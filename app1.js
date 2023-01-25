@@ -152,6 +152,7 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   search_result_list = []
 });
 //詳細_基礎
+var mkDetail = require('./public/js/make_search_detail.js')
 app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
   let category = req.params.category
@@ -188,8 +189,6 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       });
       instances.push(a)
     }
-    //console.log(instances);
-    //rObj.midasi = result_list[0].basic
     var insts = []
     instances.forEach((item) => {
       var li = []
@@ -205,6 +204,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
         inst.push({"usage":ex, "reibun":[li]})
+        console.log(inst);
         var result = {"midasi":midasi, "inst":inst}
         insts.push(result)
       }
