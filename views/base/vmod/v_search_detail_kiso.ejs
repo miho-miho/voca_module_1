@@ -248,7 +248,6 @@
           htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
         }
         var dmodsound = await getDmodSoundFile(htmlfile, xpath);
-        console.log(dmodsound);
         var link = `
           <!--■■■Dモジュールへのリンク■■■-->
             ${dmodsound}
@@ -257,13 +256,13 @@
           `
         return link
       }
-      function  makeModLink(module_id, xml_file_name, xpath){
+      async function  makeModLink(module_id, xml_file_name, xpath){
         var link = "";
         if (module_id != "" || module_id != null) {
           if (module_id == "gmod") {
-            link = getGmodLink(xml_file_name, xpath)
+            link = await getGmodLink(xml_file_name, xpath)
           } else if (module_id == "dmod") {
-            link = getDmodlink(xml_file_name, xpath)
+            link = await getDmodlink(xml_file_name, xpath)
           }
         }
         return link;
