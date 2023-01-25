@@ -264,6 +264,7 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         var link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
         e.link = link
+        console.log(e);
         li.push(e)
       }
       var midasi = item[0].basic
