@@ -196,7 +196,7 @@
           //var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
           //console.log(reg);
           console.log(data);
-          console.log(data.match(`_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);`);
+          console.log(data.match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`));
         });
         // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
         //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
