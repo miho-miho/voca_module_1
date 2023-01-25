@@ -202,7 +202,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
-        var link = mkDetail.getGmodLink(li.xml_file_name, li.xpath)
+        var link = mkDetail.getGmodLink(li.xml_file_name, li.xpath, lang)
         console.log(link);
       } else {
         inst.push({"usage":ex, "reibun":[li]})
