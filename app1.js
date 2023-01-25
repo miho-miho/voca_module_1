@@ -12,7 +12,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var json_parts = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
+var json_parts = JSON.parse(fs.readFile('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 var json_kiso = json_parts["kisogoi"]
 
 var kiso_bamen = json_kiso["bamen"]
