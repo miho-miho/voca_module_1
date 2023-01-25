@@ -201,6 +201,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
   }
   var dmodsound = getDmodSoundFile(htmlfile, xpath);
+  console.log(dmodsound);
   var link = `
     <!--■■■Dモジュールへのリンク■■■-->
       ${dmodsound}
