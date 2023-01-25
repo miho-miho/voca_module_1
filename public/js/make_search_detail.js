@@ -119,7 +119,7 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   if (htmlfile === "" | htmlfile === null) {
     return "";
   } else {
-    var data = fs.readFileSync(htmlfile)
+    var data = fs.readFileSync(htmlfile, 'utf8')
     console.log(data);
   }
   var texts = data.text();
