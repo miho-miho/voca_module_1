@@ -128,24 +128,25 @@
           $("#v_sidebar").before($(".main"));
         });
       }
-
-      $(document).on('click', '.gmodsound', function(){
-        var audio = $(this).find(".gmodaudio")[0]
-        var isPlaying = false;
-        if (isPlaying) {
-          audio.pause();
-        } else {
-          audio.play();
-        }
-        audio.onplaying = function(){
-          isPlaying = true;
-          console.log(isPlaying);
-        }
-        audio.onpause = function(){
-          isPlaying = false;
-          console.log(isPlaying);
-        }
-      });
+      $(function(){
+        $(document).on('click', '.gmodsound', function(){
+          var audio = $(this).find(".gmodaudio")[0]
+          var isPlaying = false;
+          if (isPlaying) {
+            audio.pause();
+          } else {
+            audio.play();
+          }
+          audio.onplaying = function(){
+            isPlaying = true;
+            console.log(isPlaying);
+          }
+          audio.onpause = function(){
+            isPlaying = false;
+            console.log(isPlaying);
+          }
+        });
+      })
 
       var dmodAudioObj;
       function playDmodSound(dmodsound, startTime, stopTime){
