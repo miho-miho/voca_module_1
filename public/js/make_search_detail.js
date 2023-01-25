@@ -91,7 +91,7 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
   return link
 }
 //getDmodSoundFile
-exports.getDmodSoundFile = async function(xml_file_name, xpath, lang){
+exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   var dmod_funcId = "";
   var matches = xml_file_name.match(/^(.*)(\d{2})\.xml/)
   if (matches != null) {
@@ -118,7 +118,7 @@ exports.getDmodSoundFile = async function(xml_file_name, xpath, lang){
   if (htmlfile === "" | htmlfile === null) {
     return "";
   } else {
-    var data = await fetch(htmlfile)
+    var data = fetch(htmlfile)
     var texts = data.text();
     var lines = texts.split('\n');
     for (var i = 0; i < lines.length; i++) {
