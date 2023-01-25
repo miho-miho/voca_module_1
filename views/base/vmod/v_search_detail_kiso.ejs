@@ -200,14 +200,14 @@
               }
             }
           }
+          console.log(pmodpage);
+          var reg = `/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`
+          var matches = pmodpage.match(reg)
+          console.log(`matches：${matches}`);
+          if (matches === null) {
+            return "";
+          }
         });
-        console.log(pmodpage);
-        var reg = `/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`
-        var matches = pmodpage.match(reg)
-        console.log(`matches：${matches}`);
-        if (matches === null) {
-          return "";
-        }
         var start = matches[1];
         var stop = matches[2];
         var lang = "<%- lg %>"
