@@ -120,7 +120,7 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
     return "";
   } else {
     var data = fs.readFileSync(htmlfile)
-    console.log(data);
+    console.log(typeof data);
   }
   var texts = data.text();
   var lines = texts.split('\n');
