@@ -159,6 +159,9 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
       });
     }
     var data = file_get_contents(htmlfile)
+    console.log(typeof data);
+    console.log(data);
+    /*
     var lines = data.split('\n');
     for (var i = 0; i < lines.length; i++) {
       if (lines[i].indexOf("_timeCounterStArray") !== -1) {
@@ -167,6 +170,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
         }
       }
     }
+    */
     var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
     if (matches === null) {
       return "";
