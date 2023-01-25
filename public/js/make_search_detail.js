@@ -46,7 +46,7 @@ exports.getGmodSoundFile = function(xml_file_name, xpath){
 */
 //getGmodLink
 exports.getGmodLink = function(xml_file_name, xpath, lang){
-  function　getGmodSoundFile(xml_file_name, xpath){
+  function getGmodSoundFile(xml_file_name, xpath, lang){
     if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
       return "";
     } else {
