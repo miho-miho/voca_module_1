@@ -107,7 +107,6 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   } else {
     htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
   }
-  console.log(htmlfile);
   var line =  "";
   var sentence = "";
   var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
@@ -126,12 +125,12 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
         if (lines[i].indexOf("_timeCounterStArray") !== -1) {
           if (lines[i].indexOf(`["${stid}"]`) !== -1) {
             pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
+            console.log(pmodpage);
           }
         }
       }
     });
   }
-  console.log(pmodpage);
   var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
   if (matches === null) {
     return "";
