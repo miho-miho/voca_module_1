@@ -119,14 +119,14 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
     return "";
   } else {
     var data = fetch(htmlfile)
-    var texts = data.text();
-    var lines = texts.split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      if (lines[i].indexOf("_timeCounterStArray") !== -1) {
-        if (lines[i].indexOf(`["${stid}"]`) !== -1) {
-          pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
-          console.log(pmodpage);
-        }
+  }
+  var texts = data.text();
+  var lines = texts.split('\n');
+  for (var i = 0; i < lines.length; i++) {
+    if (lines[i].indexOf("_timeCounterStArray") !== -1) {
+      if (lines[i].indexOf(`["${stid}"]`) !== -1) {
+        pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
+        console.log(pmodpage);
       }
     }
   }
