@@ -104,8 +104,6 @@
           $(".result-card-area").append('<div class="card"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
           item.reibun.forEach((element) => {
             for (var s of element) {
-              //var link = makeModLink(s.module_id, s.xml_file_name, s.xpath)
-              //$(".examples:last").append(link)
               $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>'+s.link)
             }
           });
@@ -130,7 +128,7 @@
           $("#v_sidebar").before($(".main"));
         });
       }
-      $(".gmodsound").click(function(){
+      $(".gmodsound").on('click', function(){
         var audio = $(this).find(".gmodaudio")[0]
         audio.play();
       })
