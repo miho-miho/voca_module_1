@@ -260,7 +260,7 @@
         var link = "";
         if (module_id != "" || module_id != null) {
           if (module_id == "gmod") {
-            link = await getGmodLink(xml_file_name, xpath)
+            link = getGmodLink(xml_file_name, xpath)
           } else if (module_id == "dmod") {
             link = await getDmodlink(xml_file_name, xpath)
           }
