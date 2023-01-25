@@ -121,11 +121,8 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   if (htmlfile === "" | htmlfile === null) {
     return "";
   } else {
-    fs.readFileSync(htmlfile, 'utf8', function(err, data){
-      if (err) {
-        result = ""
-      }
-      result = data
+    try {
+      result = fs.readFileSync(htmlfile, 'utf8')
       var lines = result.split('\n');
       for (var i = 0; i < lines.length; i++) {
         if (lines[i].indexOf("_timeCounterStArray") !== -1) {
@@ -135,7 +132,9 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
           }
         }
       }
-    })
+    } catch (err) {
+      result = ""
+    }
   }
   var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
   if (matches === null) {
