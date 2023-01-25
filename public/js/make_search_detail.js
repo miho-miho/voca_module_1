@@ -153,6 +153,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     }
     var stid = "st_"+Number(line)+"_"+Number(sentence);
     var pmodpage = "";
+    console.log(htmlfile);
     fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
       var lines = data.split('\n');
       for (var i = 0; i < lines.length; i++) {
