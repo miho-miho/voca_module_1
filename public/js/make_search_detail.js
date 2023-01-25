@@ -107,6 +107,7 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   } else {
     htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
   }
+  console.log(htmlfile);
   var line =  "";
   var sentence = "";
   var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
