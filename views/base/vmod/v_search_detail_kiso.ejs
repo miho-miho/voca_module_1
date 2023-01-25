@@ -101,7 +101,7 @@
             imi_list.push(explain)
           }
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+imi_list+'</p>')
-          $(".result-card-area").append('<div class="card container"><div class="card-header"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples rows"></div></div>')
+          $(".result-card-area").append('<div class="card container"><div class="card-header col"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples rows"></div></div>')
           item.reibun.forEach((element) => {
             for (var s of element) {
               //$(".examples:last").append(s.link+'<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
