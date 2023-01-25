@@ -153,13 +153,13 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     }
     var stid = "st_"+Number(line)+"_"+Number(sentence);
     var pmodpage = "";
-    console.log(htmlfile);
     if (htmlfile === "" | htmlfile === null) {
       return "";
     } else {
       fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
+          console.log(lines[i]);
           if (lines[i].indexOf("_timeCounterStArray") !== -1) {
             if (lines[i].indexOf(`["${stid}"]`) !== -1) {
               pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
