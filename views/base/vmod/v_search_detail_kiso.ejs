@@ -191,6 +191,7 @@
         }
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
+        var times;
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
           //var reg = new RegExp(`_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);`)
           //var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
@@ -199,10 +200,10 @@
             if ( lines[i] == '' ) {
               continue;
             }
-            matches = lines[i].match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`);
+            times = lines[i].match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`);
           }
+          console.log(times);
         });
-        console.log(matches);
         // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
         //var matches = pmodpage.match(/_timeCounterStArray\[\"$stid\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
         if (matches == null) {
