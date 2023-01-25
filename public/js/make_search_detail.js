@@ -93,6 +93,7 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
 //getDmodSoundFile
 exports.getDmodSoundFile = function(htmlfile, xpath, lang){
   var htmlfile = "";
+  var lang_matches = lang.match(/ja_([a-z][a-z])/)
   if (lang === "en") {
     htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/func_${dmod_funcId}.html`
   } else if (lang_matches != null) {  // ex. ja_th
