@@ -1,3 +1,4 @@
+import fetch from "node-fetch"
 //-----------------------------//
 function file_get_contents(filename) {
     fetch(filename).then((resp) => resp.text()).then(function(data) {
