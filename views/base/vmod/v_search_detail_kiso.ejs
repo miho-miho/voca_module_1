@@ -256,13 +256,13 @@
           `
         return link
       }
-      async function  makeModLink(module_id, xml_file_name, xpath){
+      function  makeModLink(module_id, xml_file_name, xpath){
         var link = "";
         if (module_id != "" || module_id != null) {
           if (module_id == "gmod") {
             link = getGmodLink(xml_file_name, xpath)
           } else if (module_id == "dmod") {
-            link = await getDmodlink(xml_file_name, xpath)
+            link = getDmodlink(xml_file_name, xpath)
           }
         }
         return link;
