@@ -195,7 +195,8 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       for (var e of item) {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
-        console.log(e);
+        var link = mkDetail.getGmodLink(e.xml_file_name, e.xpath, lang)
+        console.log(link);
         li.push(e)
       }
       var midasi = item[0].basic
