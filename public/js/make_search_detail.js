@@ -42,8 +42,7 @@ exports.getGmodSoundFile = function(xml_file_name, xpath){
 }
 //getGmodLink
 exports.getGmodLink = function(xml_file_name, xpath, lang){
-  var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
-  var gmodsound = function(xml_file_name, xpath){
+  function　getGmodSoundFile(xml_file_name, xpath){
     if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
       return "";
     } else {
@@ -77,6 +76,8 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
       return ret
     }
   }
+  var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
+  var gmodsound = getGmodSoundFile(xml_file_name, xpath)
   var link = `
     <!--■■■Gモジュールへのリンク■■■-->
     <div class="gmodsound">
