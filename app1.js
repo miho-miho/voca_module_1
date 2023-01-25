@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const fetch = require('node-fetch') 
+const fetch = require('node-fetch')
 const bodyParser = require("body-parser");
 var { Client } = require('pg');
 
@@ -198,7 +198,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         //var link = mkDetail.getGmodLink(e.xml_file_name, e.xpath, lang)
         var link = mkDetail.getDmodlink(e.xml_file_name, e.xpath, lang)
-        console.log(link);
+        //console.log(link);
         li.push(e)
       }
       var midasi = item[0].basic
