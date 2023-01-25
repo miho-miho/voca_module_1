@@ -115,6 +115,7 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
     sentence = matches[2] -1;
   }
   var stid = "st_"+Number(line)+"_"+Number(sentence);
+  console.log(stid);
   var pmodpage = "";
   if (htmlfile === "" | htmlfile === null) {
     return "";
