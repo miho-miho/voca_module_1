@@ -108,6 +108,7 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
   }
   var data = file_get_contents(htmlfile)
   console.log(data);
+  /*
   var lines = data.split('\n');
   for (var i = 0; i < lines.length; i++) {
     if (lines[i].indexOf("_timeCounterStArray") !== -1) {
@@ -116,6 +117,7 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
       }
     }
   }
+  */
   var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
   if (matches === null) {
     return "";
