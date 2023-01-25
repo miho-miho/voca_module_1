@@ -101,11 +101,11 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   var htmlfile = "";
   var lang_matches = lang.match(/ja_([a-z][a-z])/)
   if (lang === "en") {
-    htmlfile = `../../../mt/${lang}/dmod/class/func_${dmod_funcId}.html`
+    htmlfile = `../../mt/${lang}/dmod/class/func_${dmod_funcId}.html`
   } else if (lang_matches != null) {  // ex. ja_th
-    htmlfile = `../../../mt/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
+    htmlfile = `../../mt/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
   } else {
-    htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
+    htmlfile = `../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
   }
   var line =  "";
   var sentence = "";
