@@ -200,6 +200,7 @@
             if ( lines[i] == '' ) {
               continue;
             }
+            console.log(lines[i]);
             times = lines[i].match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`);
           }
           console.log(times);
