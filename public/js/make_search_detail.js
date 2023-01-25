@@ -280,7 +280,7 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
     } else {
       htmlfile = `../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
     }
-    var dmodsound = getDmodSoundFile(htmlfile, xpath);
+    var dmodsound = getDmodSoundFile(htmlfile, xpath, lang);
     var link = `
       <!--■■■Dモジュールへのリンク■■■-->
         ${dmodsound}
@@ -291,7 +291,7 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
   }
   //getGmodLink
   function getGmodLink(xml_file_name, xpath, lang){
-    function getGmodSoundFile(xml_file_name, xpath){
+    function getGmodSoundFile(xml_file_name, xpath, lang){
       if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
         return "";
       } else {
@@ -325,7 +325,7 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
       }
     }
     var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
-    var gmodsound = getGmodSoundFile(xml_file_name, xpath)
+    var gmodsound = getGmodSoundFile(xml_file_name, xpath, lang)
     var link = `
       <!--■■■Gモジュールへのリンク■■■-->
       <div class="gmodsound">
@@ -338,10 +338,9 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
   var link = "";
   if (module_id != "" || module_id != null) {
     if (module_id == "gmod") {
-      link = getGmodLink(xml_file_name, xpath)
+      link = getGmodLink(xml_file_name, xpath, lang)
     } else if (module_id == "dmod") {
-      link = getDmodlink(xml_file_name, xpath)
-      console.log(JSON.stringify(link));
+      link = getDmodlink(xml_file_name, xpath, lang)
     }
   }
   return link;
