@@ -116,17 +116,17 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   }
   var stid = "st_"+Number(line)+"_"+Number(sentence);
   var pmodpage = "";
-  var data;
+  var result;
   console.log(htmlfile);
   if (htmlfile === "" | htmlfile === null) {
     return "";
   } else {
     fs.readFileSync(htmlfile, 'utf8', function(err, data){
       if (err) {
-        data = ""
+        result = ""
       }
-      data = data
-      var lines = data.split('\n');
+      result = data
+      var lines = result.split('\n');
       for (var i = 0; i < lines.length; i++) {
         if (lines[i].indexOf("_timeCounterStArray") !== -1) {
           if (lines[i].indexOf(`["${stid}"]`) !== -1) {
