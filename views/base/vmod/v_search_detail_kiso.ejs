@@ -197,7 +197,7 @@
           //var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
           var lines = data.split('\n');
           for (var i = 0; i < lines.length; i++) {
-            if (lines[i].test("_timeCounterStArray") === true) {
+            if (lines[i].indexOf("_timeCounterStArray") !== -1) {
               console.log(lines[i]);
               times = lines[i].match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`);
             }
