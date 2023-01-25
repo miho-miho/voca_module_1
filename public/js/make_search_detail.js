@@ -175,6 +175,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
       return "";
     }
     var dmodsound = `../../../mt/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
+    console.log(dmodsound);
     var ret = `
       <!-- ${dmodsound} -->
       <span  class='dmodsound' onclick="playDmodSound('${dmodsound}', '${start}', '${stop}')">
@@ -185,7 +186,6 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
       </span>
       `
       return ret
-      console.log(ret);
     }
   var dmod_funcId = "";
   var matches = xml_file_name.match(/^(.*)(\d{2})\.xml/)
