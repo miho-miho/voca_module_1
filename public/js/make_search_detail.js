@@ -41,9 +41,9 @@ exports.getGmodSoundFile = function(xml_file_name, xpath){
   }
 }
 //getGmodLink
-exports.getGmodLink = function(xml_file_name, xpath){
+exports.getGmodLink = function(xml_file_name, xpath, lang){
+  console.log(xml_file_name);
   var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
-  var lang = "<%- lg %>"
   var gmodsound = getGmodSoundFile(xml_file_name, xpath)
   var link = `
     <!--■■■Gモジュールへのリンク■■■-->
