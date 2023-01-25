@@ -195,6 +195,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       for (var e of item) {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
+        console.log(e);
         li.push(e)
       }
       var midasi = item[0].basic
@@ -202,9 +203,6 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
-        console.log(li);
-        //var link = mkDetail.getGmodLink(li.xml_file_name, li.xpath, lang)
-        //console.log(link);
       } else {
         inst.push({"usage":ex, "reibun":[li]})
         var result = {"midasi":midasi, "inst":inst}
