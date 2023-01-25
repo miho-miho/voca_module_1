@@ -91,7 +91,7 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
   return link
 }
 //getDmodSoundFile
-exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
+exports.getDmodSoundFile = async function(xml_file_name, xpath, lang){
   var dmod_funcId = "";
   var matches = xml_file_name.match(/^(.*)(\d{2})\.xml/)
   if (matches != null) {
@@ -118,40 +118,40 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   if (htmlfile === "" | htmlfile === null) {
     return "";
   } else {
-    fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
-      var lines = data.split('\n');
-      for (var i = 0; i < lines.length; i++) {
-        if (lines[i].indexOf("_timeCounterStArray") !== -1) {
-          if (lines[i].indexOf(`["${stid}"]`) !== -1) {
-            pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
-            console.log(pmodpage);
-          }
+    var data = await fetch(htmlfile)
+    var texts = data.text();
+    var lines = texts.split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      if (lines[i].indexOf("_timeCounterStArray") !== -1) {
+        if (lines[i].indexOf(`["${stid}"]`) !== -1) {
+          pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
+          console.log(pmodpage);
         }
       }
-    }).then(function(pmodpage){
-      matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
-      if (matches === null) {
-        return "";
-      }
-      var start = matches[1];
-      var stop = matches[2];
-      var matches = htmlfile.match(/.*(\d{2})\.html/)
-      if (matches === null) {
-        return "";
-      }
-      var dmodsound = `../../../mt/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
-      var ret = `
-        <!-- ${dmodsound} -->
-        <span  class='dmodsound' onclick="playDmodSound('${dmodsound}', '${start}', '${stop}')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-          </svg>
-        </span>
-        `
-        return ret
-      });
     }
+  }
+  var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
+  if (matches === null) {
+    return "";
+  }
+  var start = matches[1];
+  var stop = matches[2];
+  var matches = htmlfile.match(/.*(\d{2})\.html/)
+  if (matches === null) {
+    return "";
+  }
+  var dmodsound = `../../../mt/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
+  console.log(dmodsound);
+  var ret = `
+    <!-- ${dmodsound} -->
+    <span  class='dmodsound' onclick="playDmodSound('${dmodsound}', '${start}', '${stop}')">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+      <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+      </svg>
+    </span>
+    `
+    return ret
   }
 //getDmodlink
 exports.getDmodlink = function(xml_file_name, xpath, lang){
