@@ -59,7 +59,6 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
       }
       var no1 = "";
       var no2 = "";
-      var lang = "<%- lg %>"
     // xpathから音声ファイル名を作成
       var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
       if (matches != null) {
@@ -305,7 +304,6 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
         }
         var no1 = "";
         var no2 = "";
-        var lang = "<%- lg %>"
       // xpathから音声ファイル名を作成
         var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
         if (matches != null) {
