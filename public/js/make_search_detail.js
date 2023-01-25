@@ -91,7 +91,7 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
   return link
 }
 //getDmodSoundFile
-exports.getDmodSoundFile = function(htmlfile, xpath, lang){
+exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   var dmod_funcId = "";
   var matches = xml_file_name.match(/^(.*)(\d{2})\.xml/)
   if (matches != null) {
