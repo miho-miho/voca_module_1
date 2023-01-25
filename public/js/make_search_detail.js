@@ -157,6 +157,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
       return "";
     } else {
       fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
+        console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
           console.log(lines[i]);
