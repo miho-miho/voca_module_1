@@ -116,26 +116,6 @@ exports.getDmodSoundFile = function(xml_file_name, xpath, lang){
   }
   var stid = "st_"+Number(line)+"_"+Number(sentence);
   var pmodpage = "";
-  var result;
-  console.log(htmlfile);
-  if (htmlfile === "" | htmlfile === null) {
-    return "";
-  } else {
-    try {
-      result = fs.readFileSync(htmlfile, 'utf8')
-      var lines = result.split('\n');
-      for (var i = 0; i < lines.length; i++) {
-        if (lines[i].indexOf("_timeCounterStArray") !== -1) {
-          if (lines[i].indexOf(`["${stid}"]`) !== -1) {
-            pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
-            console.log(pmodpage);
-          }
-        }
-      }
-    } catch (err) {
-      result = ""
-    }
-  }
   var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
   if (matches === null) {
     return "";
@@ -171,11 +151,13 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     }
     var stid = "st_"+Number(line)+"_"+Number(sentence);
     var pmodpage = "";
+    var result;
     if (htmlfile === "" | htmlfile === null) {
       return "";
     } else {
-      fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
-        var lines = data.split('\n');
+      try {
+        result = fs.readFileSync(htmlfile, 'utf8')
+        var lines = result.split('\n');
         for (var i = 0; i < lines.length; i++) {
           if (lines[i].indexOf("_timeCounterStArray") !== -1) {
             if (lines[i].indexOf(`["${stid}"]`) !== -1) {
@@ -183,7 +165,9 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
             }
           }
         }
-      });
+      } catch (err) {
+        result = ""
+      }
     }
     var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
     if (matches === null) {
@@ -215,11 +199,11 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
   var lang_matches = lang.match(/ja_([a-z][a-z])/)
   // 英語ページ 英語はHTMLファイルの名前がfunc_01.htmlとstory_01.htmlの２種ある
   if (lang === "en") {
-    htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/func_${dmod_funcId}.html`
+    htmlfile = `../../mt/${lang}/dmod/class/func_${dmod_funcId}.html`
   } else if (lang_matches != null) {  // ex. ja_th
-    htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
+    htmlfile = `../../mt/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
   } else {
-    htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
+    htmlfile = `../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
   }
   var dmodsound = getDmodSoundFile(htmlfile, xpath);
   var link = `
