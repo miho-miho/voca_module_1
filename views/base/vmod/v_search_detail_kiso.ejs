@@ -106,7 +106,7 @@
             for (var s of element) {
               //var link = makeModLink(s.module_id, s.xml_file_name, s.xpath)
               //$(".examples:last").append(link)
-              $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>')
+              $(".examples:last").append('<p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p>'+s.link)
             }
           });
           num+=1;
