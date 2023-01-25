@@ -191,27 +191,26 @@
         }
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
-        fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
-          var lines = data.split('\n');
-          for (var i = 0; i < lines.length; i++) {
-            if (lines[i].indexOf("_timeCounterStArray") !== -1) {
-              if (lines[i].indexOf(`["${stid}"]`) !== -1) {
-                var pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
-              }
+        var data = file_get_contents(htmlfile)
+        var lines = data.split('\n');
+        for (var i = 0; i < lines.length; i++) {
+          if (lines[i].indexOf("_timeCounterStArray") !== -1) {
+            if (lines[i].indexOf(`["${stid}"]`) !== -1) {
+              var pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
             }
           }
-          var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
-          if (matches === null) {
-            return "";
-          }
-          var start = matches[1];
-          var stop = matches[2];
-          var lang = "<%- lg %>"
-          var matches = htmlfile.match(/.*(\d{2})\.html/)
-          if (matches === null) {
-            return "";
-          }
-        });
+        }
+        var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
+        if (matches === null) {
+          return "";
+        }
+        var start = matches[1];
+        var stop = matches[2];
+        var lang = "<%- lg %>"
+        var matches = htmlfile.match(/.*(\d{2})\.html/)
+        if (matches === null) {
+          return "";
+        }
         var dmodsound = `../../../mt/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
         var ret = `
           <!-- ${dmodsound} -->
@@ -280,6 +279,11 @@
         var audio = $(this).find(".gmodaudio")[0]
         audio.play();
       })
+      function file_get_contents(filename) {
+        fetch(filename).then((resp) => resp.text()).then(function(data) {
+          return data;
+        });
+      }
     </script>
     <style>
       .btn_previous:disabled, .btn_next:disabled{
