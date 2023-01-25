@@ -131,9 +131,10 @@
 
       $(".gmodsound").on('click', function(){
         var audio = $(this).find(".gmodaudio")[0]
+        console.log("OK");
         audio.play();
       })
-      
+
       var dmodAudioObj;
       function playDmodSound(dmodsound, startTime, stopTime){
         if(dmodAudioObj != null)dmodAudioObj.pause();
