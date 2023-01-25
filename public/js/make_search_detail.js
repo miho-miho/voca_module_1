@@ -140,7 +140,7 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
   }
 //getDmodlink
 exports.getDmodlink = function(xml_file_name, xpath, lang){
-  function getDmodSoundFile(htmlfile, xpath){
+  function getDmodSoundFile(htmlfile, xpath, lang){
     var line =  "";
     var sentence = "";
     var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
@@ -159,7 +159,6 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
           if (lines[i].indexOf("_timeCounterStArray") !== -1) {
             if (lines[i].indexOf(`["${stid}"]`) !== -1) {
               pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
-              console.log(pmodpage);
             }
           }
         }
@@ -171,7 +170,6 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     }
     var start = matches[1];
     var stop = matches[2];
-    var lang = "<%- lg %>"
     var matches = htmlfile.match(/.*(\d{2})\.html/)
     if (matches === null) {
       return "";
