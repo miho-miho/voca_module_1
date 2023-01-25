@@ -153,15 +153,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     }
     var stid = "st_"+Number(line)+"_"+Number(sentence);
     var pmodpage = "";
-    function file_get_contents(filename) {
-      fetch(filename).then((resp) => resp.text()).then(function(data) {
-          return data;
-      });
-    }
-    var data = file_get_contents(htmlfile)
-    console.log(typeof data);
-    console.log(data);
-    /*
+    fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
     var lines = data.split('\n');
     for (var i = 0; i < lines.length; i++) {
       if (lines[i].indexOf("_timeCounterStArray") !== -1) {
@@ -169,8 +161,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
           pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
         }
       }
-    }
-    */
+    });
     var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
     if (matches === null) {
       return "";
