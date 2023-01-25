@@ -194,7 +194,7 @@
         fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
           //var reg = new RegExp(`_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);`)
           //var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
-          //console.log(reg);
+          console.log(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`);
           console.log(data);
           console.log(data.match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`));
         });
