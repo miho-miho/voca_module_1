@@ -228,11 +228,10 @@
           </svg>
           </span>
         `
-        console.log(ret);
         return ret
       }
       //getDmodlink
-      function getDmodlink(xml_file_name, xpath){
+      async function getDmodlink(xml_file_name, xpath){
         var dmod_funcId = "";
         var matches = xml_file_name.match(/^(.*)(\d{2})\.xml/)
         if (matches != null) {
@@ -248,7 +247,7 @@
         } else {
           htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
         }
-        var dmodsound = getDmodSoundFile(htmlfile, xpath);
+        var dmodsound = await getDmodSoundFile(htmlfile, xpath);
         var link = `
           <!--■■■Dモジュールへのリンク■■■-->
             ${dmodsound}
