@@ -132,8 +132,8 @@
       }
       //-----------------------------//
       async function file_get_contents(filename) {
-        const res = await fetch(filename).
-        var result = await res.text()
+        var res = await fetch(filename);
+        var data = await res.text()
         return data;
       }
     //-----------------------------//
