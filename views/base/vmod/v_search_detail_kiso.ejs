@@ -130,6 +130,13 @@
           $("#v_sidebar").before($(".main"));
         });
       }
+      //-----------------------------//
+      async function file_get_contents(filename) {
+        fetch(filename).then((resp) => resp.text()).then(function(data) {
+          return data;
+        });
+      }
+    //-----------------------------//
       //getGmodSoundFile
       function getGmodSoundFile(xml_file_name, xpath){
         if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
@@ -191,9 +198,7 @@
         }
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
-        var data = fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
-            return data;
-          });
+        var data = await file_get_contents(htmlfile)
         console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
