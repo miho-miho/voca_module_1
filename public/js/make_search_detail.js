@@ -92,6 +92,11 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
 }
 //getDmodSoundFile
 exports.getDmodSoundFile = function(htmlfile, xpath, lang){
+  var dmod_funcId = "";
+  var matches = xml_file_name.match(/^(.*)(\d{2})\.xml/)
+  if (matches != null) {
+    dmod_funcId = matches[2]; // ex. 15
+  }
   var htmlfile = "";
   var lang_matches = lang.match(/ja_([a-z][a-z])/)
   if (lang === "en") {
