@@ -284,7 +284,7 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
     var link = `
       <!--■■■Dモジュールへのリンク■■■-->
         ${dmodsound}
-        <a href="${htmlfile}" target="blank" class="dmodlink">会</a>
+        <a href="${htmlfile}" target="blank" class="dmodlink btn btn-outline-success">会</a>
       <!--■■■Dモジュールへのリンク終了■■■-->
       `
     return link
@@ -332,7 +332,7 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
       <!--■■■Gモジュールへのリンク■■■-->
       <div class="gmodsound">
       ${gmodsound}
-      <a href="../../../mt/${lang}/gmod/contents/${htmlfile}" target="blank" class="gmodlink">文</a>
+      <a href="../../../mt/${lang}/gmod/contents/${htmlfile}" target="blank" class="gmodlink btn btn-outline-info">文</a>
       </div>
     `
     return link
