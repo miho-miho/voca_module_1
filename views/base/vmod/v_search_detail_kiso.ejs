@@ -199,7 +199,6 @@
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
         var data = await file_get_contents(htmlfile)
-        console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
           if (lines[i].indexOf("_timeCounterStArray") !== -1) {
@@ -208,6 +207,7 @@
             }
           }
         }
+        console.log(pmodpage);
         var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
         if (matches === null) {
           return "";
