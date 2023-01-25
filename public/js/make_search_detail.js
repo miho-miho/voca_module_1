@@ -1,5 +1,5 @@
 //-----------------------------//
-const fetch = require('node-fetch') 
+const fetch = require('node-fetch')
 function file_get_contents(filename) {
     fetch(filename).then((resp) => resp.text()).then(function(data) {
         return data;
@@ -107,6 +107,7 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
       });
   }
   var data = file_get_contents(htmlfile)
+  console.log(data);
   var lines = data.split('\n');
   for (var i = 0; i < lines.length; i++) {
     if (lines[i].indexOf("_timeCounterStArray") !== -1) {
