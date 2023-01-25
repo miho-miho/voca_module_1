@@ -167,7 +167,6 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
           }
         }
       });
-      }
     }
     var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
     if (matches === null) {
