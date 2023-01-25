@@ -214,7 +214,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     `
   return link
 }
-exports. makeModLink = function(module_id, xml_file_name, xpath){
+exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
     function getDmodSoundFile(htmlfile, xpath, lang){
