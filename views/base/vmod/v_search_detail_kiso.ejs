@@ -139,11 +139,13 @@
           }
           audio.onplaying = function(){
             isPlaying = true;
-            console.log(isPlaying);
+            $(this).removeClass("btn-outline-primary")
+            $(this).addClass("btn-primary")
           }
           audio.onpause = function(){
             isPlaying = false;
-            console.log(isPlaying);
+            $(this).removeClass("btn-primary")
+            $(this).addClass("btn-outline-primary")
           }
         });
       })
@@ -172,9 +174,6 @@
       }
       .button-area {
         padding-bottom: 40px;
-      }
-      .soundLink, .dmodsound {
-        cursor : pointer;
       }
     </style>
   </body>
