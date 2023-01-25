@@ -92,6 +92,14 @@ exports.getGmodLink = function(xml_file_name, xpath, lang){
 }
 //getDmodSoundFile
 exports.getDmodSoundFile = function(htmlfile, xpath, lang){
+  var htmlfile = "";
+  if (lang === "en") {
+    htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/func_${dmod_funcId}.html`
+  } else if (lang_matches != null) {  // ex. ja_th
+    htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
+  } else {
+    htmlfile = `http://www.coelang.tufs.ac.jp/mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
+  }
   var line =  "";
   var sentence = "";
   var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
