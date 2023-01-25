@@ -263,7 +263,7 @@
             link = getGmodLink(xml_file_name, xpath)
           } else if (module_id == "dmod") {
             link = getDmodlink(xml_file_name, xpath)
-            console.log(getDmodlink(xml_file_name, xpath));
+            console.log(JSON.stringify(link));
           }
         }
         return link;
