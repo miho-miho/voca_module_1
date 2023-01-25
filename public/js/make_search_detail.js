@@ -292,7 +292,7 @@ exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
   }
   //getGmodLink
   function getGmodLink(xml_file_name, xpath, lang){
-    function　getGmodSoundFile(xml_file_name, xpath){
+    function getGmodSoundFile(xml_file_name, xpath){
       if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
         return "";
       } else {
