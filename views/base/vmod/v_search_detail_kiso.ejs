@@ -197,11 +197,10 @@
           //var reg = new RegExp('_timeCounterStArray\[\"'+stid+'\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);')
           var lines = data.split('\n');
           for (var i = 0; i < lines.length; i++) {
-            if ( lines[i] == '' | lines[i].indexOf("<") !== -1 ) {
-              continue;
+            if (lines[i].test("_timeCounterStArray") === true) {
+              console.log(lines[i]);
+              times = lines[i].match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`);
             }
-            console.log(lines[i]);
-            times = lines[i].match(`/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`);
           }
           console.log(times);
         });
