@@ -131,7 +131,7 @@
         });
       }
       //-----------------------------//
-      async function file_get_contents(filename) {
+      function file_get_contents(filename) {
         fetch(filename).then((resp) => resp.text()).then(function(data) {
           return data;
         });
@@ -188,7 +188,7 @@
         return link
       }
       //getDmodSoundFile
-      function getDmodSoundFile(htmlfile, xpath){
+      async function getDmodSoundFile(htmlfile, xpath){
         var line =  "";
         var sentence = "";
         var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
