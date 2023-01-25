@@ -100,7 +100,6 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
   }
   var stid = "st_"+Number(line)+"_"+Number(sentence);
   var pmodpage = "";
-  import fetch from "node-fetch"
   function file_get_contents(filename) {
       fetch(filename).then((resp) => resp.text()).then(function(data) {
           return data;
