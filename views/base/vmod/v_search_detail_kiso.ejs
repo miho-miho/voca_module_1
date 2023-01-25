@@ -201,7 +201,7 @@
             }
           }
           console.log(pmodpage);
-          var reg = `/_timeCounterStArray\[\"${stid}\"\] = new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`
+          var reg = `/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`
           var matches = pmodpage.match(reg)
           console.log(`matches：${matches}`);
           if (matches === null) {
