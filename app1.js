@@ -200,7 +200,6 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         var link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
         //console.log(link);
         e.link = link
-        console.log(e);
         li.push(e)
       }
       var midasi = item[0].basic
