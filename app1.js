@@ -12,7 +12,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var json_parts = JSON.parse(fs.readFile('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
+var json_parts = JSON.parse(fs.readFileSync('./json/parts.json', 'utf8')); //ラベル付きjsonデータ（語彙分類表）
 var json_kiso = json_parts["kisogoi"]
 
 var kiso_bamen = json_kiso["bamen"]
@@ -197,7 +197,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         //var link = mkDetail.getGmodLink(e.xml_file_name, e.xpath, lang)
-        var link = mkDetail.getDmodSoundFile(e.xml_file_name, e.xpath, lang)
+        var link = mkDetail.getDmodlink(e.xml_file_name, e.xpath, lang)
         console.log(link);
         li.push(e)
       }
