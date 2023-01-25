@@ -201,8 +201,7 @@
             }
           }
           console.log(pmodpage);
-          var reg = `/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/`
-          var matches = pmodpage.match(reg)
+          var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
           console.log(`matches：${matches}`);
           if (matches === null) {
             return "";
