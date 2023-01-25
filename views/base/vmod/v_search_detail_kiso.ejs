@@ -231,7 +231,7 @@
         return ret
       }
       //getDmodlink
-      async function getDmodlink(xml_file_name, xpath){
+      function getDmodlink(xml_file_name, xpath){
         var dmod_funcId = "";
         var matches = xml_file_name.match(/^(.*)(\d{2})\.xml/)
         if (matches != null) {
@@ -247,7 +247,8 @@
         } else {
           htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
         }
-        var dmodsound = await getDmodSoundFile(htmlfile, xpath);
+        var dmodsound = getDmodSoundFile(htmlfile, xpath);
+        console.log(dmodsound);
         var link = `
           <!--■■■Dモジュールへのリンク■■■-->
             ${dmodsound}
