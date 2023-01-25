@@ -188,7 +188,7 @@
         return link
       }
       //getDmodSoundFile
-      function getDmodSoundFile(htmlfile, xpath){
+      async function getDmodSoundFile(htmlfile, xpath){
         var line =  "";
         var sentence = "";
         var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
@@ -198,7 +198,7 @@
         }
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
-        var data = file_get_contents(htmlfile)
+        var data = await file_get_contents(htmlfile)
         console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
