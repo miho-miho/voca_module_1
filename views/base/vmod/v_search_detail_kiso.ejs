@@ -128,17 +128,12 @@
           $("#v_sidebar").before($(".main"));
         });
       }
-      function playGmodAudio(){
-        console.log($(this).html());
-        var audio = $(this).find(".gmodaudio")[0]
-        audio.play();
-      }
-      /*
+
       $(".gmodsound").on('click', function(){
         var audio = $(this).find(".gmodaudio")[0]
         audio.play();
       })
-      */
+      
       var dmodAudioObj;
       function playDmodSound(dmodsound, startTime, stopTime){
         if(dmodAudioObj != null)dmodAudioObj.pause();
