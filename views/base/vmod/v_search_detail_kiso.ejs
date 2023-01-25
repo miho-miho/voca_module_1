@@ -131,6 +131,7 @@
 
       $(document).on('click', '.gmodsound', function(){
         var audio = $(this).find(".gmodaudio")[0]
+        var isPlaying = false;
         if (isPlaying) {
           audio.pause();
         } else {
