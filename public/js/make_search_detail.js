@@ -65,7 +65,7 @@ exports.getDmodSoundFile = function(htmlfile, xpath){
   }
   var stid = "st_"+Number(line)+"_"+Number(sentence);
   var pmodpage = "";
-  var data = await file_get_contents(htmlfile)
+  var data = file_get_contents(htmlfile)
   var lines = data.split('\n');
   for (var i = 0; i < lines.length; i++) {
     if (lines[i].indexOf("_timeCounterStArray") !== -1) {
@@ -114,7 +114,7 @@ exports.getDmodlink = function(xml_file_name, xpath){
   } else {
     htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
   }
-  var dmodsound = await getDmodSoundFile(htmlfile, xpath);
+  var dmodsound = getDmodSoundFile(htmlfile, xpath);
   var link = `
     <!--■■■Dモジュールへのリンク■■■-->
       ${dmodsound}
