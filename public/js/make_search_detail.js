@@ -154,10 +154,8 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
       return "";
     } else {
       fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
-        console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
-          console.log(lines[i]);
           if (lines[i].indexOf("_timeCounterStArray") !== -1) {
             if (lines[i].indexOf(`["${stid}"]`) !== -1) {
               pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
