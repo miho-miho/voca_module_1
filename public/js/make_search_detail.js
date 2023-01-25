@@ -150,9 +150,9 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     var stid = "st_"+Number(line)+"_"+Number(sentence);
     var pmodpage = "";
     function file_get_contents(filename) {
-        fetch(filename).then((resp) => resp.text()).then(function(data) {
-            return data;
-        });
+      fetch(filename).then((resp) => resp.text()).then(function(data) {
+          return data;
+      });
     }
     var data = file_get_contents(htmlfile)
     var lines = data.split('\n');
