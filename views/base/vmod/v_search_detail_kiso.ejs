@@ -192,6 +192,7 @@
         var stid = "st_"+Number(line)+"_"+Number(sentence);
         var pmodpage = "";
         var data = file_get_contents(htmlfile)
+        console.log(data);
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
           if (lines[i].indexOf("_timeCounterStArray") !== -1) {
