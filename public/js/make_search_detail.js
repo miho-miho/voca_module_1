@@ -43,7 +43,40 @@ exports.getGmodSoundFile = function(xml_file_name, xpath){
 //getGmodLink
 exports.getGmodLink = function(xml_file_name, xpath, lang){
   var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
-  var gmodsound = getGmodSoundFile(xml_file_name, xpath)
+  var gmodsound = function(xml_file_name, xpath){
+    if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
+      return "";
+    } else {
+      var expORins = "";
+      var fileno = "";
+      var matches = xml_file_name.match(/([a-z]+)(\d{3})\.xml/)
+      if (matches != null) {
+        expORins = matches[1].substring(0, 3) // exp or ins
+        fileno = matches[2]
+      }
+      var no1 = "";
+      var no2 = "";
+      var lang = "<%- lg %>"
+    // xpathから音声ファイル名を作成
+      var matches = xpath.match(/gmod:instanceblock\[(\d+)\]\/gmod:instance\[(\d+)\]/)
+      if (matches != null) {
+        no1 = matches[1] - 1;
+        no2 = matches[2] - 1;
+      }
+      var gmodsound = `../../../mt/${lang}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
+      var ret = `
+      <!-- ${gmodsound} -->
+        <audio class="gmodaudio">
+          <source src='${gmodsound}' type='audio/mp3'>
+        </audio>
+        <span class='soundLink instSound'/><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/></svg>
+        </span>
+      `
+      return ret
+    }
+  }
   var link = `
     <!--■■■Gモジュールへのリンク■■■-->
     <div class="gmodsound">
