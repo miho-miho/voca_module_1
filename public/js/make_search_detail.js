@@ -154,7 +154,9 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     var stid = "st_"+Number(line)+"_"+Number(sentence);
     var pmodpage = "";
     console.log(htmlfile);
-    if (htmlfile != "") {
+    if (htmlfile === "" | htmlfile === null) {
+      return "";
+    } else {
       fetch(htmlfile).then((resp) => resp.text()).then(function(data) {
         var lines = data.split('\n');
         for (var i = 0; i < lines.length; i++) {
@@ -165,6 +167,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
           }
         }
       });
+      }
     }
     var matches = pmodpage.match(/new Array\(\"([\d|\.]+)\", \"([\d|\.]+)\"\);/)
     if (matches === null) {
