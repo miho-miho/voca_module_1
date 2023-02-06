@@ -266,7 +266,11 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
       for (var e of item) {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
-        var link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
+        if (e.xml_file_name != null) {
+          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
+        } else {
+          link = mkDetail.makeInstSound(e.instid, lang)
+        }
         e.link = link
         li.push(e)
       }
