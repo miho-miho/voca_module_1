@@ -214,7 +214,6 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       } else {
         inst.push({"usage":ex, "reibun":[li]})
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
-        console.log(result);
         insts.push(result)
       }
     });
