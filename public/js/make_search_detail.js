@@ -348,7 +348,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
 exports.makeInstSound = function(instid, lang){
   var audioBlock = "";
   var instsoundfile = `../../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
-  if (fs.existsSync(instsoundfile)) {
+  if (fs.existsSync(instsoundfile) === true) {
     audioBlock = `
     <div class="vmodsound">
       <audio id='instSound_${instid}' class="vmodaudio">
@@ -378,7 +378,7 @@ exports.makeInstSound = function(instid, lang){
 
 exports.makeWordSound = function(word_id, lang){
   var wordsoundfile = `../../../mt/${lang}/vmod/sound/word/word_${word_id}.mp3`;
-  if(fs.existsSync(wordsoundfile)) {
+  if(fs.existsSync(wordsoundfile) === true) {
     var audioBlock = `
       <div class="wordaudio">
         <audio id='basicAudio'>
