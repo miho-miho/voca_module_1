@@ -206,7 +206,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         li.push(e)
       }
       var midasi = item[0].basic
-      var midashiaudio = mkDetail.makeWordSound(item.wordid, lang)
+      var midashiaudio = mkDetail.makeWordSound(item[0].wordid, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       if (sameMidasi) {
@@ -277,9 +277,8 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
         e.link = link
         li.push(e)
       }
-      console.log(item[0].id);
       var midasi = item[0].basic
-      var midashiaudio = mkDetail.makeWordSound(item.wordid, lang)
+      var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       //console.log(midashiaudio);
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
