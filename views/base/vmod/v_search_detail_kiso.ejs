@@ -81,21 +81,21 @@
       showResult(targetIndex)
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
+        $(".targetWordAudio").empty();
         targetIndex = targetIndex-1
         if (targetIndex >= 0) {
           $(".result-card-area").empty()
           showResult(targetIndex);
         }
-        $(".targetWordAudio").empty();
       });
       $(".btn_next").click(function(){
         $(".btn_previous").prop("disabled", false);
+        $(".targetWordAudio").empty();
           targetIndex = targetIndex+1
           if (targetIndex < targetArray.length) {
             $(".result-card-area").empty()
             showResult(targetIndex);
           }
-          $(".targetWordAudio").empty();
       });
       function showResult(index){
         $("#now_item").text(index+1);
