@@ -37,7 +37,10 @@
               <button type="button" name="button" class="btn btn-outline-primary col-auto btn_next">　次　</button>
             </div>
             <div class="result-area container">
-              <h3 class="text-center targetWord"></h3>
+              <div class="row align-items-center justify-content-center">
+                <h3 class="targetWord col-auto"></h3>
+                <div class="col-auto targetWordAudio"></div>
+              </div>
               <hr class="featurette-divider">
               <div class="result-card-area">
               </div>
@@ -135,7 +138,7 @@
         var audio = $(this).find(".vmodaudio")[0]
          audio.play();
       });
-      
+
       var dmodAudioObj;
       function playDmodSound(dmodsound, startTime, stopTime){
         if(dmodAudioObj != null)dmodAudioObj.pause();
