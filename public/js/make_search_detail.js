@@ -344,3 +344,30 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
   }
   return link;
 }
+
+exports.makeInstSound = function(instid, lang){
+  var audioBlock = "";
+  var instsoundfile = `../../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
+  if (fs.existsSync(instsoundfile)) {
+    audioBlock = `
+      <audio id='instSound_${instid}'>
+        <source src='./sound/inst/inst_${instid}.mp3' type='audio/mp3'>
+        <source src='./sound/inst/inst_${instid}.ogg' type='audio/ogg'>
+        <p>※ご利用のブラウザでは再生することができません。</p>
+      </audio>
+      <button type="button" class="btn btn-outline-primary soundLink instSound">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+        </svg>
+      </button>
+      <a href='${instsoundfile}'>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+          <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+          <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+        </svg>
+      </a>
+    `
+  }
+  return audioBlock;
+}
