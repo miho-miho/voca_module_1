@@ -278,13 +278,14 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
         li.push(e)
       }
       var midasi = item[0].basic
+      var midashiaudio = mkDetail.makeWordSound(item.wordid, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
         inst.push({"usage":ex, "reibun":[li]})
-        var result = {"midasi":midasi, "inst":inst}
+        var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
     });
