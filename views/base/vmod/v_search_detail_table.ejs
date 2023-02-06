@@ -130,6 +130,12 @@
         var audio = $(this).find(".gmodaudio")[0]
         audio.play();
       });
+
+      $(document).on('click', '.vmodsound', function(){
+        var audio = $(this).find(".vmodaudio")[0]
+         audio.play();
+      });
+      
       var dmodAudioObj;
       function playDmodSound(dmodsound, startTime, stopTime){
         if(dmodAudioObj != null)dmodAudioObj.pause();
