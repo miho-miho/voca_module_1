@@ -127,9 +127,11 @@
     }
     for (const char of char_list) {
       var bigchar = char.toUpperCase()
-      var id = `#cahr_${bigchar}`;
-      $("#cahrtable").find(id).removeClass("disabled")
-     console.log($("#cahrtable").find(id).prop("id"));
+      var id = `cahr_${bigchar}`;
+      //$("#cahrtable").find(id).removeClass("disabled")
+     if(("#cahrtable").find(id).prop("id") === id){
+      console.log($(this).html());
+     }
     }
     /*
     $(".search-type").change(function(){
