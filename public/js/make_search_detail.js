@@ -352,8 +352,8 @@ exports.makeInstSound = function(instid, lang){
   //if (fs.existsSync(instsoundfile)) {
     audioBlock = `
       <audio id='instSound_${instid}'>
-        <source src='${instsoundfile}.mp3' type='audio/mp3'>
-        <source src='${instsoundfile}.ogg' type='audio/ogg'>
+        <source src='${instsoundfile}' type='audio/mp3'>
+        <source src='../../../mt/${lang}/vmod/sound/inst/inst_${instid}.ogg' type='audio/ogg'>
         <p>※ご利用のブラウザでは再生することができません。</p>
       </audio>
       <button type="button" class="btn btn-outline-primary soundLink instSound">
