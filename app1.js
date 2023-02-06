@@ -306,15 +306,27 @@ app.get('/:lang/v/v_search', (req, res) => {
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  var words = []
-  for (var i of word_obj_all[lang]) {
-    words.push(i.midas_go)
-  }
-  res.render(pathToLnag + '/vmod/v_search.ejs', {
-    lg : lang,
-    lang_jp : info.lang_info.lang_jp,
-    words : words,
-    word_obj : word_obj_all[lang]
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: "SELECT index_char FROM t_word"
+  };
+  client.query(query, (err, result) => {
+    if (err) throw err;
+    var result_list = result.rows
+    var resultArray = Array.from(new Set(result_list))
+    console.log(resultArray);
+    res.render(pathToLnag + '/vmod/v_search.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      resultArray: resultArray
+    });
   });
 });
 
