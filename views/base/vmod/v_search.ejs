@@ -28,41 +28,41 @@
               <table class="table table-bordered table-sm table-responsive-sm text-center mx-auto" id="cahrtable">
                 <tbody>                
                 <tr>
-                  <td id="cahr_A"><a href="" class="menu_charsearch" disable=”disabled”>A</a></td>
-                  <td id="cahr_B"><a href="" class="menu_charsearch" disable=”disabled”>B</a></td>
-                  <td id="cahr_C"><a href="" class="menu_charsearch" disable=”disabled”>C</a></td>
-                  <td id="cahr_D"><a href="" class="menu_charsearch" disable=”disabled”>D</a></td>
-                  <td id="cahr_E"><a href="" class="menu_charsearch" disable=”disabled”>E</a></td>
-                  <td id="cahr_F"><a href="" class="menu_charsearch" disable=”disabled”>F</a></td>
+                  <td id="cahr_A"><a href="" class="menu_charsearch disabled" >A</a></td>
+                  <td id="cahr_B"><a href="" class="menu_charsearch disabled" >B</a></td>
+                  <td id="cahr_C"><a href="" class="menu_charsearch disabled" >C</a></td>
+                  <td id="cahr_D"><a href="" class="menu_charsearch disabled" >D</a></td>
+                  <td id="cahr_E"><a href="" class="menu_charsearch disabled" >E</a></td>
+                  <td id="cahr_F"><a href="" class="menu_charsearch disabled" >F</a></td>
                 </tr>
                 <tr>
-                  <td id="cahr_G"><a href="" class="menu_charsearch" disable=”disabled”>G</a></td>
-                  <td id="cahr_H"><a href="" class="menu_charsearch" disable=”disabled”>H</a></td>
-                  <td id="cahr_I"><a href="" class="menu_charsearch" disable=”disabled”>I</a></td>
-                  <td id="cahr_J"><a href="" class="menu_charsearch" disable=”disabled”>J</a></td>
-                  <td id="cahr_K"><a href="" class="menu_charsearch" disable=”disabled”>K</a></td>
-                  <td id="cahr_L"><a href="" class="menu_charsearch" disable=”disabled”>L</a></td>
+                  <td id="cahr_G"><a href="" class="menu_charsearch disabled" >G</a></td>
+                  <td id="cahr_H"><a href="" class="menu_charsearch disabled" >H</a></td>
+                  <td id="cahr_I"><a href="" class="menu_charsearch disabled" >I</a></td>
+                  <td id="cahr_J"><a href="" class="menu_charsearch disabled" >J</a></td>
+                  <td id="cahr_K"><a href="" class="menu_charsearch disabled" >K</a></td>
+                  <td id="cahr_L"><a href="" class="menu_charsearch disabled" >L</a></td>
                 </tr>
                 <tr>
-                  <td id="cahr_M"><a href="" class="menu_charsearch" disable=”disabled”>M</a></td>
-                  <td id="cahr_N"><a href="" class="menu_charsearch" disable=”disabled”>N</a></td>
-                  <td id="cahr_O"><a href="" class="menu_charsearch" disable=”disabled”>O</a></td>
-                  <td id="cahr_P"><a href="" class="menu_charsearch" disable=”disabled”>P</a></td>
-                  <td id="cahr_Q"><a href="" class="menu_charsearch" disable=”disabled”>Q</a></td>
-                  <td id="cahr_R"><a href="" class="menu_charsearch" disable=”disabled”>R</a></td>
+                  <td id="cahr_M"><a href="" class="menu_charsearch disabled" >M</a></td>
+                  <td id="cahr_N"><a href="" class="menu_charsearch disabled" >N</a></td>
+                  <td id="cahr_O"><a href="" class="menu_charsearch disabled" >O</a></td>
+                  <td id="cahr_P"><a href="" class="menu_charsearch disabled" >P</a></td>
+                  <td id="cahr_Q"><a href="" class="menu_charsearch disabled" >Q</a></td>
+                  <td id="cahr_R"><a href="" class="menu_charsearch disabled" >R</a></td>
                 </tr>
                 <tr>
-                  <td id="cahr_S"><a href="" class="menu_charsearch" disable=”disabled”>S</a></td>
-                  <td id="cahr_T"><a href="" class="menu_charsearch" disable=”disabled”>T</a></td>
-                  <td id="cahr_U"><a href="" class="menu_charsearch" disable=”disabled”>U</a></td>
-                  <td id="cahr_V"><a href="" class="menu_charsearch" disable=”disabled”>V</a></td>
-                  <td id="cahr_W"><a href="" class="menu_charsearch" disable=”disabled”>W</a></td>
-                  <td id="cahr_X"><a href="" class="menu_charsearch" disable=”disabled”>X</a></td>
+                  <td id="cahr_S"><a href="" class="menu_charsearch disabled" >S</a></td>
+                  <td id="cahr_T"><a href="" class="menu_charsearch disabled" >T</a></td>
+                  <td id="cahr_U"><a href="" class="menu_charsearch disabled" >U</a></td>
+                  <td id="cahr_V"><a href="" class="menu_charsearch disabled" >V</a></td>
+                  <td id="cahr_W"><a href="" class="menu_charsearch disabled" >W</a></td>
+                  <td id="cahr_X"><a href="" class="menu_charsearch disabled" >X</a></td>
                 </tr>
                 <tr>
-                  <td id="cahr_Y"><a href="" class="menu_charsearch" disable=”disabled”>Y</a></td>
-                  <td id="cahr_Z"><a href="" class="menu_charsearch" disable=”disabled”>Z</a></td>
-                  <td id="cahr_-"><a href="" class="menu_charsearch" disable=”disabled”>-</a></td>
+                  <td id="cahr_Y"><a href="" class="menu_charsearch disabled" >Y</a></td>
+                  <td id="cahr_Z"><a href="" class="menu_charsearch disabled" >Z</a></td>
+                  <td id="cahr_-"><a href="" class="menu_charsearch disabled" >-</a></td>
                   <td colspan="3" class="nondisplay"></td>
                 </tr>
               </tbody>
@@ -127,7 +127,7 @@
     }
     for (const char of char_list) {
       var id = `#cahr_${char}.toUpperCase()`;
-      $("#cahrtable").find(id).closest("a").addClass("disable")
+      $("#cahrtable").find(id).closest("a").addClass
     }
     /*
     $(".search-type").change(function(){
@@ -244,6 +244,9 @@
       }
       .search-type-select {
         padding-bottom: 10px;
+      }
+      a.disable {
+        pointer-events: none;
       }
       #cahrtable {
         max-width: 500px;
