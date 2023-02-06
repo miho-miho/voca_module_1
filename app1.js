@@ -354,10 +354,10 @@ app.get('/:lang/v/v_search_list:cahr', (req, res) => {
   client.query(query, [targetChar], (err, result) => {
     if (err) throw err;
     console.log(result.rows);
-    res.render(pathToLnag + '/vmod/v_search_result.ejs', {
+    res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      result_list: result.rows
+      search_result_list: result.rows
     });
   });
 });
