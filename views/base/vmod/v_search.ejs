@@ -61,7 +61,7 @@
                   <td id="cahr_Y"><a href="" class="menu_charsearch">Y</a></td>
                   <td id="cahr_Z"><a href="" class="menu_charsearch">Z</a></td>
                   <td id="cahr_-"><a href="" class="menu_charsearch">-</a></td>
-                  <td colspan="3"></td>
+                  <td colspan="3" class="nondisplay"></td>
                 </tr>
               </table>
             </div>
@@ -271,6 +271,9 @@
       }
       #cahrtable td:hover {
         background-color: rgba(0, 0, 0, 0.075);
+      }
+      #cahrtable.nondisplay{
+        visibility: hidden;
       }
     </style>
 </body>
