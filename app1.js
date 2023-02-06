@@ -196,6 +196,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
       for (var e of item) {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
+        console.log(e);
         var link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
         if (link === "" | link === null) {
           link = mkDetail.makeInstSound(e.instid, lang)
