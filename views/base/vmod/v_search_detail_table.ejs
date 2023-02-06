@@ -82,6 +82,7 @@
           $(".result-card-area").empty()
           showResult(targetIndex);
         }
+        $(".targetWordAudio").empty();
       });
       $(".btn_next").click(function(){
         $(".btn_previous").prop("disabled", false);
@@ -90,6 +91,7 @@
             $(".result-card-area").empty()
             showResult(targetIndex);
           }
+          $(".targetWordAudio").empty();
       });
       function showResult(index){
         $("#now_item").text(index+1);
