@@ -351,6 +351,7 @@ exports.makeInstSound = function(instid, lang){
   console.log(instsoundfile);
   //if (fs.existsSync(instsoundfile)) {
     audioBlock = `
+    <div class="vmodsound">
       <audio id='instSound_${instid}'>
         <source src='${instsoundfile}' type='audio/mp3'>
         <source src='../../../mt/${lang}/vmod/sound/inst/inst_${instid}.ogg' type='audio/ogg'>
@@ -370,6 +371,7 @@ exports.makeInstSound = function(instid, lang){
           </svg>
         </button>
       </a>
+    </div>
     `
   //}
   return audioBlock;
