@@ -128,12 +128,7 @@
     for(const char of char_list) {
       var bigchar = char.toUpperCase();
       var id = `#cahr_${bigchar}`;
-      console.log($(id).html());
-      if ($("#cahrtable").find(id).prop("id")==="cahr_A") {
-        console.log("OK");
-        $(id).removeClass("disabled");
-      }
-      $("#cahrtable").find(id).removeClass("disabled");
+      $(id).closest("a").removeClass('disabled');
     }
     /*
     $(".search-type").change(function(){
