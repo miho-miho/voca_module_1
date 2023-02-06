@@ -315,7 +315,7 @@ app.get('/:lang/v/v_search', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT index_char FROM t_word"
+    text: "SELECT index_char FROM t_word WHERE index_char IS NOT NULL"
   };
   client.query(query, (err, result) => {
     if (err) throw err;
