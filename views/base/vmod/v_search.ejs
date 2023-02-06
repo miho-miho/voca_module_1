@@ -128,8 +128,8 @@
     for(const char of char_list) {
       var bigchar = char.toUpperCase();
       var id = `#cahr_${bigchar}`;
-      console.log($(id).find("a").prop("class"));
       $(id).find("a").removeClass('disabled');
+      $(id).find("a").attr("href", `./v_search_list=${char}`)
     }
     /*
     $(".search-type").change(function(){
