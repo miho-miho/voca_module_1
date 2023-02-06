@@ -277,6 +277,7 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
         e.link = link
         li.push(e)
       }
+      console.log(item);
       var midasi = item[0].basic
       var midashiaudio = mkDetail.makeWordSound(item.wordid, lang)
       console.log(midashiaudio);
