@@ -348,7 +348,7 @@ app.get('/:lang/v/v_search_list:cahr', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_word.basic, t_word_inst_rel.sence, inst_id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1"
+    text: "SELECT t_word.basic, t_word_inst_rel.sense, inst_id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1"
   };
   client.query(query, (err, result) => {
     if (err) throw err;
