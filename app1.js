@@ -321,6 +321,7 @@ app.get('/:lang/v/v_search', (req, res) => {
     if (err) throw err;
     var result_list = [];
     for(var i in result.rows){
+      console.log(i);
       result_list.push(i.index_char);
     }
     var resultArray = Array.from(new Set(result_list))
