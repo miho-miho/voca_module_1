@@ -199,7 +199,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         if (e.xml_file_name != null) {
           link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
         } else {
-          link = mkDetail.makeInstSound(e.instid, lang)
+          link = mkDetail.makeInstSound(e.inst_id, lang)
         }
         e.link = link
         li.push(e)
@@ -271,7 +271,7 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
           link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
         } else {
           console.log(e);
-          link = mkDetail.makeInstSound(e.instid, lang)
+          link = mkDetail.makeInstSound(e.inst_id, lang)
         }
         e.link = link
         li.push(e)
