@@ -336,6 +336,7 @@ app.get('/:lang/v/v_search', (req, res) => {
 app.get('/:lang/v/v_search_list:cahr', (req, res) => {
   let lang = req.params.lang
   let targetChar = req.params.cahr
+  console.log(targetChar);
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
