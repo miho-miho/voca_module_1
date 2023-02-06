@@ -82,67 +82,40 @@
                　前方一致：[a] で検索　→　[apple] や [apricot] などを検索できます。<br>
                　後方一致：[a] で検索　→　[banana] や [guava] などを検索できます。<br>
                　あいまい検索：[ra] で検索　→　[grape] や [orange] などを検索できます。</td>
+               <div class="tab_box">
+                <div class="btn_area">
+                  <button type="button" class="btn tab_btn active" id="defo-tab">検索</button>
+                </div>
+                <div class="panel_area container" id="tab-area">
+                  <div class="tab_panel active" id="defo-panel">
+                    <div class="search-type-select row">
+                      <div class="col-lg">
+                        単語を入力してください　候補：<span id="inputCand">0</span>件
+                      </div>
+                      <div class="form-check-inline col-lg-6">
+                        <div class="float-end">
+                          <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type1" checked>
+                          <label for="search-type1" class="form-check-label">前方一致</label>
+                          <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type2">
+                          <label for="search-type2" class="form-check-label">後方一致</label>
+                          <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type3">
+                          <label for="search-type3" class="form-check-label">あいまい検索</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-7">
+                         <input type="text" class="form-control col-auto" id="keyword">
+                       </div>
+                       <div class="col-3">
+                         <button class="btn btn-outline-primary col-auto" id="search-btn">検索</button>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="tab_box">
-             <div class="btn_area">
-               <button type="button" class="btn tab_btn active" id="defo-tab">検索</button>
-             </div>
-             <div class="panel_area container" id="tab-area">
-               <div class="tab_panel active" id="defo-panel">
-                 <div class="search-type-select row">
-                   <div class="col-lg">
-                     単語を入力してください　候補：<span id="inputCand">0</span>件
-                   </div>
-                   <div class="form-check-inline col-lg-6">
-                     <div class="float-end">
-                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type1" checked>
-                       <label for="search-type1" class="form-check-label">前方一致</label>
-                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type2">
-                       <label for="search-type2" class="form-check-label">後方一致</label>
-                       <input class="form-check-input search-type" type="radio" name="flexRadioDefault" id="search-type3">
-                       <label for="search-type3" class="form-check-label">あいまい検索</label>
-                     </div>
-                   </div>
-                 </div>
-                 <div class="row">
-                   <div class="col-7">
-                      <input type="text" class="form-control col-auto" id="keyword">
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-outline-primary col-auto" id="search-btn">検索</button>
-                    </div>
-                 </div>
-               </div>
-             </div>
-           </div>
-           <div class="search-result-area container">
-             <div class="row">
-               <div class="col">
-                 <h4>検索結果</h4>
-               </div>
-               <div class="col float-end">
-                 <button class="btn btn-outline-primary" id="reset-btn">リセット</button>
-               </div>
-               <div class="container">
-                 <div class="result-table">
-                   <div class="card" id="result">
-                     <table class="table table-borderless table-hover text-center">
-                       <thead class="">
-                         <tr class="border-bottom bg-light">
-                           <th scope="col"><%= lang_jp %></th>
-                           <th scope="col">意味</th>
-                           <th scope="col">分類</th>
-                         </tr>
-                       </thead>
-                       <tbody>
-                       </tbody>
-                     </table>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
         </div>
       </div>
     </main>
