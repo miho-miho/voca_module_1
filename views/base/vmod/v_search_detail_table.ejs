@@ -90,6 +90,7 @@
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
         $(".targetWord").text(targetItem.midasi)
+        $(".targetWordAudio").append(targetItem.midashiaudio)
         var num = 1;
         targetItem.inst.forEach((item) => {
           let explain = item.usage
