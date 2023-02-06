@@ -128,6 +128,7 @@
     for(const char of char_list) {
       var bigchar = char.toUpperCase();
       var id = `#cahr_${bigchar}`;
+      console.log($(id).closest("a").html());
       $(id).closest("a").removeClass('disabled');
     }
     /*
