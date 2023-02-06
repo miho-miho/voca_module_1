@@ -349,7 +349,7 @@ exports.makeInstSound = function(instid, lang){
   var audioBlock = "";
   var instsoundfile = `../../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
   console.log(instsoundfile);
-  if (fs.existsSync(instsoundfile)) {
+  //if (fs.existsSync(instsoundfile)) {
     audioBlock = `
       <audio id='instSound_${instid}'>
         <source src='./sound/inst/inst_${instid}.mp3' type='audio/mp3'>
@@ -369,6 +369,6 @@ exports.makeInstSound = function(instid, lang){
         </svg>
       </a>
     `
-  }
+  //}
   return audioBlock;
 }
