@@ -374,13 +374,13 @@ exports.makeInstSound = function(instid, lang){
   return audioBlock;
 }
 
-exports.makeWordSound = function(word_id, lang){
-  var wordsoundfile = `../../../mt/${lang}/vmod/sound/word/word_${word_id}.mp3`;
+exports.makeWordSound = function(wordid, lang){
+  var wordsoundfile = `../../../mt/${lang}/vmod/sound/word/word_${wordid}.mp3`;
     var audioBlock = `
       <div class="wordaudio">
         <audio id='basicAudio'>
           <source src='${wordsoundfile}' type='audio/mp3'>
-          <source src='../../../mt/${lang}/vmod/sound/word/word_${word_id}.ogg' type='audio/ogg'>
+          <source src='../../../mt/${lang}/vmod/sound/word/word_${wordid}.ogg' type='audio/ogg'>
           <p>※ご利用のブラウザでは再生することができません。</p>
         </audio>
         <button type="button" class="btn btn-outline-primary soundLink instSound">
