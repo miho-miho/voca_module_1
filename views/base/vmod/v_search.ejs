@@ -128,8 +128,7 @@
     for (const char of char_list) {
       var bigchar = char.toUpperCase()
       var id = `#cahr_${bigchar}`;
-      console.log(id);
-      $("#cahrtable").find(id).closest("a").removeClass("disabled")
+      $("#cahrtable").find(id).child("a").removeClass("disabled")
     }
     /*
     $(".search-type").change(function(){
