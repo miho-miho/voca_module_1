@@ -125,11 +125,10 @@
        var result = Math.random().toString(36).slice(-8);
         return result;
     }
-    for (const char of char_list) {
-      var bigchar = char.toUpperCase()
+    for(const char of char_list) {
+      var bigchar = char.toUpperCase();
       var id = `#cahr_${bigchar}`;
       $("#cahrtable").find(id).removeClass("disabled");
-      console.log($("#cahrtable").find(id).html());
     }
     /*
     $(".search-type").change(function(){
