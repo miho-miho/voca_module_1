@@ -153,7 +153,8 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   search_result_list = []
 });
 //詳細_基礎
-var mkDetail = require('./public/js/make_search_detail.js')
+var mkDetail = require('./public/js/make_search_detail.js');
+const { log } = require('console');
 app.post('/:lang/v/c_detail=:category', (req, res) => {
   let lang = req.params.lang
   let category = req.params.category
@@ -328,6 +329,34 @@ app.get('/:lang/v/v_search', (req, res) => {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
       char_list: resultArray
+    });
+  });
+});
+//検索結果
+app.get('/:lang/v/v_search_list:cahr', (req, res) => {
+  let lang = req.params.lang
+  let targetChar = req.params.cahr
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: "SELECT t_word.basic, t_word_inst_rel.sence, inst_id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1"
+  };
+  client.query(query, (err, result) => {
+    if (err) throw err;
+    console.log(result.rows);
+    res.render(pathToLnag + '/vmod/v_search.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      result_list: result.rows
     });
   });
 });
