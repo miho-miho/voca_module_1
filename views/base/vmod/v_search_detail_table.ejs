@@ -78,20 +78,20 @@
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
         targetIndex = targetIndex-1
+        $(".targetWordAudio").empty();
         if (targetIndex >= 0) {
           $(".result-card-area").empty()
           showResult(targetIndex);
         }
-        $(".targetWordAudio").empty();
       });
       $(".btn_next").click(function(){
         $(".btn_previous").prop("disabled", false);
           targetIndex = targetIndex+1
+          $(".targetWordAudio").empty();
           if (targetIndex < targetArray.length) {
             $(".result-card-area").empty()
             showResult(targetIndex);
           }
-          $(".targetWordAudio").empty();
       });
       function showResult(index){
         $("#now_item").text(index+1);
