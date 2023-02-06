@@ -333,7 +333,7 @@ app.get('/:lang/v/v_search', (req, res) => {
   });
 });
 //検索結果
-app.get('/:lang/v/v_search_list:cahr', (req, res) => {
+app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
   let lang = req.params.lang
   let targetChar = req.params.cahr
   console.log(targetChar);
