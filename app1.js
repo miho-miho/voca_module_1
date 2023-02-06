@@ -320,7 +320,7 @@ app.get('/:lang/v/v_search', (req, res) => {
   client.query(query, (err, result) => {
     if (err) throw err;
     var result_list = [];
-    for(var i in rresult.rows){
+    for(var i in result.rows){
       result_list.push(i.index_char);
     }
     var resultArray = Array.from(new Set(result_list))
