@@ -1,14 +1,9 @@
 //-----------------------------//
 const fetch = require('node-fetch')
 const fs = require('fs');
-function file_get_contents(filename) {
-    fetch(filename).then((resp) => resp.text()).then(function(data) {
-        return data;
-    });
-}
 //-----------------------------//
-//getGmodSoundFile
 /*
+//getGmodSoundFile
 exports.getGmodSoundFile = function(xml_file_name, xpath){
   if (xml_file_name == null || xml_file_name == "" || xpath == null || xpath == "")  {
     return "";
@@ -43,7 +38,6 @@ exports.getGmodSoundFile = function(xml_file_name, xpath){
     return ret
   }
 }
-*/
 //getGmodLink
 exports.getGmodLink = function(xml_file_name, xpath, lang){
   function getGmodSoundFile(xml_file_name, xpath, lang){
@@ -213,6 +207,7 @@ exports.getDmodlink = function(xml_file_name, xpath, lang){
     `
   return link
 }
+*/
 exports. makeModLink = function(module_id, xml_file_name, xpath, lang){
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
