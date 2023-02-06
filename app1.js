@@ -319,7 +319,10 @@ app.get('/:lang/v/v_search', (req, res) => {
   };
   client.query(query, (err, result) => {
     if (err) throw err;
-    var result_list = result.rows
+    var result_list = [];
+    for(var i in rresult.rows){
+      result_list.push(i.index_char);
+    }
     var resultArray = Array.from(new Set(result_list))
     console.log(resultArray);
     res.render(pathToLnag + '/vmod/v_search.ejs', {
