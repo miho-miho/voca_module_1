@@ -377,8 +377,8 @@ exports.makeInstSound = function(instid, lang){
 exports.makeWordSound = function(wordid, lang){
   var wordsoundfile = `../../../mt/${lang}/vmod/sound/word/word_${wordid}.mp3`;
     var audioBlock = `
-      <div class="wordaudio">
-        <audio id='basicAudio'>
+      <div class="wordsound">
+        <audio class="basicaudio">
           <source src='${wordsoundfile}' type='audio/mp3'>
           <source src='../../../mt/${lang}/vmod/sound/word/word_${wordid}.ogg' type='audio/ogg'>
           <p>※ご利用のブラウザでは再生することができません。</p>
