@@ -199,9 +199,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
         if (e.xml_file_name != null) {
           link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
         } else {
-          console.log(e);
           link = mkDetail.makeInstSound(e.instid, lang)
-          console.log(link);
         }
         e.link = link
         li.push(e)
