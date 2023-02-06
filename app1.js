@@ -279,6 +279,7 @@ app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
       }
       var midasi = item[0].basic
       var midashiaudio = mkDetail.makeWordSound(item.wordid, lang)
+      console.log(midashiaudio);
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       if (sameMidasi) {
