@@ -363,6 +363,7 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     for (var id of id_list) {
       var a = result_list.filter((val) => {
         return val.id === id
+        console.log(a);
       });
       senses.push(a.sense)
     }
