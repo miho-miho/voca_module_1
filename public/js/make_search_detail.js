@@ -377,7 +377,8 @@ exports.makeInstSound = function(instid, lang){
 }
 
 exports.makeWordSound = function(wordid, lang){
-  var wordsoundfile = `../../../mt/${lang}/vmod/sound/word/word_${wordid}.mp3`;
+  var wordsoundfile = `../../mt/${lang}/vmod/sound/word/word_${wordid}.mp3`;
+  if (fs.existsSync(wordsoundfile)) {
     var audioBlock = `
       <div class="wordsound">
         <audio class="basicaudio">
@@ -401,5 +402,6 @@ exports.makeWordSound = function(wordid, lang){
       </a>
     </div>
     `
+  }
   return audioBlock
 }
