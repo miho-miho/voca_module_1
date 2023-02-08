@@ -515,7 +515,7 @@ app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
       k["senses"] = s_list
       r_list.push(k);
     }
-    targetChar = targetChar.replace("%", "~")
+    targetChar = targetChar.replace(/%/g, "~")
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
