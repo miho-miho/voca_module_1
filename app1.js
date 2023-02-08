@@ -385,7 +385,7 @@ app.get('/:lang/v/v_search_list-char=:char', (req, res) => {
   });
 });
 
-//詳細_文字検索
+//詳細_検索
 app.post('/:lang/v/s_search_detail=:char', (req, res) => {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
