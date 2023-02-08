@@ -510,6 +510,7 @@ app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
       k["id"] = a[0].id;
       var s_list = []
       for (const s of a) {
+        console.log(s.sense);
         if (s.sense != null) {
           s_list.push(s.sense); 
         }
