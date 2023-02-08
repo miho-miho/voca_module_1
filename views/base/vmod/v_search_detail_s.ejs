@@ -208,7 +208,7 @@
       changeStr = sentence.indexOf(0, searchStrt);
 
       // 前の文章 + 指定された言葉
-      changeStr = changeStr . `<span class="token">${token}</span>`;
+      changeStr = changeStr . '<span class="token">'+token+'</span>';
       // $changeStr = $changeStr ."<span class=\"token\">" .$token ."</span>";
       // 前の文章 + 指定された言葉 + 後の文章
       var token_b = function byteLengthOf(token) {
@@ -228,6 +228,9 @@
 }
     </script>
     <style>
+      .token {
+        color: red;
+      }
       .btn_previous:disabled, .btn_next:disabled{
         background-color: gray;
         color: white;
