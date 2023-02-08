@@ -447,7 +447,7 @@ app.post('/:lang/v/s_search_detail=:char', (req, res) => {
         insts.push(result)
       }
     });
-    res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
+    res.render(pathToLnag + '/vmod/v_search_detail_s.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
       targetObj : insts,
