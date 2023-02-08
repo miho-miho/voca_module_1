@@ -358,7 +358,7 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     for (var i of result_list) {
       id_list.push(i.id)
     }
-    var kari = []
+    var r_list = []
     id_list = Array.from(new Set(id_list))
     for (var i of id_list) {
       var a = result_list.filter(function(val) {
@@ -373,13 +373,13 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
       }
       s_list = Array.from(new Set(s_list))
       k["senses"] = s_list
-      kari.push(k);
+      r_list.push(k);
     }
-    console.log(kari);
+    console.log(r_list);
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      search_result_list: result.rows
+      search_result_list: r_list
     });
   });
 });
