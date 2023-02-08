@@ -121,7 +121,7 @@
             for (var s of element) {
               console.log(s);
               $(".examples:last").append('<div class="row example">')
-              var sentence = replaceTokenColor(s.toke, s.token_index, s.targetlanguage)
+              var sentence = replaceTokenColor(s.token, s.token_index, s.targetlanguage)
               $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p><p>・'+s.trans+'</p></div>')
               $(".example:last").append('<div class="col-sm-auto col-xs-12 float-sm-end instlink">'+s.link+'</div>')
             }
