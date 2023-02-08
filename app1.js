@@ -459,6 +459,58 @@ app.post('/:lang/v/s_search_detail=:char', (req, res) => {
   });
 });
 
+//文字検索_結果一覧
+app.get('/:lang/v/v_search_list=str=:char&st=:st', (req, res) => {
+  let lang = req.params.lang;
+  let targetChar = req.params.char;
+  let currentWorkingDirectory = process.cwd();
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: "SELECT t_word.basic, t_word_inst_rel.sense, t_word.id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1 AND t_word.index_char = $1 AND t_word_inst_rel.sense IS NOT NULL",
+    values: [targetChar]
+  };
+  client.query(query, [targetChar], (err, result) => {
+    if (err) throw err;
+    var result_list = result.rows;
+    var id_list = [];
+    for (var i of result_list) {
+      id_list.push(i.id)
+    }
+    var r_list = []
+    id_list = Array.from(new Set(id_list))
+    for (var i of id_list) {
+      var a = result_list.filter(function(val) {
+        return val.id == i
+      });
+      var k = {};
+      k["midasi"] = a[0].basic;
+      k["id"] = a[0].id;
+      var s_list = []
+      for (const s of a) {
+        s_list.push(s.sense);
+      }
+      s_list = Array.from(new Set(s_list))
+      k["senses"] = s_list
+      r_list.push(k);
+    }
+    res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      search_result_list: r_list,
+      targetChar: targetChar
+    });
+  });
+});
+
 //エラー処理
 app.use((req, res, next) => {
   res.status(404).send("<h1>準備中…</h1><p>404</p>");
