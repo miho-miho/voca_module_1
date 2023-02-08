@@ -212,7 +212,6 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
     function getDmodSoundFile(htmlfile, xpath, lang){
-      console.log(htmlfile, xpath);
       var line =  "";
       var sentence = "";
       var matches = xpath.match(/line\[(\d+)\]\/sentence\[(\d+)\]/)
@@ -233,6 +232,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
             if (lines[i].indexOf("_timeCounterStArray") !== -1) {
               if (lines[i].indexOf(`["${stid}"]`) !== -1) {
                 pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
+                console.log(pmodpage);
               }
             }
           }
