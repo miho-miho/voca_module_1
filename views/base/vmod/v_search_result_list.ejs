@@ -64,6 +64,8 @@
           s_list.push("...")
         } else if (1 <= item.senses.length <= 2){
           s_list = item.senses
+        } else {
+          s_list = []
         }
         if (s_list.length > 0) {
           sense = `(${s_list})`
