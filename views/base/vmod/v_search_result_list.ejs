@@ -46,6 +46,7 @@
       var search_result_list = <%- JSON.stringify(search_result_list) %>;
       if ("<%= targetChar %>".includes("〜")) {
         $("#search-type").text("単語検索")
+        var char = <%= targetChar %>.replace("~", "")
         $("#search-link").attr("href", "./v_search_list-char=<%= targetChar %>")
       } else {
         $("#search-type").text("文字検索")
