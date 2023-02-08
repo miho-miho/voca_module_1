@@ -206,7 +206,7 @@
       } else if (targetWord.length > 0) {
         var searchType = $(".search-type").attr("id");
         var targetURL = `./v_search_list=str=${targetWord}&st=${searchType}`
-        location.href(targetURL);
+        location.href = targetURL;
       }
     });
     //リセットボタン
