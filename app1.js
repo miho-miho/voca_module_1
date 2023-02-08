@@ -354,6 +354,7 @@ app.get('/:lang/v/v_search_list-char=:char', (req, res) => {
   client.query(query, [targetChar], (err, result) => {
     if (err) throw err;
     var result_list = result.rows;
+    console.log(result_list);
     var id_list = [];
     for (var i of result_list) {
       id_list.push(i.id)
