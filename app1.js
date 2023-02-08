@@ -463,6 +463,7 @@ app.post('/:lang/v/s_search_detail=:char', (req, res) => {
 app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
   let lang = req.params.lang;
   let targetSt = req.params.st;
+  console.log(typeof targetSt);
   var targetChar = "";
   switch (targetSt) {
     case "1":
