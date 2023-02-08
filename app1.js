@@ -356,12 +356,12 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     var rList = [];
     var rObj = {};
     for (const item of result.rows) {
-      var basic = item.basic;
-      if (item.basic in rObj != true) {
-        rObj.basic = []
-        rObj.basic.push(item.sense)
+      var midasi = item.basic;
+      if (midasi in rObj != true) {
+        rObj.midasi = []
+        rObj.midasi.push(item.sense)
       } else {
-        rObj.basic.push(item.sense)
+        rObj.midasi.push(item.sense)
       }
     }
     console.log(rObj);
