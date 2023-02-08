@@ -463,6 +463,8 @@ app.post('/:lang/v/s_search_detail=:char', (req, res) => {
 app.get('/:lang/v/v_search_list=str=:char&st=:st', (req, res) => {
   let lang = req.params.lang;
   let targetChar = req.params.char;
+  let targetSt = req.params.st;
+  console.log(targetSt);
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
