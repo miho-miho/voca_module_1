@@ -59,7 +59,7 @@
       var s_list = [];
       var sense = ""
       for (var item of search_result_list) {
-        console.log(item.length);
+        console.log(item.senses.length);
         if (item.senses.length > 2) {
           s_list = item.senses.slice(0, 2);
           s_list.push("...")
