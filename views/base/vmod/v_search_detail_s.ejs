@@ -120,6 +120,7 @@
           item.reibun.forEach((element) => {
             for (var s of element) {
               $(".examples:last").append('<div class="row example">')
+                console.log(s);
               $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+s.targetlanguage+'</p><p>・'+s.trans+'</p></div>')
               $(".example:last").append('<div class="col-sm-auto col-xs-12 float-sm-end instlink">'+s.link+'</div>')
             }
