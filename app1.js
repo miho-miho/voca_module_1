@@ -356,11 +356,12 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     var rList = [];
     var rObj = {};
     for (const item of result.rows) {
+      console.log(item);
       if (item.basic in rObj != true) {
-        rObj.item["basic"] = []
-        rObj.item["basic"].push(item.sense)
+        rObj.item.basic = []
+        rObj.item.basic.push(item.sense)
       } else {
-        rObj.item["basic"].push(item.sense)
+        rObj.item.basic.push(item.sense)
       }
     }
     console.log(rObj);
