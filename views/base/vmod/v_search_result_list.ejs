@@ -58,13 +58,20 @@
       var targetWordIds = []
       for (var item of search_result_list) {
         var s_list = [];
+        var sense = ""
         if (item.senses.length > 2) {
           s_list = item.senses.slice(0, 2);
           s_list.push("...")
-        } else {
+          sense = `(${s_llist})`
+        } else if (item.senses.length < 1){
+          ;
+        } 
+        else {
           s_list = item.senses
+          sense = `(${s_llist})`
         }
-        $(".result-list").append('<button type="button" data-href="./s_search_detail-tg=" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>（'+s_list+'）</button>')
+        $(".result-list").append('<button type="button" data-href="./s_search_detail-tg=" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
+
         targetWordIds.push(item.id)
         i+=1;
       }
