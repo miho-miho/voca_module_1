@@ -190,42 +190,24 @@
       });
     });
     */
+   /*
     $("#keyword").keyup(function(){
       if($("#keyword").val().length === 0){
         $("#inputCand").text("0")
       }
     });
+    */
     $("#search-btn").click(function(){
-      if ($(".t_pl").text() != "") {
-         ;
-      } else {
+      if (targetWord === "") {
+        swal({
+          text: "単語を入力してください"
+　       });
+      } else if (targetWord.length > 0) {
         var targetWord = $("#keyword").val();
-        if (targetWord === "") {
-          swal({
-            text: "単語を入力してください"
-　           });
-        } else if (targetWord.length > 0) {
-          var targetWord = $("#keyword").val();
-          for (var item in word_obj) {
-            if (word_obj[item].midas_go === targetWord) {
-              console.log(word_obj[item]);
-              var imi_list = []
-              for (var im of word_obj[item].rei) {
-                let explain = im.imi
-                if (explain.includes("＊")) {
-                  imi_list.push(explain.substring(0, explain.indexOf("＊")))
-                } else {
-                  imi_list.push(explain)
-                }
-              }
-              var targetURL = "./t_search_list="+word_obj[item].chuno
-              $("tbody").append('<tr><td class="t_pl" data-href="">'+word_obj[item].midas_go+'</td></tr>')
-              $("tbody").find("tr").append('<td class="t_jpn">'+imi_list+'</td>')
-              $("tbody").find("tr").append('<td class="category"><a href='+targetURL+'>'+word_obj[item].chukomoku+'</a></td>')
-            }
-          }
-        }
+        var searchType = $(".search-type").attr("id");
+        var targetURL = `./v_search_list=str=${targetWord}&st=${searchType}`
       }
+      window.location.href(targetURL);
     });
     //リセットボタン
     $(function (){
@@ -234,9 +216,6 @@
       });
       function clearFrom() {
         $("#keyword").val("");
-        $("#result").children("table").find("tbody").empty();
-        targetItems = []
-        $("#inputCand").text("0")
       }
     });
     </script>
