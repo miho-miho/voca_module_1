@@ -455,7 +455,8 @@ app.post('/:lang/v/s_search_detail=:char', (req, res) => {
       category: req.body.category,
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId,
-      targetChar : req.body.targetChar
+      targetChar : targetChar,
+      targetSt : req.body.targetSt
     });
   });
 });
