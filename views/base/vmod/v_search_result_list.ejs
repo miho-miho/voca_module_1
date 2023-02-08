@@ -62,13 +62,13 @@
         if (item.senses.length > 2) {
           s_list = item.senses.slice(0, 2);
           s_list.push("...")
-          sense = `(${s_llist})`
+          sense = `(${s_list})`
         } else if (item.senses.length < 1){
           ;
         } 
         else {
           s_list = item.senses
-          sense = `(${s_llist})`
+          sense = `(${s_list})`
         }
         $(".result-list").append('<button type="button" data-href="./s_search_detail-tg=" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
 
