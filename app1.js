@@ -379,7 +379,8 @@ app.get('/:lang/v/v_search_list-char=:char', (req, res) => {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
       search_result_list: r_list,
-      targetChar: targetChar
+      targetChar: targetChar,
+      targetSt : "";
     });
   });
 });
@@ -519,7 +520,8 @@ app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
       search_result_list: r_list,
-      targetChar: targetChar
+      targetChar: targetChar,
+      targetSt: targetSt
     });
   });
 });
