@@ -45,12 +45,12 @@
     <script type="text/javascript">
       var search_result_list = <%- JSON.stringify(search_result_list) %>;
       if ("<%= targetChar %>".includes("〜")) {
-        $("#search-type").text("単語検索")
-        var char = "<%= targetChar %>".replace("~", "")
-        $("#search-link").attr("href", "./v_search_list-char=<%= targetChar %>")
-      } else {
         $("#search-type").text("文字検索")
+        var char = "<%= targetChar %>".replace("~", "")
         $("#search-link").attr("href", "./v_search_list-str=<%= targetChar %>&st=<%= targetSt %>")
+      } else {
+        $("#search-type").text("単語検索")
+        $("#search-link").attr("href", "./v_search_list-char=<%= targetChar %>")
       }
       $(".c_cand").text(search_result_list.length)
       var i = 1;
