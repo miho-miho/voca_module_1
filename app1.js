@@ -362,9 +362,9 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     id_list = Array.from(new Set(id_list))
     for (var i of id_list) {
       var a = result_list.filter(function(val) {
-        console.log(val.id);
-        return val.id === i
-      })
+        return val.id == i
+      });
+      senses.push(a);
     }
     console.log(senses);
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
