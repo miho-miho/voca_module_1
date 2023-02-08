@@ -115,6 +115,7 @@
           $(".result-card-area").append('<div class="card"><div class="card-header col"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
           item.reibun.forEach((element) => {
             for (var s of element) {
+              console.log(s);
               $(".examples:last").append('<div class="row example">')
               var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index)
               if (s.trans.length > 0) {
