@@ -227,12 +227,12 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
       } else {
         try {
           result = fs.readFileSync(htmlfile, 'utf8')
+          console.log(result);
           var lines = result.split('\n');
           for (var i = 0; i < lines.length; i++) {
             if (lines[i].indexOf("_timeCounterStArray") !== -1) {
               if (lines[i].indexOf(`["${stid}"]`) !== -1) {
                 pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
-                console.log(pmodpage);
               }
             }
           }
