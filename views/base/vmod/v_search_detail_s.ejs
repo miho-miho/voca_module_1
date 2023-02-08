@@ -178,6 +178,7 @@
       }
       //replaceTokenColor
       function replaceTokenColor(token, sentence, token_index){
+        onsole.log(sentence);
         var tokenafter = "";
         var topenTagStr = "1234567890";
         var closeTagStr = "0987654321";
@@ -185,7 +186,6 @@
         var searchStrt = 0;
         if (token === "" || token === null) {
           return sentence
-          console.log(sentence);
        } else {
           if (token_index != "" && token_index != null) {
             // 指定された言葉が文中に複数出てきている場合。
