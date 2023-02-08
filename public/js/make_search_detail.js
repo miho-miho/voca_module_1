@@ -348,7 +348,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
 exports.makeInstSound = function(instid, lang){
   var audioBlock = "";
   var instsoundfile = `../../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
-  if (fs.existsSync("http://www.coelang.tufs.ac.jp/mt/fr/vmod/sound/word/word_70.mp3")) {
+  if (fs.existsSync(`../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`)) {
     console.log("exist");
   } else {
     console.log("not");
