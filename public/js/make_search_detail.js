@@ -348,11 +348,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
 exports.makeInstSound = function(instid, lang){
   var audioBlock = "";
   var instsoundfile = `../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
-  if (fs.existsSync(`../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`)) {
-    console.log("exist");
-  } else {
-    console.log("not");
-  }
+  if (fs.existsSync(instsoundfile)) {
     audioBlock = `
     <div class="vmodsound">
       <audio id='instSound_${instid}' class="vmodaudio">
@@ -376,6 +372,7 @@ exports.makeInstSound = function(instid, lang){
       </a>
     </div>
     `
+  }
   return audioBlock;
 }
 
