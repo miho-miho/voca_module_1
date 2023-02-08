@@ -358,15 +358,24 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     for (var i of result_list) {
       id_list.push(i.id)
     }
-    var senses = []
+    var kari = []
     id_list = Array.from(new Set(id_list))
     for (var i of id_list) {
       var a = result_list.filter(function(val) {
         return val.id == i
       });
-      senses.push(a);
+      var k = {};
+      k["midasi"] = a[0].basic;
+      k["id"] = a[0].id;
+      var s_list = []
+      for (const s of a) {
+        s_list.push(s);
+      }
+      s_list = Array.from(new Set(s_list))
+      k["senses"] = s_list
+      kari.push(k);
     }
-    console.log(senses);
+    console.log(kari);
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
