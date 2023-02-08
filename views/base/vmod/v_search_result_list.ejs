@@ -64,7 +64,7 @@
         } else {
           s_list = item.senses
         }
-        $(".result-list").append('<button type="button" data-href="./s_search_detail" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>（'+s_list+'）</button>')
+        $(".result-list").append('<button type="button" data-href="./s_search_detail-tg=" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>（'+s_list+'）</button>')
         targetWordIds.push(item.id)
         i+=1;
       }
@@ -74,7 +74,7 @@
           if(!$(e.target).is('a')){
             var targetWord = ($(e.target).find('.midasi_go').text());
             var targetWordId = ($(e.target).find('.midasi_go').attr('id'));
-            var url = ($(e.target).data("href"))+"=<%= targetChar %>";
+            var url = ($(e.target).data("href"))+"<%= targetChar %>";
             var targetSt = "<%= targetSt %>"
             var targetData = '<input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>><input type="hidden" name="targetSt" value="'+targetSt+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
