@@ -333,7 +333,7 @@ app.get('/:lang/v/v_search', (req, res) => {
   });
 });
 //文字検索_結果一覧
-app.get('/:lang/v/v_search_list?char=:char', (req, res) => {
+app.get('/:lang/v/v_search_list-char=:char', (req, res) => {
   let lang = req.params.lang;
   let targetChar = req.params.char;
   let currentWorkingDirectory = process.cwd();
