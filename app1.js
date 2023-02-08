@@ -353,11 +353,20 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
   };
   client.query(query, [targetChar], (err, result) => {
     if (err) throw err;
-    var rList = [];
-    var rObj = {};
-    for (const item of result.rows) {
-      console.log(item.basic);
+    var result_list = result.rows;
+    var id_list = [];
+    for (var i of result_list) {
+      id_list.push(i.id)
     }
+    var senses = []
+    id_list = Array.from(new Set(id_list))
+    for (var id of id_list) {
+      var a = result_list.filter((val) => {
+        return val.id === id
+      });
+      senses.push(a.sense)
+    }
+    console.log(senses);
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
