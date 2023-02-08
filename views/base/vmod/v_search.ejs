@@ -212,15 +212,12 @@
         location.href = targetURL;
       }
     });
-    //リセットボタン
-    $(function (){
-      $("#reset-btn").on("click", function(){
-        clearFrom();
-      });
-      function clearFrom() {
-        $("#keyword").val("");
+    let windowWidth = $(window).width()
+      if (windowWidth < 767) {
+        $(function(){
+          $("#v_sidebar").before($(".main"));
+        });
       }
-    });
     </script>
     <style>
       footer {
