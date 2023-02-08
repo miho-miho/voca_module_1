@@ -356,15 +356,8 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     var rList = [];
     var rObj = {};
     for (const item of result.rows) {
-      var midasi = item.basic;
-      if (midasi in rObj != true) {
-        rObj.midasi = []
-        rObj.midasi.push(item.sense)
-      } else {
-        rObj.midasi.push(item.sense)
-      }
+      console.log(item.basic);
     }
-    console.log(rObj);
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
