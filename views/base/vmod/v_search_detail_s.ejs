@@ -208,7 +208,7 @@
       changeStr = sentence.indexOf(0, searchStrt);
 
       // 前の文章 + 指定された言葉
-      changeStr = changeStr . `<span class=\"token\">"${token}"</span>`;
+      changeStr = changeStr . `<span class="token">${token}</span>`;
       // $changeStr = $changeStr ."<span class=\"token\">" .$token ."</span>";
       // 前の文章 + 指定された言葉 + 後の文章
       var token_b = function byteLengthOf(token) {
@@ -220,7 +220,7 @@
     } else {
       tokenafter = topenTagStr+token+closeTagStr;
       sentence = sentence.replace(token, tokenafter);
-      sentence = sentence.replace(topenTagStr, "<span class=\"token\">");
+      sentence = sentence.replace(topenTagStr, '<span class="token">');
       sentence = sentence.replace(closeTagStr, "</span>");
     }
     return sentence;
