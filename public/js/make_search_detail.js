@@ -227,7 +227,6 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
       } else {
         try {
           result = fs.readFileSync(htmlfile, 'utf8')
-          console.log(result);
           var lines = result.split('\n');
           for (var i = 0; i < lines.length; i++) {
             if (lines[i].indexOf("_timeCounterStArray") !== -1) {
@@ -270,11 +269,11 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
     var lang_matches = lang.match(/ja_([a-z][a-z])/)
     // 英語ページ 英語はHTMLファイルの名前がfunc_01.htmlとstory_01.htmlの２種ある
     if (lang === "en") {
-      htmlfile = `../../../mt/${lang}/dmod/class/func_${dmod_funcId}.html`
+      htmlfile = `../../mt/${lang}/dmod/class/func_${dmod_funcId}.html`
     } else if (lang_matches != null) {  // ex. ja_th
-      htmlfile = `../../../mt/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
+      htmlfile = `../../mt/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
     } else {
-      htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
+      htmlfile = `../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
     }
     var dmodsound = getDmodSoundFile(htmlfile, xpath, lang);
     var link = `
