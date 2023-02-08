@@ -65,10 +65,9 @@
             var targetWord = ($(e.target).find('.midasi_go').text());
             var targetWordId = ($(e.target).find('.midasi_go').attr('id'));
             var url = ($(e.target).data("href"));
-            console.log(url);
             var targetData = '<input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            //$("#post").submit();
+            $("#post").submit();
           };
         });
       });
