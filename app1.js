@@ -332,7 +332,7 @@ app.get('/:lang/v/v_search', (req, res) => {
     });
   });
 });
-//検索結果
+//文字検索_結果一覧
 app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
   let lang = req.params.lang;
   let targetChar = req.params.cahr;
@@ -378,7 +378,82 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      search_result_list: r_list
+      search_result_list: r_list,
+      targetChar: targetChar
+    });
+  });
+});
+
+//詳細_文字検索
+app.post('/:lang/v/s_search_detail=:chuno', (req, res) => {
+  let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
+  let targetWordIds = req.body.targetWordIds.split(',').map(Number);
+  let pathToLnag = currentWorkingDirectory+'/views/'+lang
+  var info = require(pathToLnag + "/config")
+  let chuno = req.params.chuno
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: 'SELECT t_word.basic, t_word.id, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.module_id, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url, T.inst_id as instid FROM t_usage LEFT OUTER JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id) as T ON T.usage_id=t_usage.usage_id WHERE t_word.id=any($1) AND t_usage.selected=1 ORDER BY t_usage.disp_priority, T.disp_priority',
+    values: [targetWordIds]
+  };
+  client.query(query, [targetWordIds], (err, result) => {
+    if (err) throw err;
+    var result_list = result.rows
+    var id_list = [];
+    for (var i of result_list) {
+      id_list.push(i.usage_id)
+    }
+    var instances = []
+    id_list = Array.from(new Set(id_list))
+    for (var id of id_list) {
+      var a = result_list.filter((val) => {
+        return val.usage_id === id
+      });
+      instances.push(a)
+    }
+    var insts = []
+    instances.forEach((item) => {
+      var li = []
+      for (var e of item) {
+        var ex = e.explanation
+        e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
+        var link = "";
+        if (e.xml_file_name != null) {
+          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
+        } else {
+          link = mkDetail.makeInstSound(e.instid, lang)
+        }
+        e.link = link
+        li.push(e)
+      }
+      var midasi = item[0].basic
+      var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
+      var inst = []
+      var sameMidasi = insts.find((element) => element.midasi === midasi)
+      if (sameMidasi) {
+        sameMidasi.inst.push({"usage":ex, "reibun":[li]})
+      } else {
+        inst.push({"usage":ex, "reibun":[li]})
+        var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
+        insts.push(result)
+      }
+    });
+    res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      targetObj : insts,
+      category: req.body.category,
+      targetWord: req.body.targetWord,
+      targetWordId: req.body.targetWordId,
+      chuno: chuno
     });
   });
 });
