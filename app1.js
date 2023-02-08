@@ -348,7 +348,7 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_word.basic, t_word_inst_rel.sense, t_word.id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1 AND t_word.index_char = $1",
+    text: "SELECT t_word.basic, t_word_inst_rel.sense, t_word.id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1 AND t_word.index_char = $1 AND t_word_inst_rel.sense IS NOT NULL",
     values: [targetChar]
   };
   client.query(query, [targetChar], (err, result) => {
@@ -356,13 +356,13 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     var result_list = result.rows;
     var id_list = [];
     for (var i of result_list) {
+      console.log(i);
       id_list.push(i.id)
     }
     var senses = []
     id_list = Array.from(new Set(id_list))
     for (var id of id_list) {
       var a = result_list.filter((val) => {
-        console.log(a);
         return val.id === id
       });
       senses.push(a.sense)
