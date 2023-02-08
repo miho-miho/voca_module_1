@@ -129,7 +129,7 @@
       var bigcahr = cahr.toUpperCase();
       var id = `#cahr_${bigcahr}`;
       $(id).find("a").removeClass('disabled');
-      $(id).find("a").attr("href", `./v_search_list=${cahr}`)
+      $(id).find("a").attr("href", `./v_search_list?char=${cahr}`)
     }
     /*
     $(".search-type").change(function(){
