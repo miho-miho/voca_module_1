@@ -200,7 +200,7 @@
     var searchType = "";
     $(".search-type").change(function(){
       searchType =  $(this).attr("id").replace("search-type", "");
-    }
+    });
     $("#search-btn").on("click", function(){
       var targetWord = $("#keyword").val();
       if (targetWord === "") {
