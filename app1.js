@@ -450,6 +450,7 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         insts.push(result)
       }
     });
+    console.log(insts);
     res.render(pathToLnag + '/vmod/v_search_detail_s.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
