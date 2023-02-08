@@ -117,7 +117,11 @@
             for (var s of element) {
               $(".examples:last").append('<div class="row example">')
               var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index, )
-              $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p><p>・'+s.trans+'</p></div>')
+              if (s.trans.length > 0) {
+                $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p><p>・'+s.trans+'</p></div>') 
+              } else {
+                $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p></div>')
+              }
               $(".example:last").append('<div class="col-sm-auto col-xs-12 float-sm-end instlink">'+s.link+'</div>')
             }
           });
