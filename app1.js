@@ -429,6 +429,7 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
       for (var e of item) {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
+        console.log(e);
         var link = "";
         if (e.xml_file_name != null) {
           link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
@@ -450,7 +451,6 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         insts.push(result)
       }
     });
-    console.log(insts);
     res.render(pathToLnag + '/vmod/v_search_detail_s.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
