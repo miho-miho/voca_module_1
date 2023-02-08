@@ -333,9 +333,9 @@ app.get('/:lang/v/v_search', (req, res) => {
   });
 });
 //文字検索_結果一覧
-app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
+app.get('/:lang/v/v_search_list=:char', (req, res) => {
   let lang = req.params.lang;
-  let targetChar = req.params.cahr;
+  let targetChar = req.params.char;
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -385,9 +385,10 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
 });
 
 //詳細_文字検索
-app.post('/:lang/v/s_search_detail=:chuno', (req, res) => {
+app.post('/:lang/v/s_search_detail=:char', (req, res) => {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
+  let targetChar = req.params.char;
   let targetWordIds = req.body.targetWordIds.split(',').map(Number);
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -453,7 +454,7 @@ app.post('/:lang/v/s_search_detail=:chuno', (req, res) => {
       category: req.body.category,
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId,
-      chuno: chuno
+      targetChar : targetChar
     });
   });
 });
