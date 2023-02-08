@@ -334,9 +334,8 @@ app.get('/:lang/v/v_search', (req, res) => {
 });
 //検索結果
 app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
-  let lang = req.params.lang
-  let targetChar = req.params.cahr
-  console.log(targetChar);
+  let lang = req.params.lang;
+  let targetChar = req.params.cahr;
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -354,7 +353,17 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
   };
   client.query(query, [targetChar], (err, result) => {
     if (err) throw err;
-    console.log(result.rows);
+    var rList = [];
+    var rObj = {};
+    for (const item of result.rows) {
+      if (item.basic in rObj != true) {
+        rObj.item["basic"] = []
+        rObj.item["basic"].push(item.sense)
+      } else {
+        rObj.item["basic"].push(item.sense)
+      }
+    }
+    console.log(rObj);
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
