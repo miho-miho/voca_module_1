@@ -250,6 +250,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
         return "";
       }
       var dmodsound = `../../mt/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
+      console.log(dmodsound );
       var ret = `
         <!-- ${dmodsound} -->
         <button  class='dmodsound btn btn-outline-primary' onclick="playDmodSound('${dmodsound}', '${start}', '${stop}')">
@@ -276,7 +277,6 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
       htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
     }
     var dmodsound = getDmodSoundFile(htmlfile, xpath, lang);
-    console.log(dmodsound);
     var link = `
       <!--■■■Dモジュールへのリンク■■■-->
       <div class="dmodsound">
