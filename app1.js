@@ -361,8 +361,8 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
     var senses = []
     id_list = Array.from(new Set(id_list))
     for (var id of id_list) {
-      console.log(id);
       var a = result_list.filter((val) => {
+        console.log(a);
         return val.id === id
       });
       senses.push(a.sense)
