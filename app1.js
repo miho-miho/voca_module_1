@@ -369,7 +369,7 @@ app.get('/:lang/v/v_search_list=:cahr', (req, res) => {
       k["id"] = a[0].id;
       var s_list = []
       for (const s of a) {
-        s_list.push(s);
+        s_list.push(s.sense);
       }
       s_list = Array.from(new Set(s_list))
       k["senses"] = s_list
