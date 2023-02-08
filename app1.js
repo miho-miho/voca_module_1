@@ -463,22 +463,18 @@ app.post('/:lang/v/s_search_detail=:char', (req, res) => {
 app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
   let lang = req.params.lang;
   let targetSt = req.params.st;
-  console.log(targetSt);
   var targetChar = "";
   switch (targetSt) {
     case "1":
       targetChar = `${req.params.char}%`;
       break;
-  
     case "2":
       targetChar = `%${req.params.char}`;
       break;
-    
     case "3":
       targetChar = `%${req.params.char}%`;
       break;
   }
-  console.log(targetChar);
   let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
@@ -491,7 +487,7 @@ app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_word.basic, t_word_inst_rel.sense, t_word.id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1 AND t_word.index_char = $1 AND t_word_inst_rel.sense IS NOT NULL",
+    text: "SELECT t_word.basic, t_word_inst_rel.sense, t_word.id FROM t_word JOIN t_word_inst_rel ON t_word.id = t_word_inst_rel.word_id WHERE t_word.selected = 1 AND t_word.basic = $1 AND t_word_inst_rel.sense IS NOT NULL",
     values: [targetChar]
   };
   client.query(query, [targetChar], (err, result) => {
@@ -518,6 +514,7 @@ app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
       k["senses"] = s_list
       r_list.push(k);
     }
+    console.log(r_list);
     res.render(pathToLnag + '/vmod/v_search_result_list.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
