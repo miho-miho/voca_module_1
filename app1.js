@@ -380,7 +380,7 @@ app.get('/:lang/v/v_search_list-char=:char', (req, res) => {
       lang_jp : info.lang_info.lang_jp,
       search_result_list: r_list,
       targetChar: targetChar,
-      targetSt : "";
+      targetSt : ""
     });
   });
 });
