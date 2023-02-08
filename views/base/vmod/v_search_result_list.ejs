@@ -75,7 +75,8 @@
             var targetWord = ($(e.target).find('.midasi_go').text());
             var targetWordId = ($(e.target).find('.midasi_go').attr('id'));
             var url = ($(e.target).data("href"))+"=<%= targetChar %>";
-            var targetData = '<input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>'
+            var targetSt = "<%= targetSt %>"
+            var targetData = '<input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>><input type="hidden" name="targetSt" value="'+targetSt+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
             $("#post").submit();
           };
