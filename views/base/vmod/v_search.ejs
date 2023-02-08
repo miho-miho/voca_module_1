@@ -197,6 +197,10 @@
       }
     });
     */
+    var searchType = "";
+    $(".search-type").change(function(){
+      searchType =  $(this).attr("id").replace("search-type", "");
+    }
     $("#search-btn").on("click", function(){
       var targetWord = $("#keyword").val();
       if (targetWord === "") {
@@ -204,7 +208,6 @@
           text: "単語を入力してください"
 　       });
       } else if (targetWord.length > 0) {
-        var searchType = $(".search-type").attr("id").replace("search-type", "");
         var targetURL = `./v_search_list-str=${targetWord}&st=${searchType}`
         location.href = targetURL;
       }
