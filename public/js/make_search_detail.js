@@ -308,6 +308,9 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
           no2 = matches[2] - 1;
         }
         var gmodsound = `../../../mt/${lang}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
+        if (fs.existsSync(`../../mt/${lang}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`) != true) {
+          return "";
+        } else {
         var ret = `
         <!-- ${gmodsound} -->
           <audio class="gmodaudio">
@@ -321,6 +324,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
           </button>
         `
         return ret
+      }
       }
     }
     var htmlfile = xml_file_name.replace(/(explanation|instances)(\d{3})\.xml/, '$1/$2.html')
