@@ -46,11 +46,11 @@
       var search_result_list = <%- JSON.stringify(search_result_list) %>;
       var targetChar = "<%= targetChar %>"
       if (targetChar.includes("~")) {
-        $("#search-type").text("単語検索")
+        $("#search-type").text("文字検索")
         var char = targetChar.replace(/~/g, "")
         $("#search-link").attr("href", `./v_search_list-str=${char}&st=<%= targetSt %>`)
       } else {
-        $("#search-type").text("文字検索")
+        $("#search-type").text("単語検索")
         $("#search-link").attr("href", "./v_search_list-char=<%= targetChar %>")
       }
       $(".c_cand").text(search_result_list.length)
