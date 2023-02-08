@@ -276,6 +276,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
       htmlfile = `../../../mt/${lang}/dmod/class/ja_${dmod_funcId}.html`;
     }
     var dmodsound = getDmodSoundFile(htmlfile, xpath, lang);
+    console.log(dmodsound);
     var link = `
       <!--■■■Dモジュールへのリンク■■■-->
       <div class="dmodsound">
