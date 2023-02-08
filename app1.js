@@ -460,7 +460,7 @@ app.post('/:lang/v/s_search_detail=:char', (req, res) => {
 });
 
 //文字検索_結果一覧
-app.get('/:lang/v/v_search_list=str=:char&st=:st', (req, res) => {
+app.get('/:lang/v/v_search_list?str=:char&st=:st', (req, res) => {
   let lang = req.params.lang;
   let targetChar = req.params.char;
   let targetSt = req.params.st;
