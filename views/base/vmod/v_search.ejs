@@ -205,7 +205,7 @@
 　       });
       } else if (targetWord.length > 0) {
         var searchType = $(".search-type").attr("id").replace("search-type", "");
-        var targetURL = `./v_search_list?str=${targetWord}&st=${searchType}`
+        var targetURL = `./v_search_list-str=${targetWord}&st=${searchType}`
         location.href = targetURL;
       }
     });
