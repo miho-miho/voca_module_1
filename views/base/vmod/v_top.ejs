@@ -78,6 +78,8 @@
               </p>
               <div class="ms_zone">
               </div>
+              <div class="ms_zone2 text-end">
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +90,8 @@
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script type="text/javascript">
-        let arry = <%- JSON.stringify(vmod_ms1) %>
+        let arry = <%- JSON.stringify(vmod_ms1) %>;
+        let arry2 = <%- JSON.stringify(vmod_ms2) %>;
         let a_tag;
         let arry_ulr = <%- JSON.stringify(vmod_ms1_url) %>;
         for (var i = 0; i < arry.length; i++) {
@@ -98,6 +101,11 @@
             a_tag = ""
           }
           $(".ms_zone").append(arry[i]+a_tag+"<br>")
+        }
+        if (arry2.length > 0) {
+          for (const i of arry2) {
+            $(".ms_zone").append(arry2[i]+"<br>")
+          }
         }
         let windowWidth = $(window).width()
         if (windowWidth < 767) {
