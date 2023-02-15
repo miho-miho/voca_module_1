@@ -373,6 +373,12 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
         return ret;
     }
       var pmodsound = getPmodSoundFile(targetlanguage, web_url, lang);
+      var pmodPath = "";
+      if (lang === "id") {
+        pmodPath = `../../mt/${lang}/pmod1/${web_url}`
+      } else {
+        pmodPath = `../../mt/${lang}/pmod2/${web_url}`
+      }
       var link = `
         <!--■■■Pモジュールへのリンク■■■-->
         <div class="pmodsound">
