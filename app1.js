@@ -390,7 +390,7 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
   });
 });
 
-//文字検索_結果一覧
+//単語検索_結果一覧
 app.get('/:lang/v/v_search_list-str=:char&st=:st', (req, res) => {
   let lang = req.params.lang;
   let targetSt = req.params.st;
