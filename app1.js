@@ -298,7 +298,7 @@ app.post('/:lang/v/t_search_detail=:tag', (req, res) => {
       category: req.body.category,
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId,
-      chuno: chuno
+      chuno: tag
     });
   });
 });
