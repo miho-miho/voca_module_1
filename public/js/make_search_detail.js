@@ -360,7 +360,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
         }
         var pmodsound = `../../../mt/${lang}/pmod1/sound/${matches[1]}.mp3`;
         var ret = `
-        <audio>
+        <audio class="pmodaudio">
           <source src='${pmodsound}' type='audio/mp3'>
         </audio>
         <button type="button" class="btn btn-outline-primary soundLink instSound">
