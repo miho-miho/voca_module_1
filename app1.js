@@ -213,11 +213,11 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "photo":item.photo_name, "reibun":[li]})
       } else {
-        inst.push({"usage":ex, "reibun":[li]})
+        inst.push({"usage":ex, "photo":item.photo_name, "reibun":[li]})
+        console.log(inst);
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
-      console.log(insts);
     });
     res.render(pathToLnag + '/vmod/v_search_detail.ejs', {
       lg : lang,
