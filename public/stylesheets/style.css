@@ -192,3 +192,7 @@ h1 {
 .voca_area2 .card-body {
   display: none;
 }
+
+.example {
+  padding-bottom: 5px;;
+}
