@@ -25,9 +25,18 @@ footer {
   .header-title {
       font-size: 1.3rem;
   }
+  .sidebar {
+    min-height: 100vh;
+  }
 }
 @media screen and (max-width: 480px) {
   .header-title {
     font-size: 0.85rem;
+  }
+  .footer-text {
+    font-size: 0.55rem;
+  }
+  .main {
+    padding-bottom: 47px;
   }
 }
