@@ -22,7 +22,7 @@ var json_bunrui = json_parts["bunruigoi"]
 var bunrui_tai = json_bunrui["tai"]
 var bunrui_yo = json_bunrui["yo"]
 var bunrui_so = json_bunrui["so"]
-//console.log(kiso_imibunrui);
+
 //トップページ
 app.get('/', (req, res) => {
   res.render('index1.0.ejs');
@@ -80,6 +80,7 @@ app.get('/:lang/v/catego', (req, res) => {
     });
   });
 });
+
 //分類表
 app.get('/:lang/v/table', (req, res) => {
   let lang = req.params.lang
@@ -119,8 +120,8 @@ app.get('/:lang/v/table', (req, res) => {
   });
 });
 
-var search_result_list = []
 //分類表_結果リスト
+var search_result_list = []
 app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
@@ -152,86 +153,9 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   });
   search_result_list = []
 });
-/*
-//詳細_基礎
-var mkDetail = require('./public/js/make_search_detail.js');
-const { log } = require('console');
-app.post('/:lang/v/c_detail=:category', (req, res) => {
-  let lang = req.params.lang
-  let category = req.params.category
-  let targetSceneId = req.body.targetSceneId
-  let targetWordIds = req.body.targetWordIds.split(',').map(Number);
-  let currentWorkingDirectory = process.cwd();
-  let pathToLnag = currentWorkingDirectory+'/views/'+lang
-  var info = require(pathToLnag + "/config")
-  var client = new Client({
-    user: info.db_info.user,
-    host: info.db_info.host,
-    database: info.db_info.database,
-    password: info.db_info.password,
-    port: 5432
-  })
-  client.connect();
-  const query = {
-    //text: 'SELECT t_word.basic, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url FROM t_usage JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id ORDER BY t_usage_inst_rel.disp_priority) as T ON T.usage_id=t_usage.usage_id WHERE scene_id=$1 ORDER BY t_usage_scene_rel.usage_id, t_usage.disp_priority',
-    text: 'SELECT t_word.basic, t_word.id as wordid, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.explanation as t_ex, T.module_id ,T.xml_file_name, T.xpath, T.web_url, T.inst_id as instid, T.token, T.token_index FROM t_usage LEFT OUTER JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id) as T ON T.usage_id=t_usage.usage_id WHERE t_word.id=any($1) AND t_usage.selected=1 ORDER BY t_usage.disp_priority, T.disp_priority',
-    values: [targetWordIds]
-  };
-  client.query(query, [targetWordIds], (err, result) => {
-    if (err) throw err;
-    var result_list = result.rows
-    var id_list = [];
-    for (var i of result_list) {
-      id_list.push(i.usage_id)
-    }
-    var instances = []
-    id_list = Array.from(new Set(id_list))
-    for (var id of id_list) {
-      var a = result_list.filter((val) => {
-        return val.usage_id === id
-      });
-      instances.push(a)
-    }
-    var insts = []
-    instances.forEach((item) => {
-      var li = []
-      for (var e of item) {
-        var ex = e.explanation
-        e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
-        var link = "";
-        if (e.xml_file_name != null) {
-          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
-        } else {
-          link = mkDetail.makeInstSound(e.instid, lang)
-        }
-        e.link = link
-        li.push(e)
-      }
-      var midasi = item[0].basic
-      var midashiaudio = mkDetail.makeWordSound(item[0].wordid, lang)
-      var inst = []
-      var sameMidasi = insts.find((element) => element.midasi === midasi)
-      if (sameMidasi) {
-        sameMidasi.inst.push({"usage":ex, "reibun":[li]})
-      } else {
-        inst.push({"usage":ex, "reibun":[li]})
-        var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
-        insts.push(result)
-      }
-    });
-    res.render(pathToLnag + '/vmod/v_search_detail_kiso.ejs', {
-      lg : lang,
-      lang_jp : info.lang_info.lang_jp,
-      targetObj : insts,
-      category: category,
-      targetWord: req.body.targetWord,
-      targetWordId: req.body.targetWordId
-    });
-  });
-});
-*/
-var mkDetail = require('./public/js/make_search_detail.js');
+
 //詳細
+var mkDetail = require('./public/js/make_search_detail.js');
 app.post('/:lang/v/search_detail=:tag', (req, res) => {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
@@ -293,7 +217,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         insts.push(result)
       }
     });
-    res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
+    res.render(pathToLnag + '/vmod/v_search_detail.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
       targetObj : insts,
@@ -304,81 +228,6 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
     });
   });
 });
-/*
-//詳細_分類表
-app.post('/:lang/v/t_search_detail=:chuno', (req, res) => {
-  let lang = req.params.lang
-  let currentWorkingDirectory = process.cwd();
-  let targetWordIds = req.body.targetWordIds.split(',').map(Number);
-  let pathToLnag = currentWorkingDirectory+'/views/'+lang
-  var info = require(pathToLnag + "/config")
-  let chuno = req.params.chuno
-  var client = new Client({
-    user: info.db_info.user,
-    host: info.db_info.host,
-    database: info.db_info.database,
-    password: info.db_info.password,
-    port: 5432
-  })
-  client.connect();
-  const query = {
-    text: 'SELECT t_word.basic, t_word.id, t_usage.usage_id, t_usage.explanation, T.targetlanguage, T.trans, T.function, T.pronun, T.module_id, T.explanation as t_ex, T.xml_file_name, T.xpath, T.web_url, T.inst_id as instid, T.token, T.token_index FROM t_usage LEFT OUTER JOIN t_usage_scene_rel ON t_usage.usage_id=t_usage_scene_rel.usage_id JOIN t_word ON t_usage.word_id = t_word.id JOIN (SELECT * FROM t_usage_inst_rel JOIN t_instance ON t_usage_inst_rel.inst_id = t_instance.id) as T ON T.usage_id=t_usage.usage_id WHERE t_word.id=any($1) AND t_usage.selected=1 ORDER BY t_usage.disp_priority, T.disp_priority',
-    values: [targetWordIds]
-  };
-  client.query(query, [targetWordIds], (err, result) => {
-    if (err) throw err;
-    var result_list = result.rows
-    var id_list = [];
-    for (var i of result_list) {
-      id_list.push(i.usage_id)
-    }
-    var instances = []
-    id_list = Array.from(new Set(id_list))
-    for (var id of id_list) {
-      var a = result_list.filter((val) => {
-        return val.usage_id === id
-      });
-      instances.push(a)
-    }
-    var insts = []
-    instances.forEach((item) => {
-      var li = []
-      for (var e of item) {
-        var ex = e.explanation
-        e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
-        var link = "";
-        if (e.xml_file_name != null) {
-          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, lang)
-        } else {
-          link = mkDetail.makeInstSound(e.instid, lang)
-        }
-        e.link = link
-        li.push(e)
-      }
-      var midasi = item[0].basic
-      var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
-      var inst = []
-      var sameMidasi = insts.find((element) => element.midasi === midasi)
-      if (sameMidasi) {
-        sameMidasi.inst.push({"usage":ex, "reibun":[li]})
-      } else {
-        inst.push({"usage":ex, "reibun":[li]})
-        var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
-        insts.push(result)
-      }
-    });
-    res.render(pathToLnag + '/vmod/v_search_detail_table.ejs', {
-      lg : lang,
-      lang_jp : info.lang_info.lang_jp,
-      targetObj : insts,
-      category: req.body.category,
-      targetWord: req.body.targetWord,
-      targetWordId: req.body.targetWordId,
-      chuno: chuno
-    });
-  });
-});
-*/
 //検索
 app.get('/:lang/v/v_search', (req, res) => {
   let lang = req.params.lang
