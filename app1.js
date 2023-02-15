@@ -204,6 +204,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         }
         e.link = link
         li.push(e)
+        console.log(e);
       }
       var midasi = item[0].basic
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
@@ -213,7 +214,6 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
         inst.push({"usage":ex, "reibun":[li]})
-        console.log(inst);
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
