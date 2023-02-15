@@ -193,7 +193,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
     }
     var insts = []
     instances.forEach((item) => {
-      console.log(item.photo_name);
+      console.log(item[0].photo_name);
       var midasi = item[0].basic
       var li = []
       for (var e of item) {
