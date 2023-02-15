@@ -15,7 +15,7 @@
           </ol>
         </nav>
           <%- include('../partials/v_sidebar') %>
-        <div class="col-lg main">
+        <div class="col-lg main-body">
           <div class="card">
             <div class="card-header">
               <h2 class="card-title">TOPページ</h2>
@@ -96,7 +96,7 @@
         let windowWidth = $(window).width()
         if (windowWidth < 767) {
           $(function(){
-            $("#v_sidebar").before($(".main"));
+            $("#v_sidebar").before($(".main-body"));
           });
         }
       </script>
