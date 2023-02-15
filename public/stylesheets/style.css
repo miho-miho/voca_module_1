@@ -29,7 +29,7 @@ html {
     padding-bottom: 1rem;;
   }
   .example:last-of-type {
-    padding-bottom: auto;
+    padding-bottom: 0px;
   }
 }
 @media screen and (max-width: 480px) {
