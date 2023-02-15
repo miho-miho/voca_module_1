@@ -70,12 +70,12 @@
     var targetItems;
     $("#all_items").text(targetArray.length)
     for (var i = 0; i < targetArray.length; i++) {
+      console.log(targetArray[i].midasi);
       if (targetArray[i].midasi === "<%= targetWord %>") {
         targetIndex = i
       }
     }
     console.log("<%= targetWord %>");
-    console.log(targetIndex);
     if ("<%= tag %>".includes(".")) {
       $("#linkToPage").text("基礎語彙分類表");
       $("#linkToPage").attr("href", "./table");
