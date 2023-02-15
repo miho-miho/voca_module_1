@@ -197,6 +197,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         var ex = e.explanation
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         var link = "";
+        console.log(e.targetlanguage);
         if (e.xml_file_name != null) {
           link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, e.targetlanguage, e.web_url, lang)
         } else {
