@@ -385,7 +385,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
     } else if (module_id == "dmod") {
       link = getDmodlink(xml_file_name, xpath, lang)
     } else if (module_id == "pmod"){
-      link = getPmodlink(tlanguage, web_url, lang)
+      link = getPmodLink(tlanguage, web_url, lang)
     }
   }
   return link;
