@@ -22,6 +22,12 @@ html {
   .sidebar {
     min-height: 100vh;
   }
+  .inst > p {
+    margin-bottom: 1rem;
+  }
+  .example {
+    padding-bottom: 1.5rem;;
+  }
 }
 @media screen and (max-width: 480px) {
   .header-title {
@@ -32,6 +38,12 @@ html {
   }
   .main {
     padding-bottom: 47px;
+  }
+  .inst > p {
+    margin-bottom: 0.5rem;
+  }
+  .example {
+    padding-bottom: 1rem;;
   }
 }
 /* 折り畳み可能リストのサイドバー用 */
