@@ -355,10 +355,11 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
         var lines = result.split('\n');
         for (var i = 0; i < lines.length; i++) {
           if (lines[i].indexOf(`<span class="targetlang">${targetlanguage}`) !== -1) {
-            console.log(lines[i]);
+            matches = lines[i].match(/<.*?playItem\('(.*)'\)/);
           }
         }
-        var pmodsound = `../${pmodPath}/sound/a.mp3`;
+        console.log(matches);
+        var pmodsound = `../${pmodPath}/sound/${matches}[1].mp3`;
         var ret = `
         <audio>
           <source src='$pmodsound' type='audio/mp3'>
