@@ -74,6 +74,8 @@
         targetIndex = i
       }
     }
+    console.log("<%= targetWord %>");
+    console.log(targetIndex);
     if ("<%= tag %>".includes(".")) {
       $("#linkToPage").text("基礎語彙分類表");
       $("#linkToPage").attr("href", "./table");
@@ -105,7 +107,6 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
-        console.log(targetItem);
         $(".targetWord").text(targetItem.midasi)
         $(".targetWordAudio").append(targetItem.midashiaudio)
         var num = 1;
