@@ -15,7 +15,7 @@
           </ol>
         </nav>
           <%- include('../partials/v_sidebar') %>
-        <div class="col">
+        <div class="col main-body">
           <div class="card">
             <div class="card-header">
               <h2 class="card-title">検索</h2>
@@ -128,12 +128,6 @@
     <script type="text/javascript">
     //検索タイプ設定
     var char_list = <%- JSON.stringify(char_list) %>;
-    let windowWidth = $(window).width();
-      if (windowWidth < 767) {
-        $(function(){
-          $("#v_sidebar").before($(".main"));
-        });
-      }
     function getRandomStr() {
        var result = Math.random().toString(36).slice(-8);
         return result;
@@ -225,6 +219,12 @@
         location.href = targetURL;
       }
     });
+    let windowWidth = $(window).width()
+      if (windowWidth < 767) {
+        $(function(){
+          $("#v_sidebar").before($(".main-body"));
+        });
+      }
     </script>
     <style>
       footer {

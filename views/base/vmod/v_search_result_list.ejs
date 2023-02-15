@@ -13,7 +13,7 @@
           </ol>
         </nav>
         <%- include('../partials/v_sidebar') %>
-        <div class="col main">
+        <div class="col main-body">
           <div class="card">
             <div class="card-header">
               <h2 class="card-title">語彙リスト</h2>
@@ -91,7 +91,7 @@
       let windowWidth = $(window).width()
       if (windowWidth < 767) {
         $(function(){
-          $("#v_sidebar").before($(".main"));
+          $("#v_sidebar").before($(".main-body"));
         });
       }
     </script>
