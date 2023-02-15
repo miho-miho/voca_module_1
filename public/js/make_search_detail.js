@@ -342,12 +342,50 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
     `
     return link
   }
+  //getPmodLink
+  function getPmodLink(tlanguage, web_url, lang){
+    function getPmodSoundFile(tlanguage, web_ur, lang){
+      var pmodPath = "";
+      if (lang === "id") {
+        pmodPath = `../../mt/${lang}/pmod1/${web_url}`
+      } else {
+        pmodPath = `../../mt/${lang}/pmod2/${web_url}`
+      }
+        var result = fs.readFileSync(htmlfile, 'utf8');
+        var lines = result.split('\n');
+        for (var i = 0; i < lines.length; i++) {
+          console.log(lines[i]);
+          if (lines[i].indexOf(`<span class="targetlang">${tlanguage}`) !== -1) {
+            if (lines[i].indexOf(`["${stid}"]`) !== -1) {
+              pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
+            }
+          }
+        }
+        var pmodsound = `../${pmodPath}/sound/${matches}[1].mp3`;
+        var ret = `
+        <audio>
+          <source src='$pmodsound' type='audio/mp3'>
+        </audio>
+        <span class='soundLink instSound'>{$this->playIcon}</span>
+        `
+        return ret;
+    }
+      var pmodsound = getPmodSoundFile(tlanguage, web_url, lang);
+      var link = `
+        <!--■■■Pモジュールへのリンク■■■-->
+        ${pmodsound}
+        <a href="${web_url}" target="blank" class="pmodlink">発</a>
+      `
+      return link;
+  }
   var link = "";
   if (module_id != "" || module_id != null) {
     if (module_id == "gmod") {
       link = getGmodLink(xml_file_name, xpath, lang)
     } else if (module_id == "dmod") {
       link = getDmodlink(xml_file_name, xpath, lang)
+    } else if (module_id == "pmod"){
+      link = getPmodlink(tlanguage, web_url, lang)
     }
   }
   return link;
