@@ -193,7 +193,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
     }
     var insts = []
     instances.forEach((item) => {
-      console.log(item);
+      console.log(item.photo_name);
       var midasi = item[0].basic
       var li = []
       for (var e of item) {
@@ -215,7 +215,6 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         sameMidasi.inst.push({"usage":ex, "photo":item.photo_name, "reibun":[li]})
       } else {
         inst.push({"usage":ex, "photo":item.photo_name, "reibun":[li]})
-        console.log(inst);
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
