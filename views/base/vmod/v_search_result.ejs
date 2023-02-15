@@ -48,7 +48,7 @@
       var i = 1;
       var targetWordIds = []
       for (var item of search_result_list) {
-        $(".result-list").append('<button type="button" data-href="./t_search_detail" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</button>')
+        $(".result-list").append('<button type="button" data-href="./v_search_detail" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midas_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</button>')
         targetWordIds.push(item.word_id)
         i+=1;
       }
