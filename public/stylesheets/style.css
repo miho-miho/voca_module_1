@@ -28,6 +28,9 @@ html {
   .example {
     padding-bottom: 1rem;;
   }
+  .example:last-of-type {
+    padding-bottom: auto;
+  }
 }
 @media screen and (max-width: 480px) {
   .header-title {
