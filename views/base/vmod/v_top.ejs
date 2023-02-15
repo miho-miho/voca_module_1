@@ -91,9 +91,11 @@
         let arry = <%- JSON.stringify(vmod_ms1) %>
         let a_tag;
         let arry_ulr = <%- JSON.stringify(vmod_ms1_url) %>;
-        if ("<%= lang_jp %>"==="ja") {
+        $(function(){
+          if ("<%= lang_jp %>"==="ja") {
             $("#plane").addClass("hidden");
             $("#ja").removeClass("hidden");
+          }
         }
         for (var i = 0; i < arry.length; i++) {
           if (i in arry_ulr) {
