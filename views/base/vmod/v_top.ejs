@@ -91,12 +91,6 @@
         let arry = <%- JSON.stringify(vmod_ms1) %>
         let a_tag;
         let arry_ulr = <%- JSON.stringify(vmod_ms1_url) %>;
-        $(function(){
-          if ("<%= lang_jp %>"==="ja") {
-            $("#plane").addClass("hidden");
-            $("#ja").removeClass("hidden");
-          }
-        }
         for (var i = 0; i < arry.length; i++) {
           if (i in arry_ulr) {
             a_tag = "<a href="+arry_ulr[String(i)]+">"+arry_ulr[String(i)]+"</a>"
@@ -111,6 +105,10 @@
             $("#v_sidebar").before($(".main-body"));
           });
         }
+        if ("<%= lang_jp %>"==="日本語") {
+            $("#plane").addClass("hidden");
+            $("#ja").removeClass("hidden");
+          }
       </script>
       <style>
         .hidden {
