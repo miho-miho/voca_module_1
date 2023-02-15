@@ -71,11 +71,11 @@
     $("#all_items").text(targetArray.length)
     for (var i = 0; i < targetArray.length; i++) {
       console.log(targetArray[i].midasi);
+      console.log("<%= targetWord %>");
       if (targetArray[i].midasi === "<%= targetWord %>") {
         targetIndex = i
       }
     }
-    console.log("<%= targetWord %>");
     if ("<%= tag %>".includes(".")) {
       $("#linkToPage").text("基礎語彙分類表");
       $("#linkToPage").attr("href", "./table");
