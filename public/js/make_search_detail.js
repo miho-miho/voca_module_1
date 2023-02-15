@@ -358,7 +358,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
             matches = lines[i].match(/<.*?playItem\('(.*)'\)/);
           }
         }
-        var pmodsound = `../${pmodPath}/sound/${matches[1]}.mp3`;
+        var pmodsound = `../../../mt/${lang}/pmod1/sound/${matches[1]}.mp3`;
         var ret = `
         <audio>
           <source src='${pmodsound}' type='audio/mp3'>
