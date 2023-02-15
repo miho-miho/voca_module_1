@@ -26,7 +26,7 @@
               <ol class="breadcrumb bg-secondary">
                 <li class="breadcrumb-item active" aria-current="page"><a href="" class="first-item" id="linkToPage"></a></li>
                 <li class="breadcrumb-item active" aria-current="page">詳細</li>
-                <li class="breadcrumb-item active"><a href="" id="linkToBefore"><strong><%= category %></strong></a></li>
+                <li class="breadcrumb-item active"><a href="" class="linkToBefore"><strong><%= category %></strong></a></li>
               </ol>
             </nav>
             <div class="">
@@ -51,7 +51,7 @@
               </div>
               <div class="container text-center button-area">
                 <button type="button" name="button" class="btn btn-outline-primary col-auto float-start btn_previous">　前　</button>
-                <a href="./table">戻る</a>
+                <a href="" class="linkToBefore">戻る</a>
                 <button type="button" name="button" class="btn btn-outline-primary col-auto float-end btn_next">　次　</button>
               </div>
             </div>
@@ -77,11 +77,11 @@
     if ("<%= tag %>".includes(".")) {
       $("#linkToPage").text("基礎語彙分類表");
       $("#linkToPage").attr("href", "./table");
-      $("#linkToBefore").attr("href", "./t_search_list=<%= tag %>")
+      $(".linkToBefore").attr("href", "./t_search_list=<%= tag %>")
     } else {
       $("#linkToPage").text("基礎語彙の学習");
       $("#linkToPage").attr("href", "./catego");
-      $("#linkToBefore").attr("href", "./catego#<%- category %>")
+      $(".linkToBefore").attr("href", "./catego#<%- category %>")
     }
       showResult(targetIndex)
       $(".btn_previous").click(function(){
