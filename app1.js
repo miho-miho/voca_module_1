@@ -192,6 +192,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
     }
     var insts = []
     instances.forEach((item) => {
+      var midasi = item[0].basic
       var li = []
       for (var e of item) {
         var ex = e.explanation
@@ -200,14 +201,13 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         console.log(e);
         console.log(e.targetlanguage);
         if (e.xml_file_name != null) {
-          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, e.web_url, lang)
+          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, e.web_url, midasi, lang)
         } else {
           link = mkDetail.makeInstSound(e.instid, lang)
         }
         e.link = link
         li.push(e)
       }
-      var midasi = item[0].basic
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
