@@ -354,11 +354,8 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
         var result = fs.readFileSync(htmlfile, 'utf8');
         var lines = result.split('\n');
         for (var i = 0; i < lines.length; i++) {
-          console.log(lines[i]);
           if (lines[i].indexOf(`<span class="targetlang">${targetlanguage}`) !== -1) {
-            if (lines[i].indexOf(`["${stid}"]`) !== -1) {
-              pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
-            }
+            console.log(lines[i]);
           }
         }
         var pmodsound = `../${pmodPath}/sound/${matches}[1].mp3`;
