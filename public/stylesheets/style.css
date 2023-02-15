@@ -29,6 +29,7 @@ html {
   }
   .footer-text {
     font-size: 0.35rem;
+    padding: 8px auto;
   }
 }
 /* 折り畳み可能リストのサイドバー用 */
