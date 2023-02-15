@@ -343,7 +343,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
     return link
   }
   //getPmodLink
-  function getPmodLink(tlanguage, web_url, lang){
+  function getPmodLink(targetlanguage, web_url, lang){
     function getPmodSoundFile(tlanguage, web_ur, lang){
       var pmodPath = "";
       if (lang === "id") {
@@ -355,7 +355,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
         var lines = result.split('\n');
         for (var i = 0; i < lines.length; i++) {
           console.log(lines[i]);
-          if (lines[i].indexOf(`<span class="targetlang">${tlanguage}`) !== -1) {
+          if (lines[i].indexOf(`<span class="targetlang">${targetlanguage}`) !== -1) {
             if (lines[i].indexOf(`["${stid}"]`) !== -1) {
               pmodpage = lines[i]        // _timeCounterStArray["st_0_0"] = new Array("2.5", "4.98");
             }
