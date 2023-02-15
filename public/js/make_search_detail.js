@@ -377,7 +377,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
         <!--■■■Pモジュールへのリンク■■■-->
         <div class="pmodsound">
         ${pmodsound}
-        <a href="../../../mt/${lang}/pmod/${web_url}" target="blank" class="pmodlink">発</a>
+        <a href="../../../mt/${lang}/pmod/${web_url}" target="blank" class="pmodlink btn btn-warning">発</a>
         </div>
       `
       return link;
