@@ -161,8 +161,8 @@
       });
 
       $(document).on('click', '.pmodsound', function(){
-        var audio = $(this).find("pmodaudio")[0]
-         audio.play();
+        $(this).find("pmodaudio")[0].play();
+         //audio.play();
       });
 
       $(document).on('click', '.wordsound', function(){
