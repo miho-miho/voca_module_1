@@ -160,6 +160,11 @@
          audio.play();
       });
 
+      $(document).on('click', '.pmodsound', function(){
+        var audio = $(this).find("pvmodaudio")[0]
+         audio.play();
+      });
+
       $(document).on('click', '.wordsound', function(){
         var audio = $(this).find(".basicaudio")[0]
          audio.play();
