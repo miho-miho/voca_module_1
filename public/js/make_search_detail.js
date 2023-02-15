@@ -354,8 +354,8 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
         var result = fs.readFileSync(htmlfile, 'utf8');
         var lines = result.split('\n');
         for (var i = 0; i < lines.length; i++) {
+          console.log(lines[i]);
           if (lines[i].indexOf(`<span class="targetlang">${targetlanguage}`) !== -1) {
-            console.log(lines[i]);
           }
         }
         var pmodsound = `../${pmodPath}/sound/a.mp3`;
