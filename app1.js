@@ -213,6 +213,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
         inst.push({"usage":ex, "reibun":[li]})
+        console.log(inst);
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
@@ -373,7 +374,6 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
         inst.push({"usage":ex, "reibun":[li]})
-        console.log(inst);
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
