@@ -239,6 +239,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   let tag = req.params.tag;
+  console.log(tag);
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
