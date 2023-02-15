@@ -48,6 +48,9 @@ html {
   .example {
     padding-bottom: 1rem;;
   }
+  .example:last-of-type {
+    padding-bottom: 0px;
+  }
 }
 /* 折り畳み可能リストのサイドバー用 */
 .sidebar-link:hover,
