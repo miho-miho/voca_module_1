@@ -199,7 +199,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         var link = "";
         console.log(e.targetlanguage);
         if (e.xml_file_name != null) {
-          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, e.targetlanguage, e.web_url, lang)
+          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, e.web_url, e.targetlanguage, lang)
         } else {
           link = mkDetail.makeInstSound(e.instid, lang)
         }
