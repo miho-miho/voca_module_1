@@ -152,6 +152,7 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   });
   search_result_list = []
 });
+/*
 //詳細_基礎
 var mkDetail = require('./public/js/make_search_detail.js');
 const { log } = require('console');
@@ -228,6 +229,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
     });
   });
 });
+*/
 //詳細
 app.post('/:lang/v/t_search_detail=:tag', (req, res) => {
   let lang = req.params.lang
