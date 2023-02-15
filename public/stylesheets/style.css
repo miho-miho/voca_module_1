@@ -30,6 +30,9 @@ html {
   .footer-text {
     font-size: 0.55rem;
   }
+  .main {
+    padding-bottom: 47px;
+  }
 }
 /* 折り畳み可能リストのサイドバー用 */
 .sidebar-link:hover,
