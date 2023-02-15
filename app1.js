@@ -192,7 +192,6 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
     }
     var insts = []
     instances.forEach((item) => {
-      console.log(item);
       var midasi = item[0].basic
       var li = []
       for (var e of item) {
@@ -217,6 +216,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
+      console.log(insts);
     });
     res.render(pathToLnag + '/vmod/v_search_detail.ejs', {
       lg : lang,
