@@ -198,13 +198,12 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         e = (({ basic, usage_id, explanation, ...rest }) => rest)(e)
         var link = "";
         if (e.xml_file_name != null) {
-          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, e,targetlanguage, e.web_url, lang)
+          link = mkDetail.makeModLink(e.module_id, e.xml_file_name, e.xpath, e.targetlanguage, e.web_url, lang)
         } else {
           link = mkDetail.makeInstSound(e.instid, lang)
         }
         e.link = link
         li.push(e)
-        console.log(e);
       }
       var midasi = item[0].basic
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
