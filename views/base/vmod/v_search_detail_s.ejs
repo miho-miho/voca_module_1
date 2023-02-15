@@ -161,7 +161,7 @@
       });
 
       $(document).on('click', '.pmodsound', function(){
-        console.log($(this).html());
+        console.log($(this).find("pmodaudio").html());
         var audio = $(this).find("pmodaudio")[0]
          audio.play();
       });
