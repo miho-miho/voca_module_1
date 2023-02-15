@@ -105,6 +105,7 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
+        console.log(targetItem);
         $(".targetWord").text(targetItem.midasi)
         $(".targetWordAudio").append(targetItem.midashiaudio)
         var num = 1;
