@@ -232,7 +232,7 @@ app.post('/:lang/v/c_detail=:category', (req, res) => {
 */
 var mkDetail = require('./public/js/make_search_detail.js');
 //詳細
-app.post('/:lang/v/t_search_detail=:tag', (req, res) => {
+app.post('/:lang/v/search_detail=:tag', (req, res) => {
   let lang = req.params.lang
   let currentWorkingDirectory = process.cwd();
   let targetWordIds = req.body.targetWordIds.split(',').map(Number);
