@@ -344,7 +344,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
   }
   //getPmodLink
   function getPmodLink(targetlanguage, web_url, lang){
-    function getPmodSoundFile(tlanguage, web_ur, lang){
+    function getPmodSoundFile(targetlanguage, web_ur, lang){
       var pmodPath = "";
       if (lang === "id") {
         pmodPath = `../../mt/${lang}/pmod1/${web_url}`
@@ -370,7 +370,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
         `
         return ret;
     }
-      var pmodsound = getPmodSoundFile(tlanguage, web_url, lang);
+      var pmodsound = getPmodSoundFile(targetlanguage, web_url, lang);
       var link = `
         <!--■■■Pモジュールへのリンク■■■-->
         ${pmodsound}
@@ -385,7 +385,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, lang){
     } else if (module_id == "dmod") {
       link = getDmodlink(xml_file_name, xpath, lang)
     } else if (module_id == "pmod"){
-      link = getPmodLink(tlanguage, web_url, lang)
+      link = getPmodLink(targetlanguage, web_url, lang)
     }
   }
   return link;
