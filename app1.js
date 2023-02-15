@@ -236,7 +236,6 @@ app.post('/:lang/v/t_search_detail=:tag', (req, res) => {
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
   let tag = req.params.tag;
-  console.log(typeof tag);
   var client = new Client({
     user: info.db_info.user,
     host: info.db_info.host,
@@ -298,7 +297,7 @@ app.post('/:lang/v/t_search_detail=:tag', (req, res) => {
       category: req.body.category,
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId,
-      chuno: tag
+      tag: tag
     });
   });
 });
