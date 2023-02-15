@@ -66,6 +66,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
     var targetArray = <%- JSON.stringify(targetObj) %>;
+    console.log(targetArray);
     var targetIndex = "";
     var targetItems;
     $("#all_items").text(targetArray.length)
@@ -120,7 +121,7 @@
           $(".result-card-area").append('<div class="card"><div class="card-header col"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
           item.reibun.forEach((element) => {
             for (var s of element) {
-              $(".examples:last").append('<div class="row example float-end">')
+              $(".examples:last").append('<div class="row example">')
               var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index, )
               if (s.trans.length > 0) {
                 $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p><p>・'+s.trans+'</p></div>') 
