@@ -56,6 +56,7 @@
         $('button[data-href]').addClass('clickable')
         .click(function(e) {
           if(!$(e.target).is('a')){
+            var targetWord = "";
             console.log(($(e.target).html()));
             if ($(e.target).html().includes("span")) {
               targetWord = ($(e.target).find('.midasi_go').text());
