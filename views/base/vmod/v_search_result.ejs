@@ -48,7 +48,13 @@
       var i = 1;
       var targetWordIds = []
       for (var item of search_result_list) {
-        $(".result-list").append('<button type="button" data-href="./search_detail" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.word_id+'>'+item.basic+'</span>（'+item.midasi+'）</button>')
+        if ("<%= lg %>" === "ar") {
+          $(".result-list").addClass("flex-wrap-reverse"); 
+          $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action type_ar"><span class="id">'+i+'. </span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
+        } else {
+          $(".result-list").addClass("flex-wrap");
+          $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
+        }
         targetWordIds.push(item.word_id)
         i+=1;
       }
