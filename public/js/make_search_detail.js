@@ -358,6 +358,8 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
       for (var i = 0; i < lines.length; i++) {
         if (lines[i].indexOf(`<span class="targetlang">${targetlanguage}`) !== -1) {
           matches = lines[i].match(/<.*?playItem\('(.*)'\)/);
+        } else {
+          return "";
         }
       }
       var pmodsound = `../../../mt/${lang}/${pmodNo}/sound/${matches[1]}.mp3`;
