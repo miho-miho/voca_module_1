@@ -388,13 +388,11 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         li.push(e)
       }
       var midasi = item[0].basic
-      if (midasi.includes("جُمَادَى ٱلثَّانِيَةُ")) {
-        console.log(midasi);
-      }
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       li = li.filter((element, index, self) => self.findIndex(e => e.instid === element.instid ) === index);
+      console.log(li);
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
