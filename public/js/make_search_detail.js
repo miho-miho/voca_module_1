@@ -346,21 +346,22 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
   function getPmodLink(targetlanguage, web_url, lang){
     function getPmodSoundFile(targetlanguage, web_url, lang){
       var matches = [];
-      var pmodPath = "";
+      var pmodNo = "";
       if (lang == "id") {
-        pmodPath = `../../mt/${lang}/pmod1/${web_url}`
+        pmodNo = "pmod1";
       } else {
-        pmodPath = `../../mt/${lang}/pmod2/${web_url}`
+        pmodNo = "pmod2";
       }
-        var result = fs.readFileSync(pmodPath, 'utf8');
-        var lines = result.split('\n');
-        for (var i = 0; i < lines.length; i++) {
-          if (lines[i].indexOf(`<span class="targetlang">${targetlanguage}`) !== -1) {
-            matches = lines[i].match(/<.*?playItem\('(.*)'\)/);
-          }
+      var pmodPath = `../../mt/${lang}/${pmodNo}/${web_url}`
+      var result = fs.readFileSync(pmodPath, 'utf8');
+      var lines = result.split('\n');
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf(`<span class="targetlang">${targetlanguage}`) !== -1) {
+          matches = lines[i].match(/<.*?playItem\('(.*)'\)/);
         }
-        var pmodsound = `../../../mt/${lang}/pmod1/sound/${matches[1]}.mp3`;
-        var ret = `
+      }
+      var pmodsound = `../../../mt/${lang}/${pmodNo}/sound/${matches[1]}.mp3`;
+      var ret = `
         <audio class="pmodaudio">
           <source src='${pmodsound}' type='audio/mp3'>
         </audio>
@@ -371,7 +372,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
           </svg>
         </button>
         `
-        return ret;
+      return ret;
     }
       var pmodsound = getPmodSoundFile(targetlanguage, web_url, lang);
       var pmodPath = "";
