@@ -214,8 +214,11 @@ h1 {
   display: none;
 }
 
-/*アラビア語用のフォント設定*/
+/*アラビア語用の設定*/
 .ar {
   font-size: 135%;
   font-family: "Arial Unicode MS", Times, serif; 
  }
+ .search_txt {
+  display: none;
+}
