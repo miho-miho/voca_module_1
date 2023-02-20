@@ -80,7 +80,6 @@
     for (var i = 0; i < targetArray.length; i++) {
       if (targetArray[i].midasi === "<%= targetWord %>") {
         targetIndex = i
-        console.log(targetIndex);
       }
     }
       showResult(targetIndex)
@@ -105,7 +104,6 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
-        console.log(targetItem);
         $(".targetWord").text(targetItem.midasi)
         $(".targetWordAudio").append(targetItem.midashiaudio)
         var num = 1;
@@ -217,7 +215,6 @@
               // 文字列を検索して、最初に見つかった位置を返す
               // 例）文字列:AAAABCAAAABAC 検索対象文字列:ABC 返ってくる値:3
               searchStrt = sentence.indexOf(token, searchStrt)
-              console.log(searchStrt);
               // 検索対象の文字列が次に出てくる位置を探すために、検索開始位置に対象文字列数を足す
               // 検索開始位置 = 前回文字列があった場所 + 検索対象文字列
               // 例）文字列:AAAABCAAAABAC 検索対象文字列:ABC 検索開始位置 = 3 + (3-1)
