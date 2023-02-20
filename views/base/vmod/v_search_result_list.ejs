@@ -71,8 +71,8 @@
           sense = `(${s_list})`
         }
         if ("<%= lg %>" === "ar") {
-          $(".result-list").addClass("float-end")
-          $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action text-end"><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
+          $(".result-list").addClass("float-end");
+          $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action text-end"><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+' .'+id+'</button>')
         } else {
           $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
         }
