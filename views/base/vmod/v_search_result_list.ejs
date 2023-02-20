@@ -79,8 +79,14 @@
         .click(function(e) {
           if(!$(e.target).is('a')){
             console.log($(e.target).html());
-            var targetWord = ($(e.target).find('.midasi_go').text());
-            var targetWordId = ($(e.target).find('.midasi_go').attr('id'));
+            var targetWord = "";
+            var targetWordId = "";
+            if ($(e.target).html().includes("span")) {
+              targetWord = ($(e.target).find('.midasi_go').text());
+              targetWordId = ($(e.target).find('.midasi_go').attr('id'));
+            } else {
+              targetWord = ($(e.target).html());
+            }
             console.log(`midasigo:${targetWord}, id:${targetWordId}`);
             var url = ($(e.target).data("href"))+"<%= targetChar %>";
             var targetSt = "<%= targetSt %>"
