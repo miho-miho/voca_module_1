@@ -78,8 +78,6 @@
     var targetItems;
     $("#all_items").text(targetArray.length)
     for (var i = 0; i < targetArray.length; i++) {
-      console.log(targetArray[i].midasi);
-      console.log( "<%= targetWord %>");
       if (targetArray[i].midasi == "<%= targetWord %>") {
         targetIndex = i
       }
@@ -104,6 +102,10 @@
           }
       });
       function showResult(index){
+        if (index === "" || index === null) {
+          $("#now_item").text("-1");
+          $(".targetWord").text("<%= targetWord %>") 
+        }else {
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
         $(".targetWord").text(targetItem.midasi)
@@ -158,6 +160,7 @@
             $(".btn_previous").prop("disabled", true);
             $(".btn_next").prop("disabled", true);
           }
+        }
       }
       let windowWidth = $(window).width()
       if (windowWidth < 767) {
