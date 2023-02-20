@@ -62,8 +62,9 @@
             } else {
               targetWord = ($(e.target).html());
             }
-            var url = $(e.target).data('href')+'=<%= chuno %>'
-            var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>'
+            var url = "./search_detail=<%= chuno %>";
+            var targetData = `<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordIds" value="${targetWordIds}"/><input type="hidden" name="targetWord" value="${targetWord}"/>`
+            //var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
             $("#post").submit();
           };
