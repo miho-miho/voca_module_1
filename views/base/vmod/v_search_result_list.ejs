@@ -72,7 +72,7 @@
         }
         if ("<%= lg %>" === "ar") {
           $(".result-list").addClass("flex-wrap-reverse"); 
-          if (search_result_list.length < 150) {
+          if (search_result_list.length < 100) {
             $(".result-list").addClass("flex-column"); 
           } else {
             $(".result-list").addClass("float-end");
@@ -126,7 +126,7 @@
       }
       @media screen and (min-width: 1200px) {
         .result-list {
-          height: 100%;
+          height: 95vh;
         }
     </style>
   </body>
