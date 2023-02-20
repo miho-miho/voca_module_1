@@ -388,6 +388,9 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         li.push(e)
       }
       var midasi = item[0].basic
+      if (midasi.includes("جُمَادَى ٱلثَّانِيَةُ")) {
+        console.log(midasi);
+      }
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
@@ -399,7 +402,6 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
-      console.log(li);
     });
     res.render(pathToLnag + '/vmod/v_search_detail_s.ejs', {
       lg : lang,
