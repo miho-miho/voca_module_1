@@ -79,6 +79,7 @@
     $("#all_items").text(targetArray.length)
     for (var i = 0; i < targetArray.length; i++) {
       console.log(targetArray[i].midasi);
+      console.log( "<%= targetWord %>");
       if (targetArray[i].midasi == "<%= targetWord %>") {
         targetIndex = i
       }
