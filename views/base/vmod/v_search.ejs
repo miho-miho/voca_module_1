@@ -141,7 +141,7 @@
     for (const i in indexArray) {
       var bigcahr = indexArray[i].index_char.toUpperCase();
       var id = `cahr_${bigcahr}`
-      $("#cahrtable").append('<div class="btn btn-outline-secondary col-2 ar" id="'+id+'">'+bigcahr+'</div>')
+      $("#cahrtable").append('<a class="btn btn-outline-secondary col-2 ar" id="'+id+'">'+bigcahr+'</a>')
     }
     for(const cahr of char_list) {
       var bigcahr = cahr.toUpperCase();
@@ -255,7 +255,7 @@
       #cahrtable {
         max-width: 500px;
       }
-      #cahrtable > div {
+      #cahrtable > a {
         margin: 0px 5px 5px 0px;
       }
       #cahrtable td a {
