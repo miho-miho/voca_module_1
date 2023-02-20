@@ -45,7 +45,7 @@ app.get('/:lang/v/', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT * FROM t_index_char"
+    text: "SELECT index_char FROM t_index_char"
   };
   client.query(query, (err, result) => {
     if (err) throw err;
