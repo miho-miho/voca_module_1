@@ -103,7 +103,6 @@
           }
       });
       function showResult(index){
-        console.log(index);
         if (index === "" || index === null) {
           $("#now_item").text("-1");
           $(".targetWord").text("<%= targetWord %>") 
@@ -158,9 +157,6 @@
             case targetArray.length-1:
               $(".btn_next").prop("disabled", true);
               break;
-            case "":
-              $(".btn_previous").prop("disabled", true);
-              $(".btn_next").prop("disabled", true);
           }
           if (targetArray.length === 1) {
             $(".btn_previous").prop("disabled", true);
