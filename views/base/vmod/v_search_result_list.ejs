@@ -72,7 +72,7 @@
         }
         if ("<%= lg %>" === "ar") {
           $(".result-list").addClass("flex-wrap-reverse");
-          $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action arNo"><span class="id">'+i+'. </span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
+          $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action type_ar"><span class="id">'+i+'. </span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
         } else {
           $(".result-list").addClass("flex-wrap");
           $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
@@ -116,9 +116,6 @@
       }
       .result-list button {
         max-width: 250px;
-      }
-      .arNo {
-        direction: rtl;
       }
       @media screen and (min-width: 1200px) {
         .sidebar {

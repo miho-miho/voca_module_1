@@ -222,3 +222,6 @@ h1 {
  .search_txt {
   display: none;
 }
+.type_ar {
+  direction: rtl;
+}
