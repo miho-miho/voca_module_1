@@ -139,17 +139,23 @@
         return result;
     }
     for (const i in indexArray) {
-      var bigcahr = indexArray[i].index_char.toUpperCase();
+      var char = indexArray[i].index_char
+      var bigcahr = char.toUpperCase();
       var id = `cahr_${bigcahr}`
-      $("#cahrtable").append('<a class="btn btn-outline-secondary col-2 disabled" href="" id="'+id+'">'+bigcahr+'</a>')
+      if (char_list.includes(char)) {
+        $("#cahrtable").append(`<a class="btn btn-outline-secondary col-2" href="./v_search_list-char=${char}" id="${id}">${bigcahr}</a>`)
+      } else {
+        $("#cahrtable").append('<a class="btn btn-outline-secondary col-2 disabled" href="#" id="'+id+'">'+bigcahr+'</a>')
+      }
     }
+    /*
     for(const cahr of char_list) {
       var bigcahr = cahr.toUpperCase();
       var id = `#cahr_${bigcahr}`;
-      console.log(id);
       $(id).find("a").removeClass('disabled');
       $(id).find("a").attr("href", `./v_search_list-char=${cahr}`)
     }
+    */
     /*
     $(".search-type").change(function(){
       if ($(this).attr("id") === "search-type1") { //前方一致
