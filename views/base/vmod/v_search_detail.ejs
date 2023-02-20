@@ -122,8 +122,8 @@
           item.reibun.forEach((element) => {
             if ("<%= lg %>" ==="ar") {
               for (var s of element) {
-              $(".examples:last").append('<div class="row example">')
-              var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index, )
+              $(".examples:last").append('<div class="row example float-end">')
+              var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
               if (s.trans.length > 0) {
                 $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p class="text-end">・'+sentence+'</p><p class="text-end">・'+s.trans+'</p></div>') 
               } else {
@@ -134,7 +134,7 @@
             } else {
               for (var s of element) {
               $(".examples:last").append('<div class="row example">')
-              var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index, )
+              var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
               if (s.trans.length > 0) {
                 $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p><p>・'+s.trans+'</p></div>') 
               } else {
