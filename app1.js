@@ -399,9 +399,7 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         var result = {"midasi":midasi, "midashiaudio":midashiaudio, "inst":inst}
         insts.push(result)
       }
-      if (midasi.includes("جُمَادَى ٱلثَّانِيَةُ")) {
-        console.log(li);
-      }
+      console.log(li);
     });
     res.render(pathToLnag + '/vmod/v_search_detail_s.ejs', {
       lg : lang,
