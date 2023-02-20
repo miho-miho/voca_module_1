@@ -5,6 +5,7 @@ lang_info = {
   message1 : "",
   message2 : "",
   vmod_ms1 : ["Dubois Jean (dir.), (1978) Dictionnaire du français langue étrangère, niveau 1, Larousse.", "Miquel Claire (2002) Vocabulaire progressif du français, niveau débutant, CLE International."],
+  vmod_ms2 : [""],
   vmod_ms1_url : { "" : "" },
 };
 
