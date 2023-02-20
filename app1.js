@@ -49,6 +49,7 @@ app.get('/:lang/v/', (req, res) => {
   };
   client.query(query, (err, result) => {
     if (err) throw err;
+    console.log(result.rows);
     indexArray = result.rows;
     res.render(pathToLnag + '/vmod/v_top.ejs', {
       lg : lang,
