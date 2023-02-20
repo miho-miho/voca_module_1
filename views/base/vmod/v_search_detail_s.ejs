@@ -112,21 +112,38 @@
           var imi_list = []
           if (explain.includes("＊")) {
             imi_list.push(explain.replace("＊", "<br>＊"))
-          } else {
+          } else if(explain.includes("\n")) {
+            imi_list.push(explain.replace(/\n/, "<br>"))
+          }else {
             imi_list.push(explain)
           }
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+imi_list+'</p>')
-          $(".result-card-area").append('<div class="card"><div class="card-header col"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
+          $(".result-card-area").append('<div class="card"><div class="card-header col"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples row"></div></div>')
           item.reibun.forEach((element) => {
             for (var s of element) {
-              $(".examples:last").append('<div class="row example">')
-              var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index, )
-              if (s.trans.length > 0) {
-                $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p><p">・'+s.trans+'</p></div>') 
-              } else {
-                $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p></div>')
+              if ("<%= lg %>" === "ar") { //アラビア語の場合（例文の右寄せ、見出し語の表示調整
+                for (var s of element) {
+                  $(".examples:last").append('<div class="row example text-end">')
+                  $(".example:last").append('<div class="col col-xs-12 instlink text-end">'+s.link+'</div>')
+                  var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
+                  if (s.trans.length > 0) {
+                    $(".example:last").append('<div class="col col-xs-12 inst text-end"><p class="text-end ar">'+sentence+'・</p><p class="text-end">'+s.trans+' </p></div>') 
+                  } else {
+                    $(".example:last").append('<div class="col col-xs-12 inst text-end"><p class="text-en ar">'+sentence+'・</p></div>')
+                  }
+                }
+              } else { //それ以外の言語の場合
+                for (var s of element) {
+                  $(".examples:last").append('<div class="row example">')
+                  var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
+                  if (s.trans.length > 0) {
+                    $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p><p>・'+s.trans+'</p></div>') 
+                  } else {
+                    $(".example:last").append('<div class="col-sm-auto col-xs-12 inst"><p>・'+sentence+'</p></div>')
+                  }
+                  $(".example:last").append('<div class="col-sm-auto col-xs-12 instlink">'+s.link+'</div>')
+                } 
               }
-              $(".example:last").append('<div class="col-sm-auto col-xs-12 instlink">'+s.link+'</div>')
             }
           });
           num+=1;
