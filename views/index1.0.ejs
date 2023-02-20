@@ -86,8 +86,10 @@
                   <li><a href="./bn/v/">ベンガル語</a></li>
                   <li id="ar_list">アラビア語</li>
                     <ul class="list-unstyled">
-                      <li><a href="./ar/v/">フスハー（標準語）</a></li>
-                      <li><a href="./ar-sy/v/">シリアのアラビア語</a></li>
+                      <div>
+                        <a href="./ar/v/">フスハー（標準語）</a>
+                        <a href="./ar-sy/v/">シリアのアラビア語</a>
+                      </div>
                     </ul>
                   <li><a href="./fa/v/">ペルシア語</a></li>
                   <li><a href="./tr/v/">トルコ語</a></li>
@@ -104,7 +106,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
     $("#ar_list").click(function(){
-      $(this).find("ul").slideToggle();
+      $(this).find("div").slideToggle();
     });
 
   </script>
