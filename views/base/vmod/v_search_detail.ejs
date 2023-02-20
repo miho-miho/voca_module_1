@@ -127,7 +127,7 @@
                 $(".examples:last").append('<div class="row example float-end">')
                 var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
                 if (s.trans.length > 0) {
-                  $(".example:last").append('<div class="col col-xs-12 inst float-end"><p class="text-end">'+sentence+'・</p><p class="text-end">'+s.trans+' </p></div>') 
+                  $(".example:last").append('<div class="col col-xs-12 inst text-end"><p class="text-end">'+sentence+'・</p><p class="text-end">'+s.trans+' </p></div>') 
                 } else {
                   $(".example:last").append('<div class="col col-xs-12 inst float-end"><p class="text-end">'+sentence+'・</p></div>')
                 }
