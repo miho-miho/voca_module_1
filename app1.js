@@ -392,7 +392,6 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
       li = li.filter((element, index, self) => self.findIndex(e => e.instid === element.instid ) === index);
-      console.log(li);
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
@@ -401,6 +400,7 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
         insts.push(result)
       }
     });
+    console.log(insts);
     res.render(pathToLnag + '/vmod/v_search_detail_s.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
