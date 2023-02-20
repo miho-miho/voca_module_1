@@ -124,7 +124,7 @@
           item.reibun.forEach((element) => {
           if ("<%= lg %>" === "ar") { //アラビア語の場合（例文の右寄せ、見出し語の表示調整
               for (var s of element) {
-                $(".examples:last").append('<div class="row example text-end">')
+                $(".examples:last").append('<div class="row example text-end ar">')
                 $(".example:last").append('<div class="col col-xs-12 instlink text-end">'+s.link+'</div>')
                 var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
                 if (s.trans.length > 0) {
@@ -281,6 +281,10 @@
       }
       .search_txt {
         display: none;
+      }
+      .ar {
+       font-size: 150%;
+       font-family: "Arial Unicode MS", Times, serif; 
       }
     </style>
   </body>
