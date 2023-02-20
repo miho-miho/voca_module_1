@@ -211,6 +211,7 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
+      console.log(li);
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "photo":item[0].photo_name, "reibun":[li]})
       } else {
