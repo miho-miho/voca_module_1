@@ -71,9 +71,10 @@
           sense = `(${s_list})`
         }
         if ("<%= lg %>" === "ar") {
-          //$(".result-list").addClass("float-end");
+          $(".result-list").addClass("flex-wrap-reverse");
           $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action arNo"><span class="id">'+i+'. </span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
         } else {
+          $(".result-list").addClass("flex-wrap");
           $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
         }
         targetWordIds.push(item.id)
