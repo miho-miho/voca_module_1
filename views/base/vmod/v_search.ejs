@@ -131,9 +131,13 @@
     <script type="text/javascript">
     //検索タイプ設定
     var char_list = <%- JSON.stringify(char_list) %>;
+    var indexArray = <%- JSON.stringify(indexArray) %>;
     function getRandomStr() {
        var result = Math.random().toString(36).slice(-8);
         return result;
+    }
+    for (const i of indexArray) {
+      console.log(i);
     }
     for(const cahr of char_list) {
       var bigcahr = cahr.toUpperCase();
