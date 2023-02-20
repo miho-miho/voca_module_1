@@ -78,6 +78,7 @@
         $('button[data-href]').addClass('clickable')
         .click(function(e) {
           if(!$(e.target).is('a')){
+            console.log(e.target.html());
             var targetWord = ($(e.target).find('.midasi_go').text());
             var targetWordId = ($(e.target).find('.midasi_go').attr('id'));
             console.log(`midasigo:${targetWord}, id:${targetWordId}`);
@@ -86,8 +87,6 @@
             var targetData = '<input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>><input type="hidden" name="targetSt" value="'+targetSt+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
             //$("#post").submit();
-          } else {
-            console.log("OK");
           };
         });
       });
