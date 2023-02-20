@@ -63,6 +63,7 @@
             } else {
               targetWord = ($(e.target).html());
             }
+            console.log(targetWord);
             var url = "./search_detail=<%= chuno %>";
             var targetData = `<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordIds" value="${targetWordIds}"/><input type="hidden" name="targetWord" value="${targetWord}"/>`
             //var targetData = '<input type="hidden" name="category" value="<%= category %>"/><input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>'
