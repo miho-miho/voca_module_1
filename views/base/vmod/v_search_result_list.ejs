@@ -78,7 +78,6 @@
         $('button[data-href]').addClass('clickable')
         .click(function(e) {
           if(!$(e.target).is('a')){
-            console.log($(e.target).html());
             var targetWord = "";
             var targetWordId = "";
             if ($(e.target).html().includes("span")) {
@@ -92,7 +91,7 @@
             var targetSt = "<%= targetSt %>"
             var targetData = '<input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>><input type="hidden" name="targetSt" value="'+targetSt+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            //$("#post").submit();
+            $("#post").submit();
           };
         });
       });
