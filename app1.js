@@ -49,7 +49,7 @@ app.get('/:lang/v/', (req, res) => {
   };
   client.query(query, (err, result) => {
     if (err) throw err;
-    console.log(result.rows);
+    indexArray = result.rows;
     res.render(pathToLnag + '/vmod/v_top.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
@@ -276,7 +276,8 @@ app.get('/:lang/v/v_search', (req, res) => {
     res.render(pathToLnag + '/vmod/v_search.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      char_list: resultArray
+      char_list: resultArray,
+      indexArray : indexArray
     });
   });
 });
