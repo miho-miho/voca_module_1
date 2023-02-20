@@ -125,7 +125,7 @@
           if ("<%= lg %>" === "ar") { //アラビア語の場合（例文の右寄せ、見出し語の表示調整
               for (var s of element) {
                 $(".examples:last").append('<div class="row example text-end">')
-                $(".example:last").append('<div class="col col-xs-12 instlink textt-end">'+s.link+'</div>')
+                $(".example:last").append('<div class="col col-xs-12 instlink text-end">'+s.link+'</div>')
                 var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
                 if (s.trans.length > 0) {
                   $(".example:last").append('<div class="col col-xs-12 inst text-end"><p class="text-end">'+sentence+'・</p><p class="text-end">'+s.trans+' </p></div>') 
