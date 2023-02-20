@@ -105,13 +105,6 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
-        console.log(targetItem.inst);
-        targetItem.inst.reibun.filter((element, index, self) => 
-                        self.findIndex( e => 
-                                        e.instid === element.instid 
-                                      ) === index
-                      );
-        console.log(targetItem);
         $(".targetWord").text(targetItem.midasi)
         $(".targetWordAudio").append(targetItem.midashiaudio)
         var num = 1;
@@ -128,7 +121,8 @@
           }
           $(".result-card-area").append('<p class="explain"><span>（'+num+'）</span>'+imi_list+'</p>')
             $(".result-card-area").append('<div class="card"><div class="card-header col"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples"></div></div>')
-            item.reibun.forEach((element) => {
+            var result = item.reibun.filter((element, index, self) => self.findIndex(e => e.instid === element.instid ) === index);
+            result.forEach((element) => {
           if ("<%= lg %>" ==="ar") { //アラビア語の場合（例文の右寄せ、見出し語の表示調整
               for (var s of element) {
                 $(".examples:last").append('<div class="row example float-end">')
