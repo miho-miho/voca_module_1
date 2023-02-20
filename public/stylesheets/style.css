@@ -213,3 +213,9 @@ h1 {
 .voca_area2 .card-body {
   display: none;
 }
+
+/*アラビア語用のフォント設定*/
+.ar {
+  font-size: 135%;
+  font-family: "Arial Unicode MS", Times, serif; 
+ }
