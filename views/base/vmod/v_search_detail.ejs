@@ -104,6 +104,7 @@
       });
       function showResult(index){
         if (index === "" || index === null) {
+          index = targetArray.length
           $("#now_item").text("-1");
           $(".targetWord").text("<%= targetWord %>") 
         } else {
