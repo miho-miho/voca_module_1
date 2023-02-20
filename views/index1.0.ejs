@@ -85,7 +85,7 @@
                   <li><a href="./hi/v/">ヒンディー語</a></li>
                   <li><a href="./bn/v/">ベンガル語</a></li>
                   <li>アラビア語</li>
-                    <ul>
+                    <ul class="list-unstyled" id="ar_list">
                       <li><a href="./ar/v/">フスハー（標準語）</a></li>
                       <li><a href="./ar-sy/v/">シリアのアラビア語</a></li>
                     </ul>
@@ -102,5 +102,11 @@
    </main>
   <footer class="fixed-bottom"><%- include('./base/partials/footer'); %></footer>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $("#ar_list").click(function(){
+      $(this).child("ul").slideToggle();
+    });
+
+  </script>
 </body>
 </html>
