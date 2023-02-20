@@ -1,7 +1,7 @@
 //pl：config.js
 lang_info = {
-  lang : "",
-  lang_jp : "アラビア語",
+  lang : "ar",
+  lang_jp : "フスハー（正則語）",
   message1 : "",
   message2 : "",
   vmod_ms1 : ["池田修、竹田新（1981）『現代アラビア語小辞典』第三書館", "本田孝一、石黒忠昭（1997）『パスポート初級アラビア語辞典』白水社", "本田孝一、イハーブ・アハマド・イベード（2004）『パスポート日本語アラビア語辞典』白水社", "Cowan, J.M. ed.（1994）：The Hans Wehr Dictionary of Modern Written Arabic. Forth Edition, Spoken Language Service"],
