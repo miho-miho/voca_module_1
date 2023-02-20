@@ -347,7 +347,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
     function getPmodSoundFile(targetlanguage, web_url, lang){
       var matches = [];
       var pmodPath = "";
-      if (lang === "id") {
+      if (lang == "id") {
         pmodPath = `../../mt/${lang}/pmod1/${web_url}`
       } else {
         pmodPath = `../../mt/${lang}/pmod2/${web_url}`
