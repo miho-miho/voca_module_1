@@ -71,10 +71,14 @@
           sense = `(${s_list})`
         }
         if ("<%= lg %>" === "ar") {
-          $(".result-list").addClass("flex-wrap-reverse");
+          if (search_result_list.length < 100) {
+            $(".result-list").addClass("flex-wrap-reverse"); 
+          }
           $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action type_ar"><span class="id">'+i+'. </span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
         } else {
-          $(".result-list").addClass("flex-wrap");
+          if (search_result_list.length < 100) {
+            $(".result-list").addClass("flex-wrap");
+          }
           $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action"><span class="id">'+i+'.</span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
         }
         targetWordIds.push(item.id)
@@ -117,6 +121,10 @@
       .result-list button {
         max-width: 250px;
       }
+      @media screen and (min-width: 1200px) {
+        .result-list {
+          height: 85vh%;
+        }
     </style>
   </body>
 </html>
