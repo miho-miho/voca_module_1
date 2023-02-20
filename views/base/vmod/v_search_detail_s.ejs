@@ -51,6 +51,7 @@
               </div>
               <div class="container text-center button-area">
                 <button type="button" name="button" class="btn btn-outline-primary col-auto float-start btn_previous">　前　</button>
+                <a href="" class="linkToBefore">戻る</a>
                 <button type="button" name="button" class="btn btn-outline-primary col-auto float-end btn_next">　次　</button>
               </div>
             </div>
@@ -70,9 +71,11 @@
         $("#search-type").text("単語検索")
         var char = targetChar.replace(/~/g, "")
         $("#search-link").attr("href", `./v_search_list-str=${char}&st=<%= targetSt %>`)
+        $(".linkToBefore").attr("href", `./v_search_list-str=${char}&st=<%= targetSt %>`)
       } else {
         $("#search-type").text("文字検索")
         $("#search-link").attr("href", "./v_search_list-char=<%= targetChar %>")
+        $(".linkToBefore").attr("href", "./v_search_list-char=<%= targetChar %>")
       }
     var targetIndex = "";
     var targetItems;
