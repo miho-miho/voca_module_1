@@ -211,8 +211,8 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
-      li.filter((element, index, self) => self.findIndex(e => e.instid === element.instid ) === index);
-      console.log(li);
+      li = li.filter((element, index, self) => self.findIndex(e => e.instid === element.instid ) === index);
+      console.log(li.length);
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "photo":item[0].photo_name, "reibun":[li]})
       } else {
