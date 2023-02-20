@@ -105,6 +105,7 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
+        console.log(targetItem.inst);
         targetItem.inst.reibun.filter((element, index, self) => 
                         self.findIndex( e => 
                                         e.instid === element.instid 
