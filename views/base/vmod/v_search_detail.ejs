@@ -134,9 +134,9 @@
               $(".example:last").append('<div class="col col-xs-12 instlink">'+s.link+'</div>')
               var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
               if (s.trans.length > 0) {
-                $(".example:last").append('<div class="col col-xs-12 inst text-end"><p class="text-end ar type_ar">'+sentence+'・</p><p class="text-end">'+s.trans+' </p></div>') 
+                $(".example:last").append('<div class="col-auto col-xs-12 inst text-end"><p class="text-end ar type_ar">'+sentence+'・</p><p class="text-end">'+s.trans+' </p></div>') 
               } else {
-                $(".example:last").append('<div class="col col-xs-12 inst text-end"><p class="text-en ar type_ar">'+sentence+'・</p></div>')
+                $(".example:last").append('<div class="col-auto col-xs-12 inst text-end"><p class="text-en ar type_ar">'+sentence+'・</p></div>')
               }
           } else { //それ以外の言語の場合
             $(".examples:last").append('<div class="row example">')
