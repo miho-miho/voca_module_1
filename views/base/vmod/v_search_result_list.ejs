@@ -72,11 +72,6 @@
         }
         if ("<%= lg %>" === "ar") {
           $(".result-list").addClass("flex-wrap-reverse"); 
-          if (search_result_list.length < 80) {
-            $(".result-list").addClass("flex-column"); 
-          } else {
-            $(".result-list").addClass("float-end");
-          }
           $(".result-list").append('<button type="button" data-href="" class="list-group-item list-group-item-action type_ar"><span class="id">'+i+'. </span><span class="midasi_go" id='+item.id+'>'+item.midasi+'</span>'+sense+'</button>')
         } else {
           if (search_result_list.length < 100) {
