@@ -136,7 +136,9 @@
        var result = Math.random().toString(36).slice(-8);
         return result;
     }
-    console.log(indexArray);
+    for (const i of indexArray) {
+      console.log(indexArray[i]);
+    }
     for(const cahr of char_list) {
       var bigcahr = cahr.toUpperCase();
       var id = `#cahr_${bigcahr}`;
