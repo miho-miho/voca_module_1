@@ -90,9 +90,8 @@
             var targetSt = "<%= targetSt %>"
             var targetData = '<input type="hidden" name="targetWordIds" value="'+targetWordIds+'"/><input type="hidden" name="targetWord" value="'+targetWord+'"/>><input type="hidden" name="targetSt" value="'+targetSt+'"/>'
             $("body").append('<form action="'+url+'" method="post" id="post">'+targetData+'</form>');
-            alert(`midasigo:${targetWord}, id:${targetWordId}`)
+            alert(targetData)
             $("#post").submit();
-            return false;
           };
         });
       });
