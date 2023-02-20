@@ -25,7 +25,7 @@
             <div class="card-header"><h5>1. 文字検索</h5></div>
             <div class="card-body">
               <p>検索したい文字をクリックしてください</p>
-              <div class="float-center">
+              <div class="row justify-content-center">
                 <div class="row text-center" id="cahrtable"></div>
               </div>
               <!--
@@ -139,7 +139,7 @@
         return result;
     }
     for (const i in indexArray) {
-      $("#cahrtable").append('<div class="btn btn-outline-secondary col">'+indexArray[i].index_char+'</div>')
+      $("#cahrtable").append('<div class="btn btn-outline-secondary col-1">'+indexArray[i].index_char+'</div>')
     }
     for(const cahr of char_list) {
       var bigcahr = cahr.toUpperCase();
