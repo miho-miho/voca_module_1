@@ -391,9 +391,7 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
-      console.log(midasi, li.length);
       li = li.filter((element, index, self) => self.findIndex(e => e.instid === element.instid ) === index);
-      console.log(midasi, li.length);
       if (sameMidasi) {
         sameMidasi.inst.push({"usage":ex, "reibun":[li]})
       } else {
