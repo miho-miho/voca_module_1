@@ -45,7 +45,7 @@ app.get('/:lang/v/', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT * FROM t_index_char ORDER BY index_char DESC;"
+    text: "SELECT * FROM t_index_char ORDER BY id"
   };
   client.query(query, (err, result) => {
     if (err) throw err;
