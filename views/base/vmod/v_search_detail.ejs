@@ -105,6 +105,11 @@
       function showResult(index){
         $("#now_item").text(index+1);
         var targetItem = targetArray[index]
+        targetItem = targetItem.filter((element, index, self) => 
+                        self.findIndex( e => 
+                                        e.instid === element.instid 
+                                      ) === index
+                      );
         console.log(targetItem);
         $(".targetWord").text(targetItem.midasi)
         $(".targetWordAudio").append(targetItem.midashiaudio)
