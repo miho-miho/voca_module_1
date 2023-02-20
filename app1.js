@@ -28,17 +28,35 @@ app.get('/', (req, res) => {
   res.render('index1.0.ejs');
 });
 let currentWorkingDirectory = process.cwd();
+
 //語彙モジュールトップ
+var indexArray = [];
 app.get('/:lang/v/', (req, res) => {
   let lang = req.params.lang
+  let currentWorkingDirectory = process.cwd();
   let pathToLnag = currentWorkingDirectory+'/views/'+lang
   var info = require(pathToLnag + "/config")
-  res.render(pathToLnag + '/vmod/v_top.ejs', {
-    lg : lang,
-    lang_jp : info.lang_info.lang_jp,
-    vmod_ms1 : info.lang_info.vmod_ms1,
-    vmod_ms1_url : info.lang_info.vmod_ms1_url,
-    vmod_ms2 : info.lang_info.vmod_ms2,
+  var client = new Client({
+    user: info.db_info.user,
+    host: info.db_info.host,
+    database: info.db_info.database,
+    password: info.db_info.password,
+    port: 5432
+  })
+  client.connect();
+  const query = {
+    text: "SELECT * FROM t_index_char"
+  };
+  client.query(query, (err, result) => {
+    if (err) throw err;
+    console.log(result.rows);
+    res.render(pathToLnag + '/vmod/v_top.ejs', {
+      lg : lang,
+      lang_jp : info.lang_info.lang_jp,
+      vmod_ms1 : info.lang_info.vmod_ms1,
+      vmod_ms1_url : info.lang_info.vmod_ms1_url,
+      vmod_ms2 : info.lang_info.vmod_ms2,
+    });
   });
 });
 
