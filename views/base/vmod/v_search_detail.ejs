@@ -114,7 +114,7 @@
           var imi_list = []
           if (explain.includes("＊")) {
             imi_list.push(explain.replace("＊", "<br>＊"))
-          } else if(explain.includes(/\n/)) {
+          } else if(explain.includes("\n")) {
             imi_list.push(explain.replace(/\n/, "<br>"))
           }
           else {
