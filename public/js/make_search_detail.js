@@ -282,7 +282,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
     var dmodsound = getDmodSoundFile(htmlfile, xpath, lang);
     var link = `
       <!--■■■Dモジュールへのリンク■■■-->
-      <div class="dmodsound">
+      <div class="dmodsound soundAria">
         ${dmodsound}
         <a href="../${htmlfile}" target="blank" class="dmodlink btn btn-success">会</a>
       </div>
@@ -335,7 +335,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
     var gmodsound = getGmodSoundFile(xml_file_name, xpath, lang)
     var link = `
       <!--■■■Gモジュールへのリンク■■■-->
-      <div class="gmodsound">
+      <div class="gmodsound soundAria">
       ${gmodsound}
       <a href="../../../mt/${lang}/gmod/contents/${htmlfile}" target="blank" class="gmodlink btn btn-info">文</a>
       </div>
@@ -385,7 +385,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
       }
       var link = `
         <!--■■■Pモジュールへのリンク■■■-->
-        <div class="pmodsound">
+        <div class="pmodsound soundAria">
         ${pmodsound}
         <a href="../${pmodPath}" target="blank" class="pmodlink btn btn-warning">発</a>
         </div>
@@ -410,7 +410,7 @@ exports.makeInstSound = function(instid, lang){
   var instsoundfile = `../../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
   if (fs.existsSync(`../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`)) {
     audioBlock = `
-    <div class="vmodsound">
+    <div class="vmodsound soundAria">
       <audio id='instSound_${instid}' class="vmodaudio">
         <source src='${instsoundfile}' type='audio/mp3'>
         <source src='../../../mt/${lang}/vmod/sound/inst/inst_${instid}.ogg' type='audio/ogg'>
@@ -440,7 +440,7 @@ exports.makeWordSound = function(wordid, lang){
   var wordsoundfile = `../../../mt/${lang}/vmod/sound/word/word_${wordid}.mp3`;
   if (fs.existsSync(`../../mt/${lang}/vmod/sound/word/word_${wordid}.mp3`)) {
     var audioBlock = `
-      <div class="wordsound">
+      <div class="wordsound soundAria">
         <audio class="basicaudio">
           <source src='${wordsoundfile}' type='audio/mp3'>
           <source src='../../../mt/${lang}/vmod/sound/word/word_${wordid}.ogg' type='audio/ogg'>
