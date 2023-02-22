@@ -177,7 +177,7 @@
         var audio;
         switch (true) {
           case mod.includes("gmodsound"):
-            console.log($(this).html());
+            console.log($(this).find(".gmodaudio").html());
             audio = $(this).find(".gmodaudio")[0]
           break;
           case mod.includes("vmodsound"):
