@@ -169,33 +169,7 @@ h1 {
 .pagination-container {
     padding-top: 1rem;
 }
-.pagination {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pagination li {
-  margin-right: 0.5rem;
-}
 
-.pagination li a {
-  text-decoration: none;
-  color: #000;
-}
-
-.page {
-  padding: 0.3em;
-  border: 1px solid #000;
-}
-
-.act {
-  background-color: #000;
-}
-
-.pagination .act a {
-  color: #fff;
-}
 /*オートコンプリートのサイズ調整*/
 .ui-autocomplete {
   max-height: 200px;
