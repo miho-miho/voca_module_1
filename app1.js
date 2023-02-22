@@ -279,8 +279,7 @@ app.get('/:lang/v/v_search', (req, res) => {
     res.render(pathToLnag + '/vmod/v_search.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
-      char_list: resultArray,
-      indexArray : indexArray
+      indexArray : resultArray
     });
   });
 });
