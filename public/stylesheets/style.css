@@ -23,7 +23,6 @@ body {
       font-size: 1.3rem;
   }
   .sidebar {
-    height: 100%!important;
     min-height: 100vh;
   }
   .inst > p {
