@@ -121,7 +121,7 @@ app.get('/:lang/v/table', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT t_usage.usage_id,t_word.id,rui,chukoumoku_no,chukoumoku,basic,midasi,hontai FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage.selected='1'"
+    text: "SELECT t_usage.usage_id,t_word.id,rui,chukoumoku_no,chukoumoku,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage.selected='1'"
   };
   client.query(query, (err, result) => {
     if (err) throw err;
@@ -157,7 +157,7 @@ app.get('/:lang/v/t_search_list=:chuno', (req, res)=> {
   })
   client.connect();
   const query = {
-    text: "SELECT t_usage.usage_id,t_usage.word_id,chukoumoku,chukoumoku_no,basic,midasi FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no=$1",
+    text: "SELECT t_usage.usage_id,t_usage.word_id,chukoumoku,chukoumoku_no,basic,midasi,hontai FROM t_usage_classified_rel JOIN t_usage ON t_usage_classified_rel.usage_id=t_usage.usage_id JOIN t_word ON t_usage.word_id=t_word.id WHERE t_usage_classified_rel.chukoumoku_no=$1",
     values: [chuno]
   };
   client.query(query, [chuno], (err, result) => {
