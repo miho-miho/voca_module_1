@@ -125,12 +125,7 @@
             showResult("<%= lg %>", targetIndex, "<%= targetWord %>");
           }
       });
-      let windowWidth = $(window).width()
-      if (windowWidth < 767) {
-        $(function(){
-          $("#v_sidebar").before($(".main-body"));
-        });
-      }
+      sideberSwitch(windowWidth);
       $(document).on('click', '.soundAria', function(){
         var mod = $(this).attr("class");
         var audio;
