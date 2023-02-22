@@ -34,6 +34,36 @@ body {
   .example:last-of-type {
     padding-bottom: 0px;
   }
+  /*pagenation*/
+  nav.pagination-container ul {
+    padding: 0;
+    justify-content: center;
+    transition: 0.3s;
+  }
+  .pagination li {
+    margin: 0;
+  }
+  nav.pagination-container ul li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 9px 10px 11px;
+    background: #FFF;
+    line-height: 1;
+    border: 1px solid rgba(0,0,0,.125);
+    text-decoration: none;
+    color: black;
+  }
+  li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
+    color: white;
+    background:  #6c757d;
+  }
+  li.page.navi-active a {
+    background-color: #e9ecef;
+  }
+  .pagenation_block dl {
+    border-bottom: solid 1px #ddd;
+  }
 }
 @media screen and (max-width: 480px) {
   .header-title {
@@ -53,6 +83,36 @@ body {
   }
   .example:last-of-type {
     padding-bottom: 0px;
+  }
+  /*pagenation*/
+  nav.pagination-container ul {
+    padding: 0;
+    justify-content: center;
+    transition: 0.3s;
+  }
+  .pagination li {
+    margin: 0;
+  }
+  nav.pagination-container ul li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 4.5px 5px 6px;
+    background: #FFF;
+    line-height: 1;
+    border: 1px solid rgba(0,0,0,.125);
+    text-decoration: none;
+    color: black;
+  }
+  li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
+    color: white;
+    background:  #6c757d;
+  }
+  li.page.navi-active a {
+    background-color: #e9ecef;
+  }
+  .pagenation_block dl {
+    border-bottom: solid 1px #ddd;
   }
 }
 /* 折り畳み可能リストのサイドバー用 */
@@ -101,61 +161,6 @@ body {
 
 h1 {
   padding-top: 10px;s
-}
-/*pagenation
-.pagination {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pagination li {
-  margin-right: 0.5em;
-}
-.pagination li a {
-  text-decoration: none;
-  color: #000;
-}
-.page {
-  padding: .3em;
-  border: 1px solid #000;
-}
-.act {
-  background-color: #000;
-}
-.pagination .act a {
-  color: #fff;
-}
-*/
-nav.pagination-container ul {
-  padding: 0;
-  justify-content: center;
-  transition: 0.3s;
-}
-.pagination li {
-  margin: 0;
-}
-nav.pagination-container ul li a {
-  width: 100%;
-  height: 100%;
-  display: block;
-  padding: 9px 10px 11px;
-  background: #FFF;
-  line-height: 1;
-  border: 1px solid rgba(0,0,0,.125);
-  text-decoration: none;
-  color: black;
-
-}
-li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
-  color: white;
-  background:  #6c757d;
-}
-li.page.navi-active a {
-  background-color: #e9ecef;
-}
-.pagenation_block dl {
-  border-bottom: solid 1px #ddd;
 }
 /*タブ実装*/
 .tab_box .btn_area {
