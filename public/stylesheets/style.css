@@ -25,9 +25,7 @@ body {
     font-size: 1.3rem;
   }
   .sidebar {
-    padding-bottom: 10000px;
-    margin-bottom: -10000px;
-
+    min-height:  auto;
   }
   .inst > p {
     margin-bottom: 0.8rem;
