@@ -112,19 +112,28 @@ function replaceTokenColor(token, sentence, token_index){
       return sentence;
     }
   }
-  //playDmodSound
-  var dmodAudioObj;
-  function playDmodSound(dmodsound, startTime, stopTime){
-    if(dmodAudioObj != null)dmodAudioObj.pause();
-    dmodAudioObj = new Audio(dmodsound);
-    dmodAudioObj.currentTime = startTime;
-    dmodAudioObj.addEventListener("timeupdate", function (){
-      if (stopTime != 0 && dmodAudioObj != null && stopTime < dmodAudioObj.currentTime){
-        dmodAudioObj.pause();
-        dmodAudioObj.removeEventListener("timeupdate",this);
-        dmodAudioObj=null;
-            return;
-      }
-    });
-    dmodAudioObj.play();
-  }
+//playDmodSound
+var dmodAudioObj;
+function playDmodSound(dmodsound, startTime, stopTime){
+  if(dmodAudioObj != null)dmodAudioObj.pause();
+  dmodAudioObj = new Audio(dmodsound);
+  dmodAudioObj.currentTime = startTime;
+  dmodAudioObj.addEventListener("timeupdate", function (){
+    if (stopTime != 0 && dmodAudioObj != null && stopTime < dmodAudioObj.currentTime){
+      dmodAudioObj.pause();
+      dmodAudioObj.removeEventListener("timeupdate",this);
+      dmodAudioObj=null;
+          return;
+    }
+  });
+  dmodAudioObj.play();
+}
+
+//sideber_switch
+function sideberSwitch(windowWidth){
+    if (windowWidth < 767) {
+        $(function(){
+            $("#v_sidebar").before($(".main-body"));
+        });
+    }
+}
