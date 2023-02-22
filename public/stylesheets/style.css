@@ -65,7 +65,7 @@ body {
     border-bottom: solid 1px #ddd;
   }
 }
-@media all and (min-width: 480px) and (max-width: 768px) {
+@media all and (max-width: 768px) {
   .header-title {
     font-size: 0.85rem;
   }
