@@ -18,7 +18,7 @@ body {
     font-size: calc(1.3rem + ((1vw - 0.48rem) * 0.5556));/* viewportが480px以上1200px以下可変 */
     min-height: 0vw;/* Safari用バグフィックス */
 }
-@media all and (min-width: 768px) and (max-width: 1280px) { /*PCサイズ*/
+@media all and (min-width: 768px){ /*PCサイズ*/
   .header-title {
       font-size: 1.3rem;
   }
