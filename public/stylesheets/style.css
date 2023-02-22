@@ -103,10 +103,6 @@ h1 {
   padding-top: 10px;s
 }
 /*pagenation*/
-.pagination li a {
-  text-decoration: none;
-  color: #000;
-}
 .act {
   background-color: #000;
 }
