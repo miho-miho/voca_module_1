@@ -23,11 +23,7 @@
           </div>
           <div class="row">
             <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-              <ol class="breadcrumb bg-secondary">
-                <li class="breadcrumb-item active" aria-current="page"><a href="" class="first-item" id="linkToPage"></a></li>
-                <li class="breadcrumb-item active" aria-current="page">詳細</li>
-                <li class="breadcrumb-item active"><a href="" class="linkToBefore" id="linkToBeforeText"></a></li>
-                <li class="breadcrumb-item active"><strong class="targetWord"></strong></li>
+              <ol class="breadcrumb bg-secondary" id="detail_bread">
               </ol>
             </nav>
             <div class="">
@@ -70,6 +66,7 @@
     var targetArray = <%- JSON.stringify(targetObj) %>;
     var targetIndex = "";
     var targetItems;
+    var targetWord = "<%= targetWord %>";
     //基礎語彙・分類表用（検索の時は””）
     var tag = "<%= tag %>";
     var category = "<%= category %>";
@@ -77,32 +74,7 @@
     var targetChar = "<%= targetChar %>";
     var targetSt = "<%= targetSt %>";
     //表示元に応じてパンくずリストのテキストとリンクを設定
-    if (tag === "") {
-      $("#linkToPage").text("検索");
-      $("#linkToPage").attr("href", `./v_search`);
-      $(".targetWord").text("<%= targetWord %>")
-      if (targetChar.includes("~")) {
-        var char = targetChar.replace(/~/g, "")
-        $(".linkToBefore").attr("href", `./v_search_list-str=${char}&st=${targetSt}`)
-        $("#linkToBeforeText").text(`単語検索：${targetChar}`);
-      } else {
-        $(".linkToBefore").attr("href", `./v_search_list-char=${targetChar}`)
-        $("#linkToBeforeText").text(`文字検索：${targetChar}`);
-      }
-    } else {
-      $(".targetWord").text("<%= targetWord %>")
-      if (tag.includes(".")) {
-        $("#linkToPage").text("基礎語彙分類表");
-        $("#linkToPage").attr("href", "./table");
-        $(".linkToBefore").attr("href", `./t_search_list=${tag}`)
-        $("#linkToBeforeText").text(`${category}`);
-      } else {
-        $("#linkToPage").text("基礎語彙の学習");
-        $("#linkToPage").attr("href", "./catego");
-        $(".linkToBefore").attr("href", `./catego#${category}`)
-        $("#linkToBeforeText").text(`${category}`);
-      } 
-    }
+    makeDetailBread(targetWord, targetChar, targetSt, tag, category)
     $("#all_items").text(targetArray.length)
     for (var i = 0; i < targetArray.length; i++) {
       if (targetArray[i].midasi === "<%= targetWord %>") {
