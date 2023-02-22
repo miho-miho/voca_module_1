@@ -131,7 +131,6 @@ nav.pagination-container ul {
   padding: 0;
   justify-content: center;
   transition: 0.3s;
-  border:1px solid #ffffff;
 }
 .pagination li {
   margin: 0;
@@ -143,7 +142,7 @@ nav.pagination-container ul li a {
   padding: 9px 10px 11px;
   background: #FFF;
   line-height: 1;
-  border-right: solid 1px #eee;
+  border: 1px solid #eee;
   text-decoration: none;
 }
 li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
