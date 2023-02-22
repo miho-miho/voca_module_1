@@ -131,10 +131,10 @@ nav.pagination-container ul {
   padding: 0;
   justify-content: center;
   transition: 0.3s;
+  border:1px solid #ffffff;
 }
 .pagination li {
   margin: 0;
-  border:1px solid #ffffff;
 }
 nav.pagination-container ul li a {
   width: 100%;
