@@ -9,6 +9,7 @@ body {
 .main {
   min-height: 100%;
   padding-bottom: 56px;
+  overflow: hidden;
 }
 /*ヘッダー*/
 .navbar-nav li {
@@ -25,6 +26,9 @@ body {
   }
   .sidebar {
     min-height:  auto;
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
+
   }
   .inst > p {
     margin-bottom: 0.8rem;
