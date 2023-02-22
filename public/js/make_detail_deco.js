@@ -174,16 +174,20 @@ function makeDetailBread(targetWord, targetChar, targetSt, tag, category){      
         if (targetChar.includes("~")) {
             var char = targetChar.replace(/~/g, "")
             $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./v_search_list-str=${char}&st=${targetSt}" class="linkToBefore" id="linkToBeforeText">単語検索：${targetChar}</a></li>`)
+            $(".linkToBefore").prop("href", `./v_search_list-str=${char}&st=${targetSt}`)
         } else {
             $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./v_search_list-char=${targetChar}" class="linkToBefore" id="linkToBeforeText">文字検索：${targetChar}</a></li>`)
+            $(".linkToBefore").prop("href", `./v_search_list-char=${targetChar}`)
         }
     } else { //tagが空ではない：基礎語彙と分類表からの詳細表示の場合
         if (tag.includes(".")) {
             $("#detail_bread").append(`<li class="breadcrumb-item active" aria-current="page"><a href="./table" class="first-item" id="linkToPage">基礎語彙分類表</a></li>`)
-            $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./t_search_list=${tag}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
+            $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./v_search_list-char=${targetChar}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
+            $(".linkToBefore").prop("href", `./v_search_list-char=${targetChar}`)
         } else {
             $("#detail_bread").append(`<li class="breadcrumb-item active" aria-current="page"><a href="./catego" class="first-item" id="linkToPage">基礎語彙の学習</a></li>`)
             $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./catego#${category}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
+            $(".linkToBefore").prop("href", `./catego#${category}`)
         } 
     }
     $("#detail_bread").append(`<li class="breadcrumb-item active"><strong class="targetWord">${targetWord}</strong></li>`)
