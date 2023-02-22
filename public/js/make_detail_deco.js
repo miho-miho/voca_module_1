@@ -137,3 +137,31 @@ function sideberSwitch(windowWidth){
         });
     }
 }
+
+//playAudio
+function playAudio(){
+    $(document).on('click', '.soundAria', function(){
+        var mod = $(this).attr("class");
+        var audio;
+        switch (true) {
+          case mod.includes("gmodsound"):
+            audio = $(this).find(".gmodaudio")[0];
+            audio.play();
+          break;
+          case mod.includes("vmodsound"):
+            audio = $(this).find(".vmodaudio")[0];
+            audio.play();
+            break;
+           case mod.includes("pmodsound"):
+            audio = $(this).find(".pmodaudio")[0];
+            audio.play();
+            break; 
+          case mod.includes("wordsound"):
+            audio = $(this).find(".basicaudio")[0];
+            audio.play();
+            break;
+          default:
+            break
+        }
+      });
+}
