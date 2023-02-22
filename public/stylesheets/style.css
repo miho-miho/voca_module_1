@@ -147,6 +147,7 @@ nav.pagination-container ul li a {
   background: #FFF;
   line-height: 1;
   border-right: solid 1px #eee;
+  text-decoration: none;
 }
 li.first {
   border-radius: 5px 0 0 5px;
@@ -160,9 +161,6 @@ li.page.navi-active a {
 }
 .pagenation_block dl {
   border-bottom: solid 1px #ddd;
-}
-.pagenation a {
-  text-decoration: none;
 }
 /*タブ実装*/
 .tab_box .btn_area {
