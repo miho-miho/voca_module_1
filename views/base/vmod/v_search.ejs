@@ -142,6 +142,7 @@
       var char = indexArray[i].index_char
       var bigcahr = char.toUpperCase();
       var id = `cahr_${bigcahr}`
+      console.log(indexArray[i].charcheck);
       if (indexArray[i].charcheck != null) {
         $("#cahrtable").append(`<a class="btn btn-outline-secondary col-2" href="./v_search_list-char=${char}" id="${id}">${bigcahr}</a>`)
       } else {
