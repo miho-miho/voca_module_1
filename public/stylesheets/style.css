@@ -1,5 +1,5 @@
 html {
-  height: 100vh;/*①高さの最小値*/
+  min-height: 100vh;/*①高さの最小値*/
   position: relative;/*②相対位置*/
 }
 body {
