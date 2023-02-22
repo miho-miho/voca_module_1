@@ -4,7 +4,7 @@ html {
 }
 body {
   font-family: YuGothic, "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic,"ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, sans-serif;
-  min-height: 100%;
+  min-height: 100vh;
 }
 .main {
   min-height: 100%;
