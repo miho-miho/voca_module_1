@@ -128,7 +128,6 @@ h1 {
 }
 */
 nav.pagination-container ul {
-  text-decoration: none;
   border: none;
   padding: 0;
   justify-content: center;
@@ -161,6 +160,9 @@ li.page.navi-active a {
 }
 .pagenation_block dl {
   border-bottom: solid 1px #ddd;
+}
+.pagenation a {
+  text-decoration: none;
 }
 /*タブ実装*/
 .tab_box .btn_area {
