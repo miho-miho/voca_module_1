@@ -96,10 +96,12 @@
         $("#linkToPage").text("基礎語彙分類表");
         $("#linkToPage").attr("href", "./table");
         $(".linkToBefore").attr("href", `./t_search_list=${tag}`)
+        $("#linkToBeforeText").text(`${category}`);
       } else {
         $("#linkToPage").text("基礎語彙の学習");
         $("#linkToPage").attr("href", "./catego");
         $(".linkToBefore").attr("href", `./catego#${category}`)
+        $("#linkToBeforeText").text(`${category}`);
       } 
     }
       showResult("<%= lg %>", targetIndex, "<%= targetWord %>")
