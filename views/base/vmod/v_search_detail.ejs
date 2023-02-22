@@ -26,7 +26,7 @@
               <ol class="breadcrumb bg-secondary">
                 <li class="breadcrumb-item active" aria-current="page"><a href="" class="first-item" id="linkToPage"></a></li>
                 <li class="breadcrumb-item active" aria-current="page">詳細</li>
-                <li class="breadcrumb-item active"><a href="" class="linkToBefore"></a></li>
+                <li class="breadcrumb-item active"><a href="" class="linkToBefore" id="linkToBeforeText"></a></li>
               </ol>
             </nav>
             <div class="">
@@ -84,6 +84,7 @@
         var char = targetChar.replace(/~/g, "")
         $("#linkToPage").attr("href", `./v_search_list-str=${char}&st=<%= targetSt %>`)
         $(".linkToBefore").attr("href", `./v_search_list-str=${char}&st=<%= targetSt %>`)
+        $("#linkToBeforeText").text(`：${targetChar}`)
       } else {
         $("#linkToPage").text("文字検索")
         $("#linkToPage").attr("href", "./v_search_list-char=<%= targetChar %>")
