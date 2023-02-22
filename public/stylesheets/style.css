@@ -22,9 +22,6 @@ body {
   .header-title {
       font-size: 1.3rem;
   }
-  .sidebar {
-    min-height: 100vh;
-  }
   .inst > p {
     margin-bottom: 0.8rem;
   }
