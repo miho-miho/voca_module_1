@@ -273,13 +273,13 @@ app.get('/:lang/v/v_search', (req, res) => {
     ORDER BY ic.id`
   };
   client.query(query, (err, result) => {
-    console.log(result.rows);
     if (err) throw err;
     var char_list = [];
     for (var i of result.rows) {
       char_list.push(i.index_char)
     }
     var resultArray = Array.from(new Set(char_list))
+    console.log(resultArray);
     res.render(pathToLnag + '/vmod/v_search.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
