@@ -142,12 +142,12 @@ nav.pagination-container ul li a {
   padding: 9px 10px 11px;
   background: #FFF;
   line-height: 1;
-  border: 1px solid #eee;
+  border: 1px solid rgba(0,0,0,.125);
   text-decoration: none;
 }
 li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
   color: black;
-  background-color: #495057;
+  background-color: #f8f9fa;
 }
 li.page.navi-active a {
   background: #ebfcfe;
