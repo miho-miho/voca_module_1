@@ -174,10 +174,10 @@
       }
       $(document).on('click', '.soundAria', function(){
         var mod = $(this).attr("class");
-        console.log(mod.includes("gmodsound"));
         var audio;
         switch (true) {
           case mod.includes("gmodsound"):
+            console.log($(this).html());
             audio = $(this).find(".gmodaudio")[0]
           break;
           case mod.includes("vmodsound"):
