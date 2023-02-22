@@ -4,6 +4,7 @@ html {
 }
 body {
   font-family: YuGothic, "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic,"ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, sans-serif;
+  min-height: 100%;
 }
 .main {
   min-height: 100%;
@@ -20,10 +21,10 @@ body {
 }
 @media all and (min-width: 768px){ /*PCサイズ*/
   .header-title {
-      font-size: 1.3rem;
+    font-size: 1.3rem;
   }
   .sidebar {
-    min-height: 100vh;
+    min-height:  auto;
   }
   .inst > p {
     margin-bottom: 0.8rem;
