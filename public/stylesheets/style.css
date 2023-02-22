@@ -128,10 +128,8 @@ h1 {
 }
 */
 nav.pagination-container ul {
-  border: none;
   padding: 0;
   justify-content: center;
-  filter: drop-shadow(0px 1px 3px #ccc);
   transition: 0.3s;
   border-radius: 0px;
 }
