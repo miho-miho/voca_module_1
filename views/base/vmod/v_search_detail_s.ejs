@@ -93,7 +93,7 @@
         $(".targetWordAudio").empty();
         if (targetIndex >= 0) {
           $(".result-card-area").empty()
-          showResult(targetIndex);
+          showResult("<%= lg %>", targetIndex, "<%= targetWord %>");
         }
       });
       $(".btn_next").click(function(){
@@ -102,7 +102,7 @@
           $(".targetWordAudio").empty();
           if (targetIndex < targetArray.length) {
             $(".result-card-area").empty()
-            showResult(targetIndex);
+            showResult("<%= lg %>", targetIndex, "<%= targetWord %>");
           }
       });
       let windowWidth = $(window).width()
