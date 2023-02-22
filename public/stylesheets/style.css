@@ -6,7 +6,7 @@ body {
   font-family: YuGothic, "Hiragino Kaku Gothic ProN", Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic,"ヒラギノ角ゴ ProN W3", "メイリオ", Meiryo, sans-serif;
 }
 .main {
-  min-height: 100vh;
+  min-height: 100%;
   padding-bottom: 56px;
 }
 /*ヘッダー*/
