@@ -126,8 +126,16 @@
       .id, .c_cand{
         padding-right: 10px;
       }
-      .result-list button {
-        max-width: 250px;
+      @media screen and (min-width: 1200px) {
+        .result-list button {
+          max-width: 33.3%;
+        }
+        .result-list {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          max-height: 65vh;
+        }
       }
     </style>
   </body>
