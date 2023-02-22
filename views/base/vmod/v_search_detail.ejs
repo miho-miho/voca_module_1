@@ -69,20 +69,21 @@
     var targetArray = <%- JSON.stringify(targetObj) %>;
     var targetIndex = "";
     var targetItems;
+    var tag = "<%= tag %>";
     $("#all_items").text(targetArray.length)
     for (var i = 0; i < targetArray.length; i++) {
       if (targetArray[i].midasi === "<%= targetWord %>") {
         targetIndex = i
       }
     }
-    if ("<%= tag %>".includes(".")) {
+    if (tag.includes(".")) {
       $("#linkToPage").text("基礎語彙分類表");
       $("#linkToPage").attr("href", "./table");
-      $(".linkToBefore").attr("href", "./t_search_list=<%= tag %>")
+      $(".linkToBefore").attr("href", `./t_search_list=${tag}`)
     } else {
       $("#linkToPage").text("基礎語彙の学習");
       $("#linkToPage").attr("href", "./catego");
-      $(".linkToBefore").attr("href", "./catego#<%- category %>")
+      $(".linkToBefore").attr("href", `./catego#${category}`)
     }
       showResult("<%= lg %>", targetIndex, "<%= targetWord %>")
       $(".btn_previous").click(function(){
