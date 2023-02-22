@@ -148,11 +148,11 @@ nav.pagination-container ul li a {
 
 }
 li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
-  background-color: #f8f9fa;
-}
-li.page.navi-active a {
   color: white;
   background:  #6c757d;
+}
+li.page.navi-active a {
+  background-color: #e9ecef;
 }
 .pagenation_block dl {
   border-bottom: solid 1px #ddd;
