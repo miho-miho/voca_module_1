@@ -179,19 +179,22 @@
           case mod.includes("gmodsound"):
             console.log($(this).find(".gmodaudio").html());
             audio = $(this).find(".gmodaudio")[0]
+            audio.play();
           break;
           case mod.includes("vmodsound"):
             audio = $(this).find(".vmodaudio")[0]
+            audio.play();
             break;
            case mod.includes("pmodsound"):
-           audio = $(this).find(".pmodaudio")[0]
+            audio = $(this).find(".pmodaudio")[0]
+            audio.play();
             break; 
           case mod.includes("wordsound"):
             audio = $(this).find(".basicaudio")[0]
             break;
-           default:
+          default:
             break
-          audio.play();
+
         }
       });
       /*
