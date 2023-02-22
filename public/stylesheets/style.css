@@ -103,12 +103,7 @@ h1 {
   padding-top: 10px;s
 }
 /*pagenation*/
-.act {
-  background-color: #000;
-}
-.pagination .act a {
-  color: #fff;
-}
+
 /*タブ実装*/
 .tab_box .btn_area {
 	margin:0 10px;
