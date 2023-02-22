@@ -78,17 +78,7 @@
         targetIndex = i
       }
     }
-    if (tag != "" || tag != null) {
-      if (tag.includes(".")) {
-      $("#linkToPage").text("基礎語彙分類表");
-      $("#linkToPage").attr("href", "./table");
-      $(".linkToBefore").attr("href", `./t_search_list=${tag}`)
-    } else {
-      $("#linkToPage").text("基礎語彙の学習");
-      $("#linkToPage").attr("href", "./catego");
-      $(".linkToBefore").attr("href", `./catego#${category}`)
-    }
-    } else {
+    if (tag === "") {
       if (targetChar.includes("~")) {
         $("#linkToPage").text("単語検索")
         var char = targetChar.replace(/~/g, "")
@@ -98,6 +88,16 @@
         $("#linkToPage").text("文字検索")
         $("#linkToPage").attr("href", "./v_search_list-char=<%= targetChar %>")
         $(".linkToBefore").attr("href", "./v_search_list-char=<%= targetChar %>")
+      }
+    } else {
+      if (tag.includes(".")) {
+        $("#linkToPage").text("基礎語彙分類表");
+        $("#linkToPage").attr("href", "./table");
+        $(".linkToBefore").attr("href", `./t_search_list=${tag}`)
+      } else {
+        $("#linkToPage").text("基礎語彙の学習");
+        $("#linkToPage").attr("href", "./catego");
+        $(".linkToBefore").attr("href", `./catego#${category}`)
       } 
     }
       showResult("<%= lg %>", targetIndex, "<%= targetWord %>")
