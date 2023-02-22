@@ -27,6 +27,7 @@
                 <li class="breadcrumb-item active" aria-current="page"><a href="" class="first-item" id="linkToPage"></a></li>
                 <li class="breadcrumb-item active" aria-current="page">詳細</li>
                 <li class="breadcrumb-item active"><a href="" class="linkToBefore" id="linkToBeforeText"></a></li>
+                <li class="breadcrumb-item active"><strong class="targetWord"></strong></li>
               </ol>
             </nav>
             <div class="">
@@ -82,6 +83,7 @@
     if (tag === "") {
       $("#linkToPage").text("検索");
       $("#linkToPage").attr("href", `./v_search`);
+      $(".targetWord").text("<%= targetWord %>")
       if (targetChar.includes("~")) {
         var char = targetChar.replace(/~/g, "")
         $(".linkToBefore").attr("href", `./v_search_list-str=${char}&st=${targetSt}`)
@@ -91,6 +93,7 @@
         $("#linkToBeforeText").text(`文字検索：${targetChar}`);
       }
     } else {
+      $(".targetWord").text("<%= targetWord %>")
       if (tag.includes(".")) {
         $("#linkToPage").text("基礎語彙分類表");
         $("#linkToPage").attr("href", "./table");
