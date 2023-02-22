@@ -173,8 +173,8 @@
         });
       }
       $(document).on('click', '.soundAria', function(){
-        console.log($(this).attr("class"));
         var mod = $(this).attr("class");
+        console.log(mod.includes("gmodaudio"));
         var audio;
         switch (1) {
           case mod.includes("gmodaudio"):
