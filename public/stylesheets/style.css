@@ -146,10 +146,10 @@ nav.pagination-container ul li a {
   text-decoration: none;
 }
 li.page.disable a {
-  background: #ebfcfe;
+  color: black;
 }
 li.page.navi-active a {
-  color: black;
+  background: #ebfcfe;
 }
 .pagenation_block dl {
   border-bottom: solid 1px #ddd;
