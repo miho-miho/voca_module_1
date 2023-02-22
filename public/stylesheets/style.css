@@ -147,6 +147,7 @@ nav.pagination-container ul li a {
 }
 li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
   color: black;
+  background-color: #eee;
 }
 li.page.navi-active a {
   background: #ebfcfe;
