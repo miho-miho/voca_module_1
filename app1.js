@@ -408,7 +408,8 @@ app.post('/:lang/v/s_search_detail-tg=:char', (req, res) => {
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId,
       targetChar : targetChar,
-      targetSt : req.body.targetSt
+      targetSt : req.body.targetSt,
+      tag: ""
     });
   });
 });
