@@ -103,7 +103,29 @@ h1 {
   padding-top: 10px;s
 }
 /*pagenation*/
-
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pagination li {
+  margin-right: 0.5em;
+}
+.pagination li a {
+  text-decoration: none;
+  color: #000;
+}
+.page-item {
+  padding: .3em;
+  border: 1px solid #000;
+}
+.act {
+  background-color: #000;
+}
+.pagination .act a {
+  color: #fff;
+}
 /*タブ実装*/
 .tab_box .btn_area {
 	margin:0 10px;
