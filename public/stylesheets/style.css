@@ -10,7 +10,7 @@ body {
   padding-bottom: 56px;
 }
 .row {
-  min-height: 100%;
+  min-height: 100vh;
 }
 /*ヘッダー*/
 .navbar-nav li {
