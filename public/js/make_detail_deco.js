@@ -183,7 +183,7 @@ function makeDetailBread(targetWord, targetChar, targetSt, tag, category){      
         if (tag.includes(".")) {
             $("#detail_bread").append(`<li class="breadcrumb-item active" aria-current="page"><a href="./table" class="first-item" id="linkToPage">基礎語彙分類表</a></li>`)
             $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./v_search_list-char=${targetChar}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
-            $(".linkToBefore").attr("href", `./v_search_list-char=${targetChar}`)
+            $(".linkToBefore").attr("href", `./t_search_list=${tag}`)
         } else {
             $("#detail_bread").append(`<li class="breadcrumb-item active" aria-current="page"><a href="./catego" class="first-item" id="linkToPage">基礎語彙の学習</a></li>`)
             $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./catego#${category}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
