@@ -168,7 +168,7 @@ function playAudio(){
 
 //makeDetailBread
 function makeDetailBread(targetWord, targetChar, targetSt, tag, category){        //表示元に応じてパンくずリストのテキストとリンクを設定  
-    if (tag === "") {
+    if (tag === "") { //tagが空：検索からの詳細表示の場合
         $("#detail_bread").append(`<li class="breadcrumb-item active" aria-current="page"><a href="./v_search" class="first-item" id="linkToPage">検索</a></li>`)
         $("#detail_bread").append('<li class="breadcrumb-item active" aria-current="page">詳細</li>')
         if (targetChar.includes("~")) {
@@ -177,13 +177,13 @@ function makeDetailBread(targetWord, targetChar, targetSt, tag, category){      
         } else {
             $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./v_search_list-char=${targetChar}" class="linkToBefore" id="linkToBeforeText">文字検索：${targetChar}</a></li>`)
         }
-    } else {
+    } else { //tagが空ではない：基礎語彙と分類表からの詳細表示の場合
         if (tag.includes(".")) {
             $("#detail_bread").append(`<li class="breadcrumb-item active" aria-current="page"><a href="./table" class="first-item" id="linkToPage">基礎語彙分類表</a></li>`)
             $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./t_search_list=${tag}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
         } else {
             $("#detail_bread").append(`<li class="breadcrumb-item active" aria-current="page"><a href="./catego" class="first-item" id="linkToPage">基礎語彙の学習</a></li>`)
-            $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./catego#${category}}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
+            $("#detail_bread").append(`<li class="breadcrumb-item active"><a href="./catego#${category}" class="linkToBefore" id="linkToBeforeText">${category}</a></li>`)
         } 
     }
     $("#detail_bread").append(`<li class="breadcrumb-item active"><strong class="targetWord">${targetWord}</strong></li>`)
