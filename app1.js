@@ -246,7 +246,8 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
       targetWord: req.body.targetWord,
       targetWordId: req.body.targetWordId,
       tag: tag,
-      targetChar: ""
+      targetChar: "",
+      targetSt: ""
     });
   });
 });
