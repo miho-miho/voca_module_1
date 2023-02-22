@@ -144,13 +144,14 @@ nav.pagination-container ul li a {
   line-height: 1;
   border: 1px solid rgba(0,0,0,.125);
   text-decoration: none;
+  color: black;
+
 }
 li.first.disable a, li.prev.disable a, li.next.disable a, li.last.disable a {
-  color: black;
   background-color: #f8f9fa;
 }
 li.page.navi-active a {
-  background: #ebfcfe;
+  background: ;
 }
 .pagenation_block dl {
   border-bottom: solid 1px #ddd;
