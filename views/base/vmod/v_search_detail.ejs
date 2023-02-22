@@ -188,8 +188,8 @@
           case mod.includes("wordsound"):
             audio = $(this).find(".basicaudio")[0]
             break;
+          audio.play();
         }
-        audio.play();
       });
       /*
       $(document).on('click', '.gmodsound', function(){
