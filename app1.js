@@ -266,9 +266,10 @@ app.get('/:lang/v/v_search', (req, res) => {
   })
   client.connect();
   const query = {
-    text: "SELECT index_char FROM t_word WHERE index_char IS NOT NULL"
+    text: "SELECT T.index_char as index, t_word.index_char FROM t_index_char as T LEFT OUTER JOIN t_word ON T.index_char = t_word.index_char"
   };
   client.query(query, (err, result) => {
+    console.log(result.rows);
     if (err) throw err;
     var char_list = [];
     for (var i of result.rows) {
