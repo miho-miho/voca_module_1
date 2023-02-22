@@ -125,6 +125,7 @@
             showResult("<%= lg %>", targetIndex, "<%= targetWord %>");
           }
       });
+      let windowWidth = $(window).width()
       sideberSwitch(windowWidth);
       $(document).on('click', '.soundAria', function(){
         var mod = $(this).attr("class");
