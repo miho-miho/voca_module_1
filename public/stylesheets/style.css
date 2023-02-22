@@ -176,7 +176,7 @@ h1 {
   align-items: center;
 }
 .pagination li {
-  margin-right: 1em;
+  margin-right: 0.5rem;
 }
 
 .pagination li a {
@@ -185,7 +185,7 @@ h1 {
 }
 
 .page {
-  padding: .5em;
+  padding: 0.5em;
   border: 1px solid #000;
 }
 
