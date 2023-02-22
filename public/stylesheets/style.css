@@ -131,7 +131,6 @@ nav.pagination-container ul {
   padding: 0;
   justify-content: center;
   transition: 0.3s;
-  border-radius: 0px;
 }
 .pagination li {
   margin: 0;
