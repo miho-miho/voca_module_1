@@ -99,9 +99,26 @@
           };
         });
       });
+      //スマホ用
+      let windowWidth = $(window).width()
+      if (windowWidth < 767) {
+        $(function(){
+          $("#v_sidebar").before($(".main-body"));
+        });
+      }
       //ページネーション
       $(function() {
-        $('.result-list').paginathing({//親要素のclassを記述
+        if (windowWidth < 767) {
+          $('.result-list').paginathing({//親要素のclassを記述
+          perPage: 45,//1ページあたりの表示件数
+		      prevText: '&laquo;',
+		      nextText: '&raquo;',
+		      activeClass: 'navi-active',//現在のページ番号に任意のclassを付与できます
+          liClass: 'page',
+          disabledClass: 'disable',
+        })
+        } else {
+          $('.result-list').paginathing({//親要素のclassを記述
           perPage: 45,//1ページあたりの表示件数
 		      prevText: '&laquo;',
 		      nextText: '&raquo;',
@@ -111,14 +128,8 @@
           liClass: 'page',
           disabledClass: 'disable',
         })
+        }
       });
-      //スマホ用
-      let windowWidth = $(window).width()
-      if (windowWidth < 767) {
-        $(function(){
-          $("#v_sidebar").before($(".main-body"));
-        });
-      }
       //リロード
       window.onpageshow = function(event) {
         if (event.persisted) {
