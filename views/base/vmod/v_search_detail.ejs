@@ -70,16 +70,13 @@
     var targetArray = <%- JSON.stringify(targetObj) %>;
     var targetIndex = "";
     var targetItems;
+    //基礎語彙・分類表用（検索の時は””）
     var tag = "<%= tag %>";
     var category = "<%= category %>";
+    //検索用（その他の時は””）
     var targetChar = "<%= targetChar %>";
     var targetSt = "<%= targetSt %>";
-    $("#all_items").text(targetArray.length)
-    for (var i = 0; i < targetArray.length; i++) {
-      if (targetArray[i].midasi === "<%= targetWord %>") {
-        targetIndex = i
-      }
-    }
+    //表示元に応じてパンくずリストのテキストとリンクを設定
     if (tag === "") {
       $("#linkToPage").text("検索");
       $("#linkToPage").attr("href", `./v_search`);
@@ -106,7 +103,13 @@
         $("#linkToBeforeText").text(`${category}`);
       } 
     }
-      showResult("<%= lg %>", targetIndex, "<%= targetWord %>")
+    $("#all_items").text(targetArray.length)
+    for (var i = 0; i < targetArray.length; i++) {
+      if (targetArray[i].midasi === "<%= targetWord %>") {
+        targetIndex = i
+      }
+    }
+    showResult("<%= lg %>", targetIndex, "<%= targetWord %>")
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
         targetIndex = targetIndex-1
