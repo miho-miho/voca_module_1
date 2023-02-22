@@ -86,7 +86,7 @@
         targetIndex = i
       }
     }
-      showResult(targetIndex)
+      showResult("<%= lg %>", targetIndex, "<%= targetWord %>")
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
         targetIndex = targetIndex-1
