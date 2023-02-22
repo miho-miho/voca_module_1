@@ -18,7 +18,7 @@ body {
     font-size: calc(1.3rem + ((1vw - 0.48rem) * 0.5556));/* viewportが480px以上1200px以下可変 */
     min-height: 0vw;/* Safari用バグフィックス */
 }
-@media screen and (max-width: 960px) {
+@media all and (min-width: 768px) and (max-width: 1280px) { /*PCサイズ*/
   .header-title {
       font-size: 1.3rem;
   }
@@ -65,7 +65,7 @@ body {
     border-bottom: solid 1px #ddd;
   }
 }
-@media screen and (max-width: 520px) {
+@media all and (min-width: 480px) and (max-width: 768px) {
   .header-title {
     font-size: 0.85rem;
   }
