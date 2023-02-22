@@ -72,6 +72,7 @@
     var tag = "<%= tag %>";
     var category = "<%= category %>";
     var targetChar = "<%= targetChar %>";
+    var targetSt = "<%= targetSt %>";
     $("#all_items").text(targetArray.length)
     for (var i = 0; i < targetArray.length; i++) {
       if (targetArray[i].midasi === "<%= targetWord %>") {
@@ -79,16 +80,14 @@
       }
     }
     if (tag === "") {
+      $("#linkToPage").text("検索");
+      $("#linkToPage").attr("href", `./v_search`);
       if (targetChar.includes("~")) {
-        $("#linkToPage").text(`単語検索：${targetChar}`)
         var char = targetChar.replace(/~/g, "")
-        $("#linkToPage").attr("href", `./v_search_list-str=${char}&st=<%= targetSt %>`)
-        $(".linkToBefore").attr("href", `./v_search_list-str=${char}&st=<%= targetSt %>`)
+        $(".linkToBefore").attr("href", `./v_search_list-str=${char}&st=${targetSt}`)
         $("#linkToBeforeText").text(`単語検索：${targetChar}`);
       } else {
-        $("#linkToPage").text(`文字検索：${targetChar}`)
-        $("#linkToPage").attr("href", "./v_search_list-char=<%= targetChar %>")
-        $(".linkToBefore").attr("href", "./v_search_list-char=<%= targetChar %>")
+        $(".linkToBefore").attr("href", `./v_search_list-char=${targetChar}`)
         $("#linkToBeforeText").text(`文字検索：${targetChar}`);
       }
     } else {
