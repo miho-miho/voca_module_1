@@ -134,6 +134,7 @@ nav.pagination-container ul {
 }
 .pagination li {
   margin: 0;
+  border-top:1px solid #ffffff;
 }
 nav.pagination-container ul li a {
   width: 100%;
