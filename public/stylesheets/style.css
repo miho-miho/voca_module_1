@@ -24,7 +24,7 @@ body {
   }
   .sidebar {
     min-height: 100%;
-    height: 100%!important
+    height: 100vh!important
   }
   .inst > p {
     margin-bottom: 0.8rem;
