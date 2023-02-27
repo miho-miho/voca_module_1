@@ -408,10 +408,6 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
 exports.makeInstSound = function(instid, lang){
   var audioBlock = "";
   var instsoundfile = `../../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
-  if (lang==="ms") {
-    var result = fs.readFileSync(`../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`, 'utf8');
-    console.log(result);
-  }
   if (fs.existsSync(`../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`)) {
     audioBlock = `
     <div class="vmodsound soundAria">
