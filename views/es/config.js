@@ -1,19 +1,20 @@
-//pl：config.js
+//es：config.js
 lang_info = {
-  lang : "",
+  lang : "Español",
   lang_jp : "スペイン語",
   message1 : "",
   message2 : "",
-  vmod_ms1 : [""],
+  vmod_ms1 : ["有本紀明・牛島信明他編（2000）『和西辞典-改訂版-』、白水社.","宮城昇・山田善郎他編（1999）『現代スペイン語辞典-改訂版-』、白水社.","桑名一博他編（1990）『西和中辞典』、小学館.","永田寛定（監修）、渡辺通訓・田井佳太郎編（1970）『西和和西辞典』大学書林."],
+  vmod_ms2 : [""],
   vmod_ms1_url : { "" : "" },
 };
 
-sidebar_setting = {
-  sub_menu_snd : "",
-  sub_menu_talk : "",
-  sub_menu_gram : "",
-  sub_menu_vocab : "",
+db_info = {
+  user : "es",
+  host : "localhost",
+  database : "vmod_es",
+  password : "paella",
 }
 
 exports.lang_info = lang_info
-exports.sidebar_setting = sidebar_setting
+exports.db_info = db_info

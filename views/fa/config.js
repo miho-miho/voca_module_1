@@ -1,19 +1,20 @@
-//pl：config.js
+//fa：config.js
 lang_info = {
-  lang : "",
+  lang : "فارسی",
   lang_jp : "ペルシア語",
   message1 : "",
   message2 : "",
-  vmod_ms1 : [""],
+  vmod_ms1 : ["SAHITYA SAMSAD, SAMSAD Bengali-English Dictionary [Revised & Enlarged Third Edition],Kolkata,2000"],
+  vmod_ms2 : [""],
   vmod_ms1_url : { "" : "" },
 };
 
-sidebar_setting = {
-  sub_menu_snd : "",
-  sub_menu_talk : "",
-  sub_menu_gram : "",
-  sub_menu_vocab : "",
+db_info = {
+  user : "fa",
+  host : "localhost",
+  database : "vmod_fa",
+  password : "badcnjan",
 }
 
 exports.lang_info = lang_info
-exports.sidebar_setting = sidebar_setting
+exports.db_info = db_info

@@ -1,19 +1,20 @@
-//pl：config.js
+//km：config.js
 lang_info = {
-  lang : "",
+  lang : "ភាសាខ្មែរ",
   lang_jp : "カンボジア語",
   message1 : "",
   message2 : "",
-  vmod_ms1 : [""],
+  vmod_ms1 : ["石井米雄・千野栄一編（1999）『世界のことば100語辞典・アジア編』三省堂.","石井米雄・千野栄一編（2004）『世界のことば・出会いの表現辞典』三省堂.","上田広美編（2003）『東南アジア大陸部言語調査票 (カンボジア語, ラオス語, タイ語, ベトナム語)』東京外国語大学外国語学部.","坂本恭章編（1985）『カンボジア語基礎1500語』大学書林.","坂本恭章著（2001）『カンボジア語辞典』大学書林.","坂本恭章著（2001）『カンボジア語辞典』（上;中;下）東京外国語大学アジア・アフリカ言語文化研究所.","峰岸真琴, ペン・セタリン編著（1991）『日本語・カンボジア語辞典』めこん.","ជួន ណាត（1967）វចនានុក្រមខ្មែរ ព្រះពុទ្ធសាសនាបណ្ឌិត្យ"],
+  vmod_ms2 : [""],
   vmod_ms1_url : { "" : "" },
 };
 
-sidebar_setting = {
-  sub_menu_snd : "",
-  sub_menu_talk : "",
-  sub_menu_gram : "",
-  sub_menu_vocab : "",
+db_info = {
+  user : "km",
+  host : "localhost",
+  database : "vmod_km",
+  password : "K.hmer05",
 }
 
 exports.lang_info = lang_info
-exports.sidebar_setting = sidebar_setting
+exports.db_info = db_info

@@ -1,19 +1,20 @@
-//pl：config.js
+//ur：config.js
 lang_info = {
-  lang : "",
+  lang : "اردو",
   lang_jp : "ウルドゥー語",
   message1 : "",
   message2 : "",
   vmod_ms1 : [""],
+  vmod_ms2 : [""],
   vmod_ms1_url : { "" : "" },
 };
 
-sidebar_setting = {
-  sub_menu_snd : "",
-  sub_menu_talk : "",
-  sub_menu_gram : "",
-  sub_menu_vocab : "",
+db_info = {
+  user : "ur",
+  host : "localhost",
+  database : "vmod_ur",
+  password : "ur639-1",
 }
 
 exports.lang_info = lang_info
-exports.sidebar_setting = sidebar_setting
+exports.db_info = db_info
