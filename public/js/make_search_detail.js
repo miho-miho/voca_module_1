@@ -4,13 +4,12 @@ const fs = require('fs');
 //-----------------------------//
 //-----------------------------//
 var lang;
-var file_path = `..'/../mt/${lang}` 
-var url_path = `../../../mt/${lang}`
+var file_path = `..'/../mt/` 
+var url_path = `../../../mt/`
 //-----------------------------//
 exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetlanguage, lang){
   //var file_path = `../../mt/${lang}` 
   //var url_path = `../../../mt/${lang}`
-  lang = lang
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
     function getDmodSoundFile(htmlfile, xpath, lang){
@@ -51,8 +50,8 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
       if (matches === null) {
         return "";
       }
-      var dmodsound = `${url_path}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
-      if (fs.existsSync(`${file_path}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`) != true) {
+      var dmodsound = `${url_path}/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
+      if (fs.existsSync(`${file_path}/${lang}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`) != true) {
         return "";
       } else {
         var ret = `
@@ -75,11 +74,11 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
     var lang_matches = lang.match(/ja_([a-z][a-z])/)
     // 英語ページ 英語はHTMLファイルの名前がfunc_01.htmlとstory_01.htmlの２種ある
     if (lang === "en") {
-      htmlfile = `${file_path}/dmod/class/func_${dmod_funcId}.html`
+      htmlfile = `${file_path}/${lang}/dmod/class/func_${dmod_funcId}.html`
     } else if (lang_matches != null) {  // ex. ja_th
-      htmlfile = `${file_path}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
+      htmlfile = `${file_path}/${lang}/dmod/class/${lang_matches[1]}_${dmod_funcId}.html` // 多言語版会話は日本語でもth_01.htmlという命名則
     } else {
-      htmlfile = `${file_path}/dmod/class/ja_${dmod_funcId}.html`;
+      htmlfile = `${file_path}/${lang}/dmod/class/ja_${dmod_funcId}.html`;
     }
     var dmodsound = getDmodSoundFile(htmlfile, xpath, lang);
     var link = `
@@ -113,8 +112,8 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
           no1 = matches[1] - 1;
           no2 = matches[2] - 1;
         }
-        var gmodsound = `${url_path}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
-        if (fs.existsSync(`${file_path}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`) != true) {
+        var gmodsound = `${url_path}/${lang}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`;
+        if (fs.existsSync(`${file_path}/${lang}/gmod/sound/instances/${expORins}${fileno}_${no1}_${no2}.mp3`) != true) {
           return "";
         } else {
           var ret = `
@@ -139,7 +138,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
       <!--■■■Gモジュールへのリンク■■■-->
       <div class="gmodsound soundAria">
       ${gmodsound}
-      <a href="${url_path}/gmod/contents/${htmlfile}" target="blank" class="gmodlink btn btn-info">文</a>
+      <a href="${url_path}/${lang}/gmod/contents/${htmlfile}" target="blank" class="gmodlink btn btn-info">文</a>
       </div>
     `
     return link
@@ -154,7 +153,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
       } else {
         pmodNo = "pmod2";
       }
-      var pmodPath = `${file_path}/${pmodNo}/${web_url}`
+      var pmodPath = `${file_path}/${lang}/${pmodNo}/${web_url}`
       var result = fs.readFileSync(pmodPath, 'utf8');
       var lines = result.split('\n');
       for (var i = 0; i < lines.length; i++) {
@@ -164,7 +163,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
           return "";
         }
       }
-      var pmodsound = `${url_path}/${pmodNo}/sound/${matches[1]}.mp3`;
+      var pmodsound = `${url_path}/${lang}/${pmodNo}/sound/${matches[1]}.mp3`;
       var ret = `
         <audio class="pmodaudio">
           <source src='${pmodsound}' type='audio/mp3'>
@@ -181,9 +180,9 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
       var pmodsound = getPmodSoundFile(targetlanguage, web_url, lang);
       var pmodPath = "";
       if (lang === "id") {
-        pmodPath = `${file_path}/pmod1/${web_url}`
+        pmodPath = `${file_path}/${lang}/pmod1/${web_url}`
       } else {
-        pmodPath = `${file_path}/pmod2/${web_url}`
+        pmodPath = `${file_path}/${lang}/pmod2/${web_url}`
       }
       var link = `
         <!--■■■Pモジュールへのリンク■■■-->
@@ -209,13 +208,13 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
 
 exports.makeInstSound = function(instid, lang){
   var audioBlock = "";
-  var instsoundfile = `${url_path}/vmod/sound/inst/inst_${instid}.mp3`;
-  if (fs.existsSync(`${file_path}/vmod/sound/inst/inst_${instid}.mp3`)) {
+  var instsoundfile = `${url_path}/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
+  if (fs.existsSync(`${file_path}/${lang}/vmod/sound/inst/inst_${instid}.mp3`)) {
     audioBlock = `
     <div class="vmodsound soundAria">
       <audio id='instSound_${instid}' class="vmodaudio">
         <source src='${instsoundfile}' type='audio/mp3'>
-        <source src='${url_path}/vmod/sound/inst/inst_${instid}.ogg' type='audio/ogg'>
+        <source src='${url_path}/${lang}/vmod/sound/inst/inst_${instid}.ogg' type='audio/ogg'>
         <p>※ご利用のブラウザでは再生することができません。</p>
       </audio>
       <button type="button" class="btn btn-outline-primary soundLink instSound">
@@ -241,13 +240,13 @@ exports.makeInstSound = function(instid, lang){
 exports.makeWordSound = function(wordid, lang){
   var file_path = `../../mt/${lang}` 
   var url_path = `../../../mt/${lang}`
-  var wordsoundfile = `${url_path}/vmod/sound/word/word_${wordid}.mp3`;
-  if (fs.existsSync(`${file_path}/vmod/sound/word/word_${wordid}.mp3`)) {
+  var wordsoundfile = `${url_path}/${lang}/vmod/sound/word/word_${wordid}.mp3`;
+  if (fs.existsSync(`${file_path}/${lang}/vmod/sound/word/word_${wordid}.mp3`)) {
     var audioBlock = `
       <div class="wordsound soundAria">
         <audio class="basicaudio">
           <source src='${wordsoundfile}' type='audio/mp3'>
-          <source src='${url_path}/vmod/sound/word/word_${wordid}.ogg' type='audio/ogg'>
+          <source src='${url_path}/${lang}/vmod/sound/word/word_${wordid}.ogg' type='audio/ogg'>
           <p>※ご利用のブラウザでは再生することができません。</p>
         </audio>
         <button type="button" class="btn btn-outline-primary soundLink instSound">
