@@ -25,7 +25,7 @@ function showResult(lg, index, targetWord){
       $(".result-card-area").append('<div class="card"><div class="card-header col"><h5 class="card-title text-center">＜例文＞</h5></div><div class="card-body examples row"></div></div>')
       item.reibun.forEach((element) => {
         for (var s of element) {
-          if (lg === "ar") { //アラビア語の場合（例文の右寄せ、見出し語の表示調整
+          if (lg === "ar" || lg === "ur") { //アラビア語,ウルドゥー語の場合（例文の右寄せ、見出し語の表示調整
             $(".examples:last").append('<div class="row example">')
             $(".example:last").append('<div class="col col-xs-12 instlink text-end">'+s.link+'</div>')
             var sentence = replaceTokenColor(s.token, s.targetlanguage, s.token_index);
