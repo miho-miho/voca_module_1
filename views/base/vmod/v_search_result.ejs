@@ -100,6 +100,12 @@
           $("#v_sidebar").before($(".main-body"));
         });
       }
+      //リロード
+      window.onpageshow = function(event) {
+        if (event.persisted) {
+          window.location.reload();
+        }
+      };
     </script>
     <style>
       .id, .c_cand{
