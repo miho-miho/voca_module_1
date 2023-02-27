@@ -409,7 +409,7 @@ exports.makeInstSound = function(instid, lang){
   var audioBlock = "";
   var instsoundfile = `../../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`;
   if (lang==="ms") {
-    var result = fs.readFileSync(pmodPath, 'utf8');
+    var result = fs.readFileSync(`../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`, 'utf8');
     console.log(result);
   }
   if (fs.existsSync(`../../mt/${lang}/vmod/sound/inst/inst_${instid}.mp3`)) {
