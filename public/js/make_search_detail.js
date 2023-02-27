@@ -432,8 +432,6 @@ exports.makeInstSound = function(instid, lang){
       </a>
     </div>
     `
-  }else {
-    audioBlock="OK"
   }
   return audioBlock;
 }
