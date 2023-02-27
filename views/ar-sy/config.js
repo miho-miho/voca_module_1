@@ -1,6 +1,6 @@
 //ar-sy：config.js
 lang_info = {
-  lang : "ar",
+  lang : "العربية",
   lang_jp : "シリアのアラビア語",
   message1 : "",
   message2 : "",

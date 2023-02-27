@@ -1,6 +1,6 @@
 //pl：config.js
 lang_info = {
-  lang : "ar",
+  lang : "العربية",
   lang_jp : "フスハー（正則語）",
   message1 : "",
   message2 : "",
