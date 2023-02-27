@@ -226,7 +226,6 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         e.link = link
         li.push(e)
       }
-      console.log(li);
       var midashiaudio = mkDetail.makeWordSound(item[0].id, lang)
       var inst = []
       var sameMidasi = insts.find((element) => element.midasi === midasi)
