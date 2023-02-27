@@ -6,8 +6,8 @@ const fs = require('fs');
 
 //-----------------------------//
 exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetlanguage, lang){
-  var file_path = `..'/../mt/${lang}` 
-  var url_path = `../${file_path}`
+  var file_path = `../../mt/${lang}` 
+  var url_path = `../../../mt/${lang}`
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
     function getDmodSoundFile(htmlfile, xpath, lang){
@@ -206,7 +206,7 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
 
 exports.makeInstSound = function(instid, lang){
   var file_path = `..'/../mt/${lang}` 
-  var url_path = `../${file_path}`
+  var url_path = `../../../mt/${lang}`
   var audioBlock = "";
   var instsoundfile = `${url_path}/vmod/sound/inst/inst_${instid}.mp3`;
   if (fs.existsSync(`${file_path}/vmod/sound/inst/inst_${instid}.mp3`)) {
