@@ -8,8 +8,6 @@ var file_path = `../../mt/`
 var url_path = `../../../mt/`
 //-----------------------------//
 exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetlanguage, lang){
-  //var file_path = `../../mt/${lang}` 
-  //var url_path = `../../../mt/${lang}`
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
     function getDmodSoundFile(htmlfile, xpath, lang){
