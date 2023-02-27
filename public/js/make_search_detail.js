@@ -10,6 +10,7 @@ var url_path = `../../../mt/${lang}`
 exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetlanguage, lang){
   //var file_path = `../../mt/${lang}` 
   //var url_path = `../../../mt/${lang}`
+  let lang = lang
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
     function getDmodSoundFile(htmlfile, xpath, lang){
@@ -51,7 +52,6 @@ exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetl
         return "";
       }
       var dmodsound = `${url_path}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`
-      console.log(dmodsound);
       if (fs.existsSync(`${file_path}/dmod/class/movie/${lang}_ja${matches[1]}.mp4`) != true) {
         return "";
       } else {
