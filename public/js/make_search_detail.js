@@ -3,7 +3,7 @@ const fetch = require('node-fetch')
 const fs = require('fs');
 //-----------------------------//
 //-----------------------------//
-var lang = ""
+var lang;
 var file_path = `..'/../mt/${lang}` 
 var url_path = `../../../mt/${lang}`
 //-----------------------------//
