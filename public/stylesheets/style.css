@@ -3,7 +3,7 @@ html {
   position: relative;/*②相対位置*/
 }
 body {
-  font-family: Verdana, Roboto, "游ゴシック", "Droid Sans", "メイリオ", Meiryo, sans-serif, "ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN", Times;
+  font-family: Verdana, Roboto, YuGothic, "游ゴシック", "Droid Sans", "メイリオ", Meiryo, sans-serif, "ヒラギノ角ゴ ProN W3","Hiragino Kaku Gothic ProN", Times;
 }
 .main {
   min-height: 100vh;
