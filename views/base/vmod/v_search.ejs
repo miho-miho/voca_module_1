@@ -139,12 +139,12 @@
     }
     for (const i in indexArray) {
       var char = indexArray[i].index_char
-      console.log(typeof char);
+      console.log();
       var bigcahr = char.toUpperCase();
       var id = `cahr_${bigcahr}`
       if (indexArray[i].charcheck != null) {
         $("#cahrtable").append(`<a class="btn btn-outline-secondary col-2" href="./v_search_list-char=${char}" id="${id}">${bigcahr}</a>`)
-      } else if(char === '' || char === null) {
+      } else if(!char) {
         $("#cahrtable").append('<a class="btn btn-outline-secondary col-2 disabled" href="#" id="'+id+'">'+bigcahr+'</a>')
       } else {
         $("#cahrtable").append('<a class="btn btn-outline-secondary col-2 disabled" href="#" id="'+id+'">'+bigcahr+'</a>')
