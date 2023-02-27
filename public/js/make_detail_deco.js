@@ -16,7 +16,7 @@ function showResult(lg, index, targetWord){
       var imi_list = []
       if (explain.includes("＊")) {
         imi_list.push(explain.replace("＊", "<br>＊"))
-      } else if(explain.includes("\n")) {
+      } else if(explain.includes("\n") && explain.includes("【")===false) {
         imi_list.push(explain.replace(/\n/, "<br>"))
       } else {
         imi_list.push(explain)
