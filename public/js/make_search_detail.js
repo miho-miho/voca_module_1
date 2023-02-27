@@ -1,11 +1,9 @@
 //-----------------------------//
 const fetch = require('node-fetch')
 const fs = require('fs');
-//-----------------------------//
-//-----------------------------//
-var lang;
-var file_path = `../../mt/` 
-var url_path = `../../../mt/`
+//-------------全体に関わる変数----------------//
+var file_path = `../../mt/`  //ファイルの存在を探す場合の相対パス 現在位置：html/dev/VmodRenew/からhtml/mt/以下にアクセス
+var url_path = `../../../mt/` //url埋込用 現在位置：~.jp/voca/言語/vから~.jp/mt/以下にアクセス
 //-----------------------------//
 exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetlanguage, lang){
   //getDmodlink
