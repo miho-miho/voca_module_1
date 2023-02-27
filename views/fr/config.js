@@ -1,4 +1,4 @@
-//pl：config.js
+//fr：config.js
 lang_info = {
   lang : "Français",
   lang_jp : "フランス語",
