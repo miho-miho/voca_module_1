@@ -3,10 +3,11 @@ const fetch = require('node-fetch')
 const fs = require('fs');
 //-----------------------------//
 //-----------------------------//
-var file_path = `..'/../mt/${lang}` 
-var url_path = `../${file_path}`
+
 //-----------------------------//
 exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetlanguage, lang){
+  var file_path = `..'/../mt/${lang}` 
+  var url_path = `../${file_path}`
   //getDmodlink
   function getDmodlink(xml_file_name, xpath, lang){
     function getDmodSoundFile(htmlfile, xpath, lang){
