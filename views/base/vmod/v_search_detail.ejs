@@ -67,6 +67,7 @@
     var targetIndex = "";
     var targetItems;
     var targetWord = "<%= targetWord %>";
+    var lang = <%= lang_jp %>;
     //基礎語彙・分類表用（検索の時は””）
     var tag = "<%= tag %>";
     var category = "<%= category %>";
@@ -81,14 +82,14 @@
         targetIndex = i
       }
     }
-    showResult("<%= lg %>", targetIndex, "<%= targetWord %>")
+    showResult(lang, targetIndex, "<%= targetWord %>")
       $(".btn_previous").click(function(){
         $(".btn_next").prop("disabled", false);
         targetIndex = targetIndex-1
         $(".targetWordAudio").empty();
         if (targetIndex >= 0) {
           $(".result-card-area").empty()
-          showResult("<%= lg %>", targetIndex, "<%= targetWord %>");
+          showResult(lang, targetIndex, targetWord);
         }
       });
       $(".btn_next").click(function(){
@@ -97,7 +98,7 @@
           $(".targetWordAudio").empty();
           if (targetIndex < targetArray.length) {
             $(".result-card-area").empty()
-            showResult("<%= lg %>", targetIndex, "<%= targetWord %>");
+            showResult(lang, targetIndex, targetWord);
           }
       });
       let windowWidth = $(window).width()
