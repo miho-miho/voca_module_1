@@ -4,7 +4,7 @@ const fs = require('fs');
 //-----------------------------//
 //-----------------------------//
 var lang;
-var file_path = `..'/../mt/` 
+var file_path = `../../mt/` 
 var url_path = `../../../mt/`
 //-----------------------------//
 exports.makeModLink = function(module_id, xml_file_name, xpath, web_url, targetlanguage, lang){
