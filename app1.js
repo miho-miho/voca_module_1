@@ -131,6 +131,7 @@ app.get('/:lang/v/table', (req, res) => {
     Object.keys(make_vObj).forEach((k) => {
       make_vObj[k] = [...new Set(make_vObj[k])]
     });
+    console.log(make_vObj);
     res.render(pathToLnag + '/vmod/v_table.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
