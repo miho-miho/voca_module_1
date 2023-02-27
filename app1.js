@@ -52,6 +52,7 @@ app.get('/:lang/v/', (req, res) => {
     indexArray = result.rows;
     res.render(pathToLnag + '/vmod/v_top.ejs', {
       lg : lang,
+      lang_self : info.lang_info.lang,
       lang_jp : info.lang_info.lang_jp,
       vmod_ms1 : info.lang_info.vmod_ms1,
       vmod_ms1_url : info.lang_info.vmod_ms1_url,
