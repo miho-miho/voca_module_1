@@ -276,7 +276,6 @@ app.get('/:lang/v/v_search', (req, res) => {
     if (err) throw err;
     var char_list = [];
     var resultArray = result.rows;
-    console.log(typeof resultArray.index_char);
     res.render(pathToLnag + '/vmod/v_search.ejs', {
       lg : lang,
       lang_jp : info.lang_info.lang_jp,
