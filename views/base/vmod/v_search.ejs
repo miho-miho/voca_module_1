@@ -150,80 +150,6 @@
         $("#cahrtable").append('<a class="btn btn-outline-secondary col-2 disabled" href="#" id="'+id+'">'+bigcahr+'</a>')
       }
     }
-    /*
-    for(const cahr of char_list) {
-      var bigcahr = cahr.toUpperCase();
-      var id = `#cahr_${bigcahr}`;
-      $(id).find("a").removeClass('disabled');
-      $(id).find("a").attr("href", `./v_search_list-char=${cahr}`)
-    }
-    */
-    /*
-    $(".search-type").change(function(){
-      if ($(this).attr("id") === "search-type1") { //前方一致
-        $(function() {
-          $("#keyword").autocomplete({
-            source: function(request, response) {
-              var list = [];
-              list = words_list.filter(function (word) {
-                return word.indexOf(request.term) === 0 || word.toLowerCase().indexOf(request.term) === 0;
-              });
-              response(list);
-              $("#inputCand").text(list.length)
-            },
-          });
-        });
-      }else if ($(this).attr("id") === "search-type3") { //あいまい検索
-        $(function() {
-          $("#keyword").autocomplete({
-            source: function(request, response) {
-              var list = [];
-              list = words_list.filter(function (word) {
-                return word.indexOf(request.term) != -1 || word.toLowerCase().indexOf(request.term) != -1;
-              });
-              response(list);
-              $("#inputCand").text(list.length)
-            },
-          });
-        });
-      } else if ($(this).attr("id") === "search-type2") { //後方一致
-        $(function() {
-          $("#keyword").autocomplete({
-            source: function(request, response) {
-              var randamStr = getRandomStr();
-              var list = [];
-              list = words_list.filter(function (word) {
-                var str = word+randamStr
-                return str.indexOf(+request.term+randamStr) !== -1 || str.toLowerCase().indexOf(request.term+randamStr) !== -1;
-              });
-              response(list);
-              $("#inputCand").text(list.length)
-            },
-          });
-        });
-      }
-    });
-    //オートコンプリート（デフォルト）
-    $(function() {
-      $("#keyword").autocomplete({
-        source: function(request, response) {
-          var list = [];
-          list = words_list.filter(function (word) {
-            return word.indexOf(request.term) === 0 || word.toLowerCase().indexOf(request.term) === 0;
-          });
-          response(list);
-          $("#inputCand").text(list.length)
-        },
-      });
-    });
-    */
-   /*
-    $("#keyword").keyup(function(){
-      if($("#keyword").val().length === 0){
-        $("#inputCand").text("0")
-      }
-    });
-    */
     var searchType = "1";
     $(".search-type").change(function(){
       searchType =  $(this).attr("id").replace("search-type", "");
@@ -239,6 +165,9 @@
         location.href = targetURL;
       }
     });
+    $("#reset-btn".on("click", function(){
+      $("#keyword").empty();
+    }));
     let windowWidth = $(window).width()
       if (windowWidth < 767) {
         $(function(){
