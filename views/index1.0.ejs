@@ -82,7 +82,7 @@
                   <li><a href="./km/v/">カンボジア語</a></li>
                   <li><a href="./my/v/">ビルマ語</a></li>
                   <li><a href="./ur/v/">ウルドゥー語</a></li>
-                  <li><a href="./hi/v/" disabled>ヒンディー語</a></li>
+                  <li><a href="./hi/v/" class="disabled-link">ヒンディー語</a></li>
                   <li><a href="./bn/v/">ベンガル語</a></li>
                   <li>アラビア語</li>
                       <ul>
@@ -107,5 +107,10 @@
       $(this).find("div").slideToggle();
     });
   </script>
+  <style>
+    .disabled-link{
+      pointer-events:none;
+    }
+  </style>
 </body>
 </html>
