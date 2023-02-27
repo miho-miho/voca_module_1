@@ -223,6 +223,9 @@ app.post('/:lang/v/search_detail=:tag', (req, res) => {
         } else {
           link = mkDetail.makeInstSound(e.instid, lang)
         }
+        if (lang==="ms") {
+          console.log(link);
+        }
         e.link = link
         li.push(e)
       }
