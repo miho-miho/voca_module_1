@@ -165,9 +165,14 @@
         location.href = targetURL;
       }
     });
-    $("#reset-btn".on("click", function(){
-      $("#keyword").val("");
-    }));
+    $(function (){
+      $("#reset-btn").on("click", function(){
+        clearFrom();
+      });
+      function clearFrom() {
+        $("#keyword").val("");
+      }
+    });
     let windowWidth = $(window).width()
       if (windowWidth < 767) {
         $(function(){
