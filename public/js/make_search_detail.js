@@ -234,8 +234,6 @@ exports.makeInstSound = function(instid, lang){
 }
 
 exports.makeWordSound = function(wordid, lang){
-  var file_path = `../../mt/${lang}` 
-  var url_path = `../../../mt/${lang}`
   var wordsoundfile = `${url_path}/${lang}/vmod/sound/word/word_${wordid}.mp3`;
   if (fs.existsSync(`${file_path}/${lang}/vmod/sound/word/word_${wordid}.mp3`)) {
     var audioBlock = `
