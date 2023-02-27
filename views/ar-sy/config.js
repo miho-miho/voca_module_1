@@ -10,7 +10,7 @@ lang_info = {
 };
 
 db_info = {
-  user : "as",
+  user : "ar",
   host : "localhost",
   database : "vmod_as",
   password : "supaisu",
