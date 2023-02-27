@@ -433,7 +433,7 @@ exports.makeInstSound = function(instid, lang){
     </div>
     `
   }else {
-    console.log(instsoundfile);
+    audioBlock="OK"
   }
   return audioBlock;
 }
